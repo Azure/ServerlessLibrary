@@ -1,2 +1,4 @@
-Jef King
-@JefKingTweets
+Author: Jef King
+Site: http://jefking.me
+Twitter: JefKingTweets
+Vancouver, British Columbia, Canada
