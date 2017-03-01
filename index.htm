@@ -61,11 +61,11 @@
         <div class="card" ng-repeat="item in items">
           <p class="card-text">{{item.Text}}</p>
           <p>
-            <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-function-app-create-dynamic%2Fazuredeploy.json"
+            <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUrl}}"
               target="_blank">Deploy</a>
-              <a class="btn btn-primary" href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-app-create-dynamic%2Fazuredeploy.json"
+              <a class="btn btn-primary" href="http://armviz.io/#/?load={{item.TemplateUrl}}"
                 target="_blank">Visualize</a>
-                <a href="https://github.com/jefking/FunctionLibrary/tree/master/library/src/image-resize-csharp" target="_blank" class="btn btn-secondary">View</a>
+                <a href="{{item.Repository}}" target="_blank" class="btn btn-secondary">View</a>
           </p>
         </div>
       </div>
