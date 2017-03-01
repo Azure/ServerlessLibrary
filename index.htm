@@ -60,8 +60,8 @@
         <div class="card" ng-repeat="item in items">
           <p class="card-text">{{item.Text}}</p>
           <p>
-            <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/" target="_blank">Deploy</a>
-            <a class="btn btn-primary" href="http://armviz.io/#/?load=" target="_blank">Visualize</a>
+            <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUrl}}" target="_blank">Deploy</a>
+            <a class="btn btn-primary" href="http://armviz.io/#/?load={{item.TemplateUrl}}" target="_blank">Visualize</a>
             <a href="{{item.Repository}}" target="_blank" class="btn btn-secondary">View</a>
           </p>
         </div>
