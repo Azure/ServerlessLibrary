@@ -7,7 +7,7 @@
     {
 
         "Text": "Image -> Resize -> Blob",
-        "TemplateUrl": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/library/deployment.json",
-        "Repository": "https://github.com/jefking/FunctionLibrary/tree/master/library/src/image-resize-csharp"
+        "TemplateUrl": "https://raw.githubusercontent.com/jefking/fl-image-resize/master/deploy/azuredeploy.json",
+        "Repository": "https://github.com/jefking/fl-image-resize/tree/master/src/ImageResize"
     }
 ]

@@ -1,9 +1,0 @@
-{
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "ImageProcessor": "2.4.5"
-      }
-    }
-   }
-}
