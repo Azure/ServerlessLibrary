@@ -1,6 +1,6 @@
 using System;
 
-public static void Run(Stream original, Stream resized, TraceWriter log)
+public static void Run()
 {
     //This is where you code like a B0$$
 }
