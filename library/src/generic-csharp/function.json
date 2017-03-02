@@ -1,0 +1,16 @@
+{
+  "bindings": [
+    {
+      "name": "",
+      "type": "",
+      "connection": "",
+      "direction": "in"
+    },
+    {
+      "type": "",
+      "connection": "",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
