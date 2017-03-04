@@ -1,4 +1,9 @@
-﻿[
+﻿/** To add a new item to the library create a pull request for this file
+ * Description
+ * Deployment File
+ * Git Repository
+*/
+[
     {
         "Text": "HTTP -> SQL Database",
         "TemplateUrl": "https://raw.githubusercontent.com/AzureBytes/functionsstorsql/master/deploy/azuredeploy.json",
