@@ -31,7 +31,7 @@
     <div class="container" ng-controller="library">
       <div class="row">
         <div class="card" ng-repeat="item in items">
-          <p class="card-text">{{item.Text}}</p>
+          <h2>{{item.Text}}</h2>
           <p>
             <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
             <a class="btn btn-primary" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
