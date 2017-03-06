@@ -30,7 +30,7 @@
   <div class="album text-muted">
     <div class="container" ng-controller="library">
       <div class="row">
-        <div class="card" ng-repeat="item in items">
+        <div class="col-md-4" ng-repeat="item in items">
           <h3>{{item.Text}}</h3>
           <p>
             <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
