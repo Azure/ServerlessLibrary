@@ -33,7 +33,7 @@
         <div class="col-md-4" ng-repeat="item in items">
           <h3>{{item.Text}}</h3>
           <p>
-            <a class="btn btn-primary" href="https://deploy.azure.com/?repository={{item.TemplateUri()}}#/form/setup" target="_blank">Deploy</a>
+            <a class="btn btn-primary" href="https://deploy.azure.com/?repository={{item.TemplateUrl}}#/form/setup" target="_blank">Deploy</a>
             <a class="btn btn-primary" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
             <a href="{{item.Repository}}" target="_blank" class="btn btn-primary">Source</a>
           </p>
