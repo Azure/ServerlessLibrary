@@ -13,7 +13,7 @@
     {
 
         "Text": "Slack -> User Change Alerts",
-        "TemplateUrl": "https://raw.githubusercontent.com/anthonychu/slack-user-change-alerts/master/azuredeploy.json",
+        "TemplateUrl": "https://raw.githubusercontent.com/anthonychu/slack-user-change-alerts/master/azuredeploy.portal.json",
         "Repository": "https://github.com/anthonychu/slack-user-change-alerts/tree/master/src/SlackUserChangeAlerts.Function"
     }
 ]
