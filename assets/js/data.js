@@ -6,7 +6,7 @@
     },
     {
 
-        "Text": "Image -> Resize -> Blob",
+        "Text": "Image Resize -> Blob",
         "TemplateUrl": "https://raw.githubusercontent.com/jefking/fl-image-resize/master/deploy/azuredeploy.json",
         "Repository": "https://github.com/jefking/fl-image-resize/tree/master/src/ImageResize"
     },
