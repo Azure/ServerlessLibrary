@@ -15,5 +15,11 @@
         "Text": "Slack -> User Change Alerts",
         "TemplateUrl": "https://raw.githubusercontent.com/anthonychu/slack-user-change-alerts/master/azuredeploy.json",
         "Repository": "https://github.com/anthonychu/slack-user-change-alerts/tree/master/src/SlackUserChangeAlerts.Function"
+    },
+    {
+
+        "Text": "Convert CSV -> JSON",
+        "TemplateUrl": "https://raw.githubusercontent.com/jefking/fn-csv2json/master/azuredeploy.json",
+        "Repository": "https://github.com/jefking/fn-csv2json/tree/master/src/CsvToJson"
     }
 ]
