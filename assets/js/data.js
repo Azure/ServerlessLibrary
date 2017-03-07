@@ -13,10 +13,5 @@
         "Text": "Slack -> User Change Alerts",
         "TemplateUrl": "https://raw.githubusercontent.com/anthonychu/slack-user-change-alerts/master/azuredeploy.json",
         "Repository": "https://github.com/anthonychu/slack-user-change-alerts/tree/master/src/SlackUserChangeAlerts.Function"
-    },
-    {
-        "Text": "Generic Test Deploy",
-        "TemplateUrl": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/function-deploy.json",
-        "Repository": "https://github.com/anthonychu/slack-user-change-alerts/tree/master/src/SlackUserChangeAlerts.Function"
     }
 ]
