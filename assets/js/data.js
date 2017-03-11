@@ -18,5 +18,10 @@
         "Text": "Static File Server",
         "TemplateUrl": "https://raw.githubusercontent.com/anthonychu/azure-functions-static-file-server/master/azuredeploy.portal.json",
         "Repository": "https://github.com/anthonychu/azure-functions-static-file-server/tree/master/src"
+    },
+    {
+        "Text": "Static Blob Server [Alpha]",
+        "TemplateUrl": "https://raw.githubusercontent.com/jefking/fl-default-static/master/deploy/azuredeploy.json",
+        "Repository": "https://github.com/jefking/fl-default-static/tree/master/src"
     }
 ]
