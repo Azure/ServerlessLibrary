@@ -1,6 +1,6 @@
 Author: Jef King
 Site: http://jefking.me
-Twitter: @JefKingTweets
+Twitter: @JefKing_
 Vancouver, British Columbia, Canada
 
 Author: Sidney Andrews
@@ -8,3 +8,6 @@ Twitter: @sidney_andrews
 
 Author: Anthony Chu
 Twitter: @nthonyChu
+
+Author: Kevin Hilscher
+Twitter: @khilscher
