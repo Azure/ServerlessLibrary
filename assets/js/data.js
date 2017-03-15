@@ -23,5 +23,10 @@
         "Text": "Static Blob Server [Alpha]",
         "TemplateUrl": "https://raw.githubusercontent.com/jefking/fl-default-static/master/deploy/azuredeploy.json",
         "Repository": "https://github.com/jefking/fl-default-static/tree/master/src"
+    },
+    {
+        "Text": "Closed Loop for IoT Hub",
+        "TemplateUrl": "https://raw.githubusercontent.com/khilscher/AzureFunctions/master/ClosedLoopFunction/deploy/azuredeploy.json",
+        "Repository": "https://github.com/khilscher/AzureFunctions"
     }
 ]
