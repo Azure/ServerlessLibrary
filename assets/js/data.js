@@ -1,11 +1,11 @@
 ﻿[
     {
-        "Text": "HTTP Entity to SQL",
+        "Text": "HTTP: Entity to SQL",
         "TemplateUrl": "https://raw.githubusercontent.com/AzureBytes/functionsstorsql/master/deploy/azuredeploy.json",
         "Repository": "https://github.com/AzureBytes/functionsstorsql/tree/master/src/WebToDatabase"
     },
     {
-        "Text": "Image Resize",
+        "Text": "Blob: Image Resize",
         "TemplateUrl": "https://raw.githubusercontent.com/jefking/fl-image-resize/master/deploy/azuredeploy.json",
         "Repository": "https://github.com/jefking/fl-image-resize/tree/master/src/ImageResize"
     },
@@ -20,7 +20,7 @@
         "Repository": "https://github.com/anthonychu/azure-functions-static-file-server/tree/master/src"
     },
     {
-        "Text": "Static Blob Server [Alpha]",
+        "Text": "Blob: Static Server",
         "TemplateUrl": "https://raw.githubusercontent.com/jefking/fl-default-static/master/deploy/azuredeploy.json",
         "Repository": "https://github.com/jefking/fl-default-static/tree/master/src"
     },
