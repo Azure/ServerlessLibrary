@@ -20,7 +20,7 @@
         "Repository": "https://github.com/khilscher/AzureFunctions"
     },
     {
-        "Text": "Static File Server",
+        "Text": "File: Static Server",
         "TemplateUrl": "https://raw.githubusercontent.com/anthonychu/azure-functions-static-file-server/master/azuredeploy.portal.json",
         "Repository": "https://github.com/anthonychu/azure-functions-static-file-server/tree/master/src"
     },
