@@ -1,15 +1,16 @@
 Author: Jef King
 Site: http://jefking.me
 Twitter: @JefKing_
-Vancouver, British Columbia, Canada
+Vancouver, BC, Canada
 
 Author: Sidney Andrews
 Twitter: @sidney_andrews
+Richmond, VA, United States of America
 
 Author: Anthony Chu
 Twitter: @nthonyChu
-Vancouver, British Columbia, Canada
+Vancouver, BC, Canada
 
 Author: Kevin Hilscher
 Twitter: @khilscher
-Calgary, Alberta, Canada
+Calgary, AB, Canada
