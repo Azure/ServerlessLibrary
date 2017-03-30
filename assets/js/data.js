@@ -23,5 +23,10 @@
         "Text": "Closed Loop for IoT Hub",
         "TemplateUrl": "https://raw.githubusercontent.com/khilscher/AzureFunctions/master/ClosedLoopFunction/deploy/azuredeploy.json",
         "Repository": "https://github.com/khilscher/AzureFunctions"
+    },
+    {
+        "Text": "Blob: Static Server",
+        "TemplateUrl": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.json",
+        "Repository": "https://github.com/jefking/fl-default-static/tree/master/src"
     }
 ]
