@@ -33,5 +33,10 @@
         "Text": "Blob: Static Server with CDN",
         "TemplateUrl": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.cdn.json",
         "Repository": "https://github.com/jefking/fl-default-static/tree/master/src"
+    },
+    {
+        "Text": "Raffle",
+        "TemplateUrl": "https://raw.githubusercontent.com/anthonychu/azure-functions-raffle/master/azuredeploy.portal.json",
+        "Repository": "https://github.com/anthonychu/azure-functions-raffle/tree/master"
     }
 ]
