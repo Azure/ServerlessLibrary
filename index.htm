@@ -27,26 +27,28 @@
     </section>
     <a name="top"></a>
     <div ng-controller="library">
-      <div class="panel panel-info" ng-repeat="item in items">
-        <div class="panel-heading">
-          <h3 class="panel-title">{{item.title}}</h3>
+      <div class="col-sm-4" ng-repeat="grouping in items | groupBy:3">
+        <div class="panel panel-info" ng-repeat="item in grouping">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{item.title}}</h3>
+          </div>
+          <div class="panel-body">
+            <p>{{item.description}}</p>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
+                <a class="btn btn-info" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
+                <a class="btn btn-default" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
+                <a href="{{item.repository}}" target="_blank" class="btn btn-default">Source</a>
+              </div>
+            </li>
+          </ul>
         </div>
-        <div class="panel-body">
-          <p>{{item.description}}</p>
-        </div>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
-              <a class="btn btn-info" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
-              <a class="btn btn-default" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
-              <a href="{{item.repository}}" target="_blank" class="btn btn-default">Source</a>
-            </div>
-          </li>
-        </ul>
       </div>
     </div>
     <footer class="text-muted">
-            <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
+      <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
         <a href="https://github.com/jefking/FunctionLibrary" target="blank" class="btn btn-link text-white">Contribute</a>
         <a href="http://functionlibrary.azurewebsites.net/assets/js/data.js" target="blank" class="btn btn-link text-white">+Function (Pull)</a>
         <a href="https://twitter.com/jefking_" target="blank" class="btn btn-link text-white">Jef King</a>
