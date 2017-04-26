@@ -27,8 +27,8 @@
     </section>
     <a name="top"></a>
     <div ng-controller="library">
-      <div class="col-sm-4" ng-repeat="grouping in items | groupBy:3">
-        <div class="panel panel-info" ng-repeat="item in grouping">
+      <div class="col-sm-4" ng-repeat="itemsX in items | groupBy:3">
+        <div class="panel panel-info" ng-repeat="item in itemsX">
           <div class="panel-heading">
             <h3 class="panel-title">{{item.title}}</h3>
           </div>
