@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="An open source library of Azure Functions that are ready to be deployed in seconds!">
-  <meta name="author" content="Jef King, Anthony Chu, Kevin Hilscher">
+  <meta name="author" content="Jef King, Anthony Chu, Kevin Hilscher, Sidney Andrews">
   <link rel="icon" href="favicon.ico">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -18,44 +18,46 @@
 </head>
 
 <body>
-  <section class="jumbotron text-center">
-    <div class="container">
-      <img src="/assets/images/Azure-Functions-Logo.png" width="150px" />
-      <p class="lead text-muted">An open source set of common use cases for Azure Functions that are ready to deploy!</p>
-    </div>
-  </section>
-  <a name="top" />
-  <div class="row">
-    <div class="container" ng-controller="library">
-      <div class="panel panel-info" ng-repeat="item in items">
-        <div class="panel-heading">
-          <h3 class="panel-title">{{item.title}}</h3>
-        </div>
-        <div class="panel-body">
-          <p>
-            {{item.description}}
-          </p>
-          <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
-          <a class="btn btn-success" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
-          <a href="{{item.repository}}" target="_blank" class="btn btn-info">Source</a>
+  <div class="cotnainer theme-showcase">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <img src="/assets/images/Azure-Functions-Logo.png" width="150px" />
+        <p class="lead text-muted">An open source set of common use cases for Azure Functions that are ready to deploy!</p>
+      </div>
+    </section>
+    <a name="top" />
+    <div class="row">
+      <div class="container" ng-controller="library">
+        <div class="panel panel-info" ng-repeat="item in items">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{item.title}}</h3>
+          </div>
+          <div class="panel-body">
+            <p>
+              {{item.description}}
+            </p>
+            <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
+            <a class="btn btn-success" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
+            <a href="{{item.repository}}" target="_blank" class="btn btn-info">Source</a>
+          </div>
         </div>
       </div>
-    </div>
 
-  </div>
-  <footer class="text-muted">
-    <div class="container">
-      <p>
-        <a href="https://github.com/jefking/FunctionLibrary" target="blank" class="btn btn-link text-white">Contribute</a>        |
-        <a href="http://functionlibrary.azurewebsites.net/assets/js/data.js" target="blank" class="btn btn-link text-white">+Function (Pull)</a>        |
-        <a href="https://twitter.com/jefking_" target="blank" class="btn btn-link text-white">Jef King</a> |
-        <a href="https://twitter.com/sidney_andrews" class="btn btn-link text-white" target="blank">Sidney Andrews</a> |
-        <a href="https://twitter.com/nthonychu" target="blank" class="btn btn-link text-white">Anthony Chu</a> |
-        <a href="https://twitter.com/khilscher" target="blank" class="btn btn-link text-white">Kevin Hilscher</a> |
-        <a href="#top" class="btn btn-link text-white">Back to top</a>
-      </p>
     </div>
-  </footer>
+    <footer class="text-muted">
+      <div class="container">
+        <p>
+          <a href="https://github.com/jefking/FunctionLibrary" target="blank" class="btn btn-link text-white">Contribute</a>          |
+          <a href="http://functionlibrary.azurewebsites.net/assets/js/data.js" target="blank" class="btn btn-link text-white">+Function (Pull)</a>          |
+          <a href="https://twitter.com/jefking_" target="blank" class="btn btn-link text-white">Jef King</a> |
+          <a href="https://twitter.com/sidney_andrews" class="btn btn-link text-white" target="blank">Sidney Andrews</a>          |
+          <a href="https://twitter.com/nthonychu" target="blank" class="btn btn-link text-white">Anthony Chu</a> |
+          <a href="https://twitter.com/khilscher" target="blank" class="btn btn-link text-white">Kevin Hilscher</a> |
+          <a href="#top" class="btn btn-link text-white">Back to top</a>
+        </p>
+      </div>
+    </footer>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
