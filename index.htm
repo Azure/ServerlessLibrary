@@ -29,11 +29,11 @@
     <div class="container" ng-controller="library">
       <div class="row">
         <div class="col-md-4" ng-repeat="item in items">
-          <h3>{{item.Text}}</h3>
+          <h3>{{item.title}}</h3>
           <p>
             <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
             <a class="btn btn-primary" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
-            <a href="{{item.Repository}}" target="_blank" class="btn btn-primary">Source</a>
+            <a href="{{item.repository}}" target="_blank" class="btn btn-primary">Source</a>
           </p>
         </div>
       </div>

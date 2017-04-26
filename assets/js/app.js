@@ -8,7 +8,7 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
 
          angular.forEach($scope.items, function (item) {
             item.TemplateUri = function() {
-                return encodeURIComponent(item.TemplateUrl);
+                return encodeURIComponent(item.template);
             };
         });
     });
