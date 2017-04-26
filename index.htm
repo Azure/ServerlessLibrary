@@ -33,14 +33,18 @@
             <h3 class="panel-title">{{item.title}}</h3>
           </div>
           <div class="panel-body">
-            <div class="well well-sm">{{item.description}}</div>
+            <p>{{item.description}}</p>
 
-            <div class="btn-group btn-group-sm" role="group" aria-label="...">
-              <a class="btn btn-info" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
-              <a class="btn btn-default" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
-              <a href="{{item.repository}}" target="_blank" class="btn btn-default">Source</a>
-            </div>
           </div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <div class="btn-group btn-group-sm" role="group" aria-label="...">
+                <a class="btn btn-info" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
+                <a class="btn btn-default" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
+                <a href="{{item.repository}}" target="_blank" class="btn btn-default">Source</a>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
