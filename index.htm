@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <div class="container theme-showcase">
+  <div class="container">
     <section class="jumbotron text-center">
       <div class="container">
         <img src="/assets/images/Azure-Functions-Logo.png" width="150px" />
@@ -33,14 +33,13 @@
             <h3 class="panel-title">{{item.title}}</h3>
           </div>
           <div class="panel-body">
-            <p>
-              {{item.description}}
-              <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                <a class="btn btn-info" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
-                <a class="btn btn-default" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
-                <a href="{{item.repository}}" target="_blank" class="btn btn-default">Source</a>
-              </div>
-            </p>
+            <div class="well well-sm">{{item.description}}</div>
+
+            <div class="btn-group btn-group-sm" role="group" aria-label="...">
+              <a class="btn btn-info" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
+              <a class="btn btn-default" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
+              <a href="{{item.repository}}" target="_blank" class="btn btn-default">Source</a>
+            </div>
           </div>
         </div>
       </div>
