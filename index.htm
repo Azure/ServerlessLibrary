@@ -27,19 +27,17 @@
   <a name="top" />
   <div class="row">
     <div class="container" ng-controller="library">
-      <div class="col-md-4" ng-repeat="item in items">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h3 class="panel-title">{{item.title}}</h3>
-          </div>
-          <div class="panel-body">
-            <p>
-              {{item.description}}
-            </p>
-            <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
-            <a class="btn btn-success" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
-            <a href="{{item.repository}}" target="_blank" class="btn btn-info">Source</a>
-          </div>
+      <div class="panel panel-info" ng-repeat="item in items">
+        <div class="panel-heading">
+          <h3 class="panel-title">{{item.title}}</h3>
+        </div>
+        <div class="panel-body">
+          <p>
+            {{item.description}}
+          </p>
+          <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
+          <a class="btn btn-success" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
+          <a href="{{item.repository}}" target="_blank" class="btn btn-info">Source</a>
         </div>
       </div>
     </div>
