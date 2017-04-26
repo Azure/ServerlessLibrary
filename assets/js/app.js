@@ -15,7 +15,7 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
         $scope.columns = columnize(data, 3);
         function columnize(input, cols) {
             var arr = [];
-            for (i = 0; i < input.length; i++) {
+            for (var i = 0; i < input.length; i++) {
                 var colIdx = i % cols;
                 arr[colIdx] = arr[colIdx] || [];
                 arr[colIdx].push(input[i]);
