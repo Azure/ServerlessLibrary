@@ -36,9 +36,11 @@
             <p>
               {{item.description}}
             </p>
-            <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
-            <a class="btn btn-success" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
-            <a href="{{item.repository}}" target="_blank" class="btn btn-info">Source</a>
+            <div class="btn-group btn-group-sm" role="group">
+              <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank">Deploy</a>
+              <a class="btn btn-info" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank">Visualize</a>
+              <a href="{{item.repository}}" target="_blank" class="btn btn-info">Source</a>
+            </div>
           </div>
         </div>
       </div>
