@@ -3,48 +3,48 @@
         "title": "HTTP: Entity to SQL",
         "template": "https://raw.githubusercontent.com/AzureBytes/functionsstorsql/master/deploy/azuredeploy.json",
         "repository": "https://github.com/AzureBytes/functionsstorsql/tree/master/src/WebToDatabase",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac odio gravida, porta mauris non, rutrum turpis. Sed at enim nibh. Donec rhoncus neque sem, at mattis urna maximus et. Vestibulum pellentesque tortor eu dui consequat tincidunt. Aenean ac dolor varius, accumsan nulla ut, tincidunt augue. Aliquam luctus, lorem sed."
+        "description": "Azure Functions App that stores a queue message in SQL Database."
     },
     {
         "title": "Blob: Image Resize",
         "template": "https://raw.githubusercontent.com/jefking/fl-image-resize/master/azuredeploy.json",
         "repository": "https://github.com/jefking/fl-image-resize/tree/master/src/ImageResize",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac odio gravida, porta mauris non, rutrum turpis. Sed at enim nibh. Donec rhoncus neque sem, at mattis urna maximus et. Vestibulum pellentesque tortor eu dui consequat tincidunt. Aenean ac dolor varius, accumsan nulla ut, tincidunt augue. Aliquam luctus, lorem sed."
+        "description": "The easiest way to resize images stored in Blob Storage (on Azure); uses ImageProcessor."
     },
     {
         "title": "Slack: User Change Alerts",
         "template": "https://raw.githubusercontent.com/anthonychu/slack-user-change-alerts/master/azuredeploy.portal.json",
         "repository": "https://github.com/anthonychu/slack-user-change-alerts/tree/master/src/SlackUserChangeAlerts.Function",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac odio gravida, porta mauris non, rutrum turpis. Sed at enim nibh. Donec rhoncus neque sem, at mattis urna maximus et. Vestibulum pellentesque tortor eu dui consequat tincidunt. Aenean ac dolor varius, accumsan nulla ut, tincidunt augue. Aliquam luctus, lorem sed."
+        "description": "An Azure Function that sends a Slackbot notification to specified users or channels when users are added or removed from Slack. Ported from https://github.com/cfe84/slack-users-change-alerts."
     },
     {
         "title": "Closed Loop for IoT Hub",
         "template": "https://raw.githubusercontent.com/khilscher/AzureFunctions/master/ClosedLoopFunction/deploy/azuredeploy.json",
         "repository": "https://github.com/khilscher/AzureFunctions",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac odio gravida, porta mauris non, rutrum turpis. Sed at enim nibh. Donec rhoncus neque sem, at mattis urna maximus et. Vestibulum pellentesque tortor eu dui consequat tincidunt. Aenean ac dolor varius, accumsan nulla ut, tincidunt augue. Aliquam luctus, lorem sed."
+        "description": "The ClosedLoop function binds to the Event Hub compatible name of an IoT Hub. Each message into the IoT Hub will trigger the function. The sample function reads the JSON message payload, deserializes it, adds the two integer values (DataPoint1 and DataPoint2), and sends the sum back to the device, via IoT Hub, using a C2D message."
     },
     {
         "title": "File: Static Server",
         "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-static-file-server/master/azuredeploy.portal.json",
         "repository": "https://github.com/anthonychu/azure-functions-static-file-server/tree/master/src",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac odio gravida, porta mauris non, rutrum turpis. Sed at enim nibh. Donec rhoncus neque sem, at mattis urna maximus et. Vestibulum pellentesque tortor eu dui consequat tincidunt. Aenean ac dolor varius, accumsan nulla ut, tincidunt augue. Aliquam luctus, lorem sed."
+        "description": "Serve a static website with Azure Functions. More details at: http://anthonychu.ca/post/azure-functions-static-file-server"
     },
     {
         "title": "Blob: Static Server",
         "template": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.json",
         "repository": "https://github.com/jefking/fl-default-static/tree/master/src",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac odio gravida, porta mauris non, rutrum turpis. Sed at enim nibh. Donec rhoncus neque sem, at mattis urna maximus et. Vestibulum pellentesque tortor eu dui consequat tincidunt. Aenean ac dolor varius, accumsan nulla ut, tincidunt augue. Aliquam luctus, lorem sed."
+        "description": "Defaults to a 'page'; when a file is not specfied in URL. This helps with lessening the need for compute on top of raw storage; if you are running static sites."
     },
     {
         "title": "Blob: Static Server with CDN",
         "template": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.cdn.json",
         "repository": "https://github.com/jefking/fl-default-static/tree/master/src",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac odio gravida, porta mauris non, rutrum turpis. Sed at enim nibh. Donec rhoncus neque sem, at mattis urna maximus et. Vestibulum pellentesque tortor eu dui consequat tincidunt. Aenean ac dolor varius, accumsan nulla ut, tincidunt augue. Aliquam luctus, lorem sed."
+        "description": "Defaults to a 'page'; when a file is not specfied in URL. This helps with lessening the need for compute on top of raw storage; if you are running static sites. This deployment contains a CDN layered 'over top' of the function."
     },
     {
         "title": "Raffle",
         "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-raffle/master/azuredeploy.portal.json",
         "repository": "https://github.com/anthonychu/azure-functions-raffle/tree/master",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac odio gravida, porta mauris non, rutrum turpis. Sed at enim nibh. Donec rhoncus neque sem, at mattis urna maximus et. Vestibulum pellentesque tortor eu dui consequat tincidunt. Aenean ac dolor varius, accumsan nulla ut, tincidunt augue. Aliquam luctus, lorem sed."
+        "description": "A simple raffle application built with Azure Functions."
     }
 ]
