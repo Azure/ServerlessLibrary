@@ -29,3 +29,6 @@ footer {
 footer p {
   margin-bottom: .25rem;
 }
+.columns {
+  columns: 3;
+}
