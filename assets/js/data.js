@@ -40,5 +40,11 @@
         "template": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.cdn.json",
         "repository": "https://github.com/jefking/fl-default-static/tree/master/src",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac odio gravida, porta mauris non, rutrum turpis. Sed at enim nibh. Donec rhoncus neque sem, at mattis urna maximus et. Vestibulum pellentesque tortor eu dui consequat tincidunt. Aenean ac dolor varius, accumsan nulla ut, tincidunt augue. Aliquam luctus, lorem sed."
+    },
+    {
+        "title": "Raffle",
+        "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-raffle/master/azuredeploy.portal.json",
+        "repository": "https://github.com/anthonychu/azure-functions-raffle/tree/master",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac odio gravida, porta mauris non, rutrum turpis. Sed at enim nibh. Donec rhoncus neque sem, at mattis urna maximus et. Vestibulum pellentesque tortor eu dui consequat tincidunt. Aenean ac dolor varius, accumsan nulla ut, tincidunt augue. Aliquam luctus, lorem sed."
     }
 ]
