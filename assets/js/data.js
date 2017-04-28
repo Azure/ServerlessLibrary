@@ -3,7 +3,7 @@
         "title": "HTTP: Entity to SQL",
         "template": "https://raw.githubusercontent.com/AzureBytes/functionsstorsql/master/deploy/azuredeploy.json",
         "repository": "https://github.com/AzureBytes/functionsstorsql/tree/master/src/WebToDatabase",
-        "description": "Azure Functions App that stores a queue message in SQL Database."
+        "description": "Stores a queue message in SQL Database; uses Entity Framework."
     },
     {
         "title": "Blob: Image Resize",
@@ -21,30 +21,30 @@
         "title": "Closed Loop for IoT Hub",
         "template": "https://raw.githubusercontent.com/khilscher/AzureFunctions/master/ClosedLoopFunction/deploy/azuredeploy.json",
         "repository": "https://github.com/khilscher/AzureFunctions",
-        "description": "The ClosedLoop function binds to the Event Hub compatible name of an IoT Hub. Each message into the IoT Hub will trigger the function. The sample function reads the JSON message payload, deserializes it, adds the two integer values (DataPoint1 and DataPoint2), and sends the sum back to the device, via IoT Hub, using a C2D message."
+        "description": "The Closed-Loop function binds to the Event Hub compatible name of an IoT Hub. Each message into the IoT Hub will trigger the function. The sample function reads the JSON message payload, deserializes it, adds the two integer values (DataPoint1 and DataPoint2), and sends the sum back to the device, via IoT Hub, using a C2D message."
     },
     {
         "title": "File: Static Server",
         "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-static-file-server/master/azuredeploy.portal.json",
         "repository": "https://github.com/anthonychu/azure-functions-static-file-server/tree/master/src",
-        "description": "Serve a static website with Azure Functions. More details at: http://anthonychu.ca/post/azure-functions-static-file-server"
+        "description": "Serves a static website. More details at: http://anthonychu.ca/post/azure-functions-static-file-server"
     },
     {
         "title": "Blob: Static Server",
         "template": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.json",
         "repository": "https://github.com/jefking/fl-default-static/tree/master/src",
-        "description": "Defaults to a 'page'; when a file is not specfied in URL. This helps with lessening the need for compute on top of raw storage; if you are running static sites."
+        "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites."
     },
     {
         "title": "Blob: Static Server with CDN",
         "template": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.cdn.json",
         "repository": "https://github.com/jefking/fl-default-static/tree/master/src",
-        "description": "Defaults to a 'page'; when a file is not specfied in URL. This helps with lessening the need for compute on top of raw storage; if you are running static sites. This deployment contains a CDN layered 'over top' of the function."
+        "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites. This deployment contains a CDN layered 'over top' of the function."
     },
     {
         "title": "Raffle",
         "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-raffle/master/azuredeploy.portal.json",
         "repository": "https://github.com/anthonychu/azure-functions-raffle/tree/master",
-        "description": "A simple raffle application built with Azure Functions."
+        "description": "A simple raffle application."
     }
 ]
