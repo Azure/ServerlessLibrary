@@ -1,3 +1,21 @@
+.jumbotron {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
 html {
   position: relative;
   min-height: 100%;
@@ -14,15 +32,4 @@ body {
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
   background-color: #f5f5f5;
-}
-
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-.container {
-  width: auto;
-  max-width: 680px;
-  padding: 0 15px;
 }
