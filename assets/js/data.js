@@ -46,10 +46,5 @@
         "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-raffle/master/azuredeploy.portal.json",
         "repository": "https://github.com/anthonychu/azure-functions-raffle/tree/master",
         "description": "A simple raffle application."
-    },
-    {
-        "title": "Manage Azure Resources",
-        "repository": "https://github.com/itaysk/azuregc",
-        "description": "A governance tool to keep shared Azure subscriptions tidy. This is a good example of using Functions instead of Azure Automation runbooks"
     }
 ]
