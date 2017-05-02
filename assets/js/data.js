@@ -24,7 +24,7 @@
         "description": "The Closed-Loop function binds to the Event Hub compatible name of an IoT Hub. Each message into the IoT Hub will trigger the function. The sample function reads the JSON message payload, deserializes it, adds the two integer values (DataPoint1 and DataPoint2), and sends the sum back to the device, via IoT Hub, using a C2D message."
     },
     {
-        "title": "File: Static Server",
+        "title": "Function: Static Server",
         "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-static-file-server/master/azuredeploy.portal.json",
         "repository": "https://github.com/anthonychu/azure-functions-static-file-server/tree/master/src",
         "description": "Serves a static website. More details at: http://anthonychu.ca/post/azure-functions-static-file-server"
