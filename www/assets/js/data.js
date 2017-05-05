@@ -48,6 +48,12 @@
         "description": "A simple raffle application."
     },
     {
+        "title": "Azure Function Library (this)",
+        "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.json",
+        "repository": "https://github.com/jefking/FunctionLibrary",
+        "description": "An open source set of common use cases for Azure Functions that are ready to deploy!"
+    },
+    {
         "title": "MSCS: Data Processing Pipeline",
         "template": "https://raw.githubusercontent.com/Missing-Children-Society-Canada/infrastructure/master/functions.json",
         "repository": "https://github.com/Missing-Children-Society-Canada/messaging",
