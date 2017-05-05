@@ -1,5 +1,11 @@
 ﻿[
     {
+        "title": "MSCS: Data Processing Pipeline",
+        "template": "https://raw.githubusercontent.com/Missing-Children-Society-Canada/infrastructure/master/functions.json",
+        "repository": "https://github.com/Missing-Children-Society-Canada/messaging",
+        "description": "Data processing pipeline broken into microservices and run on Azure Functions. Stages include: Filtering, Augmenting, Storing."
+    },
+    {
         "title": "HTTP: Entity to SQL",
         "template": "https://raw.githubusercontent.com/AzureBytes/functionsstorsql/master/deploy/azuredeploy.json",
         "repository": "https://github.com/AzureBytes/functionsstorsql/tree/master/src/WebToDatabase",
