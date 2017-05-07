@@ -1,4 +1,6 @@
 {
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
     "parameters": {
         "siteName": {
             "type": "string",
@@ -96,21 +98,7 @@
             "location": "[parameters('siteLocation')]",
             "properties": {
                 "accountType": "Standard_LRS"
-            },
-            "resources": [
-                {
-                    "type": "Microsoft.Storage/storageAccounts/providers/locks",
-                    "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', variables('storageName'))]",
-                    "apiVersion": "2015-01-01",
-                    "dependsOn": [
-                        "[concat('Microsoft.Storage/storageAccounts/', variables('storageName'))]"
-                    ],
-                    "properties": {
-                        "level": "CannotDelete",
-                        "notes": "One or more function apps were linked to this storage account. You can see all the function apps linked to the account under 'files' or 'shares'."
-                    }
-                }
-            ]
+            }
         }
     ],
     "outputs": {
@@ -118,7 +106,5 @@
             "type": "string",
             "value": "[concat('https://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
-    },
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0"
+    }
 }
