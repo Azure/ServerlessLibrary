@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en" ng-app="libraryApp">
+<html lang="en" ng-app="armApp">
 
 <head>
-  <title>Azure Functions Open Source Library</title>
+  <title>Azure Functions Open Source Library: ARM Builder</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="An open source library of Azure Functions that are ready to be deployed in seconds! Please contribute, it is really easy.">
-  <meta name="author" content="Jef King, Anthony Chu, Kevin Hilscher, Sidney Andrews">
+  <meta name="author" content="Jef King">
   <link rel="icon" href="favicon.ico">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -18,35 +18,8 @@
 </head>
 
 <body>
-  <section class="jumbotron">
-    <div class="container text-center">
-      <img src="/assets/images/Azure-Functions-Logo.png" width="150px" />
-      <p class="lead text-muted">An open source set of common use cases for Azure Functions that are ready to deploy!</p>
-    </div>
-  </section>
-  <a name="top"></a>
-  <div class="container" ng-controller="library">
-    <div class="columns">
-      <div class="col-sm-4" ng-repeat="row in columns">
-        <div class="panel panel-info" ng-repeat="item in row">
-          <div class="panel-heading">
-            <h3 class="panel-title"><span class="glyphicon glyphicon-flash"></span> {{item.title}}</h3>
-          </div>
-          <div class="panel-body">
-            <p>{{item.description}}</p>
-          </div>
-          <ul class="list-group">
-            <li class="list-group-item">
-              <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
-                <a class="btn btn-info" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank"><span class="glyphicon glyphicon-cloud-upload"></span> Deploy</a>
-                <a class="btn btn-default" href="http://armviz.io/#/?load={{item.TemplateUri()}}&amp;source=azure-function-library" target="_blank"><span class="glyphicon glyphicon-eye-open"></span> Visualize</a>
-                <a href="{{item.repository}}" target="_blank" class="btn btn-default"><span class="glyphicon glyphicon-file"></span >Source</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+  <div class="container" ng-controller="arm">
+    
   </div>
   <footer class="footer">
     <div class="container">
@@ -59,10 +32,6 @@
       </div>
     </div>
   </footer>
-
-  <ul class="nav pull-right scroll-top">
-    <li><a href="#top" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
-  </ul>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"

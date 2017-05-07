@@ -1,6 +1,7 @@
 ﻿'use strict';
 
 var libraryApp = angular.module('libraryApp', []);
+var armApp = angular.module('armApp', []);
 
 libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
     $http.get('assets/js/data.js').success(function (data) {
@@ -23,4 +24,8 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
             return arr;
         }
     });
+}]);
+
+armApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
+   
 }]);
