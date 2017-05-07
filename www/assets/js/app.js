@@ -4,7 +4,7 @@ var libraryApp = angular.module('libraryApp', []);
 var armApp = angular.module('armApp', []);
 
 libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
-    $http.get('assets/functions.json').success(function (data) {
+    $http.get('assets/data/functions.json').success(function (data) {
         $scope.items = data;
 
         angular.forEach($scope.items, function (item) {
@@ -27,5 +27,8 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
 }]);
 
 armApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
-   
+   $http.get('assets/data/arm-input.json').success(function (data) {
+        $scope.input = data;
+        //SET CONTENTS OF INPUT
+    });
 }]);

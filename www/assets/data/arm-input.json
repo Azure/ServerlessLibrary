@@ -1,4 +1,6 @@
 {
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
     "parameters": {
         "siteName": {
             "type": "string",
@@ -17,7 +19,7 @@
     "variables": {
         "storageName": "[concat('function', uniqueString(parameters('siteName')))]",
         "contentShareName": "[toLower(parameters('siteName'))]",
-        "repoUrl": "{HALP}",
+        "repoUrl": "{{HALP}}",
         "branch": "master"
     },
     "resources": [
@@ -97,7 +99,5 @@
             "type": "string",
             "value": "[concat('https://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
         }
-    },
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0"
+    }
 }
