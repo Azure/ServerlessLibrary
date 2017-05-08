@@ -29,6 +29,6 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
 armApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
    $http.get('assets/data/arm-input.js').success(function (data) {
         $scope.input = data;
-        //SET CONTENTS OF INPUT
+        $scope.output = data;
     });
 }]);

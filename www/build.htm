@@ -20,12 +20,17 @@
 <body>
   <div class="container" ng-controller="arm">
     <form>
+      <label for="title">Title</label>
       <input type="text" id="title" name="title" />
+        <label for="description">description</label>
       <input type="textbox" id="description" name="description" />
+        <label for="file">file</label>
       <input type="text" id="file" name="file" />
+        <label for="repo">repo</label>
       <input type="text" id="repo" name="repo" />
-      <input type="hidden" id="input" name="input" />
-      <input type="text" id="output" name="output" />
+
+        <label for="output">output</label>
+      <textarea id="output" name="output" ng-model="output"></textarea>
     <form>
   </div>
   <footer class="footer">
