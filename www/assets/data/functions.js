@@ -1,4 +1,4 @@
-﻿[,
+﻿[
     {
         "title": "Any Azure Function Repository",
         "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.any.json",
