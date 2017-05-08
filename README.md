@@ -7,7 +7,7 @@ To add a new item, create a pull request for [Functions.js](http://functionlibra
 - Deployment File
 - Git Repository
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.svg)](https://azuredeploy.net/)
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjefking%2FFunctionLibrary%2Fmaster%2Fazuredeploy.json)
 
 ## Extraa
 
