@@ -1,4 +1,10 @@
-﻿[
+﻿[,
+    {
+        "title": "Any Azure Function Repository",
+        "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.any.json",
+        "repository": "https://github.com/jefking/FunctionLibrary",
+        "description": "Deployment of Azure Function which takes a Git Repository as a parameter."
+    },
     {
         "title": "HTTP: Entity to SQL",
         "template": "https://raw.githubusercontent.com/AzureBytes/functionsstorsql/master/deploy/azuredeploy.json",
