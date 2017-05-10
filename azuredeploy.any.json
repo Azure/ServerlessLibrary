@@ -57,10 +57,6 @@
                             "value": "[variables('contentShareName')]"
                         },
                         {
-                            "name": "DEFAULT_PAGE",
-                            "value": "[parameters('defaultPage')]"
-                        },
-                        {
                             "name": "ROUTING_EXTENSION_VERSION",
                             "value": "~0.1"
                         }
