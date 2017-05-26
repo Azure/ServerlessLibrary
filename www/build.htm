@@ -18,10 +18,11 @@
 </head>
 
 <body>
-  <div class="container row" ng-controller="arm">
-    <form class="form-horizontal">
-      <div class="form-group">
-        <!--
+  <div class="container" ng-controller="arm">
+    <div class="row">
+      <form class="form-horizontal">
+        <div class="form-group">
+          <!--
         <label for="title">Title</label>
         <input type="text" id="title" name="title" placeholder="" />
         <label for="description">description</label>
@@ -29,14 +30,15 @@
         <label for="file">file</label>
         <input type="text" id="file" name="file" />
         -->
-        <label for="repo">Repository URL</label>
-        <input type="url" id="repo" name="repo" placeholder="https://github.com/jefking/FunctionLibrary" />
-      </div>
-      <div class="form-group">
-        <label for="output">ARM Template</label>
-        <textarea id="output" class="span6" rows="20" name="output" ng-model="output"></textarea>
-      </div>
-      <form>
+          <label for="repo">Repository URL</label>
+          <input type="url" id="repo" name="repo" placeholder="https://github.com/jefking/FunctionLibrary" />
+        </div>
+        <div class="form-group">
+          <label for="output">ARM Template</label>
+          <textarea id="output" class="span6" rows="20" name="output" ng-model="output"></textarea>
+        </div>
+        <form>
+    </div>
   </div>
   <footer class="footer">
     <div class="container">
