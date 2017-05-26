@@ -18,11 +18,9 @@
 </head>
 
 <body>
-  <div class="container" ng-controller="arm">
-    <div class="row">
-      <form class="form-horizontal">
-        <div class="form-group">
-          <!--
+  <form class="form-horizontal">
+    <div class="form-group">
+      <!--
         <label for="title">Title</label>
         <input type="text" id="title" name="title" placeholder="" />
         <label for="description">description</label>
@@ -30,40 +28,38 @@
         <label for="file">file</label>
         <input type="text" id="file" name="file" />
         -->
-          <label for="repo">Repository URL</label>
-          <input type="url" id="repo" name="repo" placeholder="https://github.com/jefking/FunctionLibrary" />
-        </div>
-        <div class="form-group">
-          <div class="col-md-6">
-            <label for="output">ARM Template</label>
-            <textarea id="output" rows="20" name="output" ng-model="output"></textarea>
-          </div>
-        </div>
-        <form>
+      <label for="repo">Repository URL</label>
+      <input type="url" id="repo" name="repo" placeholder="https://github.com/jefking/FunctionLibrary" />
     </div>
-  </div>
-  <footer class="footer">
-    <div class="container">
-      <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
-        <a href="index.htm" class="btn btn-link text-white"><span class="glyphicon glyphicon-flash"></span> home</a>
-        <a href="https://github.com/jefking/FunctionLibrary" class="btn btn-link text-white"><span class="glyphicon glyphicon-pencil"></span> Contribute</a>
-        <a href="https://twitter.com/jefking_" class="btn btn-link text-white"><span class="glyphicon glyphicon-user"></span> Jef King</a>
-        <a href="https://twitter.com/sidney_andrews" class="btn btn-link text-white" target="blank"><span class="glyphicon glyphicon-user"></span> Sidney Andrews</a>
-        <a href="https://twitter.com/nthonychu" class="btn btn-link text-white"><span class="glyphicon glyphicon-user"></span> Anthony Chu</a>
-        <a href="https://twitter.com/khilscher" class="btn btn-link text-white"><span class="glyphicon glyphicon-user"></span> Kevin Hilscher</a>
+    <div class="form-group">
+      <div class="col-md-6">
+        <label for="output">ARM Template</label>
+        <textarea id="output" rows="20" name="output" ng-model="output"></textarea>
       </div>
     </div>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" crossorigin="anonymous"></script>
-  <script src="/assets/js/app.js"></script>
-  <script type="text/javascript">
-    var appInsights = window.appInsights || function (config) { function i(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = "AuthenticatedUserContext", h = "start", c = "stop", l = "Track", a = l + "Event", v = l + "Page", y = u.createElement(o), r, f; y.src = config.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js"; u.getElementsByTagName(o)[0].parentNode.appendChild(y); try { t.cookie = u.cookie } catch (p) { } for (t.queue = [], t.version = "1.0", r = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; r.length;)i("track" + r.pop()); return i("set" + s), i("clear" + s), i(h + a), i(c + a), i(h + v), i(c + v), i("flush"), config.disableExceptionTracking || (r = "onerror", i("_" + r), f = e[r], e[r] = function (config, i, u, e, o) { var s = f && f(config, i, u, e, o); return s !== !0 && t["_" + r](config, i, u, e, o), s }), t }({ instrumentationKey: "9f74439d-241f-489e-84ae-b229d0a04626" }); window.appInsights = appInsights; appInsights.trackPageView();
-  </script>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-590e379817883933"></script>
+    <form>
+      <footer class="footer">
+        <div class="container">
+          <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
+            <a href="index.htm" class="btn btn-link text-white"><span class="glyphicon glyphicon-flash"></span> home</a>
+            <a href="https://github.com/jefking/FunctionLibrary" class="btn btn-link text-white"><span class="glyphicon glyphicon-pencil"></span> Contribute</a>
+            <a href="https://twitter.com/jefking_" class="btn btn-link text-white"><span class="glyphicon glyphicon-user"></span> Jef King</a>
+            <a href="https://twitter.com/sidney_andrews" class="btn btn-link text-white" target="blank"><span class="glyphicon glyphicon-user"></span> Sidney Andrews</a>
+            <a href="https://twitter.com/nthonychu" class="btn btn-link text-white"><span class="glyphicon glyphicon-user"></span> Anthony Chu</a>
+            <a href="https://twitter.com/khilscher" class="btn btn-link text-white"><span class="glyphicon glyphicon-user"></span> Kevin Hilscher</a>
+          </div>
+        </div>
+      </footer>
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" crossorigin="anonymous"></script>
+      <script src="/assets/js/app.js"></script>
+      <script type="text/javascript">
+        var appInsights = window.appInsights || function (config) { function i(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = "AuthenticatedUserContext", h = "start", c = "stop", l = "Track", a = l + "Event", v = l + "Page", y = u.createElement(o), r, f; y.src = config.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js"; u.getElementsByTagName(o)[0].parentNode.appendChild(y); try { t.cookie = u.cookie } catch (p) { } for (t.queue = [], t.version = "1.0", r = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; r.length;)i("track" + r.pop()); return i("set" + s), i("clear" + s), i(h + a), i(c + a), i(h + v), i(c + v), i("flush"), config.disableExceptionTracking || (r = "onerror", i("_" + r), f = e[r], e[r] = function (config, i, u, e, o) { var s = f && f(config, i, u, e, o); return s !== !0 && t["_" + r](config, i, u, e, o), s }), t }({ instrumentationKey: "9f74439d-241f-489e-84ae-b229d0a04626" }); window.appInsights = appInsights; appInsights.trackPageView();
+      </script>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-590e379817883933"></script>
 </body>
 
 </html>
