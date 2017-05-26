@@ -6,6 +6,12 @@
         "description": "Deployment of Azure Function which takes a Git Repository as a parameter."
     },
     {
+        "title": "PDF Extraction for Search",
+        "template": "https://raw.githubusercontent.com/m-gagne/PDF2AzSearch/master/azuredeploy.json",
+        "repository": "https://github.com/m-gagne/PDF2AzSearch",
+        "description": "This Azure Function binds to an Azure Storage container to process PDF files, extract metadata (using Regular Expressions), stores the result in DocumentDB (extracted text + captured metadata) which can then be used by Azure Search"
+    },
+    {
         "title": "HTTP: Entity to SQL",
         "template": "https://raw.githubusercontent.com/AzureBytes/functionsstorsql/master/deploy/azuredeploy.json",
         "repository": "https://github.com/AzureBytes/functionsstorsql/tree/master/src/WebToDatabase",
