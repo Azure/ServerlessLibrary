@@ -1,79 +1,81 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" ng-app="libraryApp">
 
 <head>
-  <title>Azure Functions: Quick Deploy Code</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="An open source library of Azure Functions that are ready to be deployed in seconds! Please contribute, it is really easy.">
-  <meta name="author" content="Jef King, Anthony Chu, Kevin Hilscher, Sidney Andrews">
-  <link rel="icon" href="favicon.ico">
+    <title>Azure Functions: Quick Deploy Code</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An open source library of Azure Functions that are ready to be deployed in seconds! Please contribute, it is really easy.">
+    <meta name="author" content="Jef King, Anthony Chu, Kevin Hilscher, Sidney Andrews, Faiz Shaikh">
+    <link rel="icon" href="favicon.ico">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-    crossorigin="anonymous" />
-  <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 
 <body>
-  <section class="jumbotron">
-    <div class="container text-center">
-      <img src="/assets/images/Azure-Functions-Logo.png" width="150px" />
-      <p class="lead text-muted">An open source set of common use cases for Azure Functions that are ready to deploy!</p>
-    </div>
-  </section>
-  <a name="top"></a>
-  <div class="container" ng-controller="library">
-    <div class="columns">
-      <div class="col-sm-4" ng-repeat="row in columns">
-        <div class="panel panel-info" ng-repeat="item in row">
-          <div class="panel-heading">
-            <h3 class="panel-title"><span class="glyphicon glyphicon-flash"></span> {{item.title}}</h3>
-          </div>
-          <div class="panel-body">
-            <p>{{item.description}}</p>
-          </div>
-          <ul class="list-group">
-            <li class="list-group-item">
-              <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
-                <a class="btn btn-info" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank"><span class="glyphicon glyphicon-cloud-upload"></span> Deploy</a>
-                <a class="btn btn-default" href="http://armviz.io/#/?load={{item.TemplateUri()}}&amp;source=azure-function-library" target="_blank"><span class="glyphicon glyphicon-eye-open"></span> Visualize</a>
-                <a href="{{item.repository}}" target="_blank" class="btn btn-default"><span class="glyphicon glyphicon-file"></span >Source</a>
-              </div>
-            </li>
-          </ul>
+    <section class="jumbotron">
+        <div class="container text-center">
+            <img src="/assets/images/Azure-Functions-Logo.png" width="150px" />
+            <p class="lead text-muted">An open source set of common use cases for Azure Functions that are ready to deploy!</p>
         </div>
-      </div>
+    </section>
+    <a name="top"></a>
+    <div class="container" ng-controller="library">
+        <div class="columns">
+            <div class="col-sm-4" ng-repeat="row in columns">
+                <div class="panel panel-info" ng-repeat="item in row">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-flash"></span> {{item.title}}</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>{{item.description}}</p>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
+                                <a class="btn btn-info" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank"><span class="glyphicon glyphicon-cloud-upload"></span> Deploy</a>
+                                <a ng-show="item.addTemplate" class="btn btn-info" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.AddTemplateUri()}}" target="_blank"><span class="glyphicon glyphicon-cloud-upload"></span> Add</a>
+                                <a class="btn btn-default" href="http://armviz.io/#/?load={{item.TemplateUri()}}&amp;source=azure-function-library" target="_blank"><span class="glyphicon glyphicon-eye-open"></span> Visualize</a>
+                                <a href="{{item.repository}}" target="_blank" class="btn btn-default"><span class="glyphicon glyphicon-file"></span>Source</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <footer class="footer">
-    <div class="container">
-      <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
-        <a href="https://github.com/jefking/FunctionLibrary" class="btn btn-link text-white"><span class="glyphicon glyphicon-pencil"></span> Contribute</a>
-        <a href="build.htm" class="btn btn-link text-white"><span class="glyphicon glyphicon-pencil"></span> ARM</a>
-        <a href="https://twitter.com/jefking_" class="btn btn-link text-white"><span class="glyphicon glyphicon-user"></span> Jef King</a>
-        <a href="https://twitter.com/sidney_andrews" class="btn btn-link text-white" target="blank"><span class="glyphicon glyphicon-user"></span> Sidney Andrews</a>
-        <a href="https://twitter.com/nthonychu" class="btn btn-link text-white"><span class="glyphicon glyphicon-user"></span> Anthony Chu</a>
-        <a href="https://twitter.com/khilscher" class="btn btn-link text-white"><span class="glyphicon glyphicon-user"></span> Kevin Hilscher</a>
-      </div>
-    </div>
-  </footer>
+    <footer class="footer">
+        <div class="container">
+            <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
+                <a href="https://github.com/jefking/FunctionLibrary" class="btn btn-link text-white"><span class="glyphicon glyphicon-pencil"></span> Contribute</a>
+                <a href="build.htm" class="btn btn-link text-white"><span class="glyphicon glyphicon-pencil"></span> ARM</a>
+                <a href="https://twitter.com/jefking_" class="btn btn-link text-white"><span class="glyphicon glyphicon-user"></span> Jef King</a>
+                <a href="https://twitter.com/sidney_andrews" class="btn btn-link text-white" target="blank"><span class="glyphicon glyphicon-user"></span> Sidney Andrews</a>
+                <a href="https://twitter.com/nthonychu" class="btn btn-link text-white"><span class="glyphicon glyphicon-user"></span> Anthony Chu</a>
+                <a href="https://twitter.com/khilscher" class="btn btn-link text-white"><span class="glyphicon glyphicon-user"></span> Kevin Hilscher</a>
+                <a href="https://twitter.com/phaseshake" class="btn btn-link text-white"><span class="glyphicon glyphicon-user"></span> Faiz Shaikh</a>
+            </div>
+        </div>
+    </footer>
 
-  <ul class="nav pull-right scroll-top">
-    <li><a href="#top" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
-  </ul>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" crossorigin="anonymous"></script>
-  <script src="/assets/js/app.js"></script>
-  <script type="text/javascript">
-    var appInsights = window.appInsights || function (config) { function i(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = "AuthenticatedUserContext", h = "start", c = "stop", l = "Track", a = l + "Event", v = l + "Page", y = u.createElement(o), r, f; y.src = config.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js"; u.getElementsByTagName(o)[0].parentNode.appendChild(y); try { t.cookie = u.cookie } catch (p) { } for (t.queue = [], t.version = "1.0", r = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; r.length;)i("track" + r.pop()); return i("set" + s), i("clear" + s), i(h + a), i(c + a), i(h + v), i(c + v), i("flush"), config.disableExceptionTracking || (r = "onerror", i("_" + r), f = e[r], e[r] = function (config, i, u, e, o) { var s = f && f(config, i, u, e, o); return s !== !0 && t["_" + r](config, i, u, e, o), s }), t }({ instrumentationKey: "9f74439d-241f-489e-84ae-b229d0a04626" }); window.appInsights = appInsights; appInsights.trackPageView();
-  </script>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-590e379817883933"></script>
+    <ul class="nav pull-right scroll-top">
+        <li><a href="#top" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" crossorigin="anonymous"></script>
+    <script src="/assets/js/app.js"></script>
+    <script type="text/javascript">
+        var appInsights = window.appInsights || function (config) { function i(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = "AuthenticatedUserContext", h = "start", c = "stop", l = "Track", a = l + "Event", v = l + "Page", y = u.createElement(o), r, f; y.src = config.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js"; u.getElementsByTagName(o)[0].parentNode.appendChild(y); try { t.cookie = u.cookie } catch (p) { } for (t.queue = [], t.version = "1.0", r = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; r.length;)i("track" + r.pop()); return i("set" + s), i("clear" + s), i(h + a), i(c + a), i(h + v), i(c + v), i("flush"), config.disableExceptionTracking || (r = "onerror", i("_" + r), f = e[r], e[r] = function (config, i, u, e, o) { var s = f && f(config, i, u, e, o); return s !== !0 && t["_" + r](config, i, u, e, o), s }), t }({ instrumentationKey: "9f74439d-241f-489e-84ae-b229d0a04626" }); window.appInsights = appInsights; appInsights.trackPageView();
+    </script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-590e379817883933"></script>
 </body>
 
 </html>
