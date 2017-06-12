@@ -27,8 +27,7 @@
         "title": "Slack: User Change Alerts",
         "template": "https://raw.githubusercontent.com/anthonychu/slack-user-change-alerts/master/azuredeploy.portal.json",
         "repository": "https://github.com/anthonychu/slack-user-change-alerts/tree/master/src/SlackUserChangeAlerts.Function",
-        "description": "An Azure Function that sends a Slackbot notification to specified users or channels when users are added or removed from Slack. Ported from https://github.com/cfe84/slack-users-change-alerts.",
-        "addTemplate": "https://raw.githubusercontent.com/fashaikh/slack-user-change-alerts/master/addfunction.json"
+        "description": "An Azure Function that sends a Slackbot notification to specified users or channels when users are added or removed from Slack. Ported from https://github.com/cfe84/slack-users-change-alerts."
     },
     {
         "title": "Closed Loop for IoT Hub",
