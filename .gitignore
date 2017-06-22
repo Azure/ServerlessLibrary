@@ -83,3 +83,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/.vs
+/.vs
+/.vs/slnx.sqlite
+/.vs/ProjectSettings.json
+/.vs/config/applicationhost.config
