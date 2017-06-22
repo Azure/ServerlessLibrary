@@ -6,6 +6,12 @@
         "description": "Deployment of Azure Function which takes a Git Repository as a parameter."
     },
     {
+        "title": "Tug of War",
+        "template": "https://raw.githubusercontent.com/joescars/TugOfWar-FunctionsDemo/master/azuredeploy.json",
+        "repository": "https://github.com/joescars/TugOfWar-FunctionsDemo",
+        "description": "This simple demo game is used to teach basic concepts around building Azure Functions with node.js."
+    },
+    {
         "title": "PDF Extraction for Search",
         "template": "https://raw.githubusercontent.com/m-gagne/PDF2AzSearch/master/azuredeploy.json",
         "repository": "https://github.com/m-gagne/PDF2AzSearch",
