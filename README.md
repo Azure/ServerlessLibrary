@@ -6,8 +6,7 @@ To add a new item, create a pull request for [Functions.js](http://functionlibra
 - Description
 - Deployment File
 - Git Repository
-- AddTemplateUrl  : For more details refer here https://github.com/fashaikh/GitHubReZip . Note this currently doesnt support .deployment files and needs a particular dirctory structure.
-
+- AddTemplateUrl : For more details refer [here](https://github.com/fashaikh/GitHubReZip). Note this currently doesnt support .deployment files and needs a particular dirctory structure.
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjefking%2FFunctionLibrary%2Fmaster%2Fazuredeploy.json)
 
