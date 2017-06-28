@@ -34,6 +34,6 @@ armApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
         $scope.data = data;
     });
 
-    $scope.url = data.variables.repoUrl;
-    $scope.output = JSON.stringify(data);
+    $scope.url = $scope.data.variables.repoUrl;
+    $scope.output = JSON.stringify($scope.data);
 }]);
