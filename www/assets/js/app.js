@@ -32,8 +32,8 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
 armApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
     $http.get('assets/data/arm-input.js').success(function (data) {
         $scope.data = data;
-    });
 
-    $scope.url = $scope.data.variables.repoUrl;
-    $scope.output = JSON.stringify($scope.data);
+        $scope.url = data.variables.repoUrl;
+        $scope.output = JSON.stringify(data);
+    });
 }]);
