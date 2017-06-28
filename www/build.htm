@@ -24,8 +24,7 @@
         <span class="input-group-addon" id="sizing-addon1">URL</span>
         <input type="url" class="form-control" ng-model="repo" id="repo" placeholder="https://github.com/jefking/FunctionLibrary" />
       </div>
-      <div class="well well-lg">
-        {{output}}
+      <div class="well well-lg" ng-bind="repo">
       </div>
     </form>
   </div>
