@@ -36,7 +36,7 @@ armApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
     });
 }]);
 
-armApp.controller('repo', ['$scope', '$http', function ($scope, $http) {
+armApp.controller('repo', ['$scope', function ($scope) {
     console.log('hi');
 
     //$scope.current = $scope.input.replace('{{HALP}}', $scope.repo);
