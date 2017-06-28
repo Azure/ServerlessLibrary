@@ -34,6 +34,8 @@ armApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
         //$scope.input = data;
         // $scope.output = JSON.stringify(data);
         //$scope.current = data.replace('{{HALP}}', 'JEF KING');
+        console.log(data.variables.repoUrl);
+
         $scope.output = JSON.stringify(data).replace('{{HALP}}', 'JEF KING');//JSON.stringify();
     });
 }]);
