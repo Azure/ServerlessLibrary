@@ -31,14 +31,9 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
 
 armApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
     $http.get('assets/data/arm-input.js').success(function (data) {
-        $scope.input = data;
-        $scope.output = JSON.stringify(data);
+        // $scope.input = data;
+        // $scope.output = JSON.stringify(data);
+     $scope.current = $scope.input.replace('{{HALP}}', 'JEF KING');
+     $scope.output = JSON.stringify($scope.current);
     });
-}]);
-
-armApp.controller('repo', ['$scope', function ($scope) {
-    console.log('hi');
-
-    //$scope.current = $scope.input.replace('{{HALP}}', $scope.repo);
-    //$scope.output = JSON.stringify($scope.current);
 }]);
