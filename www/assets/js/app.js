@@ -11,7 +11,7 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
             item.TemplateUri = function () {
                 return encodeURIComponent(item.template);
             };
-            item.AddTemplateUri= function () {
+            item.AddTemplateUri = function () {
                 return encodeURIComponent(item.addTemplate)
             };
         });
@@ -30,8 +30,13 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
 }]);
 
 armApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
-   $http.get('assets/data/arm-input.js').success(function (data) {
+    $http.get('assets/data/arm-input.js').success(function (data) {
         $scope.input = data;
         $scope.output = JSON.stringify(data);
     });
+}]);
+
+armApp.controller('repo', ['$scope', '$http', function ($scope, $http) {
+    $scope.current = $scope.input.replace('{{HALP}}', $scope.repo);
+    $scope.output = JSON.stringify();
 }]);
