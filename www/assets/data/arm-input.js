@@ -19,7 +19,7 @@
     "variables": {
         "storageName": "[concat('function', uniqueString(parameters('siteName')))]",
         "contentShareName": "[toLower(parameters('siteName'))]",
-        "repoUrl": "{{HALP}}",
+        "repoUrl": "",
         "branch": "master"
     },
     "resources": [
