@@ -71,5 +71,11 @@
         "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.json",
         "repository": "https://github.com/jefking/FunctionLibrary",
         "description": "An open source set of common use cases for Azure Functions that are ready to deploy!"
+    },
+    {
+        "title": "HTTP: to Storage Queue",
+        "template": "https://github.com/jefking/fn-http-queue-s/master/azuredeploy.portal.json",
+        "repository": "https://github.com/jefking/fn-http-queue-s/tree/master/src",
+        "description": "Posted messages get added to Azure Storage Queue."
     }
 ]
