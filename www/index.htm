@@ -25,10 +25,6 @@
     </section>
     <a name="top"></a>
     <div class="container" ng-controller="library">
-        <div class="input-group">
-            <input ng-model="query" type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-            <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-search"></i></span>
-        </div>
         <div class="columns">
             <div class="col-sm-4" ng-repeat="row in columns">
                 <div class="panel panel-info" ng-repeat="item in row | filter: {title: query}">
@@ -65,6 +61,7 @@
                 <a class="navbar-brand" href="index.htm"><span class="glyphicon glyphicon-flash"></span></a>
                 <a class="navbar-brand" href="https://github.com/jefking/FunctionLibrary"><span class="glyphicon glyphicon-pencil"></span></a>
                 <a class="navbar-brand" href="build.htm"><span class="glyphicon glyphicon-equalizer"></span></a>
+                <a class="navbar-brand" href="#top"><span class="glyphicon glyphicon-triangle-top"></span></a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
