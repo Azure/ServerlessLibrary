@@ -57,7 +57,7 @@
 
   <script src="assets/monaco-editor/min/vs/loader.js"></script>
   <script>
-    require.config({ paths: { 'vs': 'monaco-editor/min/vs' } });
+    require.config({ paths: { 'vs': 'assets/monaco-editor/min/vs' } });
     require(['vs/editor/editor.main'], function () {
       var editor = monaco.editor.create(document.getElementById('template'), {
         // value: [
