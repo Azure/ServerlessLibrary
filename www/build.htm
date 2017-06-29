@@ -50,12 +50,12 @@
   <script src="assets/monaco-editor/min/vs/loader.js"></script>
   <script>
     require.config({ paths: { 'vs': 'assets/monaco-editor/min/vs' } });
-    // require(['vs/editor/editor.main'], function () {
-    //   var editor = monaco.editor.create(document.getElementById('template'), {
-    //      value: $scope.data,
-    //     language: 'json'
-    //   });
-    // });
+    require(['vs/editor/editor.main'], function () {
+      var editor = monaco.editor.create(document.getElementById('template'), {
+        //      value: $scope.data,
+        language: 'json'
+      });
+    });
   </script>
   <script src="http://functionlibrary.azurewebsites.net/assets/js/app.js"></script>
   <script type="text/javascript">
