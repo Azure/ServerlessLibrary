@@ -43,13 +43,13 @@
         "addTemplate": "https://raw.githubusercontent.com/fashaikh/AzureFunctions/master/ClosedLoopFunction/deploy/addfunction.json"
     },
     {
-        "title": "Function: Static Server",
+        "title": "HTTP: Static Web Server",
         "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-static-file-server/master/azuredeploy.portal.json",
         "repository": "https://github.com/anthonychu/azure-functions-static-file-server/tree/master/src",
         "description": "Serves a static website. More details at: http://anthonychu.ca/post/azure-functions-static-file-server"
     },
     {
-        "title": "Blob: Static Server",
+        "title": "Blob: Static Web Server",
         "template": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.json",
         "repository": "https://github.com/jefking/fl-default-static/tree/master/src",
         "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites."
@@ -67,7 +67,7 @@
         "description": "A simple raffle application."
     },
     {
-        "title": "Azure Function Library (this)",
+        "title": "HTTP: Azure Function Library (this)",
         "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.json",
         "repository": "https://github.com/jefking/FunctionLibrary",
         "description": "An open source set of common use cases for Azure Functions that are ready to deploy!"
