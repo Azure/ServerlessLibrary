@@ -25,8 +25,12 @@
     </section>
     <a name="top"></a>
     <div class="container" ng-controller="library">
+        <div class="input-group">
+            <input ng-model="query" type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+            <span class="input-group-addon" id="sizing-addon1"><i class="glyphicon glyphicon-search"></i></span>
+        </div>
         <div class="columns">
-            <div class="col-sm-4" ng-repeat="row in columns">
+            <div class="col-sm-4" ng-repeat="row in columns | filter: {title: query}">
                 <div class="panel panel-info" ng-repeat="item in row">
                     <div class="panel-heading">
                         <h3 class="panel-title"><span class="glyphicon glyphicon-flash"></span> {{item.title}}</h3>
@@ -49,36 +53,36 @@
             </div>
         </div>
     </div>
-  <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+    <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-        <a class="navbar-brand" href="index.htm"><span class="glyphicon glyphicon-flash"></span></a>
-        <a class="navbar-brand" href="https://github.com/jefking/FunctionLibrary"><span class="glyphicon glyphicon-pencil"></span></a>
-        <a class="navbar-brand" href="build.htm"><span class="glyphicon glyphicon-equalizer"></span></a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span> </a>
-            <ul class="dropdown-menu">
-              <li><a href="https://twitter.com/nthonychu">Anthony Chu</a></li>
-              <li><a href="https://twitter.com/phaseshake">Faiz Shaikh</a></li>
-              <li><a href="https://twitter.com/jefking_">Jef King</a></li>
-              <li><a href="https://twitter.com/joescars">Joe Raio</a></li>
-              <li><a href="https://twitter.com/khilscher">Kevin Hilscher</a></li>
-              <li><a href="https://twitter.com/sidney_andrews">Sidney Andrews</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+                <a class="navbar-brand" href="index.htm"><span class="glyphicon glyphicon-flash"></span></a>
+                <a class="navbar-brand" href="https://github.com/jefking/FunctionLibrary"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a class="navbar-brand" href="build.htm"><span class="glyphicon glyphicon-equalizer"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span> </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://twitter.com/nthonychu">Anthony Chu</a></li>
+                            <li><a href="https://twitter.com/phaseshake">Faiz Shaikh</a></li>
+                            <li><a href="https://twitter.com/jefking_">Jef King</a></li>
+                            <li><a href="https://twitter.com/joescars">Joe Raio</a></li>
+                            <li><a href="https://twitter.com/khilscher">Kevin Hilscher</a></li>
+                            <li><a href="https://twitter.com/sidney_andrews">Sidney Andrews</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <ul class="nav pull-right scroll-top">
         <li><a href="#top" title="Scroll to top"><i class="glyphicon glyphicon-chevron-up"></i></a></li>
     </ul>
