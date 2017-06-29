@@ -27,7 +27,7 @@
     <div class="container" ng-controller="library">
         <div class="columns">
             <div class="col-sm-4" ng-repeat="row in columns">
-                <div class="panel panel-info" ng-repeat="item in row | filter: {title: query, description: query}">
+                <div class="panel panel-info" ng-repeat="item in row | filter:query">
                     <div class="panel-heading">
                         <h3 class="panel-title"><span class="glyphicon glyphicon-flash"></span> {{item.title}}</h3>
                     </div>
