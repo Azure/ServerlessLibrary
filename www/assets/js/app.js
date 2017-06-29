@@ -30,16 +30,7 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
 }]);
 
 armApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
-    require.config({ paths: { 'vs': 'assets/monaco-editor/min/vs' } });
-    
     $http.get('assets/data/arm-input.js').success(function (data) {
         $scope.data = data;
-
-        require(['vs/editor/editor.main'], function () {
-            var editor = monaco.editor.create(document.getElementById('template'), {
-                value: data,
-                language: 'json'
-            });
-        });
     });
 }]);
