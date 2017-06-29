@@ -77,5 +77,11 @@
         "template": "https://raw.githubusercontent.com/jefking/fn-http-queue-s/master/azuredeploy.json",
         "repository": "https://github.com/jefking/fn-http-queue-s/tree/master/src",
         "description": "Posted messages get added to Azure Storage Queue."
+    },
+    {
+        "title": "HTTP: to Service Bus Queue",
+        "template": "https://raw.githubusercontent.com/jefking/fn-http-queue-sb/master/azuredeploy.json",
+        "repository": "https://github.com/jefking/fn-http-queue-sb/tree/master/src",
+        "description": "Posted messages get added to Azure Service Bus Queue."
     }
 ]
