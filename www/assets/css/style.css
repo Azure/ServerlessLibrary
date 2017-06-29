@@ -33,3 +33,11 @@ body {
   line-height: 60px; /* Vertically center the text there */
   background-color: #f5f5f5;
 }
+.vertical-center {
+  min-height: 90%;
+  /* Fallback for browsers do NOT support vh unit */
+  min-height: 90vh;
+  /* These two lines are counted as one :-)       */
+  display: flex;
+  align-items: center;
+}
