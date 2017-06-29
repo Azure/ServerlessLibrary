@@ -12,7 +12,13 @@
         "description": "This simple demo game is used to teach basic concepts around building Azure Functions with node.js."
     },
     {
-        "title": "PDF Extraction for Search",
+        "title": "Raffle",
+        "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-raffle/master/azuredeploy.portal.json",
+        "repository": "https://github.com/anthonychu/azure-functions-raffle/tree/master",
+        "description": "A simple raffle application."
+    },
+    {
+        "title": "Blob: PDF Extraction to Search",
         "template": "https://raw.githubusercontent.com/m-gagne/PDF2AzSearch/master/azuredeploy.json",
         "repository": "https://github.com/m-gagne/PDF2AzSearch",
         "description": "This Azure Function binds to an Azure Storage container to process PDF files, extract metadata (using Regular Expressions), stores the result in DocumentDB (extracted text + captured metadata) which can then be used by Azure Search"
@@ -59,12 +65,6 @@
         "template": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.cdn.json",
         "repository": "https://github.com/jefking/fl-default-static/tree/master/src",
         "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites. This deployment contains a CDN layered 'over top' of the function."
-    },
-    {
-        "title": "Raffle",
-        "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-raffle/master/azuredeploy.portal.json",
-        "repository": "https://github.com/anthonychu/azure-functions-raffle/tree/master",
-        "description": "A simple raffle application."
     },
     {
         "title": "HTTP: Azure Function Library (this)",
