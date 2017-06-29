@@ -33,12 +33,9 @@ armApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
     $http.get('assets/data/arm-input.js').success(function (data) {
         $scope.data = data;
 
-        require.config({ paths: { 'vs': 'assets/monaco-editor/min/vs' } });
-        require(['vs/editor/editor.main'], function () {
-            var editor = monaco.editor.create(document.getElementById('template'), {
-                value: data,
-                language: 'json'
-            });
+        var editor = monaco.editor.create(document.getElementById('template'), {
+            value: data,
+            language: 'json'
         });
     });
 }]);
