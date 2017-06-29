@@ -25,9 +25,7 @@
         <input type="url" class="form-control" ng-model="data.variables.repoUrl" id="repo" placeholder="https://github.com/jefking/FunctionLibrary"
         />
       </div>
-      <div id="template">
-        {{data | json}}
-      </div>
+      <div id="template"></div>
     </form>
   </div>
   <footer class="footer">
@@ -60,11 +58,7 @@
     require.config({ paths: { 'vs': 'assets/monaco-editor/min/vs' } });
     require(['vs/editor/editor.main'], function () {
       var editor = monaco.editor.create(document.getElementById('template'), {
-        // value: [
-        //   'function x() {',
-        //   '\tconsole.log("Hello world!");',
-        //   '}'
-        // ].join('\n'),
+         value: $scope.data,
         language: 'json'
       });
     });
