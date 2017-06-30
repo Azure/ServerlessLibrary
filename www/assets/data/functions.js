@@ -3,7 +3,7 @@
         "title": "Deploy Git Hosted Azure Function",
         "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.any.json",
         "repository": "https://github.com/jefking/FunctionLibrary",
-        "description": "Deploys an Azure Function via a git Repository URL.",
+        "description": "Deploys an Azure Function(s) via a git Repository URL.",
         "language": "javascript",
         "type": "function"
     },
