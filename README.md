@@ -1,4 +1,4 @@
-# Azure Functions: Quickly Deploy Code
+# Azure Serverless: Quickly Deploy Code
 An open source set of common use cases for Azure Functions & LogicApps that are ready to deploy!
 
 To add a new item, create a pull request for [Apps.js](http://functionlibrary.azurewebsites.net/assets/data/apps.js):
