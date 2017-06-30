@@ -65,10 +65,10 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown" ng-controller="contibutors">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span> </a>
-                        <ul class="dropdown-menu" ng-repeat="p in people">
-                            <li><a href="https://twitter.com/{{p.handle}}">{{p.name}}</a></li>
+                        <ul class="dropdown-menu" ng-controller="contibutors">
+                            <li ng-repeat="p in people"><a href="https://twitter.com/{{p.handle}}">{{p.name}}</a></li>
                         </ul>
                     </li>
                 </ul>
