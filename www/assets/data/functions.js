@@ -13,7 +13,8 @@
         "repository": "https://github.com/toolboc/stripe-function",
         "description": "Allows for incorporating Stripe payment functionality as a callable web service.",
         "language": "javascript",
-        "type": "function"
+        "type": "function",
+        "blog": "http://pjdecarlo.com/2017/06/super-cheap-subscription-and-payment-services-with-stripe-on-microsoft-azure-using-serverless-code-via-azure-functions-node-js.html"
     },
     {
         "title": "Tug of War",
