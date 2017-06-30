@@ -41,5 +41,5 @@ body {
   display: flex;
   align-items: center;
 }
-.function glyphicon-flash{}
-.logicapp glyphicon-app{}
+.function, .glyphicon-flash{}
+.logicapp, .glyphicon-app{}
