@@ -40,24 +40,20 @@
                      "value":"[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageName')), '2015-05-01-preview').key1)]"
                   },
                   {
-                     "name":"FUNCTIONS_EXTENSION_VERSION",
-                     "value":"~1"
-                  },
-                  {
                      "name":"WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
                      "value":"[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageName')), '2015-05-01-preview').key1)]"
                   },
                   {
-                     "name":"WEBSITE_CONTENTSHARE",
-                     "value":"[variables('contentShareName')]"
-                  },
-                  {
-                     "name":"DEFAULT_PAGE",
-                     "value":"[parameters('defaultPage')]"
+                     "name":"FUNCTIONS_EXTENSION_VERSION",
+                     "value":"~1"
                   },
                   {
                      "name":"ROUTING_EXTENSION_VERSION",
                      "value":"~0.1"
+                  },
+                  {
+                     "name":"WEBSITE_CONTENTSHARE",
+                     "value":"[variables('contentShareName')]"
                   }
                ]
             },
