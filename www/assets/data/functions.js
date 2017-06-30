@@ -147,10 +147,26 @@
         "type": "function"
     },
     {
-        "title": "Twitter to Queue",
-        "template": "https://raw.githubusercontent.com/Missing-Children-Society-Canada/infrastructure/master/TwitterPull-LogicApp.json",
-        "repository": "https://github.com/Missing-Children-Society-Canada/infrastructure",
-        "description": "Recurring Twitter poll; captures tweets with a specific hash tag and places them in a service bus queue.",
+        "title": "Schedule SQL Stored Procedure",
+        "template": "",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc",
+        "description": "This template allows you to create a Logic App that will run a SQL stored procedure on schedule.",
+        "language": "na",
+        "type": "logicapp"
+    },
+    {
+        "title": "Send Email",
+        "template": "",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid",
+        "description": "This template allows you to create a Logic app that sends an email.",
+        "language": "na",
+        "type": "logicapp"
+    },
+    {
+        "title": "Copy FTP Files to Blob",
+        "template": "",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-ftp-to-blob",
+        "description": "This template allows you to create a Logic app that listens to a folder on an FTP server and will copy it to an Azure Blob container.",
         "language": "na",
         "type": "logicapp"
     }
