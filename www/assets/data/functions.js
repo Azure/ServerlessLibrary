@@ -147,10 +147,10 @@
         "type": "function"
     },
     {
-        "title": "TEST",
-        "template": "TEST",
-        "repository": "https://github.com/jefking/fn-http-topic/tree/master/src",
-        "description": "TEST",
+        "title": "Twitter to Queue",
+        "template": "https://raw.githubusercontent.com/Missing-Children-Society-Canada/infrastructure/master/TwitterPull-LogicApp.json",
+        "repository": "https://github.com/Missing-Children-Society-Canada/infrastructure",
+        "description": "Recurring Twitter poll; captures tweets with a specific hash tag and places them in a service bus queue.",
         "language": "na",
         "type": "logicapp"
     }
