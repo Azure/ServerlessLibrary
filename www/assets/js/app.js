@@ -13,6 +13,9 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
             item.AddTemplateUri = function () {
                 return encodeURIComponent(item.addTemplate)
             };
+            item.BlogUri = function () {
+                return encodeURIComponent(item.blog)
+            };
         });
 
         $scope.columns = columnize(data, 3);
