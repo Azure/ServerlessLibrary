@@ -4,7 +4,7 @@
         "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.any.json",
         "repository": "https://github.com/jefking/FunctionLibrary",
         "description": "Deploys an Azure Function(s) via a git Repository URL.",
-        "language": "javascript",
+        "language": "csharp",
         "type": "function"
     },
     {
@@ -29,7 +29,7 @@
         "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-raffle/master/azuredeploy.portal.json",
         "repository": "https://github.com/anthonychu/azure-functions-raffle/tree/master",
         "description": "A simple raffle application.",
-        "language": "javascript",
+        "language": "csharp",
         "type": "function"
     },
     {
@@ -37,7 +37,7 @@
         "template": "https://raw.githubusercontent.com/jefking/refreshusagedata/master/deploy.json",
         "repository": "https://github.com/jefking/refreshusagedata/tree/master",
         "description": "This project uses the Azure EA Billing API to download detailed usage information in CSV to Blob Storage so that it can be used with tools like PowerBI.",
-        "language": "javascript",
+        "language": "csharp",
         "type": "function"
     },
     {
@@ -61,13 +61,13 @@
         "template": "https://raw.githubusercontent.com/AzureBytes/functionsstorsql/master/deploy/azuredeploy.json",
         "repository": "https://github.com/AzureBytes/functionsstorsql/tree/master/src/WebToDatabase",
         "description": "Stores a queue message in SQL Database; uses Entity Framework.",
-        "language": "javascript",
+        "language": "csharp",
         "type": "function"
     },
     {
         "title": "Blob: Image Resize",
         "template": "https://raw.githubusercontent.com/jefking/fl-image-resize/master/azuredeploy.json",
-        "repository": "https://github.com/jefking/fl-image-resize/tree/master/src/ImageResize",
+        "repository": "https://github.com/jefking/fl-image-resize/tree/master/src",
         "description": "The easiest way to resize images stored in Blob Storage (on Azure); uses ImageProcessor.",
         "language": "csharp",
         "type": "function"
@@ -86,7 +86,7 @@
         "repository": "https://github.com/khilscher/AzureFunctions",
         "description": "The Closed-Loop function binds to the Event Hub compatible name of an IoT Hub. Each message into the IoT Hub will trigger the function. The sample function reads the JSON message payload, deserializes it, adds the two integer values (DataPoint1 and DataPoint2), and sends the sum back to the device, via IoT Hub, using a C2D message.",
         "addTemplate": "https://raw.githubusercontent.com/fashaikh/AzureFunctions/master/ClosedLoopFunction/deploy/addfunction.json",
-        "language": "javascript",
+        "language": "csharp",
         "type": "function"
     },
     {
@@ -95,7 +95,7 @@
         "repository": "https://github.com/anthonychu/azure-functions-static-file-server/tree/master/src",
         "description": "Serves a static website.",
         "blog": "http://anthonychu.ca/post/azure-functions-static-file-server",
-        "language": "javascript",
+        "language": "csharp",
         "type": "function"
     },
     {
@@ -103,7 +103,7 @@
         "template": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.json",
         "repository": "https://github.com/jefking/fl-default-static/tree/master/src",
         "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites.",
-        "language": "javascript",
+        "language": "csharp",
         "type": "function"
     },
     {
