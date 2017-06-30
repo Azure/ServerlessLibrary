@@ -101,5 +101,11 @@
         "template": "https://raw.githubusercontent.com/jefking/fn-http-topic/master/azuredeploy.json",
         "repository": "https://github.com/jefking/fn-http-topic/tree/master/src",
         "description": "Posted messages get added to Azure Service Bus Topic."
+    },
+    {
+        "title": "HTTP: Stripe",
+        "template": "https://raw.githubusercontent.com/toolboc/stripe-function/master/azuredeploy.json",
+        "repository": "https://github.com/toolboc/stripe-function/tree/master/src",
+        "description": "Stripe services."
     }
 ]
