@@ -95,5 +95,11 @@
         "template": "https://raw.githubusercontent.com/jefking/fn-http-queue-sb/master/azuredeploy.json",
         "repository": "https://github.com/jefking/fn-http-queue-sb/tree/master/src",
         "description": "Posted messages get added to Azure Service Bus Queue."
+    },
+    {
+        "title": "HTTP: to Service Bus Topic",
+        "template": "https://raw.githubusercontent.com/jefking/fn-http-topic/master/azuredeploy.json",
+        "repository": "https://github.com/jefking/fn-http-topic/tree/master/src",
+        "description": "Posted messages get added to Azure Service Bus Topic."
     }
 ]
