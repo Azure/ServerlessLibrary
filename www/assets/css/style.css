@@ -38,9 +38,9 @@ body {
   display: flex;
   align-items: center;
 }
-.function, glyphicon{
-background-color:orange;
+.function{
+background-color:#000;
 }
-.logicapp, glyphicon{
-background-color:pink; 
+.logicapp{
+background-color:#000; 
 }
