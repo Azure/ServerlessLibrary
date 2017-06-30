@@ -36,6 +36,6 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
 
 libraryApp.controller('contibutors', ['$scope', '$http', function ($scope, $http) {
     $http.get('assets/data/contibutors.js').success(function (data) {
-        $scope.contibutors = data;
+        $scope.people = data;
     });
 }]);

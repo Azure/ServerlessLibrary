@@ -65,16 +65,10 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown">
+                    <li class="dropdown" ng-controller="contibutors">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span><span class="caret"></span> </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="https://twitter.com/nthonychu">Anthony Chu</a></li>
-                            <li><a href="https://twitter.com/phaseshake">Faiz Shaikh</a></li>
-                            <li><a href="https://twitter.com/jefking_">Jef King</a></li>
-                            <li><a href="https://twitter.com/joescars">Joe Raio</a></li>
-                            <li><a href="https://twitter.com/khilscher">Kevin Hilscher</a></li>
-                            <li><a href="https://twitter.com/pjdecarlo">Paul DeCarlo</a></li>
-                            <li><a href="https://twitter.com/sidney_andrews">Sidney Andrews</a></li>
+                        <ul class="dropdown-menu" ng-repeat="p in people">
+                            <li><a href="https://twitter.com/{{p.handle}}">{{p.name}}</a></li>
                         </ul>
                     </li>
                 </ul>
