@@ -1,7 +1,6 @@
 ﻿'use strict';
 
 var libraryApp = angular.module('libraryApp', []);
-var armApp = angular.module('armApp', []);
 
 libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
     $http.get('assets/data/functions.js').success(function (data) {
@@ -29,13 +28,13 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
     });
 }]);
 
-armApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
+libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
     $http.get('assets/data/arm-input.js').success(function (data) {
         $scope.data = data;
     });
 }]);
 
-armApp.controller('contibutors', ['$scope', '$http', function ($scope, $http) {
+libraryApp.controller('contibutors', ['$scope', '$http', function ($scope, $http) {
     $http.get('assets/data/contibutors.js').success(function (data) {
         $scope.contibutors = data;
     });
