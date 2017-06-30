@@ -1,6 +1,6 @@
 ﻿[
     {
-        "title": "Any Azure Function Repository",
+        "title": "Deploy Git Hosted Azure Function",
         "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.any.json",
         "repository": "https://github.com/jefking/FunctionLibrary",
         "description": "Deploys an Azure Function via a git Repository URL."
