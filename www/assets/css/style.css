@@ -4,15 +4,12 @@
   margin-bottom: 0;
   background-color: #fff;
 }
-
 .jumbotron p:last-child {
   margin-bottom: 0;
 }
-
 .jumbotron-heading {
   font-weight: 300;
 }
-
 .jumbotron .container {
   max-width: 40rem;
 }
@@ -41,5 +38,9 @@ body {
   display: flex;
   align-items: center;
 }
-.function, .glyphicon-flash{}
-.logicapp, .glyphicon-tasks{}
+.function, glyphicon{
+background-color:orange;
+}
+.logicapp, glyphicon{
+background-color:pink; 
+}
