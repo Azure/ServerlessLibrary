@@ -34,3 +34,9 @@ armApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
         $scope.data = data;
     });
 }]);
+
+armApp.controller('contibutors', ['$scope', '$http', function ($scope, $http) {
+    $http.get('assets/data/contibutors.js').success(function (data) {
+        $scope.contibutors = data;
+    });
+}]);
