@@ -29,14 +29,14 @@
             <div class="col-sm-4" ng-repeat="row in columns">
                 <div class="panel panel-info" ng-repeat="item in row | filter:query">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><span ng-if="type == 'function'" class="glyphicon glyphicon-flash"></span><span ng-if="type == 'logicapp'" class="glyphicon glyphicon-tasks"></span> {{item.title}}</h3>
+                        <h3 class="panel-title"><span ng-if="item.type == 'function'" class="glyphicon glyphicon-flash"></span><span ng-if="type == 'logicapp'" class="glyphicon glyphicon-tasks"></span> {{item.title}}</h3>
                     </div>
                     <div class="panel-body">
                         <p>{{item.description}}</p>
                     </div>
                     <div class="panel-body">
-                        <p ng-if="language == 'javascript'">NodeJS</p>
-                        <p ng-if="language == 'csharp'">C#</p>
+                        <p ng-if="item.language == 'javascript'">NodeJS</p>
+                        <p ng-if="item.language == 'csharp'">C#</p>
                     </div>
                     <ul class="list-group">
                         <li class="list-group-item">
