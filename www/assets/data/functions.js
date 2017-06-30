@@ -24,6 +24,12 @@
         "description": "This project uses the Azure EA Billing API to download detailed usage information in CSV to Blob Storage so that it can be used with tools like PowerBI."
     },
     {
+        "title": "HTTP: Generate SAS Token",
+        "template": "https://raw.githubusercontent.com/Azure-Samples/functions-node-sas-token/master/azuredeploy.json",
+        "repository": "https://github.com/Azure-Samples/functions-node-sas-token",
+        "description": "This is a sample HTTP trigger Azure Function that returns a SAS token for Azure Storage for the specified container, blob, and permissions."
+    },
+    {
         "title": "Blob: PDF Extraction to Search",
         "template": "https://raw.githubusercontent.com/m-gagne/PDF2AzSearch/master/azuredeploy.json",
         "repository": "https://github.com/m-gagne/PDF2AzSearch",
