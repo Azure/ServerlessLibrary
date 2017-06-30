@@ -3,7 +3,7 @@
 var libraryApp = angular.module('libraryApp', []);
 
 libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
-    $http.get('assets/data/functions.js').success(function (data) {
+    $http.get('assets/data/apps.js').success(function (data) {
         $scope.items = data;
 
         angular.forEach($scope.items, function (item) {
