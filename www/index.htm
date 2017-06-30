@@ -34,6 +34,10 @@
                     <div class="panel-body">
                         <p>{{item.description}}</p>
                     </div>
+                    <div class="panel-body">
+                        <p ng-if="language == 'javascript'">NodeJS</p>
+                        <p ng-if="language == 'csharp'">C#</p>
+                    </div>
                     <ul class="list-group">
                         <li class="list-group-item">
                             <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
