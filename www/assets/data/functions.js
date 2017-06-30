@@ -145,5 +145,13 @@
         "description": "Posted messages get added to Azure Service Bus Topic.",
         "language": "javascript",
         "type": "function"
+    },
+    {
+        "title": "TEST",
+        "template": "TEST",
+        "repository": "https://github.com/jefking/fn-http-topic/tree/master/src",
+        "description": "TEST",
+        "language": "na",
+        "type": "logicapp"
     }
 ]
