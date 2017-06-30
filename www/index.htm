@@ -29,7 +29,7 @@
             <div class="col-sm-4" ng-repeat="row in columns">
                 <div class="panel panel-info" ng-repeat="item in row | filter:query">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><span class="glyphicon {{item.type}}"></span> {{item.title}}</h3>
+                        <h3 class="panel-title"><span class="glyphicon glyphicon.{{item.icon()}}"></span> {{item.title}}</h3>
                     </div>
                     <div class="panel-body">
                         <p>{{item.description}}</p>

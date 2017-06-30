@@ -13,6 +13,9 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
             item.AddTemplateUri = function () {
                 return encodeURIComponent(item.addTemplate)
             };
+            item.icon = function () {
+                return item.type == 'function' ? 'flash' : 'tasks';
+            };
         });
 
         $scope.columns = columnize(data, 3);
