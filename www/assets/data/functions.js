@@ -3,7 +3,7 @@
         "title": "Any Azure Function Repository",
         "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.any.json",
         "repository": "https://github.com/jefking/FunctionLibrary",
-        "description": "Deployment of Azure Function which takes a Git Repository as a parameter."
+        "description": "Deploys an Azure Function via a git Repository URL."
     },
     {
         "title": "Tug of War",
