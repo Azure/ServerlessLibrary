@@ -18,6 +18,12 @@
         "description": "A simple raffle application."
     },
     {
+        "title": "Timer: Azure EA Billing",
+        "template": "https://raw.githubusercontent.com/jefking/refreshusagedata/master/deploy.json",
+        "repository": "https://github.com/jefking/refreshusagedata/tree/master",
+        "description": "This project uses the Azure EA Billing API to download detailed usage information in CSV to Blob Storage so that it can be used with tools like PowerBI."
+    },
+    {
         "title": "Blob: PDF Extraction to Search",
         "template": "https://raw.githubusercontent.com/m-gagne/PDF2AzSearch/master/azuredeploy.json",
         "repository": "https://github.com/m-gagne/PDF2AzSearch",
