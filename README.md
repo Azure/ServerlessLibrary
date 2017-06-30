@@ -1,12 +1,14 @@
 # Azure Functions: Quickly Deploy Code
-An open source set of common use cases for Azure Functions that are ready to deploy!
+An open source set of common use cases for Azure Functions & LogicApps that are ready to deploy!
 
-To add a new item, create a pull request for [Functions.js](http://functionlibrary.azurewebsites.net/assets/data/functions.js):
+To add a new item, create a pull request for [Apps.js](http://functionlibrary.azurewebsites.net/assets/data/apps.js):
 - Title
 - Description
 - Deployment File
 - Git Repository
 - AddTemplateUrl : For more details refer [here](https://github.com/fashaikh/GitHubReZip). Note this currently doesnt support .deployment files and needs a particular dirctory structure.
+- Language: C#, Python, JavaScript, N/A
+- Type: LogicApp, Function
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjefking%2FFunctionLibrary%2Fmaster%2Fazuredeploy.json)
 
