@@ -123,30 +123,6 @@
         "type": "function"
     },
     {
-        "title": "HTTP: to Storage Queue",
-        "template": "https://raw.githubusercontent.com/jefking/fn-http-queue-s/master/azuredeploy.json",
-        "repository": "https://github.com/jefking/fn-http-queue-s/tree/master/src",
-        "description": "Posted messages get added to Azure Storage Queue.",
-        "language": "javascript",
-        "type": "function"
-    },
-    {
-        "title": "HTTP: to Service Bus Queue",
-        "template": "https://raw.githubusercontent.com/jefking/fn-http-queue-sb/master/azuredeploy.json",
-        "repository": "https://github.com/jefking/fn-http-queue-sb/tree/master/src",
-        "description": "Posted messages get added to Azure Service Bus Queue.",
-        "language": "javascript",
-        "type": "function"
-    },
-    {
-        "title": "HTTP: to Service Bus Topic",
-        "template": "https://raw.githubusercontent.com/jefking/fn-http-topic/master/azuredeploy.json",
-        "repository": "https://github.com/jefking/fn-http-topic/tree/master/src",
-        "description": "Posted messages get added to Azure Service Bus Topic.",
-        "language": "javascript",
-        "type": "function"
-    },
-    {
         "title": "Schedule SQL Stored Procedure",
         "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-sql-proc/azuredeploy.json",
         "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc",
@@ -169,5 +145,29 @@
         "description": "This template allows you to create a Logic app that listens to a folder on an FTP server and will copy it to an Azure Blob container.",
         "language": "na",
         "type": "logicapp"
+    },
+    {
+        "title": "HTTP: to Storage Queue",
+        "template": "https://raw.githubusercontent.com/jefking/fn-http-queue-s/master/azuredeploy.json",
+        "repository": "https://github.com/jefking/fn-http-queue-s/tree/master/src",
+        "description": "Posted messages get added to Azure Storage Queue.",
+        "language": "javascript",
+        "type": "function"
+    },
+    {
+        "title": "HTTP: to Service Bus Queue",
+        "template": "https://raw.githubusercontent.com/jefking/fn-http-queue-sb/master/azuredeploy.json",
+        "repository": "https://github.com/jefking/fn-http-queue-sb/tree/master/src",
+        "description": "Posted messages get added to Azure Service Bus Queue.",
+        "language": "javascript",
+        "type": "function"
+    },
+    {
+        "title": "HTTP: to Service Bus Topic",
+        "template": "https://raw.githubusercontent.com/jefking/fn-http-topic/master/azuredeploy.json",
+        "repository": "https://github.com/jefking/fn-http-topic/tree/master/src",
+        "description": "Posted messages get added to Azure Service Bus Topic.",
+        "language": "javascript",
+        "type": "function"
     }
 ]
