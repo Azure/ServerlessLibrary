@@ -1,4 +1,4 @@
-# Azure Functions: Quick Deploy Code
+# Azure Functions: Quickly Deploy Code
 An open source set of common use cases for Azure Functions that are ready to deploy!
 
 To add a new item, create a pull request for [Functions.js](http://functionlibrary.azurewebsites.net/assets/data/functions.js):
