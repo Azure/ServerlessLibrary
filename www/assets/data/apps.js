@@ -148,15 +148,15 @@
     },
     {
         "title": "Schedule SQL Stored Procedure",
-        "template": "",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-sql-proc/azuredeploy.json",
         "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc",
         "description": "This template allows you to create a Logic App that will run a SQL stored procedure on schedule.",
         "language": "na",
         "type": "logicapp"
     },
     {
-        "title": "Send Email",
-        "template": "",
+        "title": "Send Email via SendGrid",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-sendgrid/azuredeploy.json",
         "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid",
         "description": "This template allows you to create a Logic app that sends an email.",
         "language": "na",
@@ -164,7 +164,7 @@
     },
     {
         "title": "Copy FTP Files to Blob",
-        "template": "",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-ftp-to-blob/azuredeploy.json",
         "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-ftp-to-blob",
         "description": "This template allows you to create a Logic app that listens to a folder on an FTP server and will copy it to an Azure Blob container.",
         "language": "na",
