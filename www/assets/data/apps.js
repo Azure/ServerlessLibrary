@@ -21,7 +21,7 @@
         "template": "https://raw.githubusercontent.com/joescars/TugOfWar-FunctionsDemo/master/azuredeploy.json",
         "repository": "https://github.com/joescars/TugOfWar-FunctionsDemo",
         "description": "This simple demo game is used to teach basic concepts around building Azure Functions with node.js.",
-        "blog": "https://github.com/joescars/TugOfWar-FunctionsDemo",
+        "blog": "https://aka.ms/aztugofwar",
         "language": "javascript",
         "type": "function"
     },
