@@ -5,6 +5,12 @@
         "repository": "https://github.com/jefking/FunctionLibrary",
         "description": "Deploys an Azure Function via a git Repository URL."
     },
+	{
+        "title": "Stripe Payment Service",
+        "template": "https://raw.githubusercontent.com/toolboc/stripe-function/master/azuredeploy.json",
+        "repository": "https://github.com/toolboc/stripe-function",
+        "description": "Allows for incorporating Stripe payment functionality as a callable web service."
+    },
     {
         "title": "Tug of War",
         "template": "https://raw.githubusercontent.com/joescars/TugOfWar-FunctionsDemo/master/azuredeploy.json",
