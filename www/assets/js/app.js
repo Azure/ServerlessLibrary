@@ -44,10 +44,10 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
 
 
     $scope.urlChange = function () {
-        $scope.data.variables.repoUrl = document.getElementById('repo').value;
+        $scope.data.variables.repoUrl = 'THEKING';//document.getElementById('repo').value;
 
         //var editor  = document.getElementById('container');
-        $scope.editor.setValue('JSON.stringify($scope.data, null, 2)');
+        $scope.editor.setValue(JSON.stringify($scope.data, null, 2));
          //var editor = document.getElementById('container');
         // editor.updateOptions({ 'value': JSON.stringify($scope.data, null, 2) });
     };
