@@ -40,14 +40,15 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
                 language: 'json'
             });
         });
-
-        $scope.urlChange = function () {
-            $scope.data.variables.repoUrl = "sdfghjk";
-
-            var editor = monaco.editor.create(document.getElementById('container'), {});
-            editor.updateOptions({ 'value': JSON.stringify($scope.data, null, 2) });
-        };
     });
+
+
+    $scope.urlChange = function () {
+        $scope.data.variables.repoUrl = "sdfghjk";
+
+        var editor = document.getElementById('container');
+        editor.updateOptions({ 'value': JSON.stringify($scope.data, null, 2) });
+    };
 }]);
 
 libraryApp.controller('contibutors', ['$scope', '$http', function ($scope, $http) {
