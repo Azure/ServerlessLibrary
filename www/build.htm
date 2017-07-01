@@ -45,14 +45,7 @@
       </form>
     </div>
   </div>
-  <div class="editor-frame">
-    <div class="loading diff-editor" style="display: none;">
-      <div class="progress progress-striped active">
-        <div class="bar"></div>
-      </div>
-    </div>
-    <div id="diff-editor"></div>
-  </div>
+ <div id="container" style="width:800px;height:600px;border:1px solid grey"></div>
   <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -93,25 +86,20 @@
   <script>
     var require = { paths: { 'vs': 'node_modules/monaco-editor/min/vs' } };
   </script>
-  <script src="node_modules/monaco-editor/min/vs/loader.js"></script>
-  <script src="node_modules/monaco-editor/min/vs/editor/editor.main.nls.js"></script>
-  <script src="node_modules/monaco-editor/min/vs/editor/editor.main.js"></script>
+  <script src="monaco-editor/min/vs/loader.js"></script>
   <script>
-    "use strict";
-
-    var editor = null;
-
-    $(document).ready(function () {
-      require(['vs/editor/editor.main'], function () {
-
-      })();
-
-      window.onresize = function () {
-        if (editor) {
-          editor.layout();
-        }
-      };
+    require.config({ paths: { 'vs': 'monaco-editor/min/vs' } });
+    require(['vs/editor/editor.main'], function () {
+      var editor = monaco.editor.create(document.getElementById('container'), {
+        value: [
+          'function x() {',
+          '\tconsole.log("Hello world!");',
+          '}'
+        ].join('\n'),
+        language: 'javascript'
+      });
     });
+
   </script>
 </body>
 
