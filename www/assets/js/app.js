@@ -35,11 +35,11 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
         require.config({ paths: { 'vs': 'node_modules/monaco-editor/min/vs' } });
         require(['vs/editor/editor.main'], function () {
             var editor = monaco.editor.create(document.getElementById('container'), {
-                value: data,
+                value: JSON.stringify(data),
                 language: 'json'
             });
         });
-        
+
     });
 }]);
 
