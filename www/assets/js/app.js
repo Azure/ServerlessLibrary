@@ -31,6 +31,12 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
 libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
     $http.get('assets/data/arm-input.js').success(function (data) {
         $scope.data = data;
+
+
+
+        var editor = monaco.editor.create(document.getElementById('container'), { });
+        editor.updateOptions({ 'value': data });
+
     });
 }]);
 
