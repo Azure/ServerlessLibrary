@@ -45,9 +45,9 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
 
     $scope.urlChange = function () {
         $scope.data.variables.repoUrl = "sdfghjk";
-
-        var editor = document.getElementById('container');
-        editor.updateOptions({ 'value': JSON.stringify($scope.data, null, 2) });
+        window.editor.setValue(JSON.stringify($scope.data, null, 2));
+        // var editor = document.getElementById('container');
+        // editor.updateOptions({ 'value': JSON.stringify($scope.data, null, 2) });
     };
 }]);
 
