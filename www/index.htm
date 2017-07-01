@@ -31,13 +31,12 @@
                     <div class="panel-heading">
                         <h3 class="panel-title"><span ng-show="item.type == 'function'" class="glyphicon glyphicon-flash"></span><span ng-show="item.type == 'logicapp'"
                                 class="glyphicon glyphicon-tasks"></span> {{item.title}}</h3>
+                        <small ng-show="item.language == 'javascript'">(NodeJS)</small>
+                        <small ng-show="item.language == 'csharp'">(C#)</small>
+                        <small ng-show="item.language == 'na'">(codeless)</small>
                     </div>
                     <div class="panel-body">
-                        <p>{{item.description}}
-                            <em ng-show="item.language == 'javascript'">(NodeJS)</em>
-                            <em ng-show="item.language == 'csharp'">(C#)</em>
-                            <em ng-show="item.language == 'na'">(codeless)</em>
-                        </p>
+                        <p>{{item.description}}</p>
                     </div>
                     <ul class="list-group">
                         <li class="list-group-item">
