@@ -44,12 +44,8 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
         $scope.urlChange = function () {
             $scope.data.variables.repoUrl = "sdfghjk";
 
-            require(['vs/editor/editor.main'], function () {
-            var editor = monaco.editor.create(document.getElementById('container'), {
-                value: JSON.stringify($scope.data, null, 2),
-                language: 'json'
-            });
-        });
+            var editor = monaco.editor.create(document.getElementById('container'), {});
+            editor.updateOptions({ 'value': JSON.stringify($scope.data, null, 2) });
         };
     });
 }]);
