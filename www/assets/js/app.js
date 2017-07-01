@@ -33,6 +33,7 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
         $scope.data = data;
 
         require.config({ paths: { 'vs': 'node_modules/monaco-editor/min/vs' } });
+
         require(['vs/editor/editor.main'], function () {
             var editor = monaco.editor.create(document.getElementById('container'), {
                 value: JSON.stringify(data, null, 2),
@@ -40,6 +41,16 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
             });
         });
 
+        $scope.urlChange = function () {
+            $scope.data.variables.repoUrl = "sdfghjk";
+
+            require(['vs/editor/editor.main'], function () {
+            var editor = monaco.editor.create(document.getElementById('container'), {
+                value: JSON.stringify($scope.data, null, 2),
+                language: 'json'
+            });
+        });
+        };
     });
 }]);
 
