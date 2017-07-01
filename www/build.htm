@@ -105,45 +105,9 @@
 
     $(document).ready(function () {
       require(['vs/editor/editor.main'], function () {
-        var MODES = (function () {
-          var modesIds = monaco.languages.getLanguages().map(function (lang) { return lang.id; });
-          modesIds.sort();
-
-          return modesIds.map(function (modeId) {
-            return {
-              modeId: modeId,
-              sampleURL: 'index/samples/sample.' + modeId + '.txt'
-            };
-          });
+       
         })();
 
-        var startModeIndex = 0;
-        for (var i = 0; i < MODES.length; i++) {
-          var o = document.createElement('option');
-          o.textContent = MODES[i].modeId;
-          if (MODES[i].modeId === 'typescript') {
-            startModeIndex = i;
-          }
-          $(".language-picker").append(o);
-        }
-        $(".language-picker")[0].selectedIndex = startModeIndex;
-        loadSample(MODES[startModeIndex]);
-        $(".language-picker").change(function () {
-          loadSample(MODES[this.selectedIndex]);
-        });
-
-        $(".theme-picker").change(function () {
-          changeTheme(this.selectedIndex);
-        });
-
-        loadDiffSample();
-
-        $('#inline-diff-checkbox').change(function () {
-          diffEditor.updateOptions({
-            renderSideBySide: !$(this).is(':checked')
-          });
-        });
-      });
 
       window.onresize = function () {
         if (editor) {
