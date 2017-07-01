@@ -45,6 +45,14 @@
       </form>
     </div>
   </div>
+  <div class="editor-frame">
+    <div class="loading diff-editor" style="display: none;">
+      <div class="progress progress-striped active">
+        <div class="bar"></div>
+      </div>
+    </div>
+    <div id="diff-editor"></div>
+  </div>
   <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -80,6 +88,182 @@
     var appInsights = window.appInsights || function (config) { function i(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = "AuthenticatedUserContext", h = "start", c = "stop", l = "Track", a = l + "Event", v = l + "Page", y = u.createElement(o), r, f; y.src = config.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js"; u.getElementsByTagName(o)[0].parentNode.appendChild(y); try { t.cookie = u.cookie } catch (p) { } for (t.queue = [], t.version = "1.0", r = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; r.length;)i("track" + r.pop()); return i("set" + s), i("clear" + s), i(h + a), i(c + a), i(h + v), i(c + v), i("flush"), config.disableExceptionTracking || (r = "onerror", i("_" + r), f = e[r], e[r] = function (config, i, u, e, o) { var s = f && f(config, i, u, e, o); return s !== !0 && t["_" + r](config, i, u, e, o), s }), t }({ instrumentationKey: "9f74439d-241f-489e-84ae-b229d0a04626" }); window.appInsights = appInsights; appInsights.trackPageView();
   </script>
   <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-590e379817883933"></script>
+
+
+<script>/// <reference path="../../release/monaco.d.ts" />
+
+"use strict";
+
+var editor = null, diffEditor = null;
+
+$(document).ready(function() {
+	require(['vs/editor/editor.main'], function () {
+		var MODES = (function() {
+			var modesIds = monaco.languages.getLanguages().map(function(lang) { return lang.id; });
+			modesIds.sort();
+
+			return modesIds.map(function(modeId) {
+				return {
+					modeId: modeId,
+					sampleURL: 'index/samples/sample.' + modeId + '.txt'
+				};
+			});
+		})();
+
+		var startModeIndex = 0;
+		for (var i = 0; i < MODES.length; i++) {
+			var o = document.createElement('option');
+			o.textContent = MODES[i].modeId;
+			if (MODES[i].modeId === 'typescript') {
+				startModeIndex = i;
+			}
+			$(".language-picker").append(o);
+		}
+		$(".language-picker")[0].selectedIndex = startModeIndex;
+		loadSample(MODES[startModeIndex]);
+		$(".language-picker").change(function() {
+			loadSample(MODES[this.selectedIndex]);
+		});
+
+		$(".theme-picker").change(function() {
+			changeTheme(this.selectedIndex);
+		});
+
+		loadDiffSample();
+
+		$('#inline-diff-checkbox').change(function () {
+			diffEditor.updateOptions({
+				renderSideBySide: !$(this).is(':checked')
+			});
+		});
+	});
+
+	window.onresize = function () {
+		if (editor) {
+			editor.layout();
+		}
+		if (diffEditor) {
+			diffEditor.layout();
+		}
+	};
+});
+
+var preloaded = {};
+(function() {
+	var elements = Array.prototype.slice.call(document.querySelectorAll('pre[data-preload]'), 0);
+
+	elements.forEach(function(el) {
+		var path = el.getAttribute('data-preload');
+		preloaded[path] = el.innerText || el.textContent;
+		el.parentNode.removeChild(el);
+	});
+})();
+
+function xhr(url, cb) {
+	if (preloaded[url]) {
+		return cb(null, preloaded[url]);
+	}
+	$.ajax({
+		type: 'GET',
+		url: url,
+		dataType: 'text',
+		error: function () {
+			cb(this, null);
+		}
+	}).done(function(data) {
+		cb(null, data);
+	});
+}
+
+function loadSample(mode) {
+	$('.loading.editor').show();
+	xhr(mode.sampleURL, function(err, data) {
+		if (err) {
+			if (editor) {
+				if (editor.getModel()) {
+					editor.getModel().dispose();
+				}
+				editor.dispose();
+				editor = null;
+			}
+			$('.loading.editor').fadeOut({ duration: 200 });
+			$('#editor').empty();
+			$('#editor').append('<p class="alert alert-error">Failed to load ' + mode.modeId + ' sample</p>');
+			return;
+		}
+
+		if (!editor) {
+			$('#editor').empty();
+			editor = monaco.editor.create(document.getElementById('editor'), {
+				model: null,
+			});
+		}
+
+		var oldModel = editor.getModel();
+		var newModel = monaco.editor.createModel(data, mode.modeId);
+		editor.setModel(newModel);
+		if (oldModel) {
+			oldModel.dispose();
+		}
+		$('.loading.editor').fadeOut({ duration: 300 });
+	})
+}
+
+function loadDiffSample() {
+
+	var onError = function() {
+		$('.loading.diff-editor').fadeOut({ duration: 200 });
+		$('#diff-editor').append('<p class="alert alert-error">Failed to load diff editor sample</p>');
+	};
+
+	$('.loading.diff-editor').show();
+
+	var lhsData = null, rhsData = null, jsMode = null;
+
+	xhr('index/samples/diff.lhs.txt', function(err, data) {
+		if (err) {
+			return onError();
+		}
+		lhsData = data;
+		onProgress();
+	})
+	xhr('index/samples/diff.rhs.txt', function(err, data) {
+		if (err) {
+			return onError();
+		}
+		rhsData = data;
+		onProgress();
+	})
+
+	function onProgress() {
+		if (lhsData && rhsData) {
+			diffEditor = monaco.editor.createDiffEditor(document.getElementById('diff-editor'), {
+				enableSplitViewResizing: false
+			});
+
+			var lhsModel = monaco.editor.createModel(lhsData, 'text/javascript');
+			var rhsModel = monaco.editor.createModel(rhsData, 'text/javascript');
+
+			diffEditor.setModel({
+				original: lhsModel,
+				modified: rhsModel
+			});
+
+			$('.loading.diff-editor').fadeOut({ duration: 300 });
+		}
+	}
+}
+
+function changeTheme(theme) {
+	var newTheme = (theme === 1 ? 'vs-dark' : ( theme === 0 ? 'vs' : 'hc-black' ));
+	if (editor) {
+		editor.updateOptions({ 'theme' : newTheme });
+	}
+	if (diffEditor) {
+		diffEditor.updateOptions({ 'theme': newTheme });
+	}
+}
+</script>
 </body>
 
 </html>
