@@ -17,10 +17,9 @@ To add a new item to the library, create a pull request for [Apps.js](https://gi
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjefking%2FFunctionLibrary%2Fmaster%2Fazuredeploy.json)
 
-## Extraa
+## Generic Deployment
 
-If you know of a Git repo, you can use this to deploy as an Azure Function [AzureDeploy.Any.json](https://github.com/jefking/FunctionLibrary/blob/master/azuredeploy.any.json)
+If you know a Git repo with a Function or Logic App in it you can use this to deploy to Azure: [AzureDeploy.Any.json](https://github.com/jefking/FunctionLibrary/blob/master/azuredeploy.any.json)
 
-[![Deploy One Now](http://azuredeploy.net/deploybutton.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjefking%2FFunctionLibrary%2Fmaster%2Fazuredeploy.any.json)
-
+If you want to create an ARM template that deploys Functions or LogicApps: 
 [Build Your Own](http://functionlibrary.azurewebsites.net/build.htm)
