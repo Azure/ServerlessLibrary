@@ -35,7 +35,7 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
         require.config({ paths: { 'vs': 'node_modules/monaco-editor/min/vs' } });
         require(['vs/editor/editor.main'], function () {
             var editor = monaco.editor.create(document.getElementById('container'), {
-                value: JSON.stringify(data),
+                value: JSON.stringify(data, null, 2),
                 language: 'json'
             });
         });
