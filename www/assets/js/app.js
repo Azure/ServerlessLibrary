@@ -29,10 +29,10 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
 }]);
 
 libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
+    require.config({ paths: { 'vs': 'node_modules/monaco-editor/min/vs' } });
+
     $http.get('assets/data/arm-input.js').success(function (data) {
         $scope.data = data;
-
-        require.config({ paths: { 'vs': 'node_modules/monaco-editor/min/vs' } });
 
         require(['vs/editor/editor.main'], function () {
             var editor = monaco.editor.create(document.getElementById('container'), {
