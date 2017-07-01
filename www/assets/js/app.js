@@ -47,7 +47,7 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
         $scope.data.variables.repoUrl = document.getElementById('repo').value;
 
         //var editor  = document.getElementById('container');
-        $scope.setValue('JSON.stringify($scope.data, null, 2)');
+        $scope.editor.setValue('JSON.stringify($scope.data, null, 2)');
          //var editor = document.getElementById('container');
         // editor.updateOptions({ 'value': JSON.stringify($scope.data, null, 2) });
     };
