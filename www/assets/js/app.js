@@ -35,7 +35,7 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
         $scope.data = data;
 
         require(['vs/editor/editor.main'], function () {
-            var editor = monaco.editor.create(document.getElementById('container'), {
+            $scope.editor = monaco.editor.create(document.getElementById('container'), {
                 value: JSON.stringify(data, null, 2),
                 language: 'json'
             });
@@ -45,9 +45,9 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
 
     $scope.urlChange = function () {
         $scope.data.variables.repoUrl = document.getElementById('repo').value;
-        
-        var editor  = document.getElementById('container');
-        editor.setValue('JSON.stringify($scope.data, null, 2)');
+
+        //var editor  = document.getElementById('container');
+        $scope.setValue('JSON.stringify($scope.data, null, 2)');
          //var editor = document.getElementById('container');
         // editor.updateOptions({ 'value': JSON.stringify($scope.data, null, 2) });
     };
