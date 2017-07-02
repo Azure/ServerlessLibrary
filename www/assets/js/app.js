@@ -11,7 +11,13 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
                 return encodeURIComponent(item.template);
             };
             item.AddTemplateUri = function () {
-                return encodeURIComponent(item.addTemplate)
+                return encodeURIComponent(item.addTemplate);
+            };
+            item.isFunction = function () {
+                return type == 'function';
+            };
+            item.isLogicApp = function () {
+                return type == 'logicapp';
             };
         });
 

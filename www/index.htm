@@ -38,15 +38,15 @@
     <div class="container" ng-controller="library">
         <div class="columns">
             <div class="col-sm-4" ng-repeat="row in columns">
-                <div class="panel panel-primary" ng-repeat="item in row | filter:query">
+                <div class="panel" ng-class="panel-primary: isFunction" ng-repeat="item in row | filter:query">
                     <div class="panel-heading">
                         <h3 class="panel-title"><span ng-show="item.type == 'function'" class="glyphicon glyphicon-flash"></span><span ng-show="item.type == 'logicapp'"
                                 class="glyphicon glyphicon-tasks"></span> {{item.title}}</h3>
                     </div>
                     <div class="panel-body">
                         <p>{{item.description}}
-                            <small ng-show="item.type == 'function'">(Function in</small>
-                            <small ng-show="item.type == 'logicapp'">(LogicApp: </small>
+                            <small ng-show="item.isFunction">(Function in</small>
+                            <small ng-show="item.isLogicApp">(LogicApp: </small>
                             <small ng-show="item.language == 'javascript'">NodeJS)</small>
                             <small ng-show="item.language == 'csharp'">C#)</small>
                             <small ng-show="item.language == 'na'">codeless)</small>
