@@ -5,6 +5,9 @@ An open source set of common use cases for Azure Functions & LogicApps that are 
 
 ### Function or LogicApp
 
+Function Git Repo [Example](https://github.com/jefking/fl-image-resize)
+LogicApp Git Repo [Example](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-create)
+
 ### Add to the Serverless Library
 To add a new item to the library, create a pull request for [Apps.js](https://github.com/jefking/FunctionLibrary/blob/master/www/assets/data/apps.js):
 - title: Title of application
