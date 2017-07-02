@@ -22,6 +22,6 @@ If you know a Git repo with a Function or Logic App in it you can use this to de
 If you want to create an ARM template that deploys Functions or LogicApps: 
 [Build Your Own](http://functionlibrary.azurewebsites.net/build.htm)
 
-## A Serverless Library of your own
+## Enjoy a Serverless Library of your own :-)
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjefking%2FFunctionLibrary%2Fmaster%2Fazuredeploy.json)
