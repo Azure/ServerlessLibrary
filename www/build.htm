@@ -9,7 +9,6 @@
   <meta name="description" content="An open source library of Azure Functions that are ready to be deployed in seconds! Please contribute, it is really easy.">
   <meta name="author" content="Jef King">
   <link rel="icon" href="favicon.ico">
-
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
@@ -18,7 +17,7 @@
 </head>
 
 <body>
-  <div class="container vertical-center">
+  <div class="vertical-center">
     <div class="panel panel-primary" ng-controller="arm">
       <div class="panel-heading">
         <h3 class="panel-title">
@@ -28,7 +27,6 @@
         </h3>
       </div>
       <div class="panel-body">
-        <form class="form-horizontal">
           <div class="input-group input-group-lg">
             <span class="input-group-addon">URL</span>
             <input type="url" class="form-control" ng-change="urlChange()" id="repo" placeholder="https://github.com/jefking/FunctionLibrary"
@@ -36,9 +34,8 @@
           </div>
       </div>
       <div class="panel-footer">
-        <div id="container" style="height:340px;border:1px solid grey"></div>
+        <div id="container" style="height:460px;border:1px solid grey"></div>
       </div>
-      </form>
     </div>
   </div>
 
