@@ -38,3 +38,8 @@ body {
   display: flex;
   align-items: center;
 }
+.codeEditor
+{
+  height:460px;
+  border:1px solid grey
+}
