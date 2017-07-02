@@ -9,11 +9,11 @@ An open source set of common use cases for Azure Functions & LogicApps that are 
 To add a new item to the library, create a pull request for [Apps.js](https://github.com/jefking/FunctionLibrary/blob/master/www/assets/data/apps.js):
 - title: Title of application
 - description: Description of application
-- template: ARM template which deploys infrastructure as well as application
-- repository: URL of publically accessible git repository
-- addtemplate: AddTemplateUrl : For more details refer [here](https://github.com/fashaikh/GitHubReZip). Note this currently doesnt support .deployment files and needs a particular dirctory structure.
-- language: Language of code expected values: chsarp, javascript, na (none)
-- type: Of app that is deployed; expected values: logicapp, function
+- template: ARM template which deploys the infrastructure & the application
+- repository: URL of a publicly accessible git repository
+- addtemplate: Add Template Url; for more details go [here](https://github.com/fashaikh/GitHubReZip). This currently doesn't support .deployment files & needs a particular dirctory structure.
+- language: Language code is written in (ex. chsarp, javascript, na
+- type: Type of application (ex. logicapp, function)
 
 ## Generic Deployment
 
