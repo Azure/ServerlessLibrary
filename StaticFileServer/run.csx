@@ -6,7 +6,7 @@ using MimeTypes;
 
 const string staticFilesFolder = "www";
 static string defaultPage = string.IsNullOrEmpty(GetEnvironmentVariable("DEFAULT_PAGE")) ? 
-    "index.html" : GetEnvironmentVariable("DEFAULT_PAGE");
+    "index.htm" : GetEnvironmentVariable("DEFAULT_PAGE");
 
 public static HttpResponseMessage Run(HttpRequestMessage req, TraceWriter log)
 {
@@ -38,7 +38,7 @@ private static string GetFilePath(HttpRequestMessage req, TraceWriter log)
         .FirstOrDefault(q => string.Compare(q.Key, "file", true) == 0)
         .Value;
 
-    var path = pathValue ?? "";
+    var path = pathValue ?? string.Empty;
     
     var staticFilesPath = Path.GetFullPath(Path.Combine(GetScriptPath(), staticFilesFolder));
     var fullPath = Path.GetFullPath(Path.Combine(staticFilesPath, path));
