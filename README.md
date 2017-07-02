@@ -3,9 +3,9 @@ An open source set of common use cases for Azure Functions & LogicApps that are 
 
 ## How-to Contribute to the Serverless Library
 
-1) Create a repository like either of these examples: [Function Example](https://github.com/jefking/fl-image-resize) or [LogicApp Example](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-create)
+1) Create a repository. Here are a couple great examples: [Function Example](https://github.com/jefking/fl-image-resize) or [LogicApp Example](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-create)
 
-2) Create an ARM Template. This [ARM template generator](http://functionlibrary.azurewebsites.net/build.htm) quickly creates one for Azure Functions. LogicApps code is contained in the ARM templates, so build the LogicApp in the Azure portal & commit the generated template to your Git repo.
+2) Create an ARM template. This [ARM template generator](http://functionlibrary.azurewebsites.net/build.htm) quickly creates one for Azure Functions. LogicApps code is contained in the ARM templates, so build the LogicApp in the Azure portal & commit the generated template to your Git repo.
 
 3) To add a new item to the library, create a pull request for [Apps.js](https://github.com/jefking/FunctionLibrary/blob/master/www/assets/data/apps.js):
 - title: Title of application
