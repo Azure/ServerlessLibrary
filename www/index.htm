@@ -38,7 +38,7 @@
     <div class="container" ng-controller="library">
         <div class="columns">
             <div class="col-sm-4" ng-repeat="row in columns">
-                <div class="panel panel-primary" ng-repeat="item in row | filter:query">
+                <div class="panel" ng-class="panel-primary: item.type == 'function'" ng-repeat="item in row | filter:query">
                     <div class="panel-heading">
                         <h3 class="panel-title"><span ng-show="item.type == 'function'" class="glyphicon glyphicon-flash"></span><span ng-show="item.type == 'logicapp'"
                                 class="glyphicon glyphicon-tasks"></span> {{item.title}}</h3>
