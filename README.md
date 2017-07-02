@@ -1,16 +1,13 @@
 # Azure Serverless Library: Quickly Deploy Code
 An open source set of common use cases for Azure Functions & LogicApps that are ready to deploy!
 
-## Adding to the Serverless Library
+## Add to the Serverless Library
 
-### Function or LogicApp
+1) Create a repository & add it here. Follow these good examples: [Function Example](https://github.com/jefking/fl-image-resize) & [LogicApp Example](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-create)
 
-It is really easy to create a repository & add it here. Follow these good examples: [Function Example](https://github.com/jefking/fl-image-resize) & [LogicApp Example](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-create)
+2) reate an ARM Template. Here is an [ARM template generator](http://functionlibrary.azurewebsites.net/build.htm) which allows you to deploy any function. As a LogicApp's code is inside the ARM template you will need to build out the LogicApp in the Azure portal & commit the template to your Git repo.
 
-Secondly, create an ARM Template. Here is an [ARM template generator](http://functionlibrary.azurewebsites.net/build.htm) which allows you to deploy any function. As a LogicApp's code is inside the ARM template you will need to build out the LogicApp in the Azure portal & commit the template to your Git repo.
-
-### Add to the Serverless Library
-To add a new item to the library, create a pull request for [Apps.js](https://github.com/jefking/FunctionLibrary/blob/master/www/assets/data/apps.js):
+3) To add a new item to the library, create a pull request for [Apps.js](https://github.com/jefking/FunctionLibrary/blob/master/www/assets/data/apps.js):
 - title: Title of application
 - description: Description of application
 - template: ARM template which deploys the infrastructure & the application
