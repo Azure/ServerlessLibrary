@@ -31,9 +31,9 @@ body {
   background-color: #f5f5f5;
 }
 .vertical-center {
-  min-height: 100%;
+  min-height: 90%;
   /* Fallback for browsers do NOT support vh unit */
-  min-height: 100vh;
+  min-height: 90vh;
   /* These two lines are counted as one :-)       */
   display: flex;
   align-items: center;
