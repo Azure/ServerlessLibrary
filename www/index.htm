@@ -45,8 +45,8 @@
                     </div>
                     <div class="panel-body">
                         <p>{{item.description}}
-                            <small ng-show="item.isFunction">(Function in</small>
-                            <small ng-show="item.isLogicApp">(LogicApp: </small>
+                            <small ng-show="item.isFunction()">(Function in</small>
+                            <small ng-show="item.isLogicApp()">(LogicApp: </small>
                             <small ng-show="item.language == 'javascript'">NodeJS)</small>
                             <small ng-show="item.language == 'csharp'">C#)</small>
                             <small ng-show="item.language == 'na'">codeless)</small>
