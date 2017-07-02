@@ -14,10 +14,10 @@ libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
                 return encodeURIComponent(item.addTemplate);
             };
             item.isFunction = function () {
-                return type == 'function';
+                return item.type == 'function';
             };
             item.isLogicApp = function () {
-                return type == 'logicapp';
+                return item.type == 'logicapp';
             };
         });
 
