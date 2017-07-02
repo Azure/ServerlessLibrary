@@ -1,7 +1,7 @@
 # Azure Serverless Library: Quickly Deploy Code
 An open source set of common use cases for Azure Functions & LogicApps that are ready to deploy!
 
-## Add to the Serverless Library
+## How-to Contribute to the Serverless Library
 
 1) Create a repository like these examples: [Function Example](https://github.com/jefking/fl-image-resize) or [LogicApp Example](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-create)
 
