@@ -38,8 +38,7 @@
     <div class="container" ng-controller="library">
         <div class="columns">
             <div class="col-sm-4" ng-repeat="row in columns">
-                <div  ng-repeat="item in row | filter:query">
-                    <div class="panel" ng-class="panel-primary: item.type == 'function'">
+                <div class="panel panel-primary" ng-repeat="item in row | filter:query">
                     <div class="panel-heading">
                         <h3 class="panel-title"><span ng-show="item.type == 'function'" class="glyphicon glyphicon-flash"></span><span ng-show="item.type == 'logicapp'"
                                 class="glyphicon glyphicon-tasks"></span> {{item.title}}</h3>
@@ -63,7 +62,6 @@
                             <a href="{{item.repository}}" target="_blank" class="btn btn-info"><span class="glyphicon glyphicon-file"></span></a>
                         </div>
 
-                    </div>
                     </div>
                 </div>
             </div>
