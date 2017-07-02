@@ -7,7 +7,7 @@ An open source set of common use cases for Azure Functions & LogicApps that are 
 
 2) Create an ARM template. This [ARM template generator](http://functionlibrary.azurewebsites.net/build.htm) quickly creates one for Azure Functions. LogicApps code is contained in the ARM templates, so build the LogicApp in the Azure portal & commit the generated template to your Git repo.
 
-3) To add a new item to the library, create a pull request for [Apps.js](https://github.com/jefking/FunctionLibrary/blob/master/www/assets/data/apps.js):
+3) To add a new item to the library, fill out the information needed in [Apps.js](https://github.com/jefking/FunctionLibrary/blob/master/www/assets/data/apps.js):
 - title: Title of application
 - description: Description of application
 - template: ARM template which deploys the infrastructure & the application
