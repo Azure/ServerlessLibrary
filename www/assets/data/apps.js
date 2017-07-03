@@ -77,8 +77,9 @@
         "title": "Slack: User Change Alerts",
         "template": "https://raw.githubusercontent.com/anthonychu/slack-user-change-alerts/master/azuredeploy.portal.json",
         "repository": "https://github.com/anthonychu/slack-user-change-alerts/tree/master/src/SlackUserChangeAlerts.Function",
-        "description": "An Azure Function that sends a Slackbot notification to specified users or channels when users are added or removed from Slack. Ported from https://github.com/cfe84/slack-users-change-alerts.",
+        "description": "An Azure Function that sends a Slackbot notification to specified users or channels when users are added or removed from Slack.",
         "language": "javascript",
+        "blog": "https://github.com/cfe84/slack-users-change-alerts",
         "type": "function"
     },
     {
