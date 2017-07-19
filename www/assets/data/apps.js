@@ -77,7 +77,7 @@
         "title": "Slack: User Change Alerts",
         "template": "https://raw.githubusercontent.com/anthonychu/slack-user-change-alerts/master/azuredeploy.portal.json",
         "repository": "https://github.com/anthonychu/slack-user-change-alerts/tree/master/src/SlackUserChangeAlerts.Function",
-        "description": "An Azure Function that sends a Slackbot notification to specified users or channels when users are added or removed from Slack.",
+        "description": "Sends a Slackbot notification to specified users or channels when users are added or removed from Slack.",
         "language": "javascript",
         "blog": "https://github.com/cfe84/slack-users-change-alerts",
         "type": "function"
@@ -169,6 +169,14 @@
         "template": "https://raw.githubusercontent.com/jefking/fn-http-topic/master/azuredeploy.json",
         "repository": "https://github.com/jefking/fn-http-topic/tree/master/src",
         "description": "Posted messages get added to Azure Service Bus Topic.",
+        "language": "javascript",
+        "type": "function"
+    },
+    {
+        "title": "Webhook: to Service Bus Queue",
+        "template": "https://raw.githubusercontent.com/jefking/fn-webhook-queue/master/azuredeploy.json",
+        "repository": "https://github.com/jefking/fn-webhook-queue/tree/master/src",
+        "description": "Posted Body gets added to Azure Service Bus Queue.",
         "language": "javascript",
         "type": "function"
     }
