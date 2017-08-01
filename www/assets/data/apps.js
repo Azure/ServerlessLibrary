@@ -29,7 +29,7 @@
         "title": "Purolator Package Tracker",
         "template": "https://raw.githubusercontent.com/akos-sebestyen/purolator-tracker/master/azuredeploy.json",
         "repository": "https://github.com/akos-sebestyen/purolator-tracker",
-        "description": "App to track a Purolator Shipments.",
+        "description": "App for tracking Purolator shipments.",
         "language": "javascript",
         "type": "function"
     },
