@@ -29,7 +29,7 @@
         "title": "Purolator Package Tracker",
         "template": "https://raw.githubusercontent.com/akos-sebestyen/purolator-tracker/master/azuredeploy.json",
         "repository": "https://github.com/akos-sebestyen/purolator-tracker",
-        "description": "Azure Functions App to track a Purolator Shipment.",
+        "description": "App to track a Purolator Shipments.",
         "language": "javascript",
         "type": "function"
     },
