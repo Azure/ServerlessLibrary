@@ -187,5 +187,21 @@
         "description": "Posted Body gets added to Azure Service Bus Queue.",
         "language": "javascript",
         "type": "function"
+    },
+    {
+        "title": "Cognitive Services: Smart Thumbnails",
+        "template": "https://raw.githubusercontent.com/jefking/fn-smart-thumbnail/master/azuredeploy.json",
+        "repository": "https://github.com/jefking/fn-smart-thumbnail/tree/master/src",
+        "description": "Test your own images against Microsoft Cognitive Services: Smart Thumbnail API.",
+        "language": "csharp",
+        "type": "function"
+    },
+    {
+        "title": "Cognitive Services: Computer Vision",
+        "template": "https://raw.githubusercontent.com/jefking/fn-computer-vision/master/azuredeploy.json",
+        "repository": "https://github.com/jefking/fn-computer-vision/tree/master/src",
+        "description": "Test your own images against Microsoft Cognitive Services: Computer Vision API.",
+        "language": "csharp",
+        "type": "function"
     }
 ]
