@@ -45,7 +45,7 @@
         "title": "Cognitive Services: Smart Thumbnails",
         "template": "https://raw.githubusercontent.com/jefking/fn-smart-thumbnail/master/azuredeploy.json",
         "repository": "https://github.com/jefking/fn-smart-thumbnail/tree/master/src",
-        "description": "Test your own images against Microsoft Cognitive Services: Smart Thumbnail API.",
+        "description": "Test your own images in bulk against Microsoft Cognitive Services: Smart Thumbnail API.",
         "language": "csharp",
         "type": "function"
     },
@@ -53,7 +53,7 @@
         "title": "Cognitive Services: Computer Vision",
         "template": "https://raw.githubusercontent.com/jefking/fn-computer-vision/master/azuredeploy.json",
         "repository": "https://github.com/jefking/fn-computer-vision/tree/master/src",
-        "description": "Test your own images against Microsoft Cognitive Services: Computer Vision API.",
+        "description": "Test your own images in bulk against Microsoft Cognitive Services: Computer Vision API.",
         "language": "csharp",
         "type": "function"
     },
@@ -61,7 +61,7 @@
         "title": "Cognitive Services: OCR",
         "template": "https://github.com/nastassiar/RecognizeTextFunction/master/azuredeploy.json",
         "repository": "https://github.com/nastassiar/RecognizeTextFunction/tree/master/src",
-        "description": "Test your own images against Microsoft Cognitive Services: OCR.",
+        "description": "Test your own images in bulk against Microsoft Cognitive Services: OCR.",
         "language": "csharp",
         "type": "function"
     },
