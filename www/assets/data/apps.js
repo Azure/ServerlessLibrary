@@ -58,6 +58,14 @@
         "type": "function"
     },
     {
+        "title": "Cognitive Services: OCR",
+        "template": "https://github.com/nastassiar/RecognizeTextFunction/master/azuredeploy.json",
+        "repository": "https://github.com/nastassiar/RecognizeTextFunction/tree/master/src",
+        "description": "Test your own images against Microsoft Cognitive Services: OCR.",
+        "language": "csharp",
+        "type": "function"
+    },
+    {
         "title": "Timer: Azure EA Billing",
         "template": "https://raw.githubusercontent.com/jefking/refreshusagedata/master/deploy.json",
         "repository": "https://github.com/jefking/refreshusagedata/tree/master",
