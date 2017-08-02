@@ -7,13 +7,6 @@
          "metadata":{
             "description":"The name of the function app that you wish to create."
          }
-      },
-      "siteLocation":{
-         "type":"string",
-         "defaultValue":"West US",
-         "metadata":{
-            "description":"The location to use for creating the function app and hosting plan. It must be one of the Azure locations that support function apps."
-         }
       }
    },
    "variables":{
@@ -77,14 +70,14 @@
          "dependsOn":[
             "[resourceId('Microsoft.Storage/storageAccounts', variables('storageName'))]"
          ],
-         "location":"[parameters('siteLocation')]",
+         "location":"[resourceGroup().location]",
          "kind":"functionapp"
       },
       {
          "apiVersion":"2015-05-01-preview",
          "type":"Microsoft.Storage/storageAccounts",
          "name":"[variables('storageName')]",
-         "location":"[parameters('siteLocation')]",
+         "location":"[resourceGroup().location]",
          "properties":{
             "accountType":"Standard_LRS"
          }
