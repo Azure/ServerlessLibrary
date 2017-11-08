@@ -8,6 +8,15 @@
         "type": "function"
     },
     {
+        "title": "What to Bring",
+        "template": "https://raw.githubusercontent.com/ricardodsanchez/WhatToBring/master/azuredeploy.json",
+        "repository": "https://github.com/ricardodsanchez/WhatToBring",
+        "description": "Returns a list of what items you should bring when traveling to certain cities.",
+        "language": "javascript",
+        "type": "function",
+        "blog": "https://ricardodsanchez.com/what-can-you-do-with-azure-functions-heres-one-example/"
+    },
+    {
         "title": "Stripe Payment Service",
         "template": "https://raw.githubusercontent.com/toolboc/stripe-function/master/azuredeploy.json",
         "repository": "https://github.com/toolboc/stripe-function",
