@@ -25,4 +25,4 @@ If you want to create an ARM template that deploys Functions or LogicApps:
 
 ## Enjoy a Serverless Library of your very own :-)
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjefking%2FFunctionLibrary%2Fmaster%2Fazuredeploy.json)
+[![Deploy to Azure](http://azuredeploy.net/deploybutton.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjefking%2FFunctionLibrary%2Fmaster%2Fazuredeploy.json)asdsadasdas
