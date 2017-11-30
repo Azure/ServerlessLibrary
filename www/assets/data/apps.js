@@ -11,7 +11,7 @@
         "title": "HTTP CRUD on CosmoDB",
         "template": "https://raw.githubusercontent.com/nastassiar/crudfunctions/master/azure-deploy.json",
         "repository": "https://github.com/nastassiar/crudfunctions",
-        "description": "An HTTP API for CRUD operations against CosmosDB; so boring, why would you write it yourself!",
+        "description": "An HTTP API for CRUD operations against CosmosDB. (So boring, why would you write it yourself?!!)",
         "language": "javascript",
         "type": "function"
     },
