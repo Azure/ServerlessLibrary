@@ -8,7 +8,7 @@
         "type": "function"
     },
     {
-        "title": "HTTP API for CosmoDB CRUD Operations",
+        "title": "HTTP CRUD on CosmoDB",
         "template": "https://raw.githubusercontent.com/nastassiar/crudfunctions/master/azure-deploy.json",
         "repository": "https://github.com/nastassiar/crudfunctions",
         "description": "An HTTP API for CRUD operations against CosmosDB; so boring, why would you write it yourself!",
