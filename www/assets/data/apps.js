@@ -228,5 +228,29 @@
         "description": "Posted Body gets added to Azure Service Bus Queue.",
         "language": "javascript",
         "type": "function"
+    },
+    {
+        "title": "Reddit Poller",
+        "template": "https://raw.githubusercontent.com/jefking/RedditPoller/master/azuredeploy.json",
+        "repository": "https://github.com/isaac2004/RedditPoller/tree/master",
+        "description": "Scheduled email notifications of Reddit Posts",
+        "language": "csharp",
+        "type": "function"
+    },
+    {
+        "title": "Media Services: Integrating Azure Media Services",
+        "template": "https://raw.githubusercontent.com/jefking/media-services-dotnet-functions-integration/master/azuredeploy.json",
+        "repository": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master",
+        "description": "Sample for use with Azure Media Services. Ingest from Azure Blobs, encode and output to Azure Blobs, monitor encoding progress, and use WebHooks or Queues to hook into the workflow.",
+        "language": "csharp",
+        "type": "function"
+    },
+    {
+        "title": "CoderCards: trading card generator",
+        "template": "https://raw.githubusercontent.com/Azure-Samples/functions-dotnet-codercards/master/AzureDeploy/azuredeploy.json",
+        "repository": "https://github.com/Azure-Samples/functions-dotnet-codercards",
+        "description": "CoderCards is a geek trading card generator. It uses Microsoft Cognitive Services to detect the predominant emotion in a face, which is used to choose a card back.",
+        "language": "csharp",
+        "type": "function"
     }
 ]

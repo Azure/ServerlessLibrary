@@ -1,8 +1,8 @@
 {
     "name": "serverless-library",
     "displayName": "Serverless Library",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "dependencies": {
-        "monaco-editor": "^0.8.3"
+        "monaco-editor": "^0.10.1"
     }
 }
