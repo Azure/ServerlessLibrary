@@ -47,11 +47,6 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
             });
         });
     });
-
-    $scope.urlChange = function () {
-       // $scope.data.variables.repoUrl = document.getElementById('repo').value;
-        $scope.editor.setValue(JSON.stringify($scope.data, null, 2));
-    };
 }]);
 
 libraryApp.controller('contibutors', ['$scope', '$http', function ($scope, $http) {
