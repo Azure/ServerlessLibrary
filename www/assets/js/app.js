@@ -6,6 +6,7 @@ var libraryApp = angular.module('libraryApp'
 
 libraryApp.config(function ($routeProvider, $locationProvider, applicationInsightsServiceProvider) {
     applicationInsightsServiceProvider.configure('ce23aecf-911b-4d57-b023-c7e0b4dafdc8', { appName: 'serverless-library' });
+    $scope.appInsights = applicationInsightsServiceProvider;
 });
 
 libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
