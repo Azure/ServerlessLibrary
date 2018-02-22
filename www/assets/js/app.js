@@ -47,6 +47,11 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
             });
         });
     });
+
+    $scope.urlChange = function () {
+        $scope.editor.setValue(JSON.stringify($scope.data, null, 2));
+        $scope.focusElement = 'repo';
+    };
 }]);
 
 libraryApp.controller('contibutors', ['$scope', '$http', function ($scope, $http) {
