@@ -1,6 +1,10 @@
 {
     "name": "serverless-library",
     "displayName": "Serverless Library",
+    "description": "Serverless lyfe, ya'll",
+    "readme": "n/a",
+    "repository": {
+    },
     "version": "0.0.3",
     "dependencies": {
         "angular-applicationinsights": "^0.3.1",
