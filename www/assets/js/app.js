@@ -43,14 +43,14 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
         require(['vs/editor/editor.main'], function () {
             $scope.editor = monaco.editor.create(document.getElementById('container'), {
                 value: JSON.stringify(data, null, 2),
-                language: 'json'
+                language: 'json',
+                readOnly: true
             });
         });
     });
 
     $scope.urlChange = function () {
         $scope.editor.setValue(JSON.stringify($scope.data, null, 2));
-        $scope.focusElement = 'repo';
     };
 }]);
 
