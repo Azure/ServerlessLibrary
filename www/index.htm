@@ -54,12 +54,12 @@
                     </div>
                     <div class="panel-footer">
                         <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
-                            <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank" ng-click="appInsights.trackEvent('{{item.title-deploy}}');"><span class="glyphicon glyphicon-cloud-upload"></span> Deploy</a>
+                            <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank" ng-click="appInsights.trackEvent('{{deploy-item.title}}');"><span class="glyphicon glyphicon-cloud-upload"></span> Deploy</a>
                             <a ng-show="item.addTemplate" class="btn btn-success" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.AddTemplateUri()}}"
-                                target="_blank"><span class="glyphicon glyphicon-plus"></span> Add</a>
-                            <a ng-show="item.blog" class="btn btn-info" href="{{item.blog}}" target="_blank" target="_blank"><span class="glyphicon glyphicon-link"></span></a>
-                            <a class="btn btn-info" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank"><span class="glyphicon glyphicon-eye-open"></span></a>
-                            <a href="{{item.repository}}" target="_blank" class="btn btn-info"><span class="glyphicon glyphicon-file"></span></a>
+                                target="_blank" ng-click="appInsights.trackEvent('{{add-item.title}}');"><span class="glyphicon glyphicon-plus"></span> Add</a>
+                            <a ng-show="item.blog" class="btn btn-info" href="{{item.blog}}" target="_blank" target="_blank" ng-click="appInsights.trackEvent('{{blog-item.title}}');"><span class="glyphicon glyphicon-link"></span></a>
+                            <a class="btn btn-info" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank"ng-click="appInsights.trackEvent('{{visualize-item.title}}');"><span class="glyphicon glyphicon-eye-open"></span></a>
+                            <a href="{{item.repository}}" target="_blank" class="btn btn-info" ng-click="appInsights.trackEvent('{{source-item.title}}');"><span class="glyphicon glyphicon-file"></span></a>
                         </div>
 
                     </div>
