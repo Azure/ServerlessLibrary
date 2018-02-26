@@ -53,7 +53,7 @@
     {
         "title": "Raffle",
         "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-raffle/master/azuredeploy.portal.json",
-        "repository": "https://github.com/anthonychu/azure-functions-raffle/tree/master",
+        "repository": "https://github.com/anthonychu/azure-functions-raffle",
         "description": "A simple raffle application.",
         "language": "csharp",
         "type": "function"
@@ -61,7 +61,7 @@
     {
         "title": "Cognitive Services: Smart Thumbnails",
         "template": "https://raw.githubusercontent.com/jefking/fn-smart-thumbnail/master/azuredeploy.json",
-        "repository": "https://github.com/jefking/fn-smart-thumbnail/tree/master/src",
+        "repository": "https://github.com/jefking/fn-smart-thumbnail",
         "description": "Test your own images in bulk against Microsoft Cognitive Services: Smart Thumbnail API.",
         "language": "csharp",
         "type": "function"
@@ -69,7 +69,7 @@
     {
         "title": "Cognitive Services: Computer Vision",
         "template": "https://raw.githubusercontent.com/jefking/fn-computer-vision/master/azuredeploy.json",
-        "repository": "https://github.com/jefking/fn-computer-vision/tree/master/src",
+        "repository": "https://github.com/jefking/fn-computer-vision",
         "description": "Test your own images in bulk against Microsoft Cognitive Services: Computer Vision API.",
         "language": "csharp",
         "type": "function"
@@ -77,7 +77,7 @@
     {
         "title": "Cognitive Services: OCR",
         "template": "https://raw.githubusercontent.com/nastassiar/CognitiveServicesOCRFunction/master/azuredeploy.json",
-        "repository": "https://github.com/nastassiar/RecognizeTextFunction/tree/master/src",
+        "repository": "https://github.com/nastassiar/RecognizeTextFunction",
         "description": "Test your own images in bulk against Microsoft Cognitive Services: OCR.",
         "language": "csharp",
         "type": "function"
@@ -85,7 +85,7 @@
     {
         "title": "Timer: Azure EA Billing",
         "template": "https://raw.githubusercontent.com/jefking/refreshusagedata/master/deploy.json",
-        "repository": "https://github.com/jefking/refreshusagedata/tree/master",
+        "repository": "https://github.com/jefking/refreshusagedata",
         "description": "This project uses the Azure EA Billing API to download detailed usage information in CSV to Blob Storage so that it can be used with tools like PowerBI.",
         "language": "csharp",
         "type": "function"
@@ -109,7 +109,7 @@
     {
         "title": "HTTP: Entity to SQL",
         "template": "https://raw.githubusercontent.com/AzureBytes/functionsstorsql/master/deploy/azuredeploy.json",
-        "repository": "https://github.com/AzureBytes/functionsstorsql/tree/master/src/WebToDatabase",
+        "repository": "https://github.com/AzureBytes/functionsstorsql/src/WebToDatabase",
         "description": "Stores a queue message in SQL Database; uses Entity Framework.",
         "language": "csharp",
         "type": "function"
@@ -117,7 +117,7 @@
     {
         "title": "Blob: Image Resize",
         "template": "https://raw.githubusercontent.com/jefking/fl-image-resize/master/azuredeploy.json",
-        "repository": "https://github.com/jefking/fl-image-resize/tree/master/src",
+        "repository": "https://github.com/jefking/fl-image-resize",
         "description": "The easiest way to resize images stored in Blob Storage (on Azure); uses ImageProcessor.",
         "language": "csharp",
         "type": "function"
@@ -125,7 +125,7 @@
     {
         "title": "Slack: User Change Alerts",
         "template": "https://raw.githubusercontent.com/anthonychu/slack-user-change-alerts/master/azuredeploy.portal.json",
-        "repository": "https://github.com/anthonychu/slack-user-change-alerts/tree/master/src/SlackUserChangeAlerts.Function",
+        "repository": "https://github.com/anthonychu/slack-user-change-alerts/src/SlackUserChangeAlerts.Function",
         "description": "Sends a Slackbot notification to specified users or channels when users are added or removed from Slack.",
         "language": "javascript",
         "blog": "https://github.com/cfe84/slack-users-change-alerts",
@@ -143,7 +143,7 @@
     {
         "title": "HTTP: Static Web Server",
         "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-static-file-server/master/azuredeploy.portal.json",
-        "repository": "https://github.com/anthonychu/azure-functions-static-file-server/tree/master/src",
+        "repository": "https://github.com/anthonychu/azure-functions-static-file-server",
         "description": "Serves a static website from a www root with a default index.html page.",
         "blog": "http://anthonychu.ca/post/azure-functions-static-file-server",
         "language": "csharp",
@@ -152,7 +152,7 @@
     {
         "title": "Blob: Static Web Server",
         "template": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.json",
-        "repository": "https://github.com/jefking/fl-default-static/tree/master/src",
+        "repository": "https://github.com/jefking/fl-default-static",
         "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites.",
         "language": "csharp",
         "type": "function"
@@ -160,7 +160,7 @@
     {
         "title": "Blob: Static Server with CDN",
         "template": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.cdn.json",
-        "repository": "https://github.com/jefking/fl-default-static/tree/master/src",
+        "repository": "https://github.com/jefking/fl-default-static",
         "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites. This deployment contains a CDN layered 'over top' of the function.",
         "language": "javascript",
         "type": "function"
@@ -176,7 +176,7 @@
     {
         "title": "Schedule SQL Stored Procedure",
         "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-sql-proc/azuredeploy.json",
-        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/101-logic-app-sql-proc",
         "description": "This template allows you to create a Logic App that will run a SQL stored procedure on schedule.",
         "language": "na",
         "type": "logicapp"
@@ -184,7 +184,7 @@
     {
         "title": "Send Email via SendGrid",
         "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-sendgrid/azuredeploy.json",
-        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/101-logic-app-sendgrid",
         "description": "This template allows you to create a Logic app that sends an email.",
         "language": "na",
         "type": "logicapp"
@@ -192,7 +192,7 @@
     {
         "title": "Copy FTP Files to Blob",
         "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-ftp-to-blob/azuredeploy.json",
-        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-ftp-to-blob",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/101-logic-app-ftp-to-blob",
         "description": "This template allows you to create a Logic app that listens to a folder on an FTP server and will copy it to an Azure Blob container.",
         "language": "na",
         "type": "logicapp"
@@ -200,7 +200,7 @@
     {
         "title": "HTTP: to Storage Queue",
         "template": "https://raw.githubusercontent.com/jefking/fn-http-queue-s/master/azuredeploy.json",
-        "repository": "https://github.com/jefking/fn-http-queue-s/tree/master/src",
+        "repository": "https://github.com/jefking/fn-http-queue-s",
         "description": "Posted messages get added to Azure Storage Queue.",
         "language": "javascript",
         "type": "function"
@@ -208,7 +208,7 @@
     {
         "title": "HTTP: to Service Bus Queue",
         "template": "https://raw.githubusercontent.com/jefking/fn-http-queue-sb/master/azuredeploy.json",
-        "repository": "https://github.com/jefking/fn-http-queue-sb/tree/master/src",
+        "repository": "https://github.com/jefking/fn-http-queue-sb",
         "description": "Posted messages get added to Azure Service Bus Queue.",
         "language": "javascript",
         "type": "function"
@@ -216,7 +216,7 @@
     {
         "title": "HTTP: to Service Bus Topic",
         "template": "https://raw.githubusercontent.com/jefking/fn-http-topic/master/azuredeploy.json",
-        "repository": "https://github.com/jefking/fn-http-topic/tree/master/src",
+        "repository": "https://github.com/jefking/fn-http-topic",
         "description": "Posted messages get added to Azure Service Bus Topic.",
         "language": "javascript",
         "type": "function"
@@ -224,7 +224,7 @@
     {
         "title": "Webhook: to Service Bus Queue",
         "template": "https://raw.githubusercontent.com/jefking/fn-webhook-queue/master/azuredeploy.json",
-        "repository": "https://github.com/jefking/fn-webhook-queue/tree/master/src",
+        "repository": "https://github.com/jefking/fn-webhook-queue",
         "description": "Posted Body gets added to Azure Service Bus Queue.",
         "language": "javascript",
         "type": "function"
@@ -232,7 +232,7 @@
     {
         "title": "Reddit Poller",
         "template": "https://raw.githubusercontent.com/jefking/RedditPoller/master/azuredeploy.json",
-        "repository": "https://github.com/isaac2004/RedditPoller/tree/master",
+        "repository": "https://github.com/isaac2004/RedditPoller",
         "description": "Scheduled email notifications of Reddit Posts",
         "language": "csharp",
         "type": "function"
@@ -240,7 +240,7 @@
     {
         "title": "Media Services: Integrating Azure Media Services",
         "template": "https://raw.githubusercontent.com/jefking/media-services-dotnet-functions-integration/master/azuredeploy.json",
-        "repository": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master",
+        "repository": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration",
         "description": "Sample for use with Azure Media Services. Ingest from Azure Blobs, encode and output to Azure Blobs, monitor encoding progress, and use WebHooks or Queues to hook into the workflow.",
         "language": "csharp",
         "type": "function"
