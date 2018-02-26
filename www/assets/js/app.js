@@ -1,6 +1,12 @@
 ﻿'use strict';
 
-var libraryApp = angular.module('libraryApp', []);
+var libraryApp = angular.module('libraryApp'
+    , ['ApplicationInsightsModule']
+);
+
+libraryApp.config(function ($routeProvider, $locationProvider, applicationInsightsServiceProvider) {
+    applicationInsightsServiceProvider.configure('ce23aecf-911b-4d57-b023-c7e0b4dafdc8', { appName: 'serverless-library' });
+});
 
 libraryApp.controller('library', ['$scope', '$http', function ($scope, $http) {
     $http.get('assets/data/apps.js').success(function (data) {
@@ -43,14 +49,13 @@ libraryApp.controller('arm', ['$scope', '$http', function ($scope, $http) {
         require(['vs/editor/editor.main'], function () {
             $scope.editor = monaco.editor.create(document.getElementById('container'), {
                 value: JSON.stringify(data, null, 2),
-                language: 'json'
+                language: 'json',
+                readOnly: true
             });
         });
     });
 
-
     $scope.urlChange = function () {
-        $scope.data.variables.repoUrl = document.getElementById('repo').value;
         $scope.editor.setValue(JSON.stringify($scope.data, null, 2));
     };
 }]);

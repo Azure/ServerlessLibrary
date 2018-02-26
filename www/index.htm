@@ -16,7 +16,6 @@
         crossorigin="anonymous" />
     <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
-
 <body>
     <section class="jumbotron" style="width:99%">
         <div class="row">
@@ -54,12 +53,12 @@
                     </div>
                     <div class="panel-footer">
                         <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
-                            <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank"><span class="glyphicon glyphicon-cloud-upload"></span> Deploy</a>
+                            <a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank" onclick="appInsights.trackEvent('deploy-{{item.title}}');"><span class="glyphicon glyphicon-cloud-upload"></span> deploy</a>
                             <a ng-show="item.addTemplate" class="btn btn-success" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.AddTemplateUri()}}"
-                                target="_blank"><span class="glyphicon glyphicon-plus"></span> Add</a>
-                            <a ng-show="item.blog" class="btn btn-info" href="{{item.blog}}" target="_blank" target="_blank"><span class="glyphicon glyphicon-link"></span> blog</a>
-                            <a class="btn btn-info" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank"><span class="glyphicon glyphicon-eye-open"></span> graph</a>
-                            <a href="{{item.repository}}" target="_blank" class="btn btn-info"><span class="glyphicon glyphicon-file"></span> src</a>
+                                target="_blank" onclick="appInsights.trackEvent('add-{{item.title}}');"><span class="glyphicon glyphicon-plus"></span> add</a>
+                            <a ng-show="item.blog" class="btn btn-info" href="{{item.blog}}" target="_blank" target="_blank" onclick="appInsights.trackEvent('blog-{{item.blog}}');"><span class="glyphicon glyphicon-link"></span> blog</a>
+                            <a class="btn btn-info" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank" onclick="appInsights.trackEvent('visualize-{{item.title}}');"><span class="glyphicon glyphicon-eye-open"></span> chart</a>
+                            <a href="{{item.repository}}" target="_blank" class="btn btn-info" onclick="appInsights.trackEvent('source-{{item.repository}}');"><span class="glyphicon glyphicon-file"></span> src</a>
                         </div>
 
                     </div>
@@ -105,11 +104,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js" crossorigin="anonymous"></script>
-    <script src="/assets/js/app.js"></script>
+    <script src="node_modules/angular-applicationinsights/dist/angular-applicationinsights.min.js"></script>
+    <script src="assets/js/app.js"></script>
     <script type="text/javascript">
-        var appInsights = window.appInsights || function (config) { function i(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = "AuthenticatedUserContext", h = "start", c = "stop", l = "Track", a = l + "Event", v = l + "Page", y = u.createElement(o), r, f; y.src = config.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js"; u.getElementsByTagName(o)[0].parentNode.appendChild(y); try { t.cookie = u.cookie } catch (p) { } for (t.queue = [], t.version = "1.0", r = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; r.length;)i("track" + r.pop()); return i("set" + s), i("clear" + s), i(h + a), i(c + a), i(h + v), i(c + v), i("flush"), config.disableExceptionTracking || (r = "onerror", i("_" + r), f = e[r], e[r] = function (config, i, u, e, o) { var s = f && f(config, i, u, e, o); return s !== !0 && t["_" + r](config, i, u, e, o), s }), t }({ instrumentationKey: "9f74439d-241f-489e-84ae-b229d0a04626" }); window.appInsights = appInsights; appInsights.trackPageView();
+        var appInsights = window.appInsights || function (config) { function i(config) { t[config] = function () { var i = arguments; t.queue.push(function () { t[config].apply(t, i) }) } } var t = { config: config }, u = document, e = window, o = "script", s = "AuthenticatedUserContext", h = "start", c = "stop", l = "Track", a = l + "Event", v = l + "Page", y = u.createElement(o), r, f; y.src = config.url || "https://az416426.vo.msecnd.net/scripts/a/ai.0.js"; u.getElementsByTagName(o)[0].parentNode.appendChild(y); try { t.cookie = u.cookie } catch (p) { } for (t.queue = [], t.version = "1.0", r = ["Event", "Exception", "Metric", "PageView", "Trace", "Dependency"]; r.length;)i("track" + r.pop()); return i("set" + s), i("clear" + s), i(h + a), i(c + a), i(h + v), i(c + v), i("flush"), config.disableExceptionTracking || (r = "onerror", i("_" + r), f = e[r], e[r] = function (config, i, u, e, o) { var s = f && f(config, i, u, e, o); return s !== !0 && t["_" + r](config, i, u, e, o), s }), t }({ instrumentationKey: "ce23aecf-911b-4d57-b023-c7e0b4dafdc8" }); window.appInsights = appInsights; appInsights.trackPageView();
+        window.appInsights=appInsights;
     </script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-590e379817883933"></script>
 </body>
-
 </html>

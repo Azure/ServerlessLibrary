@@ -1,8 +1,14 @@
 {
     "name": "serverless-library",
     "displayName": "Serverless Library",
-    "version": "0.0.2",
+    "description": "Serverless Library",
+    "readme": "n/a",
+    "repository": {
+    },
+    "version": "0.0.3",
     "dependencies": {
+        "applicationinsights": "^1.0.2",
+        "angular-applicationinsights": "^0.3.1",
         "monaco-editor": "^0.10.1"
     }
 }
