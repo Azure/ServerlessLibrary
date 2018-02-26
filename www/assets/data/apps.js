@@ -169,7 +169,7 @@
         "title": "HTTP: Azure Function Library (this)",
         "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.json",
         "repository": "https://github.com/jefking/FunctionLibrary",
-        "description": "An open source set of common use cases for Azure Functions & LogicApps that are ready to deploy!",
+        "description": "An open source set of common use cases for Azure Functions & Logic Apps that are ready to deploy!",
         "language": "javascript",
         "type": "function"
     },

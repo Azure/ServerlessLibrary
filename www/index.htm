@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="row text-center">
-            <p class="lead text-muted">An open source set of common use cases for Azure Functions &amp; LogicApps that are ready to deploy into your Azure Subscription!</p>
+            <p class="lead text-muted">An open source set of common use cases for Azure Functions &amp; Logic Apps that are ready to deploy into your Azure Subscription!</p>
         </div>
     </section>
     <a name="top"></a>
@@ -45,7 +45,7 @@
                     <div class="panel-body">
                         <p>{{item.description}}
                             <small ng-show="item.isFunction()">(Function in</small>
-                            <small ng-show="item.isLogicApp()">(LogicApp: </small>
+                            <small ng-show="item.isLogicApp()">(Logic App: </small>
                             <small ng-show="item.language == 'javascript'">NodeJS)</small>
                             <small ng-show="item.language == 'csharp'">C#)</small>
                             <small ng-show="item.language == 'na'">codeless)</small>
@@ -58,7 +58,7 @@
                             <a ng-show="item.blog" class="btn btn-info" href="{{item.blog}}" target="_blank" target="_blank" onclick="appInsights.trackEvent('blog-{{item.blog}}');"><span class="glyphicon glyphicon-link"></span><div class="hidden-s"> blog</div></a>
                             <a class="btn btn-info" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank" onclick="appInsights.trackEvent('visualize-{{item.title}}');"><span class="glyphicon glyphicon-eye-open"></span><div class="hidden-s"> chart</div></a>
                             <a href="{{item.repository}}" target="_blank" class="btn btn-info" onclick="appInsights.trackEvent('source-{{item.repository}}');"><span class="glyphicon glyphicon-file"></span><div class="hidden-s"> src</div></a>
-                            <a class="btn btn-success" href="{{item.repository}}/archive/master.zip" target="_blank" onclick="appInsights.trackEvent('download-{{item.repository}}');"><span class="glyphicon glyphicon-download"></span><div class="hidden-s"> download</div></a>
+                            <a ng-show="!item.isLogicApp()" class="btn btn-success" href="{{item.repository}}/archive/master.zip" target="_blank" onclick="appInsights.trackEvent('download-{{item.repository}}');"><span class="glyphicon glyphicon-download"></span><div class="hidden-s"> download</div></a>
                         </div>
                     </div>
                 </div>
