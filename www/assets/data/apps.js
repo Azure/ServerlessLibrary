@@ -1,5 +1,14 @@
 ﻿[
     {
+        "title": "Stripe Payment Service",
+        "template": "https://raw.githubusercontent.com/toolboc/stripe-function/master/azuredeploy.json",
+        "repository": "https://github.com/toolboc/stripe-function",
+        "description": "Allows for incorporating Stripe payment functionality as a callable web service.",
+        "language": "javascript",
+        "type": "function",
+        "blog": "http://pjdecarlo.com/2017/06/super-cheap-subscription-and-payment-services-with-stripe-on-microsoft-azure-using-serverless-code-via-azure-functions-node-js.html"
+    },
+    {
         "title": "Deploy Git Hosted Azure Function",
         "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.any.json",
         "repository": "https://github.com/jefking/FunctionLibrary",
@@ -23,15 +32,6 @@
         "language": "javascript",
         "type": "function",
         "blog": "https://ricardodsanchez.com/what-can-you-do-with-azure-functions-heres-one-example/"
-    },
-    {
-        "title": "Stripe Payment Service",
-        "template": "https://raw.githubusercontent.com/toolboc/stripe-function/master/azuredeploy.json",
-        "repository": "https://github.com/toolboc/stripe-function",
-        "description": "Allows for incorporating Stripe payment functionality as a callable web service.",
-        "language": "javascript",
-        "type": "function",
-        "blog": "http://pjdecarlo.com/2017/06/super-cheap-subscription-and-payment-services-with-stripe-on-microsoft-azure-using-serverless-code-via-azure-functions-node-js.html"
     },
     {
         "title": "Tug of War",
@@ -144,7 +144,7 @@
         "title": "HTTP: Static Web Server",
         "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-static-file-server/master/azuredeploy.portal.json",
         "repository": "https://github.com/anthonychu/azure-functions-static-file-server/tree/master/src",
-        "description": "Serves a static website.",
+        "description": "Serves a static website from a www root with a default index.html page.",
         "blog": "http://anthonychu.ca/post/azure-functions-static-file-server",
         "language": "csharp",
         "type": "function"
@@ -169,7 +169,7 @@
         "title": "HTTP: Azure Function Library (this)",
         "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.json",
         "repository": "https://github.com/jefking/FunctionLibrary",
-        "description": "An open source set of common use cases for Azure Functions that are ready to deploy!",
+        "description": "An open source set of common use cases for Azure Functions & LogicApps that are ready to deploy!",
         "language": "javascript",
         "type": "function"
     },
