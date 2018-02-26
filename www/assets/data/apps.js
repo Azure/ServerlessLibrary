@@ -174,26 +174,26 @@
         "type": "function"
     },
     {
-        "title": "Schedule SQL Stored Procedure",
+        "title": "SQL Stored Procedure on a schedule",
         "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-sql-proc/azuredeploy.json",
-        "repository": "https://github.com/Azure/azure-quickstart-templates/101-logic-app-sql-proc",
-        "description": "This template allows you to create a Logic App that will run a SQL stored procedure on schedule.",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc",
+        "description": "This template allows you to create a Logic App that will run a SQL stored procedure on schedule. Any arguments for the procedure can be put into the body section of the template.",
         "language": "na",
         "type": "logicapp"
     },
     {
-        "title": "Send Email via SendGrid",
+        "title": "Send email with Logic app",
         "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-sendgrid/azuredeploy.json",
-        "repository": "https://github.com/Azure/azure-quickstart-templates/101-logic-app-sendgrid",
-        "description": "This template allows you to create a Logic app that sends an email.",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid",
+        "description": "This template allows you to create a Logic app that sends an email. You can add an additional triggers or actions to customize it to your needs.",
         "language": "na",
         "type": "logicapp"
     },
     {
-        "title": "Copy FTP Files to Blob",
+        "title": "Copy FTP files to Blob",
         "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-ftp-to-blob/azuredeploy.json",
-        "repository": "https://github.com/Azure/azure-quickstart-templates/101-logic-app-ftp-to-blob",
-        "description": "This template allows you to create a Logic app that listens to a folder on an FTP server and will copy it to an Azure Blob container.",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-ftp-to-blob",
+        "description": "This template allows you to create a Logic app that listens to a folder on an FTP server and will copy it to an Azure Blob container. You can add an additional triggers or actions to customize it to your needs.",
         "language": "na",
         "type": "logicapp"
     },
@@ -252,5 +252,93 @@
         "description": "CoderCards is a geek trading card generator. It uses Microsoft Cognitive Services to detect the predominant emotion in a face, which is used to choose a card back.",
         "language": "csharp",
         "type": "function"
+    },
+    {
+        "title": "Call an Azure Function from a Logic App",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-and-function-app/azuredeploy.json",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-and-function-app",
+        "description": "This template creates a Serverless app in Azure with Logic Apps and Functions. The Logic App triggers on an HTTP POST, calls the Azure Function, and returns the response.",
+        "language": "na",
+        "type": "logicapp"
+    },
+    {
+        "title": "Create a Logic App",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-create",
+        "description": "Create a Logic App from a template",
+        "language": "na",
+        "type": "logicapp"
+    },
+    {
+        "title": "XSLT with parameters",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-xslt-with-params/azuredeploy.json",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-xslt-with-params",
+        "description": "This template creates a request-response Logic App which performs XSLT based transformation. The XSLT map takes primitives (integer, string etc.) as input parameters as uses them during XML transformation.",
+        "language": "na",
+        "type": "logicapp"
+    },
+    {
+        "title": "VETER Pipeline",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-veter-pipeline/azuredeploy.json",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline",
+        "description": "This template creates a VETER pipeline using Logic Apps.",
+        "language": "na",
+        "type": "logicapp"
+    },
+    {
+        "title": "Webhook with transform capabilities",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-transform-function/azuredeploy.json",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-transform-function",
+        "description": "This template creates a webhook based C# azure function with transform capabilites to use in logic apps integration scenarios.",
+        "language": "csharp",
+        "type": "logicapp"
+    },
+    {
+        "title": "Call an API protected by AAD",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-custom-api/azuredeploy.json",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api",
+        "description": "Call into your own custom API that can run your own code.",
+        "language": "na",
+        "type": "logicapp"
+    },
+    {
+        "title": "B2B Disaster Recovery replication",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-b2b-disaster-recovery-replication/azuredeploy.json",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-b2b-disaster-recovery-replication",
+        "description": "This template demonstrates B2B Disaster Recovery replication using Logic Apps.",
+        "language": "na",
+        "type": "logicapp"
+    },
+    {
+        "title": "AS2 Send Receive",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-as2-send-receive/azuredeploy.json",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive",
+        "description": "This template demonstrates AS2 Send Receive using Logic Apps.",
+        "language": "na",
+        "type": "logicapp"
+    },
+    {
+        "title": "Adds item to queue when alert fires",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-alert-to-queue-with-logic-app/azuredeploy.json",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app",
+        "description": "Add the alert payload you pass to an Azure Storage queue that you specify.",
+        "language": "na",
+        "type": "logicapp"
+    },
+    {
+        "title": "Posts on Slack when alert fires",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-alert-to-slack-with-logic-app/azuredeploy.json",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app",
+        "description": "When the Alert is triggered, it will post a message to a slack channel that you specify",
+        "language": "na",
+        "type": "logicapp"
+    },
+    {
+        "title": "Send SMS when alert fires",
+        "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-alert-to-text-message-with-logic-app/azuredeploy.json",
+        "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app",
+        "description": "When the Alert is triggered, it will send you a text message with the details of the alert.",
+        "language": "na",
+        "type": "logicapp"
     }
 ]
