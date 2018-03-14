@@ -1,6 +1,7 @@
 # Azure Serverless Library: Quickly Deploy Code
 An open source set of common use cases for Azure Functions & LogicApps that are ready to deploy!
 
+
 ## How-to Contribute to the Serverless Library
 
 1) Create a repository. Here are a couple great examples: [Function Example](https://github.com/jefking/fl-image-resize) or [LogicApp Example](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-create)
@@ -13,8 +14,9 @@ An open source set of common use cases for Azure Functions & LogicApps that are 
 - template: ARM template which deploys the infrastructure & the application
 - repository: URL of a publicly accessible git repository
 - addtemplate: Add Template Url; for more details go [here](https://github.com/fashaikh/GitHubReZip). This currently doesn't support .deployment files & needs a particular dirctory structure.
-- language: Language code is written in (ex. chsarp, javascript, na
+- language: Language code is written in (ex. chsarp, javascript, na)
 - type: Type of application (ex. logicapp, function)
+
 
 ## Generic Deployment
 
@@ -22,6 +24,7 @@ If you find a Git repo with a Function or Logic App in it, you can use this to q
 
 If you want to create an ARM template that deploys Functions or LogicApps: 
 [Build Your Own](http://functionlibrary.azurewebsites.net/build.htm)
+
 
 ## Enjoy a Serverless Library of your very own :-)
 

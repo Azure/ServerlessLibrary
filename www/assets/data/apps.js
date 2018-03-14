@@ -1,5 +1,13 @@
 ﻿[
     {
+        "title": "OpenALPR License Plate Reader",
+        "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-openalpr/master/azuredeploy.json",
+        "repository": "https://github.com/anthonychu/azure-functions-openalpr",
+        "description": "App for reading license plate info from a photo.",
+        "language": "csharp",
+        "type": "function"
+    },
+    {
         "title": "Stripe Payment Service",
         "template": "https://raw.githubusercontent.com/toolboc/stripe-function/master/azuredeploy.json",
         "repository": "https://github.com/toolboc/stripe-function",
