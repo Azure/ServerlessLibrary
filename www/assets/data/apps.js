@@ -166,6 +166,14 @@
         "type": "function"
     },
     {
+        "title": "On-demand calculation of Azure consumption cost",
+        "template": "https://raw.githubusercontent.com/Azure-Samples/consumption-cost-node/master/azuredeploy.json",
+        "repository": "https://github.com/Azure-Samples/consumption-cost-node",
+        "description": "This sample demonstrates how to use the Azure billing commerce APIs to find consumption cost per subscription and resource-groups.",
+        "language": "javascript",
+        "type": "function"
+    },
+    {
         "title": "HTTP: Azure Function Library (this)",
         "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.json",
         "repository": "https://github.com/jefking/FunctionLibrary",
