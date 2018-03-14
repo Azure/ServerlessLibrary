@@ -17,6 +17,14 @@
         "blog": "http://pjdecarlo.com/2017/06/super-cheap-subscription-and-payment-services-with-stripe-on-microsoft-azure-using-serverless-code-via-azure-functions-node-js.html"
     },
     {
+        "title": "LIFX Light Bulb color changer",
+        "template": "https://raw.githubusercontent.com/jefking/weather-bulb/master/azuredeploy.json",
+        "repository": "https://github.com/burkeholland/weather-bulb",
+        "description": "Timers that set the color of an LIFX bulb based on the outside temperature.",
+        "language": "javascript",
+        "type": "function"
+    },
+    {
         "title": "Deploy Git Hosted Azure Function",
         "template": "https://raw.githubusercontent.com/jefking/FunctionLibrary/master/azuredeploy.any.json",
         "repository": "https://github.com/jefking/FunctionLibrary",
