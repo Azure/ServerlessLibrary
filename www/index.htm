@@ -53,10 +53,7 @@
                     </div>
                     <div class="panel-footer">
                         <div class="btn-group btn-group-sm btn-group-justified" role="group" aria-label="...">
-                                <a href="https://deploy.azure.com/?repository=https://github.com/shrimpy/ArmParamterTemplateTest?ptmpl={{item.TemplateUri()}}" target="_blank">
-                                    <img src="https://azuredeploy.net/deploybutton.svg"/>
-                                </a>
-                            <!--a class="btn btn-primary" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.TemplateUri()}}" target="_blank" onclick="appInsights.trackEvent('deploy-{{item.title}}');"><span class="glyphicon glyphicon-cloud-upload"></span><div class="hidden-xs"> deploy</div></a -->
+                            <a class="btn btn-primary" href="https://deploy.azure.com/?repository=https://github.com/shrimpy/ArmParamterTemplateTest?ptmpl={{item.TemplateUri()}}" target="_blank" onclick="appInsights.trackEvent('deploy-{{item.title}}');"><span class="glyphicon glyphicon-cloud-upload"></span><div class="hidden-xs"> deploy</div></a>
                             <a ng-show="item.addTemplate" class="btn btn-success" href="https://portal.azure.com/#create/Microsoft.Template/uri/{{item.AddTemplateUri()}}" target="_blank" onclick="appInsights.trackEvent('add-{{item.title}}');"><span class="glyphicon glyphicon-plus"></span><div class="hidden-s"> add</div></a>
                             <a ng-show="item.blog" class="btn btn-info" href="{{item.blog}}" target="_blank" target="_blank" onclick="appInsights.trackEvent('blog-{{item.blog}}');"><span class="glyphicon glyphicon-link"></span><div class="hidden-s"> blog</div></a>
                             <a class="btn btn-info" href="http://armviz.io/#/?load={{item.TemplateUri()}}" target="_blank" onclick="appInsights.trackEvent('visualize-{{item.title}}');"><span class="glyphicon glyphicon-eye-open"></span><div class="hidden-s"> chart</div></a>
