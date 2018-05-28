@@ -1,0 +1,11 @@
+C:\Repos\.git\ServerLessLibrary\obj\Release\netcoreapp2.0\ServerLessLibrary.csproj.CoreCompileInputs.cache
+C:\Repos\.git\ServerLessLibrary\obj\Release\netcoreapp2.0\ServerLessLibrary.AssemblyInfoInputs.cache
+C:\Repos\.git\ServerLessLibrary\obj\Release\netcoreapp2.0\ServerLessLibrary.AssemblyInfo.cs
+C:\Repos\.git\ServerLessLibrary\bin\Release\netcoreapp2.0\ServerLessLibrary.deps.json
+C:\Repos\.git\ServerLessLibrary\bin\Release\netcoreapp2.0\ServerLessLibrary.runtimeconfig.json
+C:\Repos\.git\ServerLessLibrary\bin\Release\netcoreapp2.0\ServerLessLibrary.runtimeconfig.dev.json
+C:\Repos\.git\ServerLessLibrary\bin\Release\netcoreapp2.0\ServerLessLibrary.dll
+C:\Repos\.git\ServerLessLibrary\bin\Release\netcoreapp2.0\ServerLessLibrary.pdb
+C:\Repos\.git\ServerLessLibrary\obj\Release\netcoreapp2.0\ServerLessLibrary.csprojResolveAssemblyReference.cache
+C:\Repos\.git\ServerLessLibrary\obj\Release\netcoreapp2.0\ServerLessLibrary.dll
+C:\Repos\.git\ServerLessLibrary\obj\Release\netcoreapp2.0\ServerLessLibrary.pdb

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerLessLibrary", "ServerLessLibrary\ServerLessLibrary.csproj", "{7B72620E-CF16-45F6-84CF-2FC4AB8BDAF7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerLessLibraryFunctionApp", "ServerLessLibraryFunctionApp\ServerLessLibraryFunctionApp.csproj", "{95E9DC49-8B38-4D2C-95AD-1BD261A1CBF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B72620E-CF16-45F6-84CF-2FC4AB8BDAF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B72620E-CF16-45F6-84CF-2FC4AB8BDAF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B72620E-CF16-45F6-84CF-2FC4AB8BDAF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B72620E-CF16-45F6-84CF-2FC4AB8BDAF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E9DC49-8B38-4D2C-95AD-1BD261A1CBF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E9DC49-8B38-4D2C-95AD-1BD261A1CBF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E9DC49-8B38-4D2C-95AD-1BD261A1CBF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E9DC49-8B38-4D2C-95AD-1BD261A1CBF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {972ED417-3343-4F74-BD0C-C6BB7515C695}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ServerLessLibrary/Properties/PublishProfiles/ServerLessLibraryTest - Web Deploy.pubxml.user
+/ServerLessLibrary/Properties/PublishProfiles/ServerLessLibraryTest - Web Deploy.pubxml
+/ServerLessLibrary/appsettings.json
+/ServerLessLibraryFunctionApp/Properties/PublishProfiles/SLFunctionAppTest - Web Deploy.pubxml
+/.vs
