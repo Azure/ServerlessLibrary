@@ -1,5 +1,5 @@
 <template>
-  <main id="app" class="content">
+  <main id="mainContent" class="content">
     <nav class="nav">
       <menu class="nav__controls">
         <AppIcon class="nav__icon" use="#filter"></AppIcon>
@@ -34,35 +34,11 @@
       </menu>
     </transition-group>
 
-    <transition-group name="company" tag="ul" class="content__list">
-      <li class="company" v-for="company in list" :key="company.id">
-        <div class="company__info">
-          <h3 class="company__name">{{ company.name }}</h3>
-          <blockquote class="company__slogan">{{ company.slogan }}</blockquote>
-        </div>
-
-        <ul class="company__details">
-          <li class="company__data">
-            <label class="company__label">Country</label>
-            <p class="company__country"
-              @click="clearFilter('countries', company.country)">
-              {{ company.country }}
-            </p>
-          </li>
-
-          <li class="company__data">
-            <label class="company__label">Rating</label>
-            <p class="company__rating">rating</p>
-          </li>
-        </ul>
-      </li>
-    </transition-group>
+    <AppItem :samples="samples" />
 
     <ul>
       <li v-for="sample in samples" :key="sample.title">{{ sample.title }}</li>
     </ul>
-
-    <AppItem />
   </main>
 </template>
 
@@ -71,7 +47,6 @@ import AppIcon from './components/AppIcon.vue'
 import AppItem from './components/AppItem.vue'
 
 export default {
-  name: 'app',
   components: {
     AppIcon,
     AppItem
@@ -80,8 +55,8 @@ export default {
     return {
       samples: [],
       dropdown: { height: 0 },
-      filters: { title: {}, repo: {}, desc: {}, lang: {} },
-      menus: { title: false, repo: false, desc: false, lang: false }
+      filters: { lang: {} },
+      menus: { lang: false }
     }
   },
 
@@ -94,21 +69,23 @@ export default {
     },
 
     list() {
-      let { title, repo, desc, lang } = this.activeFilters
+      //in case we want more
+      //let { lang } = this.activeFilters
 
-      return this.samples.filter(({ title, repo, desc, lang }) => {
-        if (samples.length && !~samples.indexOf(sample)) return false
-        return !titles.length || titles.every(title => ~keywords.indexOf(title))
-      })
+      //let filter = new RegExp(this.activeFilters, 'i')
+      return this.samples.filter(el => el.lang === this.activeFilters.lang)
+
+      // return this.samples.filter(({ lang }) => {
+
+      //   //if (this.title.length && !~this.title.indexOf(title)) return false
+      //   //return !titles.length || titles.every(title => ~keywords.indexOf(title))
+      // })
     },
 
     activeFilters() {
-      let { title, repo, desc, lang } = this.filters
+      let { lang } = this.filters
 
       return {
-        title: Object.keys(title).filter(c => title[c]),
-        repo: Object.keys(repo).filter(c => repo[c]),
-        desc: Object.keys(desc).filter(c => desc[c]),
         lang: Object.keys(lang).filter(c => lang[c])
       }
     }
@@ -156,15 +133,15 @@ export default {
     }
   },
 
-  beforeMount() {
+  created() {
     fetch('https://serverlesslibrarytest.azurewebsites.net/api/Library')
       .then(response => response.json())
       .then(data => {
         this.samples = data
 
-        data.forEach(({ title, repository, description, language }) => {
-          console.log(`title: ${title}, repository: ${repository}`)
-          // this.$set(this.filters.samples, sample)
+        data.forEach(({ language }) => {
+          //sets the filter keys
+          this.$set(this.filters.lang, language, false)
 
           // keywords.forEach(title => {
           //   this.$set(this.filters.title, title)
@@ -178,7 +155,7 @@ export default {
 <style lang="scss">
 .content {
   position: relative;
-  max-width: 780px;
+  max-width: 900px;
   margin: 0 auto;
 
   &__list {
@@ -190,7 +167,7 @@ export default {
   }
 }
 
-.company {
+.sample {
   position: relative;
   width: calc(100% / 2 - 1.1rem);
   display: inline-flex;
@@ -258,11 +235,10 @@ export default {
     text-align: center;
   }
 
-  &__slogan {
-    height: 2rem;
+  &__desc {
+    height: 5rem;
+    overflow: hidden;
     text-align: center;
-    font-weight: 400;
-    text-transform: capitalize;
   }
 
   &__details {
