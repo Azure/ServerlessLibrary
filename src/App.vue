@@ -2,7 +2,7 @@
   <main id="app" class="content">
     <nav class="nav">
       <menu class="nav__controls">
-        <icon class="nav__icon" use="#filter"></icon>
+        <AppIcon class="nav__icon" use="#filter"></AppIcon>
 
         <li v-for="(active, menu) in menus" 
           @click="setMenu(menu, active)"
@@ -49,8 +49,7 @@
     <transition-group name="company" tag="ul" class="content__list">
       <li class="company" v-for="company in list" :key="company.id">
         <div class="company__info">
-          <icon class="company__logo" :style="`fill:${company.color}`" :use="company.logo"></icon>
-          <h2 class="company__name">{{ company.name }}</h2>
+          <h3 class="company__name">{{ company.name }}</h3>
           <blockquote class="company__slogan">{{ company.slogan }}</blockquote>
         </div>
 
@@ -70,16 +69,20 @@
         </ul>
       </li>
     </transition-group>
+
+    <AppItem />
   </main>
 </template>
 
 <script>
 import AppIcon from './components/AppIcon.vue'
+import AppItem from './components/AppItem.vue'
 
 export default {
   name: 'app',
   components: {
-    AppIcon
+    AppIcon,
+    AppItem
   },
   data() {
     return {
@@ -196,9 +199,6 @@ export default {
 <style lang="scss">
 .content {
   position: relative;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 300;
-  color: #3d5358;
   max-width: 780px;
   margin: 0 auto;
 
@@ -213,7 +213,7 @@ export default {
 
 .company {
   position: relative;
-  width: calc(100% / 2 - 1rem);
+  width: calc(100% / 2 - 1.1rem);
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
@@ -276,8 +276,6 @@ export default {
   &__name {
     height: 2.5rem;
     margin: 0.75rem 0;
-    font-size: 1.3rem;
-    font-weight: 200;
     text-align: center;
   }
 
