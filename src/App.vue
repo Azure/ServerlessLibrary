@@ -58,6 +58,10 @@
       </li>
     </transition-group>
 
+    <ul>
+      <li v-for="sample in samples" :key="sample.title">{{ sample.title }}</li>
+    </ul>
+
     <AppItem />
   </main>
 </template>
@@ -74,18 +78,14 @@ export default {
   },
   data() {
     return {
-      companies: [],
+      samples: [],
       dropdown: { height: 0 },
-      filters: { countries: {}, categories: {} },
-      menus: { countries: false, categories: false }
+      filters: { title: {}, repo: {}, desc: {}, lang: {} },
+      menus: { title: false, repo: false, desc: false, lang: false }
     }
   },
 
   computed: {
-    samples() {
-      return this.$store.state.samples
-    },
-
     activeMenu() {
       return Object.keys(this.menus).reduce(
         ($$, set, i) => (this.menus[set] ? i : $$),
@@ -94,22 +94,22 @@ export default {
     },
 
     list() {
-      let { countries, categories } = this.activeFilters
+      let { title, repo, desc, lang } = this.activeFilters
 
-      return this.companies.filter(({ country, keywords }) => {
-        if (countries.length && !~countries.indexOf(country)) return false
-        return (
-          !categories.length || categories.every(cat => ~keywords.indexOf(cat))
-        )
+      return this.samples.filter(({ title, repo, desc, lang }) => {
+        if (samples.length && !~samples.indexOf(sample)) return false
+        return !titles.length || titles.every(title => ~keywords.indexOf(title))
       })
     },
 
     activeFilters() {
-      let { countries, categories } = this.filters
+      let { title, repo, desc, lang } = this.filters
 
       return {
-        countries: Object.keys(countries).filter(c => countries[c]),
-        categories: Object.keys(categories).filter(c => categories[c])
+        title: Object.keys(title).filter(c => title[c]),
+        repo: Object.keys(repo).filter(c => repo[c]),
+        desc: Object.keys(desc).filter(c => desc[c]),
+        lang: Object.keys(lang).filter(c => lang[c])
       }
     }
   },
@@ -122,7 +122,7 @@ export default {
         if (!this.$refs.menu || !this.$refs.menu[index]) {
           this.dropdown.height = 0
         } else {
-          this.dropdown.height = `${this.$refs.menu[index].clientHeight + 16}px`
+          this.dropdown.height = `${this.$refs.menu[index].clientHeight + 20}px`
         }
       })
     }
@@ -130,7 +130,7 @@ export default {
 
   methods: {
     setFilter(filter, option) {
-      if (filter === 'countries') {
+      if (filter === 'title') {
         this.filters[filter][option] = !this.filters[filter][option]
       } else {
         setTimeout(() => {
@@ -157,17 +157,18 @@ export default {
   },
 
   beforeMount() {
-    fetch('https://s3-us-west-2.amazonaws.com/s.cdpn.io/450744/mock-data.json')
+    fetch('https://serverlesslibrarytest.azurewebsites.net/api/Library')
       .then(response => response.json())
-      .then(companies => {
-        this.companies = companies
+      .then(data => {
+        this.samples = data
 
-        companies.forEach(({ country, keywords }) => {
-          this.$set(this.filters.countries, country)
+        data.forEach(({ title, repository, description, language }) => {
+          console.log(`title: ${title}, repository: ${repository}`)
+          // this.$set(this.filters.samples, sample)
 
-          keywords.forEach(category => {
-            this.$set(this.filters.categories, category)
-          })
+          // keywords.forEach(title => {
+          //   this.$set(this.filters.title, title)
+          // })
         })
       })
   }

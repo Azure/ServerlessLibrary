@@ -11,20 +11,11 @@
           <span>Call To Action</span>
       </a>
     </div>
-    <ul>
-      <li v-for="sample in samples" :key="sample.title">{{ sample.title }}</li>
-    </ul>
   </div>
 </template>
 
 <script>
-export default {
-  computed: {
-    samples() {
-      return this.$store.state.samples
-    }
-  }
-}
+export default {}
 </script>
 
 <style scoped>
