@@ -4,6 +4,7 @@
       <div class="sample__info">
         <span class="c-metadata-badge" aria-label="Microsoft Approved">Approved</span>
         <h3 class="sample__name">{{ item.title }}</h3>
+        <p class="sample__desc">{{ item.description }}</p>
         <strong 
           class="c-badge f-small"
           style="text-transform:uppercase"
@@ -15,7 +16,6 @@
         >
           {{ item.language }}
         </strong>
-        <p class="sample__desc">{{ item.description }}</p>
       </div>
 
       <ul class="sample__details">
@@ -31,19 +31,6 @@
       </ul>
     </li>
   </transition-group>
-  <!-- <div>
-    <strong class="c-badge f-small f-highlight">BADGE</strong>
-    <h2>Heading</h2>
-    <p class="c-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <div class="c-group">
-      <a href="#" class="c-call-to-action c-glyph">
-          <span>Call To Action</span>
-      </a>
-      <a href="#" class="c-call-to-action c-glyph">
-          <span>Call To Action</span>
-      </a>
-    </div>
-  </div> -->
 </template>
 
 <script>
@@ -146,7 +133,7 @@ export default {
 
   &__name {
     height: 2.5rem;
-    margin: 2rem 0 1rem;
+    margin: 2rem 0.5rem 1rem;
     text-align: center;
   }
 
@@ -161,7 +148,7 @@ export default {
   &__details {
     display: flex;
     justify-content: space-between;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     padding: 1rem 0.75rem;
     background-color: rgba(#c5d0d1, 0.1);
     border-top: 1px solid #dcdfe0;
@@ -171,5 +158,11 @@ export default {
     text-decoration: underline;
     cursor: pointer;
   }
+}
+</style>
+
+<style lang="scss" scoped>
+strong {
+  margin-top: 15px;
 }
 </style>

@@ -9,7 +9,7 @@ export default {
   props: {
     width: {
       type: Number,
-      default: 15
+      default: 17
     }
   }
 }
@@ -19,7 +19,7 @@ export default {
 <style scoped>
 svg {
   vertical-align: baseline;
-  margin-bottom: -2px;
+  margin-bottom: -3px;
 }
 
 .st1 {
