@@ -153,6 +153,12 @@ export default {
 </script>
 
 <style lang="scss">
+$base-color: #e3e3e3;
+
+body {
+  background: lighten($base-color, 4%);
+}
+
 .content {
   position: relative;
   max-width: 900px;
@@ -164,95 +170,6 @@ export default {
     padding-right: 1rem;
     padding-bottom: 5rem;
     backface-visibility: hidden;
-  }
-}
-
-.sample {
-  position: relative;
-  width: calc(100% / 2 - 1.1rem);
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 1rem;
-  margin-top: 1rem;
-  padding-top: 0.75rem;
-  border-radius: 6px;
-  background-color: white;
-  box-shadow: 0 0 0 1px #c5d0d1;
-  backface-visibility: hidden;
-  transform-origin: 10% 50%;
-  z-index: 1;
-
-  @media (min-width: 800px) {
-    width: calc(100% / 3 - 1rem);
-  }
-
-  &-move {
-    transition: all 600ms ease-in-out 50ms;
-  }
-  &-enter-active {
-    transition: all 300ms ease-out;
-  }
-
-  &-leave-active {
-    transition: all 200ms ease-in;
-    position: absolute;
-    z-index: 0;
-  }
-
-  &-enter,
-  &-leave-to {
-    opacity: 0;
-  }
-  &-enter {
-    transform: scale(0.9);
-  }
-
-  &__data {
-    line-height: 1.3;
-  }
-  &__label {
-    font-size: 0.8rem;
-  }
-  &__rating {
-    text-align: center;
-  }
-
-  &__info {
-    padding: 0 0.75rem;
-    text-align: center;
-  }
-
-  &__logo {
-    width: 3rem;
-    height: 3rem;
-    margin: 0 auto;
-  }
-
-  &__name {
-    height: 2.5rem;
-    margin: 0.75rem 0;
-    text-align: center;
-  }
-
-  &__desc {
-    height: 5rem;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  &__details {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1.5rem;
-    padding: 0.5rem 0.75rem;
-    background-color: rgba(#c5d0d1, 0.1);
-    border-top: 1px solid #c5d0d1;
-  }
-
-  &__country:hover {
-    text-decoration: underline;
-    cursor: pointer;
   }
 }
 
@@ -328,16 +245,6 @@ export default {
   height: 0;
   overflow: hidden;
   transition: height 350ms;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1rem;
-    background-image: linear-gradient(to top, white, rgba(white, 0));
-  }
 
   &-enter,
   &-leave-to {
