@@ -25,7 +25,7 @@
 
         <li class="sample__data">
           <a :href="item.repository" class="repo">
-            <span>Go to repo</span>
+            <span>Repo <app-icon /></span>
           </a>
         </li>
       </ul>
@@ -47,7 +47,12 @@
 </template>
 
 <script>
+import AppIcon from './AppIcon.vue'
+
 export default {
+  components: {
+    AppIcon
+  },
   props: {
     samples: {
       type: Array,

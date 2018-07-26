@@ -12,12 +12,10 @@
 </template>
 
 <script>
-import AppIcon from './components/AppIcon.vue'
 import AppItem from './components/AppItem.vue'
 
 export default {
   components: {
-    AppIcon,
     AppItem
   },
   data() {
