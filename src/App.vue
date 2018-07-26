@@ -1,5 +1,12 @@
 <template>
   <main id="mainContent" class="content">
+
+    <div data-grid="col-12" class="m-area-heading">
+      <h2 class="c-heading">Functions Explorer</h2>
+      <h4 class="c-subheading">Find an Azure Serverless Function with ease!</h4>
+    </div>
+
+
     <nav class="nav">
       <menu class="nav__controls">
         <AppIcon class="nav__icon" use="#filter"></AppIcon>
@@ -36,9 +43,6 @@
 
     <AppItem :samples="samples" />
 
-    <ul>
-      <li v-for="sample in samples" :key="sample.title">{{ sample.title }}</li>
-    </ul>
   </main>
 </template>
 

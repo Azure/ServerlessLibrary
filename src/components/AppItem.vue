@@ -15,7 +15,7 @@
         >
           {{ item.language }}
         </strong>
-        <blockquote class="sample__desc">{{ item.description }}</blockquote>
+        <p class="sample__desc">{{ item.description }}</p>
       </div>
 
       <ul class="sample__details">
@@ -146,7 +146,9 @@ export default {
   }
 
   &__desc {
-    height: 5rem;
+    text-align: left !important;
+    padding: 0.5rem;
+    height: 5.5rem;
     overflow: hidden;
     text-align: center;
   }
