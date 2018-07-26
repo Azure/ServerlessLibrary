@@ -23,17 +23,6 @@
       <menu v-for="(options, filter) in filters" class="filters"
         v-show="menus[filter]" ref="menu" :key="filter">
 
-        <li v-if="filter === 'rating'" class="filters__rating">
-          <output>
-            <label>Minimum rating:&nbsp;</label>
-            {{ parseFloat(filters.rating).toFixed(1) }}
-          </output>
-
-          <input v-model="filters.rating" class="filters__range" type="range"
-            :min="rating.min" :max="rating.max" step="0.1"/>
-        </li>
-
-        <template v-else>
           <li @click="setFilter(filter, option)"
             v-for="(active, option) in options" 
             :key="option"
@@ -42,7 +31,6 @@
             >
             {{ option }}
           </li>
-        </template>
       </menu>
     </transition-group>
 
@@ -64,7 +52,7 @@
 
           <li class="company__data">
             <label class="company__label">Rating</label>
-            <p class="company__rating">{{ company.rating.toFixed(1) }}</p>
+            <p class="company__rating">rating</p>
           </li>
         </ul>
       </li>
@@ -88,13 +76,16 @@ export default {
     return {
       companies: [],
       dropdown: { height: 0 },
-      rating: { min: 10, max: 0 },
-      filters: { countries: {}, categories: {}, rating: 0 },
-      menus: { countries: false, categories: false, rating: false }
+      filters: { countries: {}, categories: {} },
+      menus: { countries: false, categories: false }
     }
   },
 
   computed: {
+    samples() {
+      return this.$store.state.samples
+    },
+
     activeMenu() {
       return Object.keys(this.menus).reduce(
         ($$, set, i) => (this.menus[set] ? i : $$),
@@ -105,8 +96,7 @@ export default {
     list() {
       let { countries, categories } = this.activeFilters
 
-      return this.companies.filter(({ country, keywords, rating }) => {
-        if (rating < this.filters.rating) return false
+      return this.companies.filter(({ country, keywords }) => {
         if (countries.length && !~countries.indexOf(country)) return false
         return (
           !categories.length || categories.every(cat => ~keywords.indexOf(cat))
@@ -119,9 +109,7 @@ export default {
 
       return {
         countries: Object.keys(countries).filter(c => countries[c]),
-        categories: Object.keys(categories).filter(c => categories[c]),
-        rating:
-          this.filters.rating > this.rating.min ? [this.filters.rating] : []
+        categories: Object.keys(categories).filter(c => categories[c])
       }
     }
   },
@@ -152,13 +140,9 @@ export default {
     },
 
     clearFilter(filter, except, active) {
-      if (filter === 'rating') {
-        this.filters[filter] = this.rating.min
-      } else {
-        Object.keys(this.filters[filter]).forEach(option => {
-          this.filters[filter][option] = except === option && !active
-        })
-      }
+      Object.keys(this.filters[filter]).forEach(option => {
+        this.filters[filter][option] = except === option && !active
+      })
     },
 
     clearAllFilters() {
@@ -178,17 +162,11 @@ export default {
       .then(companies => {
         this.companies = companies
 
-        companies.forEach(({ country, keywords, rating }) => {
-          this.$set(this.filters.countries, country, false)
-
-          if (this.rating.max < rating) this.rating.max = rating
-          if (this.rating.min > rating) {
-            this.rating.min = rating
-            this.filters.rating = rating
-          }
+        companies.forEach(({ country, keywords }) => {
+          this.$set(this.filters.countries, country)
 
           keywords.forEach(category => {
-            this.$set(this.filters.categories, category, false)
+            this.$set(this.filters.categories, category)
           })
         })
       })
