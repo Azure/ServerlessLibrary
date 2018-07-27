@@ -19,7 +19,7 @@
       </div>
 
       <ul class="sample__details">
-        <li class="sample__data">
+        <li class="sample__data sm-item">
           Something here
         </li>
 
@@ -51,14 +51,13 @@ export default {
 
 <style lang="scss">
 .c-metadata-badge {
-  font-weight: bold;
   text-transform: uppercase;
   font-size: 11px;
   margin: 0 5px;
   padding: 0 4px;
-  border: 1px solid #000;
+  border: 1px solid #ccc;
   border-radius: 3px;
-  color: #000;
+  color: #555;
   float: right;
 }
 
@@ -164,5 +163,13 @@ export default {
 <style lang="scss" scoped>
 strong {
   margin-top: 15px;
+}
+
+.sm-item {
+  font-size: 13px;
+  border: 1px solid #ccc;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  color: #555;
 }
 </style>

@@ -128,7 +128,7 @@ body {
 
 .content {
   position: relative;
-  max-width: 900px;
+  max-width: 950px;
   margin: 0 auto;
 
   &__list {
