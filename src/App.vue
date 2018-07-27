@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       samples: [],
-      filters: { lang: {} },
+      filters: { language: {} },
     }
   },
 
@@ -37,7 +37,7 @@ export default {
 
         data.forEach(({ language }) => {
           //sets the filter keys
-          this.$set(this.filters.lang, language, false)
+          this.$set(this.filters.language, language, false)
 
           // keywords.forEach(title => {
           //   this.$set(this.filters.title, title)

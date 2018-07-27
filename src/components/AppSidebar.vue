@@ -1,26 +1,33 @@
 <template>
   <aside class="theme-dark">
     <h4>Find a function from a keyword</h4>
+
     <form class="c-search" autocomplete="off" name="form1" target="_self">
-      <input v-model="searchtext" aria-label="Enter your search" type="search" name="search-field" role="searchbox" placeholder="Search">
+      <input 
+        v-model="searchtext" 
+        aria-label="Enter your search" 
+        type="search" 
+        name="search-field" 
+        role="searchbox" 
+        placeholder="Search"
+      ></input>
       <button class="c-glyph" name="search-button">
           <span class="x-screen-reader">Search</span>
       </button>
     </form>
 
     <nav class="nav">
-      <menu class="nav__controls">
+      <menu>
 
-        <li v-for="(active, menu) in menus" 
+        <h4 v-for="(active, menu) in menus" 
           @click="setMenu(menu, active)"
           :key="menu"
-          class="nav__label"
           :class="{
             'nav__label--active' : active,
             'nav__label--filter': activeFilters[menu].length
           }">
           {{ menu }}
-        </li>
+        </h4>
 
         <li class="nav__label nav__label--clear" @click="clearAllFilters">Clear all</li>
       </menu>
@@ -49,7 +56,7 @@ export default {
     return {
       searchtext: '',
       dropdown: { height: 0 },
-      menus: { lang: false }
+      menus: { language: false }
     }
   },
   props: {
@@ -75,7 +82,7 @@ export default {
       //let { lang } = this.activeFilters
 
       //let filter = new RegExp(this.activeFilters, 'i')
-      return this.samples.filter(el => el.lang === this.activeFilters.lang)
+      return this.samples.filter(el => el.language === this.activeFilters.language)
 
       // return this.samples.filter(({ lang }) => {
 
@@ -85,10 +92,10 @@ export default {
     },
 
     activeFilters() {
-      let { lang } = this.filters
+      let { language } = this.filters
 
       return {
-        lang: Object.keys(lang).filter(c => lang[c])
+        language: Object.keys(language).filter(c => language[c])
       }
     }
   },
@@ -148,13 +155,22 @@ export default {
   border-left: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+li {
+  list-style: none outside none;
+}
+
+menu {
+  padding-left: 0;
+  margin: 0;
+}
 </style>
 
 
 <style lang="scss">
 aside {
   color: white;
-  width: 250px;
+  width: 275px;
   padding: 1rem;
   height: 100vh;
   position: fixed;
@@ -163,22 +179,14 @@ aside {
 }
 
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  white-space: nowrap;
-  margin: 0 1rem;
-  padding: 2rem 0.5rem 1rem;
-  border-bottom: 1px solid #c5d0d1;
+  margin-top: 50px;
+
+  h4 {
+    text-transform: capitalize;
+  }
 
   &__controls {
     display: flex;
-  }
-
-  &__icon {
-    width: 1rem;
-    height: 1rem;
-    fill: currentColor;
   }
 
   &__label {
@@ -264,15 +272,15 @@ aside {
   align-items: flex-start;
 
   &__item {
-    margin-top: 0.5rem;
     margin-right: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    border: 1px solid #c5d0d1;
+    border: 1px solid #888;
     border-radius: 6px;
     font-size: 0.8rem;
     line-height: 1.35;
     cursor: pointer;
     transition: all 275ms;
+    padding: 0.25rem 0.5rem 0.5rem;
+    text-transform: uppercase;
 
     &:hover {
       border-color: #379a93;
