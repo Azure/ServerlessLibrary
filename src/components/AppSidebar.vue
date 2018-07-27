@@ -84,7 +84,8 @@ export default {
 
       return {
         language: Object.keys(language).filter(c => language[c]),
-        type: Object.keys(type).filter(c => type[c])
+        type: Object.keys(type).filter(c => type[c]),
+        filtertext: this.searchtext
       }
     }
   },
