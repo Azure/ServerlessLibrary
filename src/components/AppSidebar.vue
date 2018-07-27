@@ -91,6 +91,7 @@ export default {
 
   methods: {
     capturetext() {
+      console.log('hi')
       this.searchtext === this.filters.filtertext
     },
 
