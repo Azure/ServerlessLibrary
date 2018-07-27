@@ -2,7 +2,7 @@
   <aside class="theme-dark">
     <h4>Find a function from a keyword</h4>
 
-    <form class="c-search" autocomplete="off" name="form1" target="_self">
+    <form @submit.prevent="capturetext" class="c-search" autocomplete="off" name="form1">
       <input 
         v-model="searchtext" 
         aria-label="Enter your search" 
@@ -59,6 +59,7 @@ export default {
       menus: { language: false, type: false }
     }
   },
+
   props: {
     samples: {
       type: Array,
@@ -69,6 +70,7 @@ export default {
       required: true
     }
   },
+
   computed: {
     activeMenu() {
       return Object.keys(this.menus).reduce(
@@ -77,24 +79,8 @@ export default {
       )
     },
 
-    list() {
-      //in case we want more
-      let { language, type } = this.activeFilters
-
-      //let filter = new RegExp(this.activeFilters, 'i')
-      // return this.samples.filter(
-      //   el => el.language === this.activeFilters.language
-      // )
-
-      // return this.samples.filter(({ lang }) => {
-
-      //   //if (this.title.length && !~this.title.indexOf(title)) return false
-      //   //return !titles.length || titles.every(title => ~keywords.indexOf(title))
-      // })
-    },
-
     activeFilters() {
-      let { language, type } = this.filters
+      let { language, type, filtertext } = this.filters
 
       return {
         language: Object.keys(language).filter(c => language[c]),
@@ -103,21 +89,11 @@ export default {
     }
   },
 
-  watch: {
-    activeMenu(index, from) {
-      if (index === from) return
-
-      this.$nextTick(() => {
-        if (!this.$refs.menu || !this.$refs.menu[index]) {
-          this.dropdown.height = 0
-        } else {
-          this.dropdown.height = `${this.$refs.menu[index].clientHeight + 20}px`
-        }
-      })
-    }
-  },
-
   methods: {
+    capturetext() {
+      this.searchtext === this.filters.filtertext
+    },
+
     setFilter(filter, option) {
       if (filter === 'title') {
         this.filters[filter][option] = !this.filters[filter][option]
@@ -141,6 +117,20 @@ export default {
     setMenu(menu, active) {
       Object.keys(this.menus).forEach(tab => {
         this.menus[tab] = !active && tab === menu
+      })
+    }
+  },
+
+  watch: {
+    activeMenu(index, from) {
+      if (index === from) return
+
+      this.$nextTick(() => {
+        if (!this.$refs.menu || !this.$refs.menu[index]) {
+          this.dropdown.height = 0
+        } else {
+          this.dropdown.height = `${this.$refs.menu[index].clientHeight + 20}px`
+        }
       })
     }
   }
@@ -190,6 +180,12 @@ aside {
   position: fixed;
   top: 0;
   left: 0;
+}
+
+@media (max-width: 700px) {
+  aside {
+    display: none;
+  }
 }
 
 .nav {

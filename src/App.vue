@@ -22,10 +22,28 @@ export default {
     AppItem,
     AppSidebar
   },
+
   data() {
     return {
       samples: [],
-      filters: { language: {}, type: {} }
+      filters: { language: {}, type: {}, filtertext: '' }
+    }
+  },
+
+  computed: {
+    list() {
+      let { language, type } = this.activeFilters
+
+      //let filter = new RegExp(this.activeFilters, 'i')
+      // return this.samples.filter(
+      //   el => el.language === this.activeFilters.language
+      // )
+
+      // return this.samples.filter(({ lang }) => {
+
+      //   //if (this.title.length && !~this.title.indexOf(title)) return false
+      //   //return !titles.length || titles.every(title => ~keywords.indexOf(title))
+      // })
     }
   },
 
@@ -36,13 +54,9 @@ export default {
         this.samples = data
 
         data.forEach(({ language, type }) => {
-          //sets the filter keys
+          //makes sure that the filters are using the right keys
           this.$set(this.filters.language, language, false)
           this.$set(this.filters.type, type, false)
-
-          // keywords.forEach(title => {
-          //   this.$set(this.filters.title, title)
-          // })
         })
       })
   }
@@ -72,6 +86,12 @@ body {
 
 .scootover {
   margin-left: 280px;
+}
+
+@media (max-width: 700px) {
+  .scootover {
+    margin-left: 0;
+  }
 }
 
 .m-area-heading {
