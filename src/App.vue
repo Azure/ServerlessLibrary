@@ -1,6 +1,10 @@
 <template>
   <div class="scootover">
-    <app-sidebar :samples="samples" :filters="filters"/>
+    <app-sidebar 
+      @updateFilters="updatedFilters = $event"
+      :samples="samples" 
+      :filters="filters"
+    />
 
     <main id="mainContent" class="content">
       <div data-grid="col-12" class="m-area-heading">
@@ -26,24 +30,22 @@ export default {
   data() {
     return {
       samples: [],
+      updatedFilters: {},
       filters: { language: {}, type: {}, filtertext: '' }
     }
   },
 
   computed: {
     list() {
-      let { language, type } = this.activeFilters
-
-      //let filter = new RegExp(this.activeFilters, 'i')
-      // return this.samples.filter(
-      //   el => el.language === this.activeFilters.language
-      // )
-
-      // return this.samples.filter(({ lang }) => {
-
-      //   //if (this.title.length && !~this.title.indexOf(title)) return false
-      //   //return !titles.length || titles.every(title => ~keywords.indexOf(title))
-      // })
+      // let { language, type } = this.activeFilters
+      // //let filter = new RegExp(this.activeFilters, 'i')
+      // // return this.samples.filter(
+      // //   el => el.language === this.activeFilters.language
+      // // )
+      // // return this.samples.filter(({ lang }) => {
+      // //   //if (this.title.length && !~this.title.indexOf(title)) return false
+      // //   //return !titles.length || titles.every(title => ~keywords.indexOf(title))
+      // // })
     }
   },
 

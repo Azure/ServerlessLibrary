@@ -10,11 +10,12 @@
         name="search-field" 
         role="searchbox" 
         placeholder="Search"
-      ></input>
+      />
       <button class="c-glyph" name="search-button">
           <span class="x-screen-reader">Search</span>
       </button>
     </form>
+    <p v-if="activeText">{{ activeFilters.filtertext }}</p>
 
     <nav class="nav">
       <menu>
@@ -56,7 +57,8 @@ export default {
     return {
       searchtext: '',
       dropdown: { height: 0 },
-      menus: { language: false, type: false }
+      menus: { language: false, type: false },
+      activeText: false
     }
   },
 
@@ -93,7 +95,7 @@ export default {
   methods: {
     capturetext() {
       console.log('hi')
-      this.searchtext === this.filters.filtertext
+      this.activeText === true
     },
 
     setFilter(filter, option) {
@@ -134,6 +136,10 @@ export default {
           this.dropdown.height = `${this.$refs.menu[index].clientHeight + 20}px`
         }
       })
+    },
+    activeFilters() {
+      console.log('hi')
+      this.$emit('updateFilters', this.activeFilters)
     }
   }
 }
@@ -166,7 +172,7 @@ menu {
 }
 
 .carot {
-  color: #5dc21e;
+  color: #81bdec;
   font-size: 12px;
   width: 14px;
 }
@@ -293,13 +299,13 @@ aside {
     text-transform: uppercase;
 
     &:hover {
-      border-color: #107c10;
+      border-color: #3393de;
     }
 
     &--active {
       color: white;
-      border-color: #107c10;
-      background-color: #107c10;
+      border-color: #3393de;
+      background-color: #3393de;
     }
   }
 
