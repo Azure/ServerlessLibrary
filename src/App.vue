@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="scootover">
     <app-sidebar :samples="samples" :filters="filters"/>
 
     <main id="mainContent" class="content">
       <div data-grid="col-12" class="m-area-heading">
-        <h2 class="c-heading">Functions Explorer</h2>
-        <h4 class="c-subheading">Find an Azure Serverless Function with ease!</h4>
+        <h2 class="c-heading">⚡️ Azure Functions Explorer ⚡ ️</h2>
+        <p>An open source set of common use cases for Azure Functions & Logic Apps that are ready to deploy!</p>
       </div>
 
       <AppItem :samples="samples" />
@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       samples: [],
-      filters: { language: {} },
+      filters: { language: {}, type: {} }
     }
   },
 
@@ -35,9 +35,10 @@ export default {
       .then(data => {
         this.samples = data
 
-        data.forEach(({ language }) => {
+        data.forEach(({ language, type }) => {
           //sets the filter keys
           this.$set(this.filters.language, language, false)
+          this.$set(this.filters.type, type, false)
 
           // keywords.forEach(title => {
           //   this.$set(this.filters.title, title)
@@ -67,5 +68,13 @@ body {
     padding-bottom: 5rem;
     backface-visibility: hidden;
   }
+}
+
+.scootover {
+  margin-left: 280px;
+}
+
+.m-area-heading {
+  margin-bottom: 30px;
 }
 </style>

@@ -20,7 +20,7 @@
 
       <ul class="sample__details">
         <li class="sample__data sm-item">
-          Something here
+          {{ item.type }}
         </li>
 
         <li class="sample__data">

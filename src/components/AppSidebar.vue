@@ -26,7 +26,7 @@
             'nav__label--active' : active,
             'nav__label--filter': activeFilters[menu].length
           }">
-          {{ menu }}
+          {{ menu }} <span v-if="!active" class="carot">&#x25BC;</span>
         </h4>
 
         <li class="nav__label nav__label--clear" @click="clearAllFilters">Clear all</li>
@@ -56,7 +56,7 @@ export default {
     return {
       searchtext: '',
       dropdown: { height: 0 },
-      menus: { language: false }
+      menus: { language: false, type: false }
     }
   },
   props: {
@@ -67,7 +67,7 @@ export default {
     filters: {
       type: Object,
       required: true
-    },
+    }
   },
   computed: {
     activeMenu() {
@@ -79,10 +79,12 @@ export default {
 
     list() {
       //in case we want more
-      //let { lang } = this.activeFilters
+      let { language, type } = this.activeFilters
 
       //let filter = new RegExp(this.activeFilters, 'i')
-      return this.samples.filter(el => el.language === this.activeFilters.language)
+      // return this.samples.filter(
+      //   el => el.language === this.activeFilters.language
+      // )
 
       // return this.samples.filter(({ lang }) => {
 
@@ -92,10 +94,11 @@ export default {
     },
 
     activeFilters() {
-      let { language } = this.filters
+      let { language, type } = this.filters
 
       return {
-        language: Object.keys(language).filter(c => language[c])
+        language: Object.keys(language).filter(c => language[c]),
+        type: Object.keys(type).filter(c => type[c])
       }
     }
   },
@@ -140,7 +143,7 @@ export default {
         this.menus[tab] = !active && tab === menu
       })
     }
-  },
+  }
 }
 </script>
 
@@ -160,9 +163,18 @@ li {
   list-style: none outside none;
 }
 
+h4 {
+  font-weight: normal;
+}
+
 menu {
   padding-left: 0;
   margin: 0;
+}
+
+.carot {
+  color: #6bb1e8;
+  font-size: 12px;
 }
 </style>
 
@@ -171,7 +183,7 @@ menu {
 aside {
   color: white;
   width: 275px;
-  padding: 1rem;
+  padding: 125px 1rem;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -183,6 +195,7 @@ aside {
 
   h4 {
     text-transform: capitalize;
+    cursor: pointer;
   }
 
   &__controls {
@@ -195,6 +208,7 @@ aside {
     text-transform: capitalize;
     z-index: 1;
     cursor: pointer;
+    padding: 2px;
 
     &::after {
       content: '\00d7';
@@ -226,7 +240,7 @@ aside {
     }
 
     &--filter::after {
-      content: '\2022';
+      content: '˅';
       color: #46d2c4;
     }
 
@@ -279,7 +293,7 @@ aside {
     line-height: 1.35;
     cursor: pointer;
     transition: all 275ms;
-    padding: 0.25rem 0.5rem 0.5rem;
+    padding: 0.25rem 0.5rem 0.45rem;
     text-transform: uppercase;
 
     &:hover {
