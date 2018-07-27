@@ -170,11 +170,13 @@ h4 {
 menu {
   padding-left: 0;
   margin: 0;
+  display: flex;
 }
 
 .carot {
-  color: #6bb1e8;
+  color: #5dc21e;
   font-size: 12px;
+  width: 14px;
 }
 </style>
 
@@ -196,6 +198,7 @@ aside {
   h4 {
     text-transform: capitalize;
     cursor: pointer;
+    margin-right: 15px;
   }
 
   &__controls {
@@ -239,11 +242,6 @@ aside {
       transform: scale(1);
     }
 
-    &--filter::after {
-      content: '˅';
-      color: #46d2c4;
-    }
-
     &--active::after {
       content: '\00d7';
       color: #f68185;
@@ -280,7 +278,7 @@ aside {
 }
 
 .filters {
-  padding: 0 1rem;
+  padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -297,13 +295,13 @@ aside {
     text-transform: uppercase;
 
     &:hover {
-      border-color: #379a93;
+      border-color: #107c10;
     }
 
     &--active {
       color: white;
-      border-color: #379a93;
-      background-color: #379a93;
+      border-color: #107c10;
+      background-color: #107c10;
     }
   }
 
