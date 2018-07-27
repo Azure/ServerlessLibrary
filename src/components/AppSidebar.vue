@@ -1,16 +1,15 @@
 <template>
-  <div>
+  <aside class="theme-dark">
+    <h4>Find a function from a keyword</h4>
     <form class="c-search" autocomplete="off" name="form1" target="_self">
-      <input aria-label="Enter your search" type="search" name="search-field" role="searchbox" placeholder="Search">
+      <input v-model="searchtext" aria-label="Enter your search" type="search" name="search-field" role="searchbox" placeholder="Search">
       <button class="c-glyph" name="search-button">
           <span class="x-screen-reader">Search</span>
       </button>
     </form>
 
-
     <nav class="nav">
       <menu class="nav__controls">
-        <AppIcon class="nav__icon" use="#filter"></AppIcon>
 
         <li v-for="(active, menu) in menus" 
           @click="setMenu(menu, active)"
@@ -41,14 +40,128 @@
           </li>
       </menu>
     </transition-group>
-  </div>
+  </aside>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      searchtext: '',
+      dropdown: { height: 0 },
+      menus: { lang: false }
+    }
+  },
+  props: {
+    samples: {
+      type: Array,
+      required: true
+    },
+    filters: {
+      type: Object,
+      required: true
+    },
+  },
+  computed: {
+    activeMenu() {
+      return Object.keys(this.menus).reduce(
+        ($$, set, i) => (this.menus[set] ? i : $$),
+        -1
+      )
+    },
+
+    list() {
+      //in case we want more
+      //let { lang } = this.activeFilters
+
+      //let filter = new RegExp(this.activeFilters, 'i')
+      return this.samples.filter(el => el.lang === this.activeFilters.lang)
+
+      // return this.samples.filter(({ lang }) => {
+
+      //   //if (this.title.length && !~this.title.indexOf(title)) return false
+      //   //return !titles.length || titles.every(title => ~keywords.indexOf(title))
+      // })
+    },
+
+    activeFilters() {
+      let { lang } = this.filters
+
+      return {
+        lang: Object.keys(lang).filter(c => lang[c])
+      }
+    }
+  },
+
+  watch: {
+    activeMenu(index, from) {
+      if (index === from) return
+
+      this.$nextTick(() => {
+        if (!this.$refs.menu || !this.$refs.menu[index]) {
+          this.dropdown.height = 0
+        } else {
+          this.dropdown.height = `${this.$refs.menu[index].clientHeight + 20}px`
+        }
+      })
+    }
+  },
+
+  methods: {
+    setFilter(filter, option) {
+      if (filter === 'title') {
+        this.filters[filter][option] = !this.filters[filter][option]
+      } else {
+        setTimeout(() => {
+          this.clearFilter(filter, option, this.filters[filter][option])
+        }, 100)
+      }
+    },
+
+    clearFilter(filter, except, active) {
+      Object.keys(this.filters[filter]).forEach(option => {
+        this.filters[filter][option] = except === option && !active
+      })
+    },
+
+    clearAllFilters() {
+      Object.keys(this.filters).forEach(this.clearFilter)
+    },
+
+    setMenu(menu, active) {
+      Object.keys(this.menus).forEach(tab => {
+        this.menus[tab] = !active && tab === menu
+      })
+    }
+  },
+}
 </script>
 
+<style lang="scss" scoped>
+.theme-dark .c-search input[type='search'] {
+  background: transparent;
+}
+
+.c-search input[type='search'] {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+</style>
+
+
 <style lang="scss">
+aside {
+  color: white;
+  width: 250px;
+  padding: 1rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
