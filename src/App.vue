@@ -8,7 +8,7 @@
 
     <main id="mainContent" class="content">
       <div data-grid="col-12" class="m-area-heading">
-        <h2 class="c-heading">⚡️ Azure Functions Explorer ⚡ ️</h2>
+        <h2 class="c-heading">⚡️ Azure Functions Explorer ️</h2>
         <p>An open source set of common use cases for Azure Functions & Logic Apps that are ready to deploy!</p>
       </div>
 
@@ -37,22 +37,19 @@ export default {
 
   computed: {
     list() {
-      const x = this.updatedFilters
-      if (x.filtertext) {
-        let filter = new RegExp(this.updatedFilters.filtertext, 'i')
-        return this.samples.filter(el => el.title.match(filter))
-      } else {
-        return this.samples
-      }
-      // let { language, type } = this.activeFilters
-      // //let filter = new RegExp(this.activeFilters, 'i')
-      // // return this.samples.filter(
-      // //   el => el.language === this.activeFilters.language
-      // // )
-      // // return this.samples.filter(({ lang }) => {
-      // //   //if (this.title.length && !~this.title.indexOf(title)) return false
-      // //   //return !titles.length || titles.every(title => ~keywords.indexOf(title))
-      // // })
+      var x = this.updatedFilters,
+        filter = new RegExp(x.filtertext, 'i'),
+        temp
+
+      temp = this.samples.filter(el => el.title.match(filter))
+
+      if (x.language && x.language.length > 0)
+        temp = temp.filter(el => el.language === String(x.language))
+
+      if (x.type && x.type.length > 0)
+        temp = temp.filter(el => el.type === String(x.type))
+
+      return temp
     }
   },
 
