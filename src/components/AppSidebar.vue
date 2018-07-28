@@ -138,7 +138,6 @@ export default {
       })
     },
     activeFilters() {
-      console.log('hi')
       this.$emit('updateFilters', this.activeFilters)
     }
   }

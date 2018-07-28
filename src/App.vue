@@ -12,7 +12,7 @@
         <p>An open source set of common use cases for Azure Functions & Logic Apps that are ready to deploy!</p>
       </div>
 
-      <AppItem :samples="samples" />
+      <AppItem :samples="list" />
     </main>
   </div>
 </template>
@@ -37,6 +37,13 @@ export default {
 
   computed: {
     list() {
+      const x = this.updatedFilters
+      if (x.filtertext) {
+        let filter = new RegExp(this.updatedFilters.filtertext, 'i')
+        return this.samples.filter(el => el.title.match(filter))
+      } else {
+        return this.samples
+      }
       // let { language, type } = this.activeFilters
       // //let filter = new RegExp(this.activeFilters, 'i')
       // // return this.samples.filter(
