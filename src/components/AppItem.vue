@@ -42,7 +42,6 @@ export default {
   },
   props: {
     samples: {
-      type: Array,
       required: true
     }
   }

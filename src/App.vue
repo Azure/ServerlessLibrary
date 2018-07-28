@@ -37,18 +37,16 @@ export default {
 
   computed: {
     list() {
+      //todo: this works but needs refactoring
       var x = this.updatedFilters,
         filter = new RegExp(x.filtertext, 'i'),
         temp
 
       temp = this.samples.filter(el => el.title.match(filter))
-
       if (x.language && x.language.length > 0)
         temp = temp.filter(el => el.language === String(x.language))
-
       if (x.type && x.type.length > 0)
         temp = temp.filter(el => el.type === String(x.type))
-
       return temp
     }
   },
