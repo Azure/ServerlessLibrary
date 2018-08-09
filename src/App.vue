@@ -52,7 +52,7 @@ export default {
   },
 
   created() {
-    fetch('https://serverlesslibrarytest.azurewebsites.net/api/Library')
+    fetch('https://www.serverlesslibrary.net/api/Library')
       .then(response => response.json())
       .then(data => {
         this.samples = data
