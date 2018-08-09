@@ -32,8 +32,19 @@ namespace ServerLessLibraryFunctionApp
             } while (continuationToken != null);
             foreach (var item in entities) {
                 {
-                    //increment
+                    //reset
+                    log.Info($"Resetting daily stats");
                     item.downloadsToday = 0;
+                    if (DateTime.UtcNow.DayOfWeek == DayOfWeek.Sunday)
+                    {
+                        log.Info($"Resetting weekly stats");
+                        item.downloadsThisWeek = 0;
+                    }
+                    if (DateTime.UtcNow.Day == 1)
+                    {
+                        log.Info($"Resetting monthly stats");
+                        item.downloadsThisMonth = 0;
+                    }
                     TableOperation operation = TableOperation.InsertOrMerge(item);
                     await table.ExecuteAsync(operation);
                 }

@@ -12859,6 +12859,7 @@
       "Microsoft.AspNetCore.Http.Abstractions >= 2.0.3",
       "Microsoft.AspNetCore.Mvc >= 2.0.4",
       "Microsoft.AspNetCore.Mvc.Core >= 2.0.4",
+      "Microsoft.AspNetCore.StaticFiles >= 2.0.3",
       "Microsoft.Extensions.Caching.Memory >= 2.0.2",
       "Microsoft.Extensions.Configuration >= 2.0.2",
       "Microsoft.Extensions.DependencyInjection >= 2.0.0",
@@ -12929,6 +12930,10 @@
           "Microsoft.AspNetCore.Mvc.Core": {
             "target": "Package",
             "version": "[2.0.4, )"
+          },
+          "Microsoft.AspNetCore.StaticFiles": {
+            "target": "Package",
+            "version": "[2.0.3, )"
           },
           "Microsoft.Extensions.Caching.Memory": {
             "target": "Package",

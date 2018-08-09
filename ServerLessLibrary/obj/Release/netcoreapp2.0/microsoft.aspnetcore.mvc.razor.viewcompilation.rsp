@@ -1,5 +1,5 @@
-C:\Repos\.git\ServerLessLibrary
+C:\Repos\ServerLessLibrary\ServerLessLibrary
 --output-path=obj\Release\netcoreapp2.0\
 --application-name=ServerLessLibrary
---content-root=C:\Repos\.git\ServerLessLibrary
+--content-root=C:\Repos\ServerLessLibrary\ServerLessLibrary
 --file=

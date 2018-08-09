@@ -36,15 +36,14 @@ namespace ServerLessLibraryFunctionApp
             } while (continuationToken != null);
             if (entities.Count == 0)
             {
-                // Create a new customer entity.
+                // Create a new itemStats entity.
                 SLItemStats item = new SLItemStats() { PartitionKey = Guid.NewGuid().ToString(), RowKey = Guid.NewGuid().ToString(), template = myQueueItem,
                     totalDownloads = 1, downloadsThisMonth=1, downloadsThisWeek=1,downloadsToday=1 ,lastUpdated=DateTime.UtcNow};
-                // Create the TableOperation that inserts the customer entity.
+                // Create the TableOperation that inserts the itemStats entity.
                 TableOperation insertOperation = TableOperation.Insert(item);
 
                 // Execute the insert operation.
                 await table.ExecuteAsync(insertOperation);
-
             }
             else
             {

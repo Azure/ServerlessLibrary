@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="ServerLessLibraryTest" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Repos\\\.git\\ServerLessLibrary\\obj\\Release\\netcoreapp2\.0\\PubTmp\\Out\\$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Repos\\ServerLessLibrary\\ServerLessLibrary\\obj\\Release\\netcoreapp2\.0\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>
