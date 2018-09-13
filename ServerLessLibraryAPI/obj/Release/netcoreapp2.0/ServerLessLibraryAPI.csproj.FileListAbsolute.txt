@@ -1,0 +1,11 @@
+C:\Repos\ServerLessLibrary\ServerLessLibraryAPI\bin\Release\netcoreapp2.0\ServerLessLibraryAPI.deps.json
+C:\Repos\ServerLessLibrary\ServerLessLibraryAPI\bin\Release\netcoreapp2.0\ServerLessLibraryAPI.runtimeconfig.json
+C:\Repos\ServerLessLibrary\ServerLessLibraryAPI\bin\Release\netcoreapp2.0\ServerLessLibraryAPI.runtimeconfig.dev.json
+C:\Repos\ServerLessLibrary\ServerLessLibraryAPI\bin\Release\netcoreapp2.0\ServerLessLibraryAPI.dll
+C:\Repos\ServerLessLibrary\ServerLessLibraryAPI\bin\Release\netcoreapp2.0\ServerLessLibraryAPI.pdb
+C:\Repos\ServerLessLibrary\ServerLessLibraryAPI\obj\Release\netcoreapp2.0\ServerLessLibraryAPI.csprojAssemblyReference.cache
+C:\Repos\ServerLessLibrary\ServerLessLibraryAPI\obj\Release\netcoreapp2.0\ServerLessLibraryAPI.csproj.CoreCompileInputs.cache
+C:\Repos\ServerLessLibrary\ServerLessLibraryAPI\obj\Release\netcoreapp2.0\ServerLessLibraryAPI.AssemblyInfoInputs.cache
+C:\Repos\ServerLessLibrary\ServerLessLibraryAPI\obj\Release\netcoreapp2.0\ServerLessLibraryAPI.AssemblyInfo.cs
+C:\Repos\ServerLessLibrary\ServerLessLibraryAPI\obj\Release\netcoreapp2.0\ServerLessLibraryAPI.dll
+C:\Repos\ServerLessLibrary\ServerLessLibraryAPI\obj\Release\netcoreapp2.0\ServerLessLibraryAPI.pdb

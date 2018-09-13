@@ -22,7 +22,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v2.0": {
-      "ServerLessLibrary/1.0.0": {
+      "ServerLessLibraryAPI/1.0.0": {
         "dependencies": {
           "Microsoft.ApplicationInsights.AspNetCore": "2.1.1",
           "Microsoft.AspNetCore.All": "2.0.8",
@@ -40,10 +40,10 @@
           "System.Linq": "4.3.0"
         },
         "runtime": {
-          "ServerLessLibrary.dll": {}
+          "ServerLessLibraryAPI.dll": {}
         },
         "compile": {
-          "ServerLessLibrary.dll": {}
+          "ServerLessLibraryAPI.dll": {}
         }
       },
       "Libuv/1.10.0": {
@@ -4615,7 +4615,7 @@
     }
   },
   "libraries": {
-    "ServerLessLibrary/1.0.0": {
+    "ServerLessLibraryAPI/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

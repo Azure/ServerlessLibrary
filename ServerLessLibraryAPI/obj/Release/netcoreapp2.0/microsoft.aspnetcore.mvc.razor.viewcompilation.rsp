@@ -1,5 +1,5 @@
-C:\Repos\ServerLessLibrary\ServerLessLibrary
+C:\Repos\ServerLessLibrary\ServerLessLibraryAPI
 --output-path=obj\Release\netcoreapp2.0\
---application-name=ServerLessLibrary
---content-root=C:\Repos\ServerLessLibrary\ServerLessLibrary
+--application-name=ServerLessLibraryAPI
+--content-root=C:\Repos\ServerLessLibrary\ServerLessLibraryAPI
 --file=

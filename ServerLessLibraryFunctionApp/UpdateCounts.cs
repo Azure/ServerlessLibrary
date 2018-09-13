@@ -15,7 +15,6 @@ namespace ServerLessLibraryFunctionApp
 
         [FunctionName("UpdateCounts")]
         [Singleton]
-
         public static async void Run([QueueTrigger("slitemstats")]string myQueueItemJson, [Table("slitemstats")] CloudTable table, TraceWriter log)
         {
             var myQueueItem = JsonConvert.DeserializeObject( ((dynamic)myQueueItemJson)).template;

@@ -29,6 +29,9 @@ namespace ServerLessLibrary
         [JsonProperty(PropertyName = "author", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Author { get; private set; }
 
+        [JsonProperty(PropertyName = "authortype", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string AuthorType { get; set; }
+
         [JsonProperty(PropertyName = "totaldownloads", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public int TotalDownloads { get;  set; }
 

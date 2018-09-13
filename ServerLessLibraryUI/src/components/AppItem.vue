@@ -2,9 +2,13 @@
   <transition-group name="sample" tag="ul" class="content__list">
     <li class="sample" v-for="item in samples" :key="item.title">
       <div class="sample__info">
-        <span class="c-metadata-badge" aria-label="Microsoft Approved">Approved</span>
-        <h3 class="sample__name">{{ item.title }}</h3>
-        <p class="sample__desc">{{ item.description }}</p>
+        <span class="c-metadata-badge" :title="{
+          'This has been authored by Microsoft':item.authortype=='Microsoft',
+          'This is a community contribution':item.authortype=='Community'
+          }" >{{ item.authortype }}</span>
+        <span class="c-downloads" title="Total Downloads" >{{ item.totaldownloads }}</span>
+        <h3 class="sample__name line-clamp2" :title= item.title>{{ item.title }}</h3>
+        <p class="sample__desc line-clamp4" :title= item.description>{{ item.description }}</p>
         <strong 
           class="c-badge f-small"
           style="text-transform:uppercase"
@@ -24,7 +28,7 @@
         </li>
 
         <li class="sample__data">
-          <a :href="item.repository" class="repo">
+          <a :href="item.repository" class="repo" target="_anew" v-on:click="outboundRepoClick(item.repository)">
             <span>Repo <app-icon /></span>
           </a>
         </li>
@@ -44,11 +48,37 @@ export default {
     samples: {
       required: true
     }
+  },
+  methods:{
+  outboundRepoClick(repo) {
+    fetch('https://www.serverlesslibrary.net/api/Library'
+    , {
+        method: 'PUT',
+        body:repo,
+        headers: {
+        "Content-Type": "application/json"
+        },
+       })
+      .then(response => response.body)
+      .catch((err)=>console.error(err.message))
   }
+  }  
 }
 </script>
 
 <style lang="scss">
+.line-clamp2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+}
+
+.line-clamp4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;  
+}
+
 .c-metadata-badge {
   text-transform: uppercase;
   font-size: 11px;
@@ -56,6 +86,14 @@ export default {
   padding: 0 4px;
   border: 1px solid #ccc;
   border-radius: 3px;
+  color: #555;
+  float: left;
+}
+.c-downloads{
+  text-transform: uppercase;
+  font-size: 11px;
+  margin: 0 5px;
+  padding: 0 4px;
   color: #555;
   float: right;
 }
@@ -130,9 +168,11 @@ export default {
   }
 
   &__name {
-    height: 2.5rem;
+    height: 2.9rem;
     margin: 2rem 0.5rem 1rem;
     text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__desc {
@@ -140,7 +180,6 @@ export default {
     padding: 0.5rem;
     height: 5.5rem;
     overflow: hidden;
-    text-align: center;
   }
 
   &__details {

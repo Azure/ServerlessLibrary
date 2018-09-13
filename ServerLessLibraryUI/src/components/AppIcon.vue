@@ -15,7 +15,6 @@ export default {
 }
 </script>
 
-
 <style scoped>
 svg {
   vertical-align: baseline;
