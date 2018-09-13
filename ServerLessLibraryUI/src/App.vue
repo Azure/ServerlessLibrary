@@ -63,7 +63,10 @@ export default {
         temp = temp.filter(el => el.language === String(x.language))
       if (x.type && x.type.length > 0)
         temp = temp.filter(el => el.type === String(x.type))
-      temp = temp.sort(function(a,b){return b.totaldownloads = a.totaldownloads })
+      temp = temp.sort(
+        function(a,b){
+          return b.totaldownloads - a.totaldownloads ;
+          });
       return temp
     }
   },

@@ -28,7 +28,7 @@
         </li>
 
         <li class="sample__data">
-          <a :href="item.repository" class="repo" target="_anew" v-on:click="outboundRepoClick(item.repository)">
+          <a :href="item.repository" class="repo" target="_blank" v-on:contextmenu="outboundRepoClick(item.template)" v-on:click="outboundRepoClick(item.template)" v-on:dblclick="outboundRepoClick(item.template)">
             <span>Repo <app-icon /></span>
           </a>
         </li>
@@ -54,7 +54,7 @@ export default {
     fetch('https://www.serverlesslibrary.net/api/Library'
     , {
         method: 'PUT',
-        body:repo,
+        body:'"' + repo + '"',
         headers: {
         "Content-Type": "application/json"
         },
