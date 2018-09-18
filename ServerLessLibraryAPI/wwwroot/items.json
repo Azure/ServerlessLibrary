@@ -28,7 +28,7 @@
     "authortype": "Microsoft"
   },
   {
-    "title": "CosmoDB",
+    "title": "CosmosDB",
     "template": "https://raw.githubusercontent.com/nastassiar/crudfunctions/master/azure-deploy.json",
     "repository": "https://github.com/nastassiar/crudfunctions",
     "description": "An HTTP API for CRUD operations against CosmosDB. (So boring, why would you write it yourself?!!)",

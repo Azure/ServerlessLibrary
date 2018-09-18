@@ -47,7 +47,7 @@
     </transition-group>
     <div class="bottomgroup" name="branding">
     <div>
-    <a href="https://github.com/Azure/FunctionLibrary/issues/new?template=addnew.md"  target="_blank" title="How to Contribute" >
+    <a href="https://github.com/Azure/ServerlessLibrary"  target="_blank" title="How to Contribute" >
             <strong 
           class="c-badge f-small f-highlight"
           style="text-transform:uppercase">

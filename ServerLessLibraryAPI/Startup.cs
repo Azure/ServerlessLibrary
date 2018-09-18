@@ -25,7 +25,7 @@ namespace ServerLessLibrary
             {
                 c.SwaggerDoc("v1", new Info
                 {
-                    Title = "ASP.NET Core 2.1+ Web API",
+                    Title = "ASP.NET Core 2.0 Web API",
                     Version = "v1"
                 });
             });
@@ -51,6 +51,15 @@ namespace ServerLessLibrary
                 c.RoutePrefix = "swagger";
             });
             app.UseMvc();
+            app.Use(async (context, next) =>
+            {
+                context.Response.Headers.Add("X-Frame-Options", "SAMEORIGIN");
+                context.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
+                context.Response.Headers.Add("Strict-Transport-Security", "max-age=600; includeSubDomains; preload");
+                context.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+                await next();
+            });
+
+        }
     }
-}
 }

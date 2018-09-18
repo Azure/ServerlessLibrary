@@ -2,10 +2,7 @@
   <transition-group name="sample" tag="ul" class="content__list">
     <li class="sample" v-for="item in samples" :key="item.title">
       <div class="sample__info">
-        <span class="c-metadata-badge" :title="{
-          'This has been authored by Microsoft':item.authortype=='Microsoft',
-          'This is a community contribution':item.authortype=='Community'
-          }" >{{ item.authortype }}</span>
+        <span class="c-metadata-badge" :title= item.authortypedesc>{{ item.authortype }}</span>
         <span class="c-downloads" title="Total Downloads" >{{ item.totaldownloads }}</span>
         <h3 class="sample__name line-clamp2" :title= item.title>{{ item.title }}</h3>
         <p class="sample__desc line-clamp4" :title= item.description>{{ item.description }}</p>
