@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "93cae0a5c5fa90064215b39f307d6d2b6299ec3d"
+    "signature": "e1927740d4634a2019807e116af94c2df3788a91"
   },
   "compilationOptions": {
     "defines": [
@@ -22,13 +22,14 @@
   },
   "targets": {
     ".NETCoreApp,Version=v2.0": {
-      "ServerLessLibraryAPI/1.0.0": {
+      "ServerlessLibraryAPI/1.0.0": {
         "dependencies": {
           "Microsoft.ApplicationInsights.AspNetCore": "2.1.1",
           "Microsoft.AspNetCore.All": "2.0.8",
           "Microsoft.AspNetCore.Http.Abstractions": "2.0.3",
           "Microsoft.AspNetCore.Mvc": "2.0.4",
           "Microsoft.AspNetCore.Mvc.Core": "2.0.4",
+          "Microsoft.AspNetCore.Server.Kestrel.Https": "2.0.4",
           "Microsoft.AspNetCore.StaticFiles": "2.0.3",
           "Microsoft.Extensions.Caching.Memory": "2.0.2",
           "Microsoft.Extensions.Configuration": "2.0.2",
@@ -40,10 +41,10 @@
           "System.Linq": "4.3.0"
         },
         "runtime": {
-          "ServerLessLibraryAPI.dll": {}
+          "ServerlessLibraryAPI.dll": {}
         },
         "compile": {
-          "ServerLessLibraryAPI.dll": {}
+          "ServerlessLibraryAPI.dll": {}
         }
       },
       "Libuv/1.10.0": {
@@ -157,7 +158,7 @@
           "Microsoft.AspNetCore.Routing": "2.0.3",
           "Microsoft.AspNetCore.Server.IISIntegration": "2.0.3",
           "Microsoft.AspNetCore.Server.Kestrel": "2.0.3",
-          "Microsoft.AspNetCore.Server.Kestrel.Https": "2.0.3",
+          "Microsoft.AspNetCore.Server.Kestrel.Https": "2.0.4",
           "Microsoft.Extensions.Configuration.CommandLine": "2.0.2",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "2.0.2",
           "Microsoft.Extensions.Configuration.FileExtensions": "2.0.2",
@@ -253,9 +254,9 @@
           "Microsoft.AspNetCore.Server.HttpSys": "2.0.4",
           "Microsoft.AspNetCore.Server.IISIntegration": "2.0.3",
           "Microsoft.AspNetCore.Server.Kestrel": "2.0.3",
-          "Microsoft.AspNetCore.Server.Kestrel.Core": "2.0.3",
-          "Microsoft.AspNetCore.Server.Kestrel.Https": "2.0.3",
-          "Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions": "2.0.3",
+          "Microsoft.AspNetCore.Server.Kestrel.Core": "2.0.4",
+          "Microsoft.AspNetCore.Server.Kestrel.Https": "2.0.4",
+          "Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions": "2.0.4",
           "Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv": "2.0.3",
           "Microsoft.AspNetCore.Session": "2.0.3",
           "Microsoft.AspNetCore.SpaServices": "2.0.4",
@@ -1457,7 +1458,7 @@
       "Microsoft.AspNetCore.Server.Kestrel/2.0.3": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting": "2.0.3",
-          "Microsoft.AspNetCore.Server.Kestrel.Core": "2.0.3",
+          "Microsoft.AspNetCore.Server.Kestrel.Core": "2.0.4",
           "Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv": "2.0.3"
         },
         "runtime": {
@@ -1470,10 +1471,10 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Server.Kestrel.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Server.Kestrel.Core/2.0.3": {
+      "Microsoft.AspNetCore.Server.Kestrel.Core/2.0.4": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.3",
-          "Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions": "2.0.3",
+          "Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions": "2.0.4",
           "Microsoft.AspNetCore.WebUtilities": "2.0.3",
           "Microsoft.Extensions.Logging.Abstractions": "2.0.2",
           "Microsoft.Extensions.Options": "2.0.2",
@@ -1482,30 +1483,30 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Server.Kestrel.Core.dll": {
-            "assemblyVersion": "2.0.3.0",
-            "fileVersion": "2.0.3.18114"
+            "assemblyVersion": "2.0.4.0",
+            "fileVersion": "2.0.4.18184"
           }
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Server.Kestrel.Core.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Server.Kestrel.Https/2.0.3": {
+      "Microsoft.AspNetCore.Server.Kestrel.Https/2.0.4": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Abstractions": "2.0.3",
-          "Microsoft.AspNetCore.Server.Kestrel.Core": "2.0.3"
+          "Microsoft.AspNetCore.Server.Kestrel.Core": "2.0.4"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Server.Kestrel.Https.dll": {
-            "assemblyVersion": "2.0.3.0",
-            "fileVersion": "2.0.3.18114"
+            "assemblyVersion": "2.0.4.0",
+            "fileVersion": "2.0.4.18184"
           }
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Server.Kestrel.Https.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions/2.0.3": {
+      "Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions/2.0.4": {
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "2.0.3",
           "System.Buffers": "4.4.0",
@@ -1513,8 +1514,8 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll": {
-            "assemblyVersion": "2.0.3.0",
-            "fileVersion": "2.0.3.18114"
+            "assemblyVersion": "2.0.4.0",
+            "fileVersion": "2.0.4.18184"
           }
         },
         "compile": {
@@ -1525,7 +1526,7 @@
         "dependencies": {
           "Libuv": "1.10.0",
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.3",
-          "Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions": "2.0.3",
+          "Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions": "2.0.4",
           "Microsoft.Extensions.Logging.Abstractions": "2.0.2",
           "Microsoft.Extensions.Options": "2.0.2"
         },
@@ -4615,7 +4616,7 @@
     }
   },
   "libraries": {
-    "ServerLessLibraryAPI/1.0.0": {
+    "ServerlessLibraryAPI/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -5166,26 +5167,26 @@
       "path": "microsoft.aspnetcore.server.kestrel/2.0.3",
       "hashPath": "microsoft.aspnetcore.server.kestrel.2.0.3.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Server.Kestrel.Core/2.0.3": {
+    "Microsoft.AspNetCore.Server.Kestrel.Core/2.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-TnhdRwj2KGophlLQPcRco1keTtHUAuRtZ74xUB7RAjoRelPysJlCNsH/IbIJnFNvYW0tszkjSc7DCkRex4Z/EA==",
-      "path": "microsoft.aspnetcore.server.kestrel.core/2.0.3",
-      "hashPath": "microsoft.aspnetcore.server.kestrel.core.2.0.3.nupkg.sha512"
+      "sha512": "sha512-p0zhVcrL+kLojfHbocGtKS1iEYJ6U6TCtPuY5qCf0OqZoTFQHNWyvIH7bVPDW53VgBhQAO/fRrVEzyNhbq41hA==",
+      "path": "microsoft.aspnetcore.server.kestrel.core/2.0.4",
+      "hashPath": "microsoft.aspnetcore.server.kestrel.core.2.0.4.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Server.Kestrel.Https/2.0.3": {
+    "Microsoft.AspNetCore.Server.Kestrel.Https/2.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+wcxyn8GFGtsJbwIhnb23fTBBsJZBZV2bN5vb5m8FRrdGM9gGhE3P4rt/oAONCGAQJAMDyfyxKUJfL07gjjYlg==",
-      "path": "microsoft.aspnetcore.server.kestrel.https/2.0.3",
-      "hashPath": "microsoft.aspnetcore.server.kestrel.https.2.0.3.nupkg.sha512"
+      "sha512": "sha512-t8MGeNbnoZtwVSXcVEFtoPSqP5FXQ4154DqZxzbSIPEW3p/upY582pvYFbOri6nFKCaWmmWKf/am2sGqJIPx0A==",
+      "path": "microsoft.aspnetcore.server.kestrel.https/2.0.4",
+      "hashPath": "microsoft.aspnetcore.server.kestrel.https.2.0.4.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions/2.0.3": {
+    "Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions/2.0.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-RXB7hERQ1mKtyIjKzlGYXDT0BMBwclg2VsBetD2nqjxb3xXauQEvFM0x6Gp48ELSzmX+lBNWlH7sN8fNNckzAg==",
-      "path": "microsoft.aspnetcore.server.kestrel.transport.abstractions/2.0.3",
-      "hashPath": "microsoft.aspnetcore.server.kestrel.transport.abstractions.2.0.3.nupkg.sha512"
+      "sha512": "sha512-C1RrqyT8TuPZDQSNAWVl2BukMEa73AfxMNP8o9JCz1kSN6ebAHXV6ewh3pMP5jGXjDnJw+hiHdRXHS5+ctLEKw==",
+      "path": "microsoft.aspnetcore.server.kestrel.transport.abstractions/2.0.4",
+      "hashPath": "microsoft.aspnetcore.server.kestrel.transport.abstractions.2.0.4.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv/2.0.3": {
       "type": "package",

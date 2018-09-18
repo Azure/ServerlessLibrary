@@ -12,7 +12,7 @@ using System.Net;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace ServerLessLibrary
+namespace ServerlessLibrary
 {
     [Produces("application/json")]
     [Route("api/[controller]")]

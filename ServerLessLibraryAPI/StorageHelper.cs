@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace ServerLessLibrary {
+namespace ServerlessLibrary {
     /// <summary>
     /// Summary description for StorageHelper
     /// </summary>
@@ -19,7 +19,7 @@ namespace ServerLessLibrary {
         private static CloudTableClient tableClient()
         {
             // Retrieve storage account from connection string.
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ServerLessLibrarySettings.SLStorageString);
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ServerlessLibrarySettings.SLStorageString);
 
             // Create the table client.
             return storageAccount.CreateCloudTableClient();
@@ -28,7 +28,7 @@ namespace ServerLessLibrary {
         private static CloudQueueClient cloudQueueClient()
         {
             // Retrieve storage account from connection string.
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ServerLessLibrarySettings.SLStorageString);
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ServerlessLibrarySettings.SLStorageString);
 
             // Create the queue client.
             return storageAccount.CreateCloudQueueClient();

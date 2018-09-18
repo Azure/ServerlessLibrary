@@ -5,9 +5,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-namespace ServerLessLibrary
+namespace ServerlessLibrary
 {
-    public static class ServerLessLibrarySettings
+    public static class ServerlessLibrarySettings
     {
         private static string config(string @default = null, [CallerMemberName] string key = null)
         {

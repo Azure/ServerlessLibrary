@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ServerLessLibrary
+namespace ServerlessLibrary
 {
     public class LibraryItem
     {

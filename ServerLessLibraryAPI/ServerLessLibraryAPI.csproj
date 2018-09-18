@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <ApplicationInsightsResourceId>/subscriptions/7c1b7bab-00b2-4cb7-924e-205c4f411810/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/ServerLessLibrary</ApplicationInsightsResourceId>
-    <ApplicationInsightsAnnotationResourceId>/subscriptions/7c1b7bab-00b2-4cb7-924e-205c4f411810/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/ServerLessLibrary</ApplicationInsightsAnnotationResourceId>
+    <ApplicationInsightsResourceId>/subscriptions/7c1b7bab-00b2-4cb7-924e-205c4f411810/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/ServerlessLibrary</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/7c1b7bab-00b2-4cb7-924e-205c4f411810/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/ServerlessLibrary</ApplicationInsightsAnnotationResourceId>
     <Company>Microsoft</Company>
   </PropertyGroup>
 
