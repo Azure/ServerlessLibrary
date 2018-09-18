@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerlessLibraryFunctionApp", "ServerlessLibraryFunctionApp\ServerlessLibraryFunctionApp.csproj", "{95E9DC49-8B38-4D2C-95AD-1BD261A1CBF0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerlessLibraryAPI", "ServerlessLibraryAPI\ServerlessLibraryAPI.csproj", "{9DB5E7FD-1720-4FEC-B6BF-E91BCA659A54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95E9DC49-8B38-4D2C-95AD-1BD261A1CBF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E9DC49-8B38-4D2C-95AD-1BD261A1CBF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E9DC49-8B38-4D2C-95AD-1BD261A1CBF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E9DC49-8B38-4D2C-95AD-1BD261A1CBF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DB5E7FD-1720-4FEC-B6BF-E91BCA659A54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DB5E7FD-1720-4FEC-B6BF-E91BCA659A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DB5E7FD-1720-4FEC-B6BF-E91BCA659A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DB5E7FD-1720-4FEC-B6BF-E91BCA659A54}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {972ED417-3343-4F74-BD0C-C6BB7515C695}
+	EndGlobalSection
+EndGlobal
