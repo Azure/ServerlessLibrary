@@ -10,7 +10,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
-namespace ServerLessLibrary
+namespace ServerlessLibrary
 {
     public class Startup
     {
@@ -47,7 +47,7 @@ namespace ServerLessLibrary
             app.UseStaticFiles();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ServerLess library API v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Serverless library API v1");
                 c.RoutePrefix = "swagger";
             });
             app.UseMvc();

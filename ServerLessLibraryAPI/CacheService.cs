@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ServerLessLibrary
+namespace ServerlessLibrary
 {
     public interface ICacheService {
         List<LibraryItem> GetCachedItems();
@@ -26,9 +26,9 @@ namespace ServerLessLibrary
         }
         private void InitTimer()
         {
-            _cache.Set<LibraryItemsResult>(ServerLessLibrarySettings.CACHE_ENTRY, new LibraryItemsResult() { Result = new List<LibraryItem>(), IsBusy = true });
+            _cache.Set<LibraryItemsResult>(ServerlessLibrarySettings.CACHE_ENTRY, new LibraryItemsResult() { Result = new List<LibraryItem>(), IsBusy = true });
 
-            Timer = new Timer(TimerTickAsync, null, 1000, ServerLessLibrarySettings.SLCacheRefreshIntervalInSeconds * 1000);
+            Timer = new Timer(TimerTickAsync, null, 1000, ServerlessLibrarySettings.SLCacheRefreshIntervalInSeconds * 1000);
         }
 
         public Task LoadingTask = Task.CompletedTask;
@@ -36,7 +36,7 @@ namespace ServerLessLibrary
         public bool LoadingBusy = false;
 
         public List<LibraryItem> GetCachedItems() {
-            return _cache.Get<LibraryItemsResult>(ServerLessLibrarySettings.CACHE_ENTRY).Result;
+            return _cache.Get<LibraryItemsResult>(ServerlessLibrarySettings.CACHE_ENTRY).Result;
         }
         private async void TimerTickAsync(object state)
         {
@@ -61,7 +61,7 @@ namespace ServerLessLibrary
             try
             {
                 var items = await ConstructCache();
-                _cache.Set<LibraryItemsResult>(ServerLessLibrarySettings.CACHE_ENTRY, new LibraryItemsResult() { Result = items, IsBusy = false });
+                _cache.Set<LibraryItemsResult>(ServerlessLibrarySettings.CACHE_ENTRY, new LibraryItemsResult() { Result = items, IsBusy = false });
             }
             catch { }
         }

@@ -7,7 +7,7 @@ using Microsoft.WindowsAzure.Storage.RetryPolicies;
 using Microsoft.WindowsAzure.Storage.Table;
 using Newtonsoft.Json;
 
-namespace ServerLessLibraryFunctionApp
+namespace ServerlessLibraryFunctionApp
 {
     public static class UpdateCounts
     {

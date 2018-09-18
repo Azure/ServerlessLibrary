@@ -6,7 +6,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.RetryPolicies;
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace ServerLessLibraryFunctionApp
+namespace ServerlessLibraryFunctionApp
 {
     public static class ResetDailyStats
     {
