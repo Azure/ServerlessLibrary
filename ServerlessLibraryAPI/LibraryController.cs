@@ -36,7 +36,7 @@ namespace ServerlessLibrary
         // PUT api/<controller>/
         [ProducesResponseType(typeof(bool), 200)]
         [HttpPut()]
-        public JsonResult Put([FromForm]string template)
+        public JsonResult Put([FromBody]string template)
         {
             
             StorageHelper.updateDownloadCount(JsonConvert.SerializeObject( new { template = WebUtility.UrlDecode(template) }));
