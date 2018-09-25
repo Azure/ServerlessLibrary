@@ -174,6 +174,14 @@
         "type": "function"
     },
     {
+        "title": "Azure Sandbox Utils",
+        "template": "https://raw.githubusercontent.com/wilfriedwoivre/azure-sandbox-function/master/azuredeploy.json",
+        "repository": "https://github.com/wilfriedwoivre/azure-sandbox-function",
+        "description": "Provide API to create temporary Resource Group. Provide function to remove temporary resource group each day",
+        "language": "csharp",
+        "type": "function"
+    },
+    {
         "title": "Blob: Static Server with CDN",
         "template": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.cdn.json",
         "repository": "https://github.com/jefking/fl-default-static",
