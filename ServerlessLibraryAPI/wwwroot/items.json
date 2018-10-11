@@ -382,5 +382,14 @@
     "language": "na",
     "type": "logicapp",
     "authortype": "Microsoft"
+  },
+  {
+    "title": "Azure Sandbox utils",
+    "template": "https://raw.githubusercontent.com/wilfriedwoivre/azure-sandbox-function/master/azuredeploy.json",
+    "repository": "https://github.com/wilfriedwoivre/azure-sandbox-function",
+    "description": "Provide API to create temporary Resource Group. Provide function to remove temporary resource group each day",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community"
   }
 ]
