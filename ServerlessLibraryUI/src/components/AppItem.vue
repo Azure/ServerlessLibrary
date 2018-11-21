@@ -1,5 +1,5 @@
 <template>
-  <transition-group name="sample" tag="ul" class="content__list">
+  <transition-group name="sample" tag="ul" class="contentlist">
     <li class="sample" v-for="item in samples" :key="item.title">
       <div class="sample__info">
         <span class="c-metadata-badge" :title= item.authortypedesc>{{ item.authortype }}</span>
@@ -64,6 +64,11 @@ export default {
 </script>
 
 <style lang="scss">
+.contentlist{
+    margin-top: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 5rem;
+}
 .line-clamp2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
