@@ -391,5 +391,14 @@
     "language": "csharp",
     "type": "functionapp",
     "authortype": "Community"
+  },
+  {
+    "title": "Polling With Duplicate Check",
+    "template": "https://raw.githubusercontent.com/nastassiar/WebRequestFunction/master/azuredeploy.json",
+    "repository": "https://github.com/nastassiar/WebRequestFunction",
+    "description": "Triggered every 5 minutes to do a GET from an API, check for duplicated records in Azure blob storage it has already seen and POST any new alerts to another API.",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Microsoft"
   }
 ]
