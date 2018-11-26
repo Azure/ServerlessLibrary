@@ -15,7 +15,7 @@
         </div>
         <div class="sample__main">
           <h3 class="sample__name line-clamp2" :title= item.title>{{ item.title }}</h3>
-          <p class="sample__desc line-clamp3" :title= item.description>{{ item.description }}</p>
+          <p class="sample__desc line-clamp3" :title= item.description>{{ item.description }}</p>    
         </div>
       </div>
 
@@ -25,14 +25,17 @@
         </li>
 
         <li class="sample__data">
-          <a :href="item.repository" class="repo" target="_blank" v-on:contextmenu="outboundRepoClick(item.template)" v-on:click="outboundRepoClick(item.template)" v-on:dblclick="outboundRepoClick(item.template)">
+          <a :href="item.repository" class="repo" target="_blank">
             <span>See in repo   <app-icon /></span>
           </a>
         </li>
       </ul>
-      <div class="sample__deploy">
-        <a :href="getDeployUrl(item)" target="_blank" />
-      </div>
+      <div class="sample__deploy" @click="showConsentModal" />
+      <ConsentModal
+        v-show="isModalVisible"
+        @close="closeConsentModal"
+        :armtemplateUrl-url="item.template"
+      />
     </li>
   </transition-group>
 </template>
@@ -41,34 +44,32 @@
 import AppIcon from './AppIcon.vue'
 import AppItemType from './AppItemType.vue'
 import AppItemAuthor from './AppItemAuthor.vue'
+import ConsentModal from './ConsentModal.vue'
 
 export default {
   components: {
     AppIcon,
     AppItemType,
-    AppItemAuthor
+    AppItemAuthor,
+    ConsentModal
   },
+   data () {
+      return {
+        isModalVisible: false,
+      };
+    },
   props: {
     samples: {
       required: true
     }
   },
   methods:{
-  outboundRepoClick(repo) {
-    fetch('https://www.serverlesslibrary.net/api/Library'
-    , {
-        method: 'PUT',
-        body:'"' + repo + '"',
-        headers: {
-        "Content-Type": "application/json"
-        },
-       })
-      .then(response => response.body)
-      .catch((err)=>console.error(err.message))
-  },
-    getDeployUrl(item) {
-      return 'https://portal.azure.com/#create/Microsoft.Template/uri/' + encodeURIComponent(item.template);
-    }
+     showConsentModal() {
+        this.isModalVisible = true;
+      },
+      closeConsentModal() {
+        this.isModalVisible = false;
+      }
   }
 }
 </script>
