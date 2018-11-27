@@ -94,10 +94,10 @@
 </script>
 
 <style lang="scss">
-  $base-color: #e3e3e3;
+  $base-color: #f8f8f8;
 
   body {
-    background: lighten($base-color, 4%);
+    background: $base-color;
   }
 .headerbar{
   background-color: #252525;
@@ -133,11 +133,11 @@ padding:5px;
   }
 .header{
       text-align: center;
-      padding-bottom:20px;
+      padding-bottom:10px;
       float:unset;
 }
 .headingtext{
-  font-size: 34px;line-height: 40px;padding-top:50px;padding-bottom:20px; font-weight: 700;
+  font-size: 34px;line-height: 40px;padding-top:45px;padding-bottom:20px; font-weight: 700;
 }
   .content {
     position: relative;

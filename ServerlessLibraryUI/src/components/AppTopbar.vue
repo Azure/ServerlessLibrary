@@ -16,20 +16,20 @@
       </button>
     </form>      <p v-if="activeText">{{ activeFilters.filtertext }}</p>
     </div>
-    <div data-grid="col-3">
-    <select class="c-search dropdown2"  v-model="activeFilters.language">
-  <option value="" selected >Type: All</option>
-  <option value="javascript">Javascript</option>
-  <option value="csharp">CSharp</option>
-</select>
-</div>
 <div data-grid="col-3" >
      <select class="c-search dropdown2"  v-model="activeFilters.type">
-  <option value="" selected>Language: All</option>
+  <option value="" selected>Type: All</option>
   <option value="functionapp">Function App</option>
   <option value="logicapp">Logic App</option>
 </select>
     </div>
+    <div data-grid="col-3">
+    <select class="c-search dropdown2"  v-model="activeFilters.language">
+  <option value="" selected >Language: All</option>
+  <option value="javascript">JavaScript</option>
+  <option value="csharp">C#</option>
+</select>
+</div>
 
   </div>
 </div>
@@ -60,8 +60,6 @@ export default {
   },
 
   computed: {
-
-
     activeFilters() {
       let { language, type, filtertext } = this.filters
       var filteredLangs = Object.keys(language).filter(c => language[c]);
@@ -118,7 +116,7 @@ export default {
   background: transparent;
 }
 .c-search{
-  max-width:100%;
+  max-width: 95%;
   margin-left:1rem;
   margin-top:1rem;
 }
@@ -127,6 +125,7 @@ export default {
   border-right: none;
   border-left: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-left: 15px!important;
 }
 .dropdown2{
   width:90%;
