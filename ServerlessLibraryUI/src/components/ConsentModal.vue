@@ -1,6 +1,9 @@
 <template>
-  <div class="modal-backdrop bordershading">
-    <div class="modal modalshadow">
+    <div class="modal-mask">
+      <div class="modal-wrapper">
+        <div class="modal-container">
+
+    <div class="modal">
       <header class="modal-header">
         <slot name="header">
           Just in case you did not know already..
@@ -26,8 +29,8 @@
              <button
               type="button"
               class="btn-agree"
-              @click="outboundRepoClick(armtemplateUrl)"
-              v-on:contextmenu="outboundRepoClick(armtemplateUrl)"
+              @click="outboundRepoClick(data)"
+              v-on:contextmenu="outboundRepoClick(data)"
             >
               I agree
           </button>
@@ -41,25 +44,26 @@
         </slot>
       </footer>
     </div>
-  </div>
+    </div>
+        </div>
+            </div>
+
 </template>
 
 <script>
   export default {
-    props: {
-    armtemplateUrl: String,
-  },
+    props: ['data'],
 
   methods: {
     close() {
       this.$emit('close');
     },
 
-    outboundRepoClick(repo) {
+    outboundRepoClick(data) {
       fetch('https://www.serverlesslibrary.net/api/Library'
       , {
           method: 'PUT',
-          body:'"' + repo + '"',
+          body:'"' + data.template + '"',
           headers: {
           "Content-Type": "application/json"
           },
@@ -67,13 +71,77 @@
         .then(response => response.body)
         .catch((err)=>console.error(err.message));
         this.$emit('close');
-        window.open('https://portal.azure.com/#create/Microsoft.Template/uri/' + encodeURIComponent(repo), '_blank')
+        window.open('https://portal.azure.com/#create/Microsoft.Template/uri/' + encodeURIComponent(data.template), '_blank')
     },
   },
 };
 </script>
 
 <style>
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: table;
+  transition: opacity .3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+    width: 1000px;
+    margin: 0px auto;
+    padding: 10px 15px 5px 10px;
+    background-color: #fff;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-default-button {
+  float: right;
+}
+
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
   .modal-backdrop {
      position: fixed;
      top: 0;
@@ -118,6 +186,7 @@
      font-size: 12px;
      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
  .btn-close {
      border: none;
      font-size: 16px;
@@ -154,10 +223,5 @@
      -webkit-transform: scale(1.1);
      transform: scale(1.1);
 }
-.bordershading{
-background-color:transparent;
-}
-.modalshadow{
- box-shadow: 5px 5px 1px #CFCFCF!important
-}
+
 </style>

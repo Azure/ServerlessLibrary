@@ -1,4 +1,9 @@
 <template>
+<div>
+      <ConsentModal
+        v-if="isModalVisible" @close="isModalVisible = false"
+        :data="modalData"
+      />
   <transition-group name="sample" tag="ul" class="contentlist">
     <li class="sample" v-for="item in samples" :key="item.title">
       <div class="sample__info">
@@ -30,14 +35,11 @@
           </a>
         </li>
       </ul>
-      <div class="sample__deploy" @click="showConsentModal" />
-      <ConsentModal
-        v-show="isModalVisible"
-        @close="closeConsentModal"
-        :armtemplateUrl="item.template"
-      />
+      <div class="sample__deploy" @click="showConsentModal(item)" />
+
     </li>
   </transition-group>
+</div>
 </template>
 
 <script>
@@ -56,6 +58,7 @@ export default {
    data () {
       return {
         isModalVisible: false,
+        modalData: null
       };
     },
   props: {
@@ -64,12 +67,11 @@ export default {
     }
   },
   methods:{
-     showConsentModal() {
+     showConsentModal(data) {
         this.isModalVisible = true;
+        this.modalData = data;
       },
-      closeConsentModal() {
-        this.isModalVisible = false;
-      }
+
   }
 }
 </script>
