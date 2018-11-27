@@ -34,7 +34,7 @@
       <ConsentModal
         v-show="isModalVisible"
         @close="closeConsentModal"
-        :armtemplateUrl-url="item.template"
+        :armtemplateUrl="item.template"
       />
     </li>
   </transition-group>

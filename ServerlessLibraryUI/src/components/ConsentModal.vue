@@ -26,8 +26,8 @@
              <button
               type="button"
               class="btn-agree"
-              @click="outboundRepoClick(repository)"
-              v-on:contextmenu="outboundRepoClick(repository)"
+              @click="outboundRepoClick(armtemplateUrl)"
+              v-on:contextmenu="outboundRepoClick(armtemplateUrl)"
             >
               I agree
           </button>
