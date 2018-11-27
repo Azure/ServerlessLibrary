@@ -38,23 +38,27 @@ export default {
     },
     width: {
       type: Number,
-      default: 20
+      default: 17
     }
   },
   filters: {
     ToDisplayType(value) {
-      if (value === 'functionapp') {
-        return 'Function app';
-      } else if (value === 'logicapp') {
-        return 'LogicApp';
+      var type = value.toLowerCase();
+      if (type === 'functionapp') {
+        return 'Function App';
+      } else if (type === 'logicapp') {
+        return 'Logic App';
       } else {
       return value;
       }
     },
     ToDisplayLanguage(value) {
-      if (value === 'csharp') {
-        return 'CSharp';
-      } else if (value === 'na') {
+      var language = value.toLowerCase();
+      if (language === 'csharp') {
+        return 'C#';
+      } else if (language === 'javascript') {
+        return 'JavaScript';
+      } else if (language === 'na') {
         return '';
       } else {
         return value;

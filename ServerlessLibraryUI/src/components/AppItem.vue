@@ -124,9 +124,10 @@ export default {
   z-index: 1;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.75rem 0.5rem 0.5rem;
   background-color: #EFEFEF;
-  border-radius: inherit;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 
 .sample {
@@ -213,8 +214,6 @@ export default {
     margin: 1rem 0;
     overflow: hidden;
     text-overflow: ellipsis;
-    display: flex;
-    align-items: center;
   }
 
   &__desc {
