@@ -244,19 +244,15 @@ export default {
   }
 
   &__deploy {
-    background-color: #5BC0DE;
+    background-color: #0078D7;
     display: flex;
     height: 40px;
-    background-image: url(../assets/deploybutton.png);
+    background-image: url(../assets/deploybutton.svg);
     background-position: center;
     background-repeat: no-repeat;
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
-    
-    a {
-      height: 100%;
-      width: 100%;
-    }
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    cursor: pointer;
   }
 }
 
