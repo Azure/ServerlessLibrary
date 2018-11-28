@@ -26,14 +26,11 @@
        </section>
        <footer class="modal-footer">
           <slot name="footer">
-             <button
-              type="button"
-              class="btn-agree"
-              @click="outboundRepoClick(data)"
-              v-on:contextmenu="outboundRepoClick(data)"
-            >
-              I agree
-          </button>
+            <button type="button" class="btn-agree">
+              <a :href="getDeployUrl(data)"  target="_blank"  v-on:contextmenu="outboundRepoClick(data)" v-on:click="outboundRepoClick(data)" v-on:dblclick="outboundRepoClick(data)">
+                I agree
+              </a>
+            </button>
            <button
               type="button"
               class="btn-cancel"
@@ -59,6 +56,10 @@
       this.$emit('close');
     },
 
+    getDeployUrl(item) {
+      return 'https://portal.azure.com/#create/Microsoft.Template/uri/' + encodeURIComponent(item.template);
+    },
+
     outboundRepoClick(data) {
       fetch('https://www.serverlesslibrary.net/api/Library'
       , {
@@ -70,8 +71,6 @@
         })
         .then(response => response.body)
         .catch((err)=>console.error(err.message));
-        this.$emit('close');
-        window.open('https://portal.azure.com/#create/Microsoft.Template/uri/' + encodeURIComponent(data.template), '_blank')
     },
   },
 };
