@@ -69,7 +69,9 @@ export default {
 
 .profilepic{
   margin-right: 0.25rem;
-  height: 24px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #666;
 }
 
 .authorname {

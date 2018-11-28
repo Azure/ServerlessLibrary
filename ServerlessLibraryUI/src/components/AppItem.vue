@@ -177,9 +177,11 @@ export default {
   }
 
   &__data {
-    line-height: 1.3;
+    margin: auto 0.75rem;
     .repo {
       font-size: 10px;
+      display: table-cell;
+      vertical-align: middle;
     }
     a:link { 
       color: #0000EE; 
@@ -228,7 +230,6 @@ export default {
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
-    padding: 0.5rem 0.75rem;
     border-top: 1px solid #dcdfe0;
     height: 40px;
   }
