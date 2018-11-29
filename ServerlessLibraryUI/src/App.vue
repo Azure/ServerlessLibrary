@@ -19,7 +19,7 @@
     </a>
   </div>
 </div>
-<div >
+<div class="shadow">
   <div class="scootover">
       <div data-grid="col-12" class="header">
         <h2 class="headingtext">Azure Serverless Community Library</h2>
@@ -94,7 +94,11 @@
   width: 100%;
   padding:5px;
 }
-
+.shadow{
+  -webkit-box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
+ -moz-box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
+ box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
+}
 .contributelink{
   color: #FCD116;
   width: 16px;
@@ -116,9 +120,9 @@
 }
 
 .scootover {
-  margin-left: 120px;
-  margin-right: 120px;
-  padding-bottom: 5px;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    padding-bottom: 5px;
 }
 .herobar{
     position: sticky; top:0; 
@@ -131,6 +135,7 @@
       text-align: center;
       padding-bottom:10px;
       float:unset;
+      max-width: 1250px;
 }
 .headingtext{
   font-size: 34px;line-height: 40px;padding-top:35px;padding-bottom:20px; font-weight: 700;

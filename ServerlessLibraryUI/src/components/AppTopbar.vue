@@ -84,7 +84,7 @@ export default {
   background: transparent;
 }
 .c-search{
-  max-width: 95%;
+  max-width: 96%;
   margin-left:1rem;
   margin-top:1rem;
 }
