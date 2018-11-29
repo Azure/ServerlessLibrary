@@ -59,7 +59,13 @@
           filter = new RegExp(x.filtertext, 'i'),
           temp
 
-        temp = this.samples.filter(el => el.title.match(filter) || el.description.match(filter) || el.authortype.match(filter)||el.repository.replace('https://github.com/','').match(filter))
+        temp = this.samples.filter(el =>
+          el.title.match(filter)
+          || el.description.match(filter)
+          || el.authortype.match(filter)
+          || el.repository.replace('https://github.com/','').match(filter)
+          || el.runtimeversion && el.runtimeversion.match(filter)
+        )
         if (x.language && x.language.length > 0)
           temp = temp.filter(el => el.language === String(x.language))
         if (x.type && x.type.length > 0)
