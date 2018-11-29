@@ -82,16 +82,7 @@
         .then(response => response.json())
         .then(data => {
           this.samples = data
-
-          data.forEach(({
-            language,
-            type
-          }) => {
-            //makes sure that the filters are using the right keys
-            this.$set(this.filters.language, language, false)
-            this.$set(this.filters.type, type, false)
           })
-        })
     }
   }
 </script>

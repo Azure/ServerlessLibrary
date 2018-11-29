@@ -1,38 +1,38 @@
 <template>
-<div>
-<div data-grid="col-12">
-    <div data-grid="col-6">
-    <form @submit.prevent="capturetext" class="c-search" autocomplete="off" name="form1">
-      <input 
-        v-model="searchtext" 
-        aria-label="Enter your search" 
-        type="search" 
-        name="search-field" 
-        role="searchbox" 
-        placeholder="Search"
-      />
-      <button class="c-glyph" name="search-button">
-          <span class="x-screen-reader">Search</span>
-      </button>
-    </form>      <p v-if="activeText">{{ activeFilters.filtertext }}</p>
+  <div>
+  <div data-grid="col-12">
+      <div data-grid="col-6">
+        <form @submit.prevent="capturetext" class="c-search" autocomplete="off" name="form1">
+          <input 
+            v-model="searchtext" 
+            aria-label="Enter your search" 
+            type="search" 
+            name="search-field" 
+            role="searchbox" 
+            placeholder="Search"
+          />
+          <button class="c-glyph" name="search-button">
+              <span class="x-screen-reader">Search</span>
+          </button>
+        </form>      
+        <p v-if="activeText">{{ activeFilters.filtertext }}</p>
+      </div>
+      <div data-grid="col-3" >
+        <select class="c-search dropdown2"  v-model="activeFilters.type">
+          <option value="" selected>Type: All</option>
+          <option value="functionapp">Function App</option>
+          <option value="logicapp">Logic App</option>
+        </select>
+      </div>
+      <div data-grid="col-3">
+        <select class="c-search dropdown2"  v-model="activeFilters.language">
+          <option value="" selected >Language: All</option>
+          <option value="javascript">JavaScript</option>
+          <option value="csharp">C#</option>
+        </select>
+      </div>
     </div>
-<div data-grid="col-3" >
-     <select class="c-search dropdown2"  v-model="activeFilters.type">
-  <option value="" selected>Type: All</option>
-  <option value="functionapp">Function App</option>
-  <option value="logicapp">Logic App</option>
-</select>
-    </div>
-    <div data-grid="col-3">
-    <select class="c-search dropdown2"  v-model="activeFilters.language">
-  <option value="" selected >Language: All</option>
-  <option value="javascript">JavaScript</option>
-  <option value="csharp">C#</option>
-</select>
-</div>
-
   </div>
-</div>
 </template>
 <script>
 import AppIcon from './AppIcon.vue'
@@ -41,8 +41,6 @@ export default {
   data() {
     return {
       searchtext: '',
-      dropdown: { height: 0 },
-      menus: { language: false, type: false },
       activeText: false
     }
   },
@@ -75,35 +73,10 @@ export default {
   methods: {
     capturetext() {
       this.activeText === true
-    },
-    setFilter(filter, option) {
-      if (filter === 'title') {
-        this.filters[filter][option] = !this.filters[filter][option]
-      } else {
-        setTimeout(() => {
-          this.clearFilter(filter, option, this.filters[filter][option])
-        }, 100)
-      }
-    },
-    setMenu(menu, active) {
-      Object.keys(this.menus).forEach(tab => {
-        this.menus[tab] = !active && tab === menu
-      })
     }
   },
 
   watch: {
-    activeMenu(index, from) {
-      if (index === from) return
-
-      this.$nextTick(() => {
-        if (!this.$refs.menu || !this.$refs.menu[index]) {
-          this.dropdown.height = 0
-        } else {
-          this.dropdown.height = `${this.$refs.menu[index].clientHeight + 20}px`
-        }
-      })
-    },
     activeFilters() {
       this.$emit('updateFilters', this.activeFilters)
     }
