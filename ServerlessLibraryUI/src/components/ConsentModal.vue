@@ -1,7 +1,7 @@
 <template>
     <div class="modal-mask">
       <div class="modal-wrapper"  @click="$emit('close')">
-        <div class="modal-container">
+        <div class="modal-container"  @click.stop>
 
     <div class="modal">
       <header class="modal-header">
@@ -71,6 +71,7 @@
         })
         .then(response => response.body)
         .catch((err)=>console.error(err.message));
+        this.close();
     },
   },
 };
