@@ -26,11 +26,11 @@
        </section>
        <footer class="modal-footer">
           <slot name="footer">
-            <button type="button" class="btn-agree">
-              <a :href="getDeployUrl(data)"  target="_blank"  v-on:contextmenu="outboundRepoClick(data)" v-on:click="outboundRepoClick(data)" v-on:dblclick="outboundRepoClick(data)">
-                I agree
+            <div class="btn-agree">
+              <a :href="getDeployUrl(data)"  target="_blank" class="fullwidth-anchor" role="button" v-on:contextmenu="outboundRepoClick(data)" v-on:click="outboundRepoClick(data)" v-on:dblclick="outboundRepoClick(data)">
+                I Agree
               </a>
-            </button>
+            </div>
            <button
               type="button"
               class="btn-cancel"
@@ -211,6 +211,14 @@
  .btn-agree {
      color: white;
      background:#0E53F4;
+}
+
+.fullwidth-anchor {
+  width:100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center; 
+  display: flex;
 }
  .modal-enter {
      opacity: 0;
