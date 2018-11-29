@@ -6,7 +6,7 @@
     "description": "App for reading license plate info from a photo.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -17,7 +17,7 @@
     "language": "javascript",
     "type": "functionapp",
     "blog": "http://pjdecarlo.com/2017/06/super-cheap-subscription-and-payment-services-with-stripe-on-microsoft-azure-using-serverless-code-via-azure-functions-node-js.html",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -27,7 +27,7 @@
     "description": "Timers that set the color of an LIFX bulb based on the outside temperature.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -37,7 +37,7 @@
     "description": "An HTTP API for CRUD operations against CosmosDB. (So boring, why would you write it yourself?!!)",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -59,7 +59,7 @@
     "blog": "https://aka.ms/aztugofwar",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v2"
   },
   {
@@ -79,7 +79,7 @@
     "description": "A simple raffle application.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -89,7 +89,7 @@
     "description": "Test your own images in bulk against Microsoft Cognitive Services: Smart Thumbnail API.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -99,7 +99,7 @@
     "description": "Test your own images in bulk against Microsoft Cognitive Services: Computer Vision API.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -109,7 +109,7 @@
     "description": "Test your own images in bulk against Microsoft Cognitive Services: OCR.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -120,7 +120,7 @@
     "language": "javascript",
     "type": "functionapp",
     "authortype": "Microsoft",
-    "runtimeversion": "latest"
+    "runtimeversion": "v1"
   },
   {
     "title": "Blob: PDF Extraction to Search",
@@ -149,7 +149,7 @@
     "description": "The easiest way to resize images stored in Blob Storage (on Azure); uses ImageProcessor.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -160,7 +160,7 @@
     "language": "csharp",
     "blog": "https://github.com/cfe84/slack-users-change-alerts",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -171,7 +171,7 @@
     "addTemplate": "https://raw.githubusercontent.com/fashaikh/AzureFunctions/master/ClosedLoopFunction/deploy/addfunction.json",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -182,7 +182,7 @@
     "blog": "http://anthonychu.ca/post/azure-functions-static-file-server",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -192,7 +192,7 @@
     "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -202,7 +202,7 @@
     "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites. This deployment contains a CDN layered 'over top' of the function.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -252,7 +252,7 @@
     "description": "Posted messages get added to Azure Storage Queue.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -262,7 +262,7 @@
     "description": "Posted messages get added to Azure Service Bus Queue.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -272,7 +272,7 @@
     "description": "Posted messages get added to Azure Service Bus Topic.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -282,7 +282,7 @@
     "description": "Posted Body gets added to Azure Service Bus Queue.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -292,7 +292,7 @@
     "description": "Scheduled email notifications of Reddit Posts",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -302,7 +302,7 @@
     "description": "Sample for use with Azure Media Services. Ingest from Azure Blobs, encode and output to Azure Blobs, monitor encoding progress, and use WebHooks or Queues to hook into the workflow.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft",
+    "authortype": "Community",
     "runtimeversion": "v1"
   },
   {
@@ -424,5 +424,25 @@
     "type": "logicapp",
     "authortype": "Microsoft",
     "runtimeversion": "na"
+  },
+  {
+    "title": "Azure Sandbox utils",
+    "template": "https://raw.githubusercontent.com/wilfriedwoivre/azure-sandbox-function/master/azuredeploy.json",
+    "repository": "https://github.com/wilfriedwoivre/azure-sandbox-function",
+    "description": "Provide API to create temporary Resource Group. Provide function to remove temporary resource group each day",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
+  },
+  {
+    "title": "Polling With Duplicate Check",
+    "template": "https://raw.githubusercontent.com/nastassiar/WebRequestFunction/master/azuredeploy.json",
+    "repository": "https://github.com/nastassiar/WebRequestFunction",
+    "description": "Triggered every 5 minutes to do a GET from an API, check for duplicated records in Azure blob storage it has already seen and POST any new alerts to another API.",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
   }
 ]
