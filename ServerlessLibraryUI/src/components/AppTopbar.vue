@@ -18,14 +18,14 @@
         <p v-if="activeText">{{ activeFilters.filtertext }}</p>
       </div>
       <div data-grid="col-3" >
-        <select class="c-search dropdown2"  v-model="activeFilters.type">
+        <select class="c-search dropdown2"  v-model="type">
           <option value="" selected>Type: All</option>
           <option value="functionapp">Function App</option>
           <option value="logicapp">Logic App</option>
         </select>
       </div>
       <div data-grid="col-3">
-        <select class="c-search dropdown2"  v-model="activeFilters.language">
+        <select class="c-search dropdown2"  v-model="language">
           <option value="" selected >Language: All</option>
           <option value="javascript">JavaScript</option>
           <option value="csharp">C#</option>
@@ -41,7 +41,9 @@ export default {
   data() {
     return {
       searchtext: '',
-      activeText: false
+      activeText: false,
+      language: "",
+      type: ""
     }
   },
   components: {
@@ -50,21 +52,14 @@ export default {
   props: {
     samples: {
       required: true
-    },
-    filters: {
-      type: Object,
-      required: true
     }
   },
 
   computed: {
     activeFilters() {
-      let { language, type, filtertext } = this.filters
-      var filteredLangs = Object.keys(language).filter(c => language[c]);
-      var filteredTypes = Object.keys(type).filter(c => type[c]);
       return {
-        language: filteredLangs.length ? filteredLangs: "",
-        type: filteredTypes.length ? filteredTypes: "",
+        language: this.language,
+        type: this.type,
         filtertext: this.searchtext
       }
     }

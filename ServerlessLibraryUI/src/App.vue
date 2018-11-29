@@ -25,7 +25,7 @@
         <h2 class="headingtext">Azure Serverless Community Library</h2>
         <p>An open source set of common use cases for Azure Functions &amp; Logic Apps that are ready to deploy!</p>
      <div class="header"> 
-      <AppTopbar @updateFilters="updatedFilters = $event" :samples="samples" :filters="filters" />
+      <AppTopbar @updateFilters="updatedFilters = $event" :samples="samples"/>
     </div>
       </div>
     <main id="mainContent" data-grid="col-12" class="content">
@@ -48,12 +48,7 @@
     data() {
       return {
         samples: [],
-        updatedFilters: {},
-        filters: {
-          language: {},
-          type: {},
-          filtertext: ''
-        }
+        updatedFilters: {}
       }
     },
 
