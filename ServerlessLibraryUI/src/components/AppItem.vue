@@ -1,9 +1,9 @@
 <template>
 <div>
-      <ConsentModal
-        v-if="isModalVisible" @close="isModalVisible = false"
-        :data="modalData"
-      />
+  <ConsentModal
+    v-if="isModalVisible" @close="isModalVisible = false"
+    :data="modalData"
+  />
   <transition-group name="sample" tag="ul" class="contentlist">
     <li class="sample" v-for="item in samples" :key="item.title">
       <div class="sample__info">
@@ -29,13 +29,13 @@
           <app-item-author :authortype="item.authortype" :repository="item.repository" />
         </li>
 
-        <li class="sample__data">
-          <a :href="item.repository" class="repo" target="_blank">
-            <span>See in repo   <app-icon /></span>
+        <li class="sample__data sample__label">
+          <a :href="item.repository" target="_blank">
+            <span>Repo</span>
           </a>
+          <button class="sample__deploybtn" @click="showConsentModal(item)">Deploy</button>
         </li>
       </ul>
-      <div class="sample__deploy" @click="showConsentModal(item)" />
 
     </li>
   </transition-group>
@@ -176,11 +176,9 @@ export default {
 
   &__data {
     margin: auto 0.75rem;
-    .repo {
-      font-size: 10px;
-      display: table-cell;
-      vertical-align: middle;
-    }
+    display: flex;
+    align-items: center;
+    
     a:link { 
       color: #0000EE; 
     }
@@ -190,7 +188,7 @@ export default {
   }
 
   &__label {
-    font-size: 0.8rem;
+    font-size: 12px;
   }
 
   &__rating {
@@ -242,16 +240,13 @@ export default {
     margin: 0.5rem 1.75rem;
   }
 
-  &__deploy {
+  &__deploybtn {
+    color: #FFFFFF;
     background-color: #0078D7;
-    display: flex;
-    height: 40px;
-    background-image: url(../assets/deploybutton.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
-    cursor: pointer;
+    border: none;
+    width: 66px;
+    height: 25px;
+    margin-left: 1rem;
   }
 }
 
