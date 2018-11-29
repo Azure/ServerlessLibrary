@@ -9,7 +9,7 @@
       <div class="sample__info">
         <div class="c-header">
           <app-item-type :type="item.type" :language="item.language" class="c-metadata-badge" />
-          <span class="c-downloads" v-bind:title="'Total downloads: '+item.totaldownloads  +'\nDownloads this month: '+item.downloadsthismonth+'\nDownloads this week: '+item.downloadsthisweek" >
+          <span class="c-downloads" v-bind:title="'Downloads\nTotal: '+item.totaldownloads  +'\nThis month: '+item.downloadsthismonth+'\nThis week: '+item.downloadsthisweek+'\nToday: '+item.downloadstoday" >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.685 9.5" class="c-downloads-icon">
               <g transform="translate(9241.016 6818.259)">
                 <path class="a" d="M7.656,5.261l-2.5,2.751-2.5-2.751.363-.4L4.894,6.93V0H5.41V6.93L7.293,4.865ZM7.474,9H2.83V8.438H7.474Z" transform="translate(-9243.325 -6818.009)"/>
