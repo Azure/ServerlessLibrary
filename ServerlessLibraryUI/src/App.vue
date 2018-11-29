@@ -147,7 +147,7 @@
       float:unset;
 }
 .headingtext{
-  font-size: 34px;line-height: 40px;padding-top:45px;padding-bottom:20px; font-weight: 700;
+  font-size: 34px;line-height: 40px;padding-top:35px;padding-bottom:20px; font-weight: 700;
 }
 .topsticky{
   position: sticky; top:0; 
