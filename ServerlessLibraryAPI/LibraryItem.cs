@@ -45,6 +45,9 @@ namespace ServerlessLibrary
         public int DownloadsThisWeek { get; set; }
         [JsonProperty(PropertyName = "downloadstoday", DefaultValueHandling = DefaultValueHandling.Include)]
         public int DownloadsToday { get; set; }
+        
+        [JsonProperty(PropertyName = "runtimeversion", DefaultValueHandling = DefaultValueHandling.Include)]
+        public string RuntimeVersion { get; set; }
 
         public LibraryItem(string title, string template, string repository, string description, string language,
             string type)
