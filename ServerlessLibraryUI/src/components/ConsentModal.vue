@@ -6,7 +6,7 @@
     <div class="modal">
       <header class="modal-header">
         <slot name="header">
-          Just in case you did not know already..
+          In case you didn't know...
 
           <button
             type="button"
@@ -19,8 +19,15 @@
       </header>
       <section class="modal-body">
         <slot name="body">
-            <p class="modal-body-content" >
-            Each Function app or Logic app is licensed to you under a license agreement by its owner, not Microsoft. Microsoft is not responsible for code provided & licensed by the community members and does not screen for security, compatibility or performance. The function or logic apps are not supported under any Microsoft support program or service. The function or logic apps are provided AS IS without warranty of any kind.
+            <p v-if="data.authortype.toLowerCase()==='microsoft'" class="modal-body-content" >
+              Each application is licensed to you under a license agreement by its creator, not Microsoft. Microsoft is not responsible for any code provided & licensed by the community members and does not screen for security, compatibility, or performance. The applications are not supported any Microsoft support program or service. The applications are provided AS IS without warranty of any kind.
+            </p>
+            <p v-else class="modal-body-content" >
+              Each application is licensed to you under a license agreement by its owner, not Microsoft. Microsoft is not responsible for any code provided & licensed by the community members and does not screen for security, compatibility, or performance. The applications are not supported any Microsoft support program or service. The applications are provided AS IS without warranty of any kind.
+            </p>
+            <br/>
+            <p v-if="data.runtimeversion && data.runtimeversion.toLowerCase()==='v1'" class="modal-body-content" >
+               Also, please note that the Function App you've selected was created with Azure Functions 1.x. As such, it might not contain the latest features, but will still work as provided.
             </p>
         </slot>
        </section>
