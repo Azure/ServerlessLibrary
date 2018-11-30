@@ -85,8 +85,7 @@ export default {
 }
 .c-search{
   max-width: 96%;
-  margin-left:1rem;
-  margin-top:1rem;
+  margin: 1rem 0.5rem 0;
 }
 .c-search input[type='search'] {
   border-top: none;

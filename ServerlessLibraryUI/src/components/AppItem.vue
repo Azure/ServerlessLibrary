@@ -135,14 +135,14 @@ export default {
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left: 1rem;
-  margin-top: 1rem;
+  margin: 1rem 0.5rem 0;
   background-color: white;
   backface-visibility: hidden;
   transform-origin: 10% 50%;
   z-index: 1;
   border: 1px solid #dcdfe0;
   border-radius: 3px;
+  min-width: 210px;
 
   @media (min-width: 600px) {
     width: calc(100% / 3 - 1rem);
