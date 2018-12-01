@@ -128,7 +128,7 @@
 .scootover {
     margin-left: auto;
     margin-right: auto;
-    max-width: 950px;
+    max-width: 1050px;
     padding-bottom: 5px;
 }
 .herobar{

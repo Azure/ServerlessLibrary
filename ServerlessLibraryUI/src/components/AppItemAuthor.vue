@@ -55,6 +55,7 @@ export default {
 
 .authorname {
   font-size: 11px;
+  vertical-align: middle;
 }
 </style>
 

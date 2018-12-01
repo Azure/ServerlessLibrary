@@ -30,9 +30,11 @@
         </li>
 
         <li class="sample__data sample__label">
-          <a :href="item.repository" target="_blank">
-            <span>Repo</span>
-          </a>
+          <div class="sample__repobtn">
+            <a :href="item.repository" target="_blank" class="fullwidth-anchor" role="button" >
+              Source Code
+            </a>
+          </div>
           <button class="sample__deploybtn" @click="showConsentModal(item)">Deploy</button>
         </li>
       </ul>
@@ -142,7 +144,7 @@ export default {
   z-index: 1;
   border: 1px solid #dcdfe0;
   border-radius: 3px;
-  min-width: 280px;
+  min-width: 315px;
 
   @media (min-width: 600px) {
     width: calc(100% / 3 - 1rem);
@@ -178,13 +180,6 @@ export default {
     margin: auto 0.75rem;
     display: flex;
     align-items: center;
-    
-    a:link { 
-      color: #0000EE; 
-    }
-    a:visited { 
-      color: #551A8B; 
-    }
   }
 
   &__label {
@@ -240,13 +235,26 @@ export default {
     margin: 0.5rem 1.75rem;
   }
 
+  &__deploybtn,
+  &__repobtn {    
+    height: 25px;
+    font-weight: bold;
+  }
+
   &__deploybtn {
     color: #FFFFFF;
     background-color: #0078D7;
     border: none;
-    width: 66px;
-    height: 25px;
-    margin-left: 1rem;
+    width: 60px;
+  }
+
+  &__repobtn {
+    color: #0078D7;
+    background:#FFFFFF;
+    border: 1px solid #0078D7;
+    opacity: 1;
+    width: 85px;
+    margin-right: 12px;
   }
 }
 
