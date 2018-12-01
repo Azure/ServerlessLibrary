@@ -20,10 +20,7 @@
       <section class="modal-body">
         <slot name="body">
             <p v-if="data.authortype.toLowerCase()==='microsoft'" class="modal-body-content" >
-              Each application is licensed to you under a license agreement by its creator, not Microsoft. Microsoft is not responsible for any code provided & licensed by the community members and does not screen for security, compatibility, or performance. The applications are not supported any Microsoft support program or service. The applications are provided AS IS without warranty of any kind.
-            </p>
-            <p v-else class="modal-body-content" >
-              Each application is licensed to you under a license agreement by its owner, not Microsoft. Microsoft is not responsible for any code provided & licensed by the community members and does not screen for security, compatibility, or performance. The applications are not supported any Microsoft support program or service. The applications are provided AS IS without warranty of any kind.
+              Each application is licensed to you by its owner (which may or may not be Microsoft) under the agreement which accompanies the application. Microsoft is not responsible for any non-Microsoft code and does not screen for security, compatibility, or performance. The applications are not supported by any Microsoft support program or service. The applications are provided AS IS without warranty of any kind.
             </p>
             <br/>
             <p v-if="data.runtimeversion && data.runtimeversion.toLowerCase()==='v1'" class="modal-body-content" >
