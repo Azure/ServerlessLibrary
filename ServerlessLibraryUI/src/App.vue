@@ -95,7 +95,7 @@
     background: $base-color;
   }
 .headerbar{
-  background-color: #63707E;
+  background-color: black;
   display: inline-block; 
   width: 100%;
   padding:5px;
