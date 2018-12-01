@@ -17,14 +17,14 @@
         </form>      
         <p v-if="activeText">{{ activeFilters.filtertext }}</p>
       </div>
-      <div data-grid="col-3" >
+      <div data-grid="col-3" class="minwidth" >
         <select class="c-search dropdown2"  v-model="type">
           <option value="" selected>Type: All</option>
           <option value="functionapp">Function App</option>
           <option value="logicapp">Logic App</option>
         </select>
       </div>
-      <div data-grid="col-3">
+      <div data-grid="col-3" class="minwidth">
         <select class="c-search dropdown2"  v-model="language">
           <option value="" selected >Language: All</option>
           <option value="javascript">JavaScript</option>
@@ -82,6 +82,9 @@ export default {
 <style lang="scss" scoped>
 .theme-dark .c-search input[type='search'] {
   background: transparent;
+}
+.minwidth{
+  min-width: 160px;
 }
 .c-search{
   max-width: 96%;
