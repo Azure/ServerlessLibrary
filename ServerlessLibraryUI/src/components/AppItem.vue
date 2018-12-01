@@ -131,7 +131,7 @@ export default {
 .sample {
   position: relative;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.08);
-  width: 100%;
+  width: 95%;
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
@@ -142,7 +142,7 @@ export default {
   z-index: 1;
   border: 1px solid #dcdfe0;
   border-radius: 3px;
-  min-width: 210px;
+  min-width: 280px;
 
   @media (min-width: 600px) {
     width: calc(100% / 3 - 1rem);

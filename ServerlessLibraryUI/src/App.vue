@@ -126,8 +126,9 @@
 }
 
 .scootover {
-    margin-left: 15rem;
-    margin-right: 15rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 950px;
     padding-bottom: 5px;
 }
 .herobar{
