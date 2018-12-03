@@ -19,7 +19,7 @@
       </header>
       <section class="modal-body">
         <slot name="body">
-            <p v-if="data.authortype.toLowerCase()==='microsoft'" class="modal-body-content" >
+            <p  class="modal-body-content" >
               Each application is licensed to you by its owner (which may or may not be Microsoft) under the agreement which accompanies the application. Microsoft is not responsible for any non-Microsoft code and does not screen for security, compatibility, or performance. The applications are not supported by any Microsoft support program or service. The applications are provided AS IS without warranty of any kind.
             </p>
             <br/>
