@@ -97,35 +97,30 @@ export default {
 
 .c-metadata-badge {
   font-size: 12px;
-  color: #555;
   float: left;
   display: inline-flex;
 }
 .c-downloads{
   text-transform: uppercase;
   font-size: 12px;
-  color: #707070;
   float: right;
 }
 
 .c-downloads-icon {
   height: 10px;
-  color: #707070;
   fill: currentColor;
 }
 
 .c-header {
   position: relative;
   width: 100%;
-  display: inline-flex;
   justify-content: space-between;
-  backface-visibility: hidden;
   transform-origin: 10% 50%;
   z-index: 1;
   display: flex;
-  justify-content: space-between;
   padding: 0.5rem 0.75rem 0.5rem 0.5rem;
-  background-color: #EFEFEF;
+  color: #FFFFFF;
+  background-color: #63707E;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
