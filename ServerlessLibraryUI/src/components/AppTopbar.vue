@@ -1,38 +1,38 @@
 <template>
-<div>
-<div data-grid="col-12">
-    <div data-grid="col-6">
-    <form @submit.prevent="capturetext" class="c-search" autocomplete="off" name="form1">
-      <input 
-        v-model="searchtext" 
-        aria-label="Enter your search" 
-        type="search" 
-        name="search-field" 
-        role="searchbox" 
-        placeholder="Search"
-      />
-      <button class="c-glyph" name="search-button">
-          <span class="x-screen-reader">Search</span>
-      </button>
-    </form>      <p v-if="activeText">{{ activeFilters.filtertext }}</p>
+  <div>
+  <div data-grid="col-12">
+      <div data-grid="col-6">
+        <form @submit.prevent="capturetext" class="c-search" autocomplete="off" name="form1">
+          <input 
+            v-model="searchtext" 
+            aria-label="Enter your search" 
+            type="search" 
+            name="search-field" 
+            role="searchbox" 
+            placeholder="Search"
+          />
+          <button class="c-glyph" name="search-button">
+              <span class="x-screen-reader">Search</span>
+          </button>
+        </form>      
+        <p v-if="activeText">{{ activeFilters.filtertext }}</p>
+      </div>
+      <div data-grid="col-3" class="minwidth" >
+        <select class="c-search dropdown2"  v-model="type">
+          <option value="" selected>Type: All</option>
+          <option value="functionapp">Function App</option>
+          <option value="logicapp">Logic App</option>
+        </select>
+      </div>
+      <div data-grid="col-3" class="minwidth">
+        <select class="c-search dropdown2"  v-model="language">
+          <option value="" selected >Language: All</option>
+          <option value="javascript">JavaScript</option>
+          <option value="csharp">C#</option>
+        </select>
+      </div>
     </div>
-    <div data-grid="col-3">
-    <select class="c-search dropdown2"  v-model="activeFilters.language">
-  <option value="" selected >Type: All</option>
-  <option value="javascript">Javascript</option>
-  <option value="csharp">CSharp</option>
-</select>
-</div>
-<div data-grid="col-3" >
-     <select class="c-search dropdown2"  v-model="activeFilters.type">
-  <option value="" selected>Language: All</option>
-  <option value="functionapp">Function App</option>
-  <option value="logicapp">Logic App</option>
-</select>
-    </div>
-
   </div>
-</div>
 </template>
 <script>
 import AppIcon from './AppIcon.vue'
@@ -41,9 +41,9 @@ export default {
   data() {
     return {
       searchtext: '',
-      dropdown: { height: 0 },
-      menus: { language: false, type: false },
-      activeText: false
+      activeText: false,
+      language: "",
+      type: ""
     }
   },
   components: {
@@ -52,23 +52,14 @@ export default {
   props: {
     samples: {
       required: true
-    },
-    filters: {
-      type: Object,
-      required: true
     }
   },
 
   computed: {
-
-
     activeFilters() {
-      let { language, type, filtertext } = this.filters
-      var filteredLangs = Object.keys(language).filter(c => language[c]);
-      var filteredTypes = Object.keys(type).filter(c => type[c]);
       return {
-        language: filteredLangs.length ? filteredLangs: "",
-        type: filteredTypes.length ? filteredTypes: "",
+        language: this.language,
+        type: this.type,
         filtertext: this.searchtext
       }
     }
@@ -77,35 +68,10 @@ export default {
   methods: {
     capturetext() {
       this.activeText === true
-    },
-    setFilter(filter, option) {
-      if (filter === 'title') {
-        this.filters[filter][option] = !this.filters[filter][option]
-      } else {
-        setTimeout(() => {
-          this.clearFilter(filter, option, this.filters[filter][option])
-        }, 100)
-      }
-    },
-    setMenu(menu, active) {
-      Object.keys(this.menus).forEach(tab => {
-        this.menus[tab] = !active && tab === menu
-      })
     }
   },
 
   watch: {
-    activeMenu(index, from) {
-      if (index === from) return
-
-      this.$nextTick(() => {
-        if (!this.$refs.menu || !this.$refs.menu[index]) {
-          this.dropdown.height = 0
-        } else {
-          this.dropdown.height = `${this.$refs.menu[index].clientHeight + 20}px`
-        }
-      })
-    },
     activeFilters() {
       this.$emit('updateFilters', this.activeFilters)
     }
@@ -117,16 +83,19 @@ export default {
 .theme-dark .c-search input[type='search'] {
   background: transparent;
 }
+.minwidth{
+  min-width: 160px;
+}
 .c-search{
-  max-width:100%;
-  margin-left:1rem;
-  margin-top:1rem;
+  max-width: 96%;
+  margin: 1rem 0.5rem 0;
 }
 .c-search input[type='search'] {
   border-top: none;
   border-right: none;
   border-left: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-left: 15px!important;
 }
 .dropdown2{
   width:90%;

@@ -1,6 +1,9 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48" :width="width" :height="width">
-    <path class="st1" d="M35.8,12v19c0,0.6-0.4,1-1,1s-1-0.4-1-1V14.4L14,34.2c-0.2,0.2-0.5,0.3-0.7,0.3s-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4  L32.3,13H15.8c-0.6,0-1-0.4-1-1s0.4-1,1-1h19c0.1,0,0.3,0,0.4,0.1c0.2,0.1,0.4,0.3,0.5,0.5C35.7,11.7,35.8,11.9,35.8,12z"></path>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.5 9.5" :width="width" :height="width">
+    <g transform="translate(9220 6646)">
+      <path class="a" d="M4.143,6.663,9.584,1.24V3.958h.671V0H6.3V.679H9.038L3.627,6.1Z" transform="translate(-9220.756 -6646)"/>
+      <path class="a" d="M8.817,8.842H.685V.7H3.958V0H0V9.5H9.5V5.542H8.817Z" transform="translate(-9220 -6646)"/>
+    </g>
   </svg>
 </template>
 
@@ -9,16 +12,18 @@ export default {
   props: {
     width: {
       type: Number,
-      default: 17
+      default: 10
     }
   }
-}
+};
 </script>
 
 <style scoped>
 svg {
   vertical-align: baseline;
-  margin-bottom: -3px;
+  margin-bottom: -2px;
+  margin-left: 4px;
+  fill: currentColor;
 }
 
 .st1 {

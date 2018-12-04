@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="herobar">
     <div class="headerbar">
 
   <div class="azurelogo" >
@@ -19,18 +19,21 @@
     </a>
   </div>
 </div>
+<div class="shadow">
   <div class="scootover">
       <div data-grid="col-12" class="header">
         <h2 class="headingtext">Azure Serverless Community Library</h2>
         <p>An open source set of common use cases for Azure Functions &amp; Logic Apps that are ready to deploy!</p>
+     <div class="header"> 
+      <AppTopbar @updateFilters="updatedFilters = $event" :samples="samples"/>
+    </div>
       </div>
-
-    <main id="mainContent" class="content">
-    <AppTopbar @updateFilters="updatedFilters = $event" :samples="samples" :filters="filters" />
-    <AppItem :samples="list" />
+    <main id="mainContent" data-grid="col-12" class="content">
+      <AppItem :samples="list" />
     </main>
   </div>
-  </div>
+</div>
+    </div>
 </template>
 <script>
   import AppItem from './components/AppItem.vue'
@@ -45,12 +48,7 @@
     data() {
       return {
         samples: [],
-        updatedFilters: {},
-        filters: {
-          language: {},
-          type: {},
-          filtertext: ''
-        }
+        updatedFilters: {}
       }
     },
 
@@ -61,7 +59,13 @@
           filter = new RegExp(x.filtertext, 'i'),
           temp
 
-        temp = this.samples.filter(el => el.title.match(filter))
+        temp = this.samples.filter(el =>
+          el.title.match(filter)
+          || el.description.match(filter)
+          || el.authortype.match(filter)
+          || el.repository.replace('https://github.com/','').match(filter)
+          || el.runtimeversion && el.runtimeversion.match(filter)
+        )
         if (x.language && x.language.length > 0)
           temp = temp.filter(el => el.language === String(x.language))
         if (x.type && x.type.length > 0)
@@ -79,38 +83,33 @@
         .then(response => response.json())
         .then(data => {
           this.samples = data
-
-          data.forEach(({
-            language,
-            type
-          }) => {
-            //makes sure that the filters are using the right keys
-            this.$set(this.filters.language, language, false)
-            this.$set(this.filters.type, type, false)
           })
-        })
     }
   }
 </script>
 
 <style lang="scss">
-  $base-color: #e3e3e3;
+  $base-color: #f8f8f8;
 
   body {
-    background: lighten($base-color, 4%);
+    background: $base-color;
   }
 .headerbar{
-  background-color: #252525;
+  background-color: black;
   display: inline-block; 
   width: 100%;
-padding:5px;
+  padding:5px;
 }
-
+.shadow{
+  -webkit-box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
+ -moz-box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
+ box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
+}
 .contributelink{
-  color: #FFD800;
+  color: #FCD116;
   width: 16px;
   margin-left:4px;
-  fill: #FFD800;
+  fill: #FCD116;
 }
 .azurelogo{
   width:175px;
@@ -123,23 +122,36 @@ padding:5px;
   height:25px;
   float:right;
   padding-top:4px;
-  color: #FFD800;
+  color: #FCD116;
 }
 
-  .scootover {
-    margin-left: 120px;
-        margin-right: 120px;
-
-  }
+.scootover {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1050px;
+    padding-bottom: 5px;
+}
+.herobar{
+    position: sticky; top:0; 
+  z-index: 10;
+  background: #EDEDED;
+  border-bottom: 1px;
+  border-bottom-color: #DCDCDC;
+}
 .header{
       text-align: center;
-      padding-bottom:20px;
+      padding-bottom:10px;
       float:unset;
+      max-width: 1250px;
 }
 .headingtext{
-  font-size: 34px;line-height: 40px;padding-top:50px;padding-bottom:20px; font-weight: 700;
+  font-size: 34px;line-height: 40px;padding-top:35px;padding-bottom:20px; font-weight: 700;
 }
-  .content {
+.topsticky{
+  position: sticky; top:0; 
+  z-index: 100;
+}
+.content {
     position: relative;
     max-width: 1250px;
     margin: 0 auto;

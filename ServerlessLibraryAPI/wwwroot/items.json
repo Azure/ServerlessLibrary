@@ -6,7 +6,8 @@
     "description": "App for reading license plate info from a photo.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "Stripe Payment Service",
@@ -16,7 +17,8 @@
     "language": "javascript",
     "type": "functionapp",
     "blog": "http://pjdecarlo.com/2017/06/super-cheap-subscription-and-payment-services-with-stripe-on-microsoft-azure-using-serverless-code-via-azure-functions-node-js.html",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "LIFX Light Bulb color changer",
@@ -25,7 +27,8 @@
     "description": "Timers that set the color of an LIFX bulb based on the outside temperature.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "CosmosDB",
@@ -34,7 +37,8 @@
     "description": "An HTTP API for CRUD operations against CosmosDB. (So boring, why would you write it yourself?!!)",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "What to Bring",
@@ -44,7 +48,8 @@
     "language": "javascript",
     "type": "functionapp",
     "blog": "https://ricardodsanchez.com/what-can-you-do-with-azure-functions-heres-one-example/",
-    "authortype": "Community"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "Tug of War",
@@ -54,7 +59,8 @@
     "blog": "https://aka.ms/aztugofwar",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v2"
   },
   {
     "title": "Purolator Package Tracker",
@@ -63,7 +69,8 @@
     "description": "App for tracking Purolator shipments.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Community"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "Raffle",
@@ -72,7 +79,8 @@
     "description": "A simple raffle application.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "Cognitive Services: Smart Thumbnails",
@@ -81,7 +89,8 @@
     "description": "Test your own images in bulk against Microsoft Cognitive Services: Smart Thumbnail API.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "Cognitive Services: Computer Vision",
@@ -90,7 +99,8 @@
     "description": "Test your own images in bulk against Microsoft Cognitive Services: Computer Vision API.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "Cognitive Services: OCR",
@@ -99,7 +109,8 @@
     "description": "Test your own images in bulk against Microsoft Cognitive Services: OCR.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "HTTP: Generate SAS Token",
@@ -108,7 +119,8 @@
     "description": "This is a sample HTTP trigger Azure Function that returns a SAS token for Azure Storage for the specified container, blob, and permissions.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "v1"
   },
   {
     "title": "Blob: PDF Extraction to Search",
@@ -117,7 +129,8 @@
     "description": "This Azure Function binds to an Azure Storage container to process PDF files, extract metadata (using Regular Expressions), stores the result in DocumentDB (extracted text + captured metadata) which can then be used by Azure Search",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Community"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "HTTP: Entity to SQL",
@@ -126,7 +139,8 @@
     "description": "Stores a queue message in SQL Database; uses Entity Framework.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Community"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "Blob: Image Resize",
@@ -135,7 +149,8 @@
     "description": "The easiest way to resize images stored in Blob Storage (on Azure); uses ImageProcessor.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "Slack: User Change Alerts",
@@ -145,7 +160,8 @@
     "language": "csharp",
     "blog": "https://github.com/cfe84/slack-users-change-alerts",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "EventHub: Closed Loop for IoT Hub",
@@ -155,7 +171,8 @@
     "addTemplate": "https://raw.githubusercontent.com/fashaikh/AzureFunctions/master/ClosedLoopFunction/deploy/addfunction.json",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "HTTP: Static Web Server",
@@ -165,7 +182,8 @@
     "blog": "http://anthonychu.ca/post/azure-functions-static-file-server",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "Blob: Static Web Server",
@@ -174,7 +192,8 @@
     "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "Blob: Static Server with CDN",
@@ -183,7 +202,8 @@
     "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites. This deployment contains a CDN layered 'over top' of the function.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "On-demand calculation of Azure consumption cost",
@@ -192,7 +212,8 @@
     "description": "This sample demonstrates how to use the Azure billing commerce APIs to find consumption cost per subscription and resource-groups.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "v1"
   },
   {
     "title": "SQL Stored Procedure on a schedule",
@@ -201,7 +222,8 @@
     "description": "This template allows you to create a Logic App that will run a SQL stored procedure on schedule. Any arguments for the procedure can be put into the body section of the template.",
     "language": "na",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
   },
   {
     "title": "Send email with Logic app",
@@ -210,7 +232,8 @@
     "description": "This template allows you to create a Logic app that sends an email. You can add an additional triggers or actions to customize it to your needs.",
     "language": "na",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
   },
   {
     "title": "Copy FTP files to Blob",
@@ -219,7 +242,8 @@
     "description": "This template allows you to create a Logic app that listens to a folder on an FTP server and will copy it to an Azure Blob container. You can add an additional triggers or actions to customize it to your needs.",
     "language": "na",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
   },
   {
     "title": "HTTP: to Storage Queue",
@@ -228,7 +252,8 @@
     "description": "Posted messages get added to Azure Storage Queue.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "HTTP: to Service Bus Queue",
@@ -237,7 +262,8 @@
     "description": "Posted messages get added to Azure Service Bus Queue.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "HTTP: to Service Bus Topic",
@@ -246,7 +272,8 @@
     "description": "Posted messages get added to Azure Service Bus Topic.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "Webhook: to Service Bus Queue",
@@ -255,7 +282,8 @@
     "description": "Posted Body gets added to Azure Service Bus Queue.",
     "language": "javascript",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "Reddit Poller",
@@ -264,7 +292,8 @@
     "description": "Scheduled email notifications of Reddit Posts",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "Media Services: Integrating Azure Media Services",
@@ -273,7 +302,8 @@
     "description": "Sample for use with Azure Media Services. Ingest from Azure Blobs, encode and output to Azure Blobs, monitor encoding progress, and use WebHooks or Queues to hook into the workflow.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Community",
+    "runtimeversion": "v1"
   },
   {
     "title": "CoderCards: trading card generator",
@@ -282,7 +312,8 @@
     "description": "CoderCards is a geek trading card generator. It uses Microsoft Cognitive Services to detect the predominant emotion in a face, which is used to choose a card back.",
     "language": "csharp",
     "type": "functionapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "v1"
   },
   {
     "title": "Call an Azure Function from a Logic App",
@@ -291,7 +322,8 @@
     "description": "This template creates a Serverless app in Azure with Logic Apps and Functions. The Logic App triggers on an HTTP POST, calls the Azure Function, and returns the response.",
     "language": "na",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
   },
   {
     "title": "Create a Logic App",
@@ -300,7 +332,8 @@
     "description": "Create a Logic App from a template",
     "language": "na",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
   },
   {
     "title": "XSLT with parameters",
@@ -309,7 +342,8 @@
     "description": "This template creates a request-response Logic App which performs XSLT based transformation. The XSLT map takes primitives (integer, string etc.) as input parameters as uses them during XML transformation.",
     "language": "na",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
   },
   {
     "title": "VETER Pipeline",
@@ -318,7 +352,8 @@
     "description": "This template creates a VETER pipeline using Logic Apps.",
     "language": "na",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
   },
   {
     "title": "Webhook with transform capabilities",
@@ -327,7 +362,8 @@
     "description": "This template creates a webhook based C# azure function with transform capabilites to use in logic apps integration scenarios.",
     "language": "csharp",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
   },
   {
     "title": "Call an API protected by AAD",
@@ -336,7 +372,8 @@
     "description": "Call into your own custom API that can run your own code.",
     "language": "na",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
   },
   {
     "title": "B2B Disaster Recovery replication",
@@ -345,7 +382,8 @@
     "description": "This template demonstrates B2B Disaster Recovery replication using Logic Apps.",
     "language": "na",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
   },
   {
     "title": "AS2 Send Receive",
@@ -354,7 +392,8 @@
     "description": "This template demonstrates AS2 Send Receive using Logic Apps.",
     "language": "na",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
   },
   {
     "title": "Adds item to queue when alert fires",
@@ -363,7 +402,8 @@
     "description": "Add the alert payload you pass to an Azure Storage queue that you specify.",
     "language": "na",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
   },
   {
     "title": "Posts on Slack when alert fires",
@@ -372,7 +412,8 @@
     "description": "When the Alert is triggered, it will post a message to a slack channel that you specify",
     "language": "na",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
   },
   {
     "title": "Send SMS when alert fires",
@@ -381,6 +422,27 @@
     "description": "When the Alert is triggered, it will send you a text message with the details of the alert.",
     "language": "na",
     "type": "logicapp",
-    "authortype": "Microsoft"
+    "authortype": "Microsoft",
+    "runtimeversion": "na"
+  },
+  {
+    "title": "Azure Sandbox utils",
+    "template": "https://raw.githubusercontent.com/wilfriedwoivre/azure-sandbox-function/master/azuredeploy.json",
+    "repository": "https://github.com/wilfriedwoivre/azure-sandbox-function",
+    "description": "Provide API to create temporary Resource Group. Provide function to remove temporary resource group each day",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
+  },
+  {
+    "title": "Polling With Duplicate Check",
+    "template": "https://raw.githubusercontent.com/nastassiar/WebRequestFunction/master/azuredeploy.json",
+    "repository": "https://github.com/nastassiar/WebRequestFunction",
+    "description": "Triggered every 5 minutes to do a GET from an API, check for duplicated records in Azure blob storage it has already seen and POST any new alerts to another API.",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
   }
 ]
