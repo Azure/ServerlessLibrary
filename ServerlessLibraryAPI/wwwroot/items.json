@@ -444,5 +444,35 @@
     "type": "functionapp",
     "authortype": "Community",
     "runtimeversion": "v2"
+  },
+  {
+    "title": "MQTT: Publish and Subscribe",
+    "template": "https://github.com/keesschollaart81/CaseOnline.Azure.WebJobs.Extensions.Mqtt.Example/blob/master/azuredeploy.json",
+    "repository": "https://github.com/keesschollaart81/CaseOnline.Azure.WebJobs.Extensions.Mqtt",
+    "description": "Trigger your function by- and publish messages to your MQTT topics",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
+  },
+  {
+    "title": "ARM Deployment History Cleaner",
+    "template": "https://raw.githubusercontent.com/aliencube/ARM-Deployment-History-Cleaner/master/azuredeploy.json",
+    "repository": "https://github.com/aliencube/ARM-Deployment-History-Cleaner",
+    "description": "This provides Azure Logic Apps to clean up ARM deployment history before hitting 800 limits.",
+    "language": "na",
+    "type": "logicapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
+  },
+  {
+    "title": "Key Vault Custom Connector for Logic App",
+    "template": "https://raw.githubusercontent.com/aliencube/Key-Vault-Connector-for-Logic-Apps/dev/azuredeploy.json",
+    "repository": "https://github.com/aliencube/Key-Vault-Connector-for-Logic-Apps",
+    "description": "This provides a custom Key Vault API Connector for Logic Apps.",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
   }
 ]
