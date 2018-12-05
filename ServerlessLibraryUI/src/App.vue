@@ -23,7 +23,7 @@
   <div class="scootover">
       <div data-grid="col-12" class="header">
         <h2 class="headingtext">Azure serverless community library</h2>
-        <p>An open source set of common use cases for Azure Functions &amp; Logic Apps that are ready to deploy!</p>
+        <p class="subtext">An open source set of common use cases for Azure Functions &amp; Logic Apps that are ready to deploy!</p>
      <div class="header"> 
       <AppTopbar @updateFilters="updatedFilters = $event" :samples="samples"/>
     </div>
@@ -89,7 +89,7 @@
 </script>
 
 <style lang="scss">
-  $base-color: #f8f8f8;
+  $base-color: white;
 
   body {
     background: $base-color;
@@ -98,7 +98,8 @@
   background-color: black;
   display: inline-block; 
   width: 100%;
-  padding:5px;
+  padding:1px;
+  font-size:12px;
 }
 .shadow{
   -webkit-box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
@@ -116,6 +117,10 @@
   height:21px;
   float:left;
   padding-top:1px;
+}
+.subtext{
+  font-size:16px;
+  color:#808080;
 }
 .contribute{
   width:175px;
@@ -145,7 +150,12 @@
       max-width: 1250px;
 }
 .headingtext{
-  font-size: 34px;line-height: 40px;padding-top:35px;padding-bottom:20px; font-weight: 700;
+font-size: 34px;
+    line-height: 40px;
+    padding-top: 24px;
+    padding-bottom: 20px;
+    font-weight: 300;
+    font-family: Segoe UI;
 }
 .topsticky{
   position: sticky; top:0; 

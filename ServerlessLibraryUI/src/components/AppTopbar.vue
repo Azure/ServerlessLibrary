@@ -11,7 +11,7 @@
             role="searchbox" 
             placeholder="Search"
           />
-          <button class="c-glyph" name="search-button">
+          <button class="c-glyph searchbuttonunset" name="search-button">
               <span class="x-screen-reader">Search</span>
           </button>
         </form>      
@@ -121,7 +121,9 @@ li {
 h4 {
   font-weight: normal;
 }
-
+.searchbuttonunset{
+  width: unset;
+}
 menu {
   padding-left: 0;
   margin: 0;
