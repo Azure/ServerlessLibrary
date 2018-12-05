@@ -22,7 +22,7 @@
 <div class="shadow">
   <div class="scootover">
       <div data-grid="col-12" class="header">
-        <h2 class="headingtext">Azure Serverless Community Library</h2>
+        <h2 class="headingtext">Azure serverless community library</h2>
         <p>An open source set of common use cases for Azure Functions &amp; Logic Apps that are ready to deploy!</p>
      <div class="header"> 
       <AppTopbar @updateFilters="updatedFilters = $event" :samples="samples"/>
