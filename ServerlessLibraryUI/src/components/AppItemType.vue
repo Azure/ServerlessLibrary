@@ -21,8 +21,7 @@
         <path fill="#59b4d9" d="M7.9 44.4c-2.1 0-3.6-.4-4.5-1.1-.9-.8-1.3-2.1-1.3-4V28.9c0-1.7-.7-2.6-2.1-2.6v-2.6c1.4 0 2.1-.9 2.1-2.7V10.8c0-1.9.4-3.3 1.3-4.1s2.4-1.1 4.5-1.1v2.6c-1.5 0-2.3.8-2.3 2.5v10c0 2.3-.7 3.7-2.2 4.3 1.4.6 2.2 2 2.2 4.3v9.9c0 .9.2 1.6.5 2 .4.4.9.6 1.7.6l.1 2.6c-.1 0 0 0 0 0zM42.1 5.6c2.1 0 3.6.4 4.5 1.1.9.8 1.3 2.1 1.3 4v10.4c0 1.7.7 2.6 2.1 2.6v2.6c-1.4 0-2.1.9-2.1 2.7v10.1c0 1.9-.4 3.3-1.3 4.1-.9.8-2.4 1.2-4.5 1.2v-2.6c1.5 0 2.3-.8 2.3-2.5v-10c0-2.3.7-3.7 2.2-4.3-1.4-.6-2.2-2-2.2-4.3v-9.9c0-.9-.2-1.6-.5-2-.4-.4-.9-.6-1.7-.6l-.1-2.6z"></path>
       </g>
     </svg>
-    <div v-if="language === '' || language === 'na'">{{ type | ToDisplayType }}</div>
-    <div v-else>{{ type | ToDisplayType }} | {{ language | ToDisplayLanguage }}</div>
+    <div>{{ type | ToDisplayType }}</div>
   </span>
 </template>
 
@@ -50,18 +49,6 @@ export default {
         return 'Logic App';
       } else {
       return value;
-      }
-    },
-    ToDisplayLanguage(value) {
-      var language = value.toLowerCase();
-      if (language === 'csharp') {
-        return 'C#';
-      } else if (language === 'javascript') {
-        return 'JavaScript';
-      } else if (language === 'na') {
-        return '';
-      } else {
-        return value;
       }
     }
   }

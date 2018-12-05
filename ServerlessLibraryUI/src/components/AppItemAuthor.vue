@@ -48,13 +48,13 @@ export default {
 <style lang="scss" scoped>
 
 .profilepic{
-  margin-right: 0.25rem;
+  margin-right: 0.5rem;
   height: 24px;
   border-radius: 3px;
 }
 
 .authorname {
-  font-size: 11px;
+  font-size: 12px;
   vertical-align: middle;
 }
 </style>
