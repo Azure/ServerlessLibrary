@@ -1,8 +1,11 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.5 9.5" :width="width" :height="width">
-    <g transform="translate(9220 6646)">
-      <path class="a" d="M4.143,6.663,9.584,1.24V3.958h.671V0H6.3V.679H9.038L3.627,6.1Z" transform="translate(-9220.756 -6646)"/>
-      <path class="a" d="M8.817,8.842H.685V.7H3.958V0H0V9.5H9.5V5.542H8.817Z" transform="translate(-9220 -6646)"/>
+  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve" :width="width">
+    <g>
+      <polygon points="11.4,22.4 29.7,4.2 29.7,13.3 32,13.3 32,0 18.7,0 18.7,2.3 27.9,2.3 9.7,20.5 11.4,22.4 11.4,22.4 	
+        "/>
+      <polygon points="29.7,29.7 2.3,29.7 2.3,2.3 13.3,2.3 13.3,0 11.9,0 0,0 0,31.9 32,31.9 32,18.6 29.7,18.6 29.7,29.7 
+        29.7,29.7 	"/>
     </g>
   </svg>
 </template>
@@ -21,7 +24,6 @@ export default {
 <style scoped>
 svg {
   vertical-align: baseline;
-  margin-bottom: -2px;
   margin-left: 4px;
   fill: currentColor;
 }
