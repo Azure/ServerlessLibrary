@@ -477,7 +477,7 @@
   },
   {
     "title": "Start/Stop Azure VM with ResourceGroup and Tag filtering",
-    "template": "https://github.com/anirudhgarg/functions-logicapp-startstopvms/blob/master/azuredeploy.json",
+    "template": "https://raw.githubusercontent.com/anirudhgarg/functions-logicapp-startstopvms/master/azuredeploy.json",
     "repository": "https://github.com/anirudhgarg/functions-logicapp-startstopvms",
     "description": "This solution allows you to Start and Stop Azure VM's for a given Subscription, Resource Group or Tags based on a schedule. The implementation uses Azure VM async API's and hence potentially hundreds of VM's can be started/stopped.",
     "language": "na",
