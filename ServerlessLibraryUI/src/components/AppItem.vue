@@ -200,10 +200,13 @@ export default {
     align-items: center;
 
     a:link {
-      color: #0000EE;
+      color: #015CDA;
     }
     a:visited {
-      color: #551A8B;
+      color: #014DB7;
+    }
+    a:hover {
+      color:#016AFE;
     }
   }
 

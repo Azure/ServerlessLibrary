@@ -107,10 +107,9 @@
  box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
 }
 .contributelink{
-  color: #FCD116;
   width: 16px;
   margin-left:4px;
-  fill: #FCD116;
+  fill: currentColor;
 }
 .azurelogo{
   width:175px;
@@ -127,7 +126,16 @@
   height:25px;
   float:right;
   padding-top:4px;
-  color: #FCD116;
+
+  a:link {
+    color: #4894FE;
+  }
+  a:visited {
+    color: #257FFE;
+  }
+  a:hover {
+    color: #6CA9FE;
+  }
 }
 
 .scootover {
