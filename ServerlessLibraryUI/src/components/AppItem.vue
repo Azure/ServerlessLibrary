@@ -34,7 +34,7 @@
         </li>
 
         <li class="sample__data sample__label">
-          <a :href="item.repository" target="_blank" class="sample__repo">Source <app-icon /></a>
+          <a :href="item.repository" target="_blank" class="sample__repo" v-on:click="outboundRepoClick(item)" v-on:dblclick="outboundRepoClick(item)">Source <app-icon /></a>
           <button class="sample__deploybtn" @click="showConsentModal(item)">Deploy</button>
         </li>
       </ul>
@@ -69,14 +69,32 @@ export default {
     }
   },
   methods:{
-     showConsentModal(data) {
-        this.isModalVisible = true;
-        this.modalData = data;
-      },
+    showConsentModal(item) {
+      this.isModalVisible = true;
+      this.modalData = item;
+    },
 
+    outboundRepoClick(item) {
+      this.trackEvent('sample/source', item);
+    },
+
+    trackEvent(eventName, item) {
+      if (typeof appInsights !== 'undefined') {
+        const eventData = this.getDataToLog(item);
+        appInsights.trackEvent(eventName, eventData);
+      }
+    },
+
+    getDataToLog(item) {
+      return {
+        repository: item.repository,
+        template: item.template
+      };
+    }
   },
   filters: {    
     ToDisplayLanguage(value) {
+      if (!value) { return ''; }
       var language = value.toLowerCase();
       if (language === 'csharp') {
         return 'C#';
