@@ -42,6 +42,7 @@ export default {
   },
   filters: {
     ToDisplayType(value) {
+      if (!value) { return ''; }
       var type = value.toLowerCase();
       if (type === 'functionapp') {
         return 'Function App';

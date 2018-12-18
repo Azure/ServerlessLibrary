@@ -1,6 +1,6 @@
 <template>
     <div class="modal-mask">
-      <div class="modal-wrapper"  @click="$emit('close')">
+      <div class="modal-wrapper"  @click="close">
         <div class="modal-container"  @click.stop>
 
     <div class="modal">
@@ -31,7 +31,7 @@
        <footer class="modal-footer">
           <slot name="footer">
             <div class="btn-agree">
-              <a :href="getDeployUrl(data)"  target="_blank" class="fullwidth-anchor" role="button" v-on:contextmenu="outboundRepoClick(data)" v-on:click="outboundRepoClick(data)" v-on:dblclick="outboundRepoClick(data)">
+              <a :href="getDeployUrl()"  target="_blank" class="fullwidth-anchor" role="button" v-on:click="outboundDeployClick()" v-on:dblclick="outboundDeployClick()">
                 I Agree
               </a>
             </div>
@@ -57,26 +57,45 @@
 
   methods: {
     close() {
+      this.trackEvent('/sample/deploy/cancel');
+      this.closeModal();
+    },
+
+    closeModal() {
       this.$emit('close');
     },
 
-    getDeployUrl(item) {
-      return 'https://portal.azure.com/#create/Microsoft.Template/uri/' + encodeURIComponent(item.template);
+    getDeployUrl() {
+      return 'https://portal.azure.com/#create/Microsoft.Template/uri/' + encodeURIComponent(this.data.template);
     },
 
-    outboundRepoClick(data) {
+    outboundDeployClick() {
+      this.trackEvent('/sample/deploy/agree');
       fetch('https://www.serverlesslibrary.net/api/Library'
       , {
           method: 'PUT',
-          body:'"' + data.template + '"',
+          body:'"' + this.data.template + '"',
           headers: {
           "Content-Type": "application/json"
           },
         })
         .then(response => response.body)
         .catch((err)=>console.error(err.message));
-        this.close();
+        this.closeModal();
     },
+
+    trackEvent(eventName) {
+      if (typeof appInsights !== 'undefined') {
+        const eventData = this.getDataToLog();
+        appInsights.trackEvent(eventName, eventData);
+      }
+    },
+
+    getDataToLog() {
+      return {
+        template: this.data.template
+      };
+    }
   },
 };
 </script>

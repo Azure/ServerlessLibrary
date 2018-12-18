@@ -4,7 +4,7 @@
       <div data-grid="col-6">
         <form @submit.prevent="capturetext" class="c-search" autocomplete="off" name="form1">
           <input 
-            v-model="searchtext" 
+            v-model.lazy.trim="searchtext" 
             aria-label="Enter your search" 
             type="search" 
             name="search-field" 
@@ -68,12 +68,32 @@ export default {
   methods: {
     capturetext() {
       this.activeText === true
+    },
+
+    trackEvent(eventName) {
+      if (typeof appInsights !== 'undefined') {
+        const eventData = this.getDataToLog();
+        appInsights.trackEvent(eventName, eventData);
+      }
+    },
+
+    getDataToLog() {
+      return this.activeFilters;
     }
   },
 
   watch: {
     activeFilters() {
       this.$emit('updateFilters', this.activeFilters)
+    },
+    type() {
+      this.trackEvent('/filter/change/type');
+    },
+    language() {
+      this.trackEvent('/filter/change/language');
+    },
+    searchtext() {
+      this.trackEvent('/filter/change/searchtext');
     }
   }
 }
