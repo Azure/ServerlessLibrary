@@ -20,4 +20,4 @@ An open source set of common use cases for Azure Functions & LogicApps that are 
 If you find a Git repo with a Function or Logic App in it, you can use this to quickly deploy to Azure: [AzureDeploy.Any.json](https://github.com/jefking/FunctionLibrary/blob/master/azuredeploy.any.json)
 
 If you want to create an ARM template that deploys Functions or LogicApps: 
-[Build Your Own](http://functionlibrary.azurewebsites.net/build.htm)
+[Build Your Own](https://armbuilder.z5.web.core.windows.net/)
