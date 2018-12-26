@@ -75,7 +75,7 @@ export default {
     },
 
     outboundRepoClick(item) {
-      this.trackEvent('sample/source', item);
+      this.trackEvent('/sample/source', item);
     },
 
     trackEvent(eventName, item) {
