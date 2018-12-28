@@ -50,11 +50,13 @@ export default {
     AppIcon
   },
   props: {
-    samples: {
-      required: true
+    filters: {
+      required:true
     }
   },
-
+ created() {
+    this.setFilter();
+  },
   computed: {
     activeFilters() {
       return {
@@ -79,12 +81,23 @@ export default {
 
     getDataToLog() {
       return this.activeFilters;
+    },
+
+    setFilter()
+    {
+      this.searchtext= this.filters.filtertext;
+      this.language = this.filters.language;
+      this.type = this.filters.type;
     }
   },
 
   watch: {
     activeFilters() {
       this.$emit('updateFilters', this.activeFilters)
+    },
+    filters()
+    {
+      this.setFilter();
     },
     type() {
       this.trackEvent('/filter/change/type');
