@@ -7,7 +7,8 @@
     "language": "csharp",
     "type": "functionapp",
     "authortype": "Community",
-    "runtimeversion": "v1"
+    "runtimeversion": "v1",
+    "tags": [ "functionapp", "csharp", "OpenALPR" ]
   },
   {
     "title": "Stripe Payment Service",
@@ -18,7 +19,8 @@
     "type": "functionapp",
     "blog": "http://pjdecarlo.com/2017/06/super-cheap-subscription-and-payment-services-with-stripe-on-microsoft-azure-using-serverless-code-via-azure-functions-node-js.html",
     "authortype": "Community",
-    "runtimeversion": "v1"
+    "runtimeversion": "v1",
+    "tags": [ "functionapp", "javascript", "Payment" ]
   },
   {
     "title": "LIFX Light Bulb color changer",
@@ -28,7 +30,8 @@
     "language": "javascript",
     "type": "functionapp",
     "authortype": "Community",
-    "runtimeversion": "v1"
+    "runtimeversion": "v1",
+    "tags": []
   },
   {
     "title": "CosmosDB",
