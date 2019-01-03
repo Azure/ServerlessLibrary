@@ -20,6 +20,9 @@ namespace ServerlessLibrary
         [JsonProperty(PropertyName = "description", DefaultValueHandling = DefaultValueHandling.Include)]
         public string Description { get; set; }
 
+        [JsonProperty(PropertyName = "tags", DefaultValueHandling = DefaultValueHandling.Include)]
+        public string[] Tags { get; set; }
+
         [JsonProperty(PropertyName = "language", DefaultValueHandling = DefaultValueHandling.Include)]
         public string Language { get; set; }
 

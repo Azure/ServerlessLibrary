@@ -43,6 +43,7 @@ namespace ServerlessLibrary
                         || Regex.IsMatch(x.AuthorType, filterText, RegexOptions.IgnoreCase)
                         || Regex.IsMatch(x.Repository.AbsoluteUri.Replace("https://github.com/", "", StringComparison.InvariantCulture), filterText, RegexOptions.IgnoreCase)
                         || (x.RuntimeVersion != null && Regex.IsMatch(x.RuntimeVersion, filterText, RegexOptions.IgnoreCase))
+                        || (x.Tags != null && x.Tags.Any(t => Regex.IsMatch(t,filterText, RegexOptions.IgnoreCase)))
                     )
                 )
             );
