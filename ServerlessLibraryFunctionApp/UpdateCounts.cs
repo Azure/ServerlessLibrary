@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.RetryPolicies;
 using Microsoft.WindowsAzure.Storage.Table;
@@ -15,10 +15,10 @@ namespace ServerlessLibraryFunctionApp
 
         [FunctionName("UpdateCounts")]
         [Singleton]
-        public static async void Run([QueueTrigger("slitemstats")]string myQueueItemJson, [Table("slitemstats")] CloudTable table, TraceWriter log)
+        public static async void Run([QueueTrigger("slitemstats")]string myQueueItemJson, [Table("slitemstats")] CloudTable table, ILogger log)
         {
             var myQueueItem = JsonConvert.DeserializeObject( ((dynamic)myQueueItemJson)).template;
-            log.Info($"C# Queue trigger function processed: {myQueueItem}");
+            log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
             string mainFilter1 = TableQuery.GenerateFilterCondition("template", QueryComparisons.Equal, myQueueItem.ToString());
 
             TableQuery<SLItemStats> query = new TableQuery<SLItemStats>().Where(mainFilter1);

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.RetryPolicies;
 using Microsoft.WindowsAzure.Storage.Table;
@@ -13,9 +13,9 @@ namespace ServerlessLibraryFunctionApp
         private static readonly TableRequestOptions tableRequestRetry = new TableRequestOptions { RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(2), 3) };
         [Singleton]
         [FunctionName("ResetDailyStats")]
-        public static async void Run([TimerTrigger("0 0 0  * * *")]TimerInfo myTimer, [Table("slitemstats")] CloudTable table,TraceWriter log)
+        public static async void Run([TimerTrigger("0 0 0  * * *")]TimerInfo myTimer, [Table("slitemstats")] CloudTable table, ILogger log)
         {
-            log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
             string mainFilter1 = TableQuery.GenerateFilterCondition("template", QueryComparisons.NotEqual, String.Empty);
 
             TableQuery<SLItemStats> query = new TableQuery<SLItemStats>().Where(mainFilter1);
@@ -33,16 +33,16 @@ namespace ServerlessLibraryFunctionApp
             foreach (var item in entities) {
                 {
                     //reset
-                    log.Info($"Resetting daily stats");
+                    log.LogInformation($"Resetting daily stats");
                     item.downloadsToday = 0;
                     if (DateTime.UtcNow.DayOfWeek == DayOfWeek.Sunday)
                     {
-                        log.Info($"Resetting weekly stats");
+                        log.LogInformation($"Resetting weekly stats");
                         item.downloadsThisWeek = 0;
                     }
                     if (DateTime.UtcNow.Day == 1)
                     {
-                        log.Info($"Resetting monthly stats");
+                        log.LogInformation($"Resetting monthly stats");
                         item.downloadsThisMonth = 0;
                     }
                     TableOperation operation = TableOperation.InsertOrMerge(item);
