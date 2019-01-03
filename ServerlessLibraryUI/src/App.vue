@@ -25,11 +25,11 @@
         <h2 class="headingtext">Azure serverless community library</h2>
         <p class="subtext">An open source set of common use cases for Azure Functions &amp; Logic Apps that are ready to deploy!</p>
      <div class="header"> 
-      <AppTopbar @updateFilters="updatedFilters = $event" :samples="samples"/>
+      <AppTopbar @updateFilters="updatedFilters = $event" :filters="filters"/>
     </div>
       </div>
     <main id="mainContent" data-grid="col-12" class="content">
-      <AppItem :samples="list" />
+      <AppItem :samples="samples" />
     </main>
   </div>
 </div>
@@ -51,39 +51,61 @@
         updatedFilters: {}
       }
     },
-
+    props:{
+      language: String , 
+      type: String,
+      filtertext:String
+    },
     computed: {
-      list() {
-        //todo: this works but needs refactoring
-        var x = this.updatedFilters,
-          filter = new RegExp(x.filtertext, 'i'),
-          temp
-
-        temp = this.samples.filter(el =>
-          el.title.match(filter)
-          || el.description.match(filter)
-          || el.authortype.match(filter)
-          || el.repository.replace('https://github.com/','').match(filter)
-          || el.runtimeversion && el.runtimeversion.match(filter)
-        )
-        if (x.language && x.language.length > 0)
-          temp = temp.filter(el => el.language === String(x.language))
-        if (x.type && x.type.length > 0)
-          temp = temp.filter(el => el.type === String(x.type))
-        temp = temp.sort(
-          function (a, b) {
-            return b.totaldownloads - a.totaldownloads;
-          });
-        return temp
-      }
+      filters()
+      {
+         return {
+            language: this.language ? this.language:"",
+            type: this.type ? this.type : "",
+            filtertext: this.filtertext ? this.filtertext : ""
+        }
+      },
     },
 
     created() {
-      fetch('https://www.serverlesslibrary.net/api/Library')
+      if (!this.language && !this.filtertext && !this.type)
+      {
+        this.fetchSamples("");
+      }
+    },
+    methods: {
+      fetchSamples: function(queryString) {
+        fetch('https://serverlesslibrary.net/api/Library?' + queryString )
         .then(response => response.json())
         .then(data => {
-          this.samples = data
-          })
+              this.samples = data.sort( function (a, b) {
+                                return b.totaldownloads - a.totaldownloads;
+                                }
+                              );      
+          });
+      },
+    },
+    watch: {
+      updatedFilters() {   
+          let queryParams = {};
+          var x = this.updatedFilters
+          if (x.language && x.language.length > 0)
+          {
+            queryParams["language"]=String(x.language);
+          }
+          if (x.type && x.type.length > 0)
+          {
+            queryParams["type"]=String(x.type);
+          }
+          if(x.filtertext && x.filtertext.length >0)
+          {
+            queryParams["filtertext"]=String(x.filtertext);
+          }
+
+          var query = Object.keys(queryParams).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(queryParams[k])}`).join('&');
+          this.fetchSamples(query);
+          this.$router.push({query:queryParams}); 
+      }
     }
   }
 </script>
