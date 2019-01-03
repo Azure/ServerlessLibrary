@@ -484,5 +484,25 @@
     "type": "logicapp",
     "authortype": "Community",
     "runtimeversion": "na"
+  },
+  {
+    "title": "Simplified KeyVault integration with @Microsoft.KeyVault",
+    "template": "https://raw.githubusercontent.com/JimPaine/Azure-Functions-KeyVault-Demo/master/azuredeploy.json",
+    "repository": "https://github.com/JimPaine/Azure-Functions-KeyVault-Demo",
+    "description": "A demo showing how to use @Microsoft.KeyVault in appsettings for simplified secret management",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
+  },
+  {
+    "title": "Live stream Age and Emotion",
+    "template": "https://raw.githubusercontent.com/JimPaine/emotion-checker/master/azuredeploy.json",
+    "repository": "https://github.com/JimPaine/emotion-checker",
+    "description": "An HTML5 page which streams your camera to the Face API for age and emotion, all via a V2 function",
+    "language": "na",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
   }
 ]
