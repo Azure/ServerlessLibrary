@@ -70,11 +70,11 @@
     created() {
       if (!this.language && !this.filtertext && !this.type)
       {
-        this.FetchSamples("");
+        this.fetchSamples("");
       }
     },
     methods: {
-      FetchSamples: function(queryString) {
+      fetchSamples: function(queryString) {
         fetch('https://serverlesslibrary.net/api/Library?' + queryString )
         .then(response => response.json())
         .then(data => {
@@ -103,7 +103,7 @@
           }
 
           var query = Object.keys(queryParams).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(queryParams[k])}`).join('&');
-          this.FetchSamples(query);
+          this.fetchSamples(query);
           this.$router.push({query:queryParams}); 
       }
     }

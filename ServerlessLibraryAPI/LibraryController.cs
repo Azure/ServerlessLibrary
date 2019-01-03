@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json;
 using System.Threading;
 using System.Net;
+using System.Text.RegularExpressions;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -26,11 +27,27 @@ namespace ServerlessLibrary
         // GET: api/<controller>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<LibraryItem>), 200)]
-        public JsonResult Get()
+        public JsonResult Get(string filterText, string type, string language)
         {
             
             var results = _cacheService.GetCachedItems();
-            return new JsonResult(results);
+            var filteredResults = results.Where(
+                x =>
+                (
+                    (string.IsNullOrWhiteSpace(language) || x.Language == language) &&
+                    (string.IsNullOrWhiteSpace(type) || x.Type == type) &&
+                    (
+                        string.IsNullOrWhiteSpace(filterText)
+                        || Regex.IsMatch(x.Title, filterText, RegexOptions.IgnoreCase)
+                        || Regex.IsMatch(x.Description, filterText, RegexOptions.IgnoreCase)
+                        || Regex.IsMatch(x.AuthorType, filterText, RegexOptions.IgnoreCase)
+                        || Regex.IsMatch(x.Repository.AbsoluteUri.Replace("https://github.com/", "", StringComparison.InvariantCulture), filterText, RegexOptions.IgnoreCase)
+                        || (x.RuntimeVersion != null && Regex.IsMatch(x.RuntimeVersion, filterText, RegexOptions.IgnoreCase))
+                    )
+                )
+            );
+
+            return new JsonResult(filteredResults);
         }
 
         // PUT api/<controller>/
