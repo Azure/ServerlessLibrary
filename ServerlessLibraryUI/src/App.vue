@@ -18,22 +18,27 @@
            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" class="contributelink" ><defs></defs><g transform="translate(-1337 -14)"><path class="contributelink" d="M4.279,8.416l6.873-6.85V5H12V0H7V.858h3.462L3.627,7.7Z" transform="translate(1337 14)"/><path  d="M11.137,11.169H.865V.881H5V0H0V12H12V7h-.863Z" transform="translate(1337 14)"/></g></svg>
     </a>
   </div>
-</div>
-<div class="shadow">
-  <div class="scootover">
-      <div data-grid="col-12" class="header">
-        <h2 class="headingtext">Azure serverless community library</h2>
-        <p class="subtext">An open source set of common use cases for Azure Functions &amp; Logic Apps that are ready to deploy!</p>
-     <div class="header"> 
-      <AppTopbar @updateFilters="updatedFilters = $event" :filters="filters"/>
-    </div>
+</div><!--end headbar-->
+     <div class="scootover">
+          <div  class="header">
+              <h2 class="headingtext">Azure serverless community library</h2>
+              <p class="subtext">An open source set of common use cases for Azure Functions &amp; Logic Apps that are ready to deploy!</p>
+          </div><!--end header-->
+        </div>
+        <div :class="[fixed ? 'shadow-fixed': 'shadow']" >
+          <div class="scootover">
+              <div data-grid="col-12" class="searchbar ">
+                    <AppTopbar @updateFilters="updatedFilters = $event" :filters="filters"/>
+              </div>
+          </div>
+        </div><!--end shadow-->
+         <div class="scootover">
+        <main id="mainContent" data-grid="col-12" class="content">
+            <AppItem :samples="samples" />
+        </main>
       </div>
-    <main id="mainContent" data-grid="col-12" class="content">
-      <AppItem :samples="samples" />
-    </main>
-  </div>
-</div>
-    </div>
+      </div> <!--end Herobar-->
+      
 </template>
 <script>
   import AppItem from './components/AppItem.vue'
@@ -48,7 +53,10 @@
     data() {
       return {
         samples: [],
-        updatedFilters: {}
+        updatedFilters: {},
+        scrollY: null,
+        fixed:false,
+        originalTop: 0
       }
     },
     props:{
@@ -56,6 +64,18 @@
       type: String,
       filtertext:String
     },
+     mounted() {
+      this.originalTop = this.$el.getBoundingClientRect().top;
+      window.addEventListener('scroll', (event) => {
+        this.scrollY = Math.round(window.scrollY);
+         const newTop = this.scrollY  - this.originalTop;
+           if (newTop > 100) {
+              this.fixed =true;
+          } else {
+              this.fixed=false;
+          }
+      });
+  },
     computed: {
       filters()
       {
@@ -72,7 +92,9 @@
       {
         this.fetchSamples("");
       }
+
     },
+  
     methods: {
       fetchSamples: function(queryString) {
         fetch(process.env.VUE_APP_API_BASE_URL +'api/Library?' + queryString )
@@ -105,7 +127,7 @@
           var query = Object.keys(queryParams).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(queryParams[k])}`).join('&');
           this.fetchSamples(query);
           this.$router.push({query:queryParams}); 
-      }
+      },
     }
   }
 </script>
@@ -123,11 +145,21 @@
   padding:1px;
   font-size:12px;
 }
+
 .shadow{
   -webkit-box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
  -moz-box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
  box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
+ background: #EDEDED;
+ z-index: 200;
+ width: 100%;
 }
+.shadow-fixed{
+ @extend .shadow;
+ position: fixed;
+ top :0px 
+}
+
 .contributelink{
   width: 16px;
   margin-left:4px;
@@ -166,6 +198,7 @@
     max-width: 1050px;
     padding-bottom: 5px;
 }
+
 .herobar{
     position: sticky; top:0; 
   z-index: 10;
@@ -174,6 +207,11 @@
   border-bottom-color: #DCDCDC;
 }
 .header{
+      text-align: center;
+      padding-bottom:10px;
+      max-width: 1250px;
+}
+.searchbar{
       text-align: center;
       padding-bottom:10px;
       float:unset;
@@ -190,19 +228,12 @@ font-size: 34px;
 .topsticky{
   position: sticky; top:0; 
   z-index: 100;
+
 }
 .content {
     position: relative;
     max-width: 1250px;
     margin: 0 auto;
-
-    &__list {
-      position: relative;
-      margin-top: 1rem;
-      padding-right: 1rem;
-      padding-bottom: 5rem;
-      backface-visibility: hidden;
-    }
   }
   @media (max-width: 700px) {
     .scootover {
