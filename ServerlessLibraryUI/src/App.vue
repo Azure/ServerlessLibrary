@@ -75,7 +75,7 @@
     },
     methods: {
       fetchSamples: function(queryString) {
-        fetch('https://serverlesslibrary.net/api/Library?' + queryString )
+        fetch(process.env.VUE_APP_API_BASE_URL +'api/Library?' + queryString )
         .then(response => response.json())
         .then(data => {
               this.samples = data.sort( function (a, b) {
