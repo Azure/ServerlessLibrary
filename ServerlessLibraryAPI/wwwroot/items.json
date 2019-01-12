@@ -503,7 +503,27 @@
     "template": "https://raw.githubusercontent.com/JimPaine/emotion-checker/master/azuredeploy.json",
     "repository": "https://github.com/JimPaine/emotion-checker",
     "description": "An HTML5 page which streams your camera to the Face API for age and emotion, all via a V2 function",
-    "language": "na",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
+  },
+  {
+    "title": "HTTP Request to Power BI Push Dataset",
+    "template": "https://raw.githubusercontent.com/eavanvalkenburg/http_to_powerbi_function/master/azuredeploy.json",
+    "repository": "https://github.com/eavanvalkenburg/http_to_powerbi_function",
+    "description": "This Function examples uses the Push Rest API of PowerBI to push data into it, the content of your request (in json) needs to match the datastructure in json for it to work.",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
+  },
+  {
+    "title": "Azure Functions Loves Twilio",
+    "template": "https://raw.githubusercontent.com/0GiS0/azure-functions-loves-twilio/master/azure.deploy.json",
+    "repository": "https://github.com/0GiS0/azure-functions-loves-twilio",
+    "description": "It sends and receives SMS using Twilio and Azure Functions. It is based on three functions: HandleMessage, which receives the message that you want to send. SendSMS, which sends the message to Twilio.SMSReceived, the SMS sent by the user to a specific Twilio mobile number is received.",
+    "language": "javascript",
     "type": "functionapp",
     "authortype": "Community",
     "runtimeversion": "na"
