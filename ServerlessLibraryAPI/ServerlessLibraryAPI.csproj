@@ -5,14 +5,18 @@
     <ApplicationInsightsResourceId>/subscriptions/7c1b7bab-00b2-4cb7-924e-205c4f411810/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/ServerlessLibrary</ApplicationInsightsResourceId>
     <ApplicationInsightsAnnotationResourceId>/subscriptions/7c1b7bab-00b2-4cb7-924e-205c4f411810/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/ServerlessLibrary</ApplicationInsightsAnnotationResourceId>
     <Company>Microsoft</Company>
+    <BuildVueJsApp>false</BuildVueJsApp>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <BuildVueJsApp>true</BuildVueJsApp>
+    <NpmBuildCommand>npm run dev-build</NpmBuildCommand>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
+    <NpmBuildCommand>npm run build</NpmBuildCommand>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,5 +43,16 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services" />
   </ItemGroup>
+  
+  <Target Name="BuildVueJsApp" BeforeTargets="PreBuildEvent" Condition="$(BuildVueJsApp) == true">
+    <Exec WorkingDirectory="$(SolutionDir)ServerlessLibraryUI" Command="npm install" />
+    <Exec WorkingDirectory="$(SolutionDir)ServerlessLibraryUI" Command="$(NpmBuildCommand)" />
+    <ItemGroup>
+      <SourceFiles Include="$(SolutionDir)ServerlessLibraryUI\dist\**\*" />
+    </ItemGroup>
+    <Delete Files="$(ProjectDir)wwwroot\app.js" />
+    <RemoveDir Directories="$(ProjectDir)wwwroot\css;$(ProjectDir)wwwroot\js" />	
+    <Copy SourceFiles="@(SourceFiles)" DestinationFolder="$(ProjectDir)wwwroot\%(RecursiveDir)" />
+  </Target>
 
 </Project>
