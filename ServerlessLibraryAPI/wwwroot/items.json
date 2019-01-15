@@ -527,5 +527,25 @@
     "type": "functionapp",
     "authortype": "Community",
     "runtimeversion": "na"
+  },
+  {
+    "title": "Audio utilities using Azure Functions",
+    "template": "https://raw.githubusercontent.com/0GiS0/audio-azure-functions/master/azure.deploy.json",
+    "repository": "https://github.com/0GiS0/audio-azure-functions",
+    "description": "Conversions using ffmpeg and transcriptions with Speech Service: Mp3ToWav: It converts from MP3 to WAV in order to be treated by Speech service from Cognitive Services, but it can be used simply as a transformation method. WavToText: Use Speech Service to get the audio transcript.",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
+  },
+  {
+    "title": "Remove metadata with Azure Functions",
+    "template": "https://raw.githubusercontent.com/0GiS0/azure-function-clean-exif/master/azure.deploy.json",
+    "repository": "https://github.com/0GiS0/azure-function-clean-exif",
+    "description": "It removes file metadata using Azure Functions.",
+    "language": "javascript",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
   }
 ]
