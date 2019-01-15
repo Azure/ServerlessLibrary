@@ -37,7 +37,7 @@
             </a>
          </div>
       </div>
-      <!--end headbar-->
+      <!--end headerbar-->
       <div class="scootover">
          <div  class="header">
             <h2 class="headingtext">Azure serverless community library</h2>
@@ -178,15 +178,14 @@
 }
 
 .shadow{
-  -webkit-box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
- -moz-box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
  box-shadow:0px 1px 1px rgba(0, 0, 0, 0.16);
- background: #EDEDED;
- z-index: 200;
- width: 100%;
+ padding-bottom: 5px;
 }
 .shadow-fixed{
  @extend .shadow;
+ background: #EDEDED;
+ z-index: 200;
+ width: 100%;
  position: fixed;
  top :0px 
 }
@@ -227,7 +226,6 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 1050px;
-    padding-bottom: 5px;
 }
 
 .herobar{
@@ -239,7 +237,6 @@
 }
 .header{
       text-align: center;
-      padding-bottom:10px;
       max-width: 1250px;
 }
 .searchbar{
