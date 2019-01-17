@@ -6,7 +6,7 @@ ________
 - Description: A short block of text (~100 characters max) explaining what your sample does.
 ________
 
-- Template: The path to the ARM template which deploys the application. For more information, see the [README](https://github.com/Azure/FunctionLibrary/blob/master/README.md).
+- Template: The raw path to the ARM template which deploys the application. eg https://raw.githubusercontent.com/anthonychu/azure-functions-openalpr/master/azuredeploy.json For more information, see the [README](https://github.com/Azure/FunctionLibrary/blob/master/README.md).
 ________
 
 - Repository: The URL of a public git repository.
