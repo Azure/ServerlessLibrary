@@ -100,6 +100,10 @@ export default {
         return 'C#';
       } else if (language === 'javascript') {
         return 'JavaScript';
+      } else if (language === 'python') {
+        return 'Python';
+      } else if (language === 'java') {
+        return 'Java';
       } else if (language === 'na') {
         return '';
       } else {
