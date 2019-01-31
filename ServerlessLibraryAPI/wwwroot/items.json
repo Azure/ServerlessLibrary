@@ -542,8 +542,38 @@
     "title": "Remove metadata with Azure Functions",
     "template": "https://raw.githubusercontent.com/0GiS0/azure-function-clean-exif/master/azure.deploy.json",
     "repository": "https://github.com/0GiS0/azure-function-clean-exif",
-    "description": "It removes file metadata using Azure Functions",
+    "description": "It removes file metadata using Azure Functions.",
     "language": "javascript",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
+  },
+  {
+    "title": "Read Excel From Blob Storage, Process and Add to Azure Queue.",
+    "template": "https://raw.githubusercontent.com/raahmed/BlobStorageTrigger/blob/master/azuredeploy.json",
+    "repository": "https://github.com/raahmed/BlobStorageTrigger",
+    "description": "This application takes a specific type of csv file (detailed in the project README), cleans the data and then places the contents in .json format into a Queue.",
+    "language": "python",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
+  },
+  {
+    "title": "Azure DevOps with Azure Logic Apps",
+    "template": "https://raw.githubusercontent.com/gdprtcl/AzDevOps-AzLA/master/AzDevOps%2BAzLA/azure.deploy.json",
+    "repository": "https://github.com/gdprtcl/AzDevOps-AzLA",
+    "description": "Create a Logic App to notify an individual over mail whenever he/she is assigned to a Work Item (Bug) with high priority.",
+    "language": "na",
+    "type": "logicapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
+  },
+  {
+    "title": "Triggers and Binding examples",
+    "template": "https://raw.githubusercontent.com/daniel-rocha/azure-functions-java-bindings/master/azuredeploy.json",
+    "repository": "https://github.com/daniel-rocha/azure-functions-java-bindings",
+    "description": "20+ ready-to-use examples of triggers and bindings with Azure Java Functions",
+    "language": "java",
     "type": "functionapp",
     "authortype": "Community",
     "runtimeversion": "na"
