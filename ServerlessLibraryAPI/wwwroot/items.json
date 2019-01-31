@@ -550,7 +550,7 @@
   },
   {
     "title": "Read Excel From Blob Storage, Process and Add to Azure Queue.",
-    "template": "https://raw.githubusercontent.com/raahmed/BlobStorageTrigger/blob/master/azuredeploy.json",
+    "template": "https://raw.githubusercontent.com/raahmed/BlobStorageTrigger/master/azuredeploy.json",
     "repository": "https://github.com/raahmed/BlobStorageTrigger",
     "description": "This application takes a specific type of csv file (detailed in the project README), cleans the data and then places the contents in .json format into a Queue.",
     "language": "python",
