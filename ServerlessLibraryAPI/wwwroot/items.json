@@ -542,7 +542,7 @@
     "title": "Remove metadata with Azure Functions",
     "template": "https://raw.githubusercontent.com/0GiS0/azure-function-clean-exif/master/azure.deploy.json",
     "repository": "https://github.com/0GiS0/azure-function-clean-exif",
-    "description": "It removes file metadata using Azure Functions.",
+    "description": "It removes file metadata using Azure Functions",
     "language": "javascript",
     "type": "functionapp",
     "authortype": "Community",
