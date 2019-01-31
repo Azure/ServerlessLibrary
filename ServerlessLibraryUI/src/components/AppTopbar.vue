@@ -28,6 +28,7 @@
         <select class="c-search dropdown2"  v-model="language">
           <option value="" selected >Language: All</option>
           <option value="javascript">JavaScript</option>
+          <option value="csharp">C#</option>
           <option value="python">Python</option>
           <option value="java">Java</option>
         </select>
