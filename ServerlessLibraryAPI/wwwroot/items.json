@@ -577,5 +577,15 @@
     "type": "functionapp",
     "authortype": "Community",
     "runtimeversion": "na"
+  },
+  {
+    "title": "Add Data to CosmosDB From QueueStorage",
+    "template": "https://raw.githubusercontent.com/raahmed/QueueStorageTrigger/master/azuredeploy.json",
+    "repository": "https://github.com/raahmed/QueueStorageTrigger",
+    "description": "A series of events in queue storage are collected and added to CosmosDB.",
+    "language": "python",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
   }
 ]
