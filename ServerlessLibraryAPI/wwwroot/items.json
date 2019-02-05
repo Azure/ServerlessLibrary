@@ -587,5 +587,15 @@
     "type": "functionapp",
     "authortype": "Community",
     "runtimeversion": "na"
+  },
+  {
+    "title": "Build a serverless API with Node.js on top of Azure Functions and Azure Cosmos DB",
+    "template": "https://raw.githubusercontent.com/simonaco/nodebinar/master/azuredeploy.json",
+    "repository": "https://github.com/simonaco/nodebinar",
+    "description": "Build a serverless API with Node.js on top of Azure Functions and Azure Cosmos DB",
+    "language": "javascript",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
   }
 ]
