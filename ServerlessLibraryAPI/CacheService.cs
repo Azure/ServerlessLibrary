@@ -10,20 +10,24 @@ using System.Threading.Tasks;
 namespace ServerlessLibrary
 {
     public interface ICacheService {
-        List<LibraryItem> GetCachedItems();
+        IList<LibraryItem> GetCachedItems();
     }
     //https://stackoverflow.com/questions/44723017/in-memory-caching-with-auto-regeneration-on-asp-net-core
     public class CacheService:ICacheService
     {
         protected readonly IMemoryCache _cache;
         private IHostingEnvironment _env;
+        private readonly ILibraryStore libraryStore;
+        private static bool cosmosDBInitialized;
 
-        public CacheService(IMemoryCache cache, IHostingEnvironment env)
+        public CacheService(IMemoryCache cache, IHostingEnvironment env, ILibraryStore libraryStore)
         {
             this._cache = cache;
             this._env = env;
+            this.libraryStore = libraryStore;
             InitTimer();
         }
+
         private void InitTimer()
         {
             _cache.Set<LibraryItemsResult>(ServerlessLibrarySettings.CACHE_ENTRY, new LibraryItemsResult() { Result = new List<LibraryItem>(), IsBusy = true });
@@ -35,7 +39,7 @@ namespace ServerlessLibrary
         public Timer Timer { get; set; }
         public bool LoadingBusy = false;
 
-        public List<LibraryItem> GetCachedItems() {
+        public IList<LibraryItem> GetCachedItems() {
             return _cache.Get<LibraryItemsResult>(ServerlessLibrarySettings.CACHE_ENTRY).Result;
         }
         private async void TimerTickAsync(object state)
@@ -65,13 +69,39 @@ namespace ServerlessLibrary
             }
             catch { }
         }
-        private async Task<List<LibraryItem>> ConstructCache()
+        private async Task<IList<LibraryItem>> ConstructCache()
         {
-            var webRoot = _env.WebRootPath;
-            var file = System.IO.Path.Combine(webRoot, "items.json");
+            IList<LibraryItem> libraryItems;
+
+            if (cosmosDBInitialized)
+            {
+                libraryItems = await this.libraryStore.GetAllItems();
+            }
+            else
+            {
+                libraryItems = await new FileLibraryStore(_env).GetAllItems();
+
+                if (!string.IsNullOrWhiteSpace(ServerlessLibrarySettings.CosmosEndpoint))
+                {
+                    IList<LibraryItem> libraryItemsInCosmos = await this.libraryStore.GetAllItems();
+                    if (libraryItemsInCosmos.Count == 0)
+                    {
+                        foreach (LibraryItem libraryItem in libraryItems)
+                        {
+                            this.libraryStore.Add(libraryItem);
+                        }
+                    }
+                    else
+                    {
+                        libraryItems = libraryItemsInCosmos;
+                    }
+
+                    cosmosDBInitialized = true;
+                }
+            }
+
             var stats = await StorageHelper.getSLItemRecordsAsync();
-            var fileContent = JsonConvert.DeserializeObject<List<LibraryItem>>(await System.IO.File.ReadAllTextAsync(file));
-            foreach (var item in fileContent)
+            foreach (var item in libraryItems)
             {
                 var itemStat = item.Template != null ? stats.Where(s => s.template == item.Template.ToString()).FirstOrDefault() : null;
                 item.TotalDownloads = itemStat != null ? itemStat.totalDownloads : 1;
@@ -80,12 +110,12 @@ namespace ServerlessLibrary
                 item.DownloadsToday = itemStat != null ? itemStat.downloadsToday : 1;
                 item.AuthorTypeDesc = (item.AuthorType == "Microsoft" ? "This has been authored by Microsoft" : "This is a community contribution");
             }
-            return fileContent;
-        }
 
+            return libraryItems;
+        }
     }
     public class LibraryItemsResult {
-        public List<LibraryItem> Result { get; set; }
+        public IList<LibraryItem> Result { get; set; }
         public bool IsBusy{ get; set; }
     }
 
