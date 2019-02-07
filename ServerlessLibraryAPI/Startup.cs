@@ -38,6 +38,7 @@ namespace ServerlessLibrary
             //});
             //#endregion
             services.AddSingleton<ICacheService, CacheService>();
+            services.AddSingleton<ILibraryStore, CosmosLibraryStore>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
