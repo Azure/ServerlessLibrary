@@ -486,7 +486,7 @@
     "language": "na",
     "type": "logicapp",
     "authortype": "Community",
-    "runtimeversion": "na"
+    "runtimeversion": "v2"
   },
   {
     "title": "Simplified KeyVault integration with @Microsoft.KeyVault",
@@ -496,7 +496,7 @@
     "language": "csharp",
     "type": "functionapp",
     "authortype": "Community",
-    "runtimeversion": "na"
+    "runtimeversion": "v1"
   },
   {
     "title": "Live stream Age and Emotion",
@@ -506,7 +506,7 @@
     "language": "csharp",
     "type": "functionapp",
     "authortype": "Community",
-    "runtimeversion": "na"
+    "runtimeversion": "v2"
   },
   {
     "title": "HTTP Request to Power BI Push Dataset",
@@ -516,7 +516,7 @@
     "language": "csharp",
     "type": "functionapp",
     "authortype": "Community",
-    "runtimeversion": "na"
+    "runtimeversion": "v1"
   },
   {
     "title": "Azure Functions Loves Twilio",
@@ -526,7 +526,7 @@
     "language": "javascript",
     "type": "functionapp",
     "authortype": "Community",
-    "runtimeversion": "na"
+    "runtimeversion": "v2"
   },
   {
     "title": "Audio utilities using Azure Functions",
@@ -536,7 +536,7 @@
     "language": "csharp",
     "type": "functionapp",
     "authortype": "Community",
-    "runtimeversion": "na"
+    "runtimeversion": "v2"
   },
   {
     "title": "Remove metadata with Azure Functions",
@@ -546,7 +546,7 @@
     "language": "javascript",
     "type": "functionapp",
     "authortype": "Community",
-    "runtimeversion": "na"
+    "runtimeversion": "v2"
   },
   {
     "title": "Read Excel From Blob Storage, Process and Add to Azure Queue.",
@@ -556,7 +556,7 @@
     "language": "python",
     "type": "functionapp",
     "authortype": "Community",
-    "runtimeversion": "na"
+    "runtimeversion": "v2"
   },
   {
     "title": "Azure DevOps with Azure Logic Apps",
@@ -576,7 +576,7 @@
     "language": "java",
     "type": "functionapp",
     "authortype": "Community",
-    "runtimeversion": "na"
+    "runtimeversion": "v2"
   },
   {
     "title": "Add Data to CosmosDB From QueueStorage",
@@ -586,7 +586,7 @@
     "language": "python",
     "type": "functionapp",
     "authortype": "Community",
-    "runtimeversion": "na"
+    "runtimeversion": "v2"
   },
   {
     "title": "Build a serverless API with Node.js on top of Azure Functions and Azure Cosmos DB",
@@ -596,6 +596,6 @@
     "language": "javascript",
     "type": "functionapp",
     "authortype": "Community",
-    "runtimeversion": "na"
+    "runtimeversion": "v2"
   }
 ]
