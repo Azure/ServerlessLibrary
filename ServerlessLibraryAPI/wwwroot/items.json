@@ -634,5 +634,23 @@
     "type": "functionapp",
     "authortype": "Community",
     "runtimeversion": "v1"
+  },
+  {
+    "title": "Python functions with Blob and Event Grid",
+    "repository": "https://github.com/priyaananthasankar/messaging-pattern",
+    "description": "This sample shows how to deploy a blob storage that subscribes to an event grid which sends messages to an Azure Function through a WebHook Trigger. This is a commonly used messaging pattern for many customers.",
+    "language": "python",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
+  },
+  {
+    "title": "Scheduled-based Python function for social media reporting",
+    "repository": "https://github.com/gbowerman/twitter-code/tree/master/azurefunctions/dailyreport",
+    "description": "Python function designed to run a daily Twitter search and send output to a Microsoft Teams channel",
+    "language": "python",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
   }
 ]
