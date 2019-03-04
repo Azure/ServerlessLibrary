@@ -600,9 +600,11 @@
   },
   {
     "title": "Hello Panda: Introduction to Backend API's in TypeScript",
-    "template": "https://github.com/mhoeger/functions-typescript-intermediate/blob/master/azure.deploy.json",
+    "template": "https://raw.githubusercontent.com/mhoeger/functions-typescript-intermediate/master/azure.deploy.json",
     "repository": "https://github.com/mhoeger/functions-typescript-intermediate",
     "description": "A function app written in TypeScript that shows how to create backend API functions that use custom routes, npm modules, and globally shared code between functions.",
+    "language": "javascript",
+    "authortype": "Community",    
     "runtimeversion": "v2"
   },
   {
