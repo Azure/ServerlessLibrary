@@ -586,6 +586,25 @@
     "language": "python",
     "type": "functionapp",
     "authortype": "Community",
+    "runtimeversion": "na"
+  },
+  {
+    "title": "GitHub Pull Request Reviewer",
+    "template": "https://raw.githubusercontent.com/paulbatum/pull-request-reviewer/master/azure.deploy.json",
+    "repository": "https://github.com/paulbatum/pull-request-reviewer",
+    "description": "A simple example of using Azure Functions to implement a GitHub webhook",
+    "language": "javascript",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
+  },
+  {
+    "title": "Hello Panda: Introduction to Backend API's in TypeScript",
+    "template": "https://raw.githubusercontent.com/mhoeger/functions-typescript-intermediate/master/azure.deploy.json",
+    "repository": "https://github.com/mhoeger/functions-typescript-intermediate",
+    "description": "A function app written in TypeScript that shows how to create backend API functions that use custom routes, npm modules, and globally shared code between functions.",
+    "language": "javascript",
+    "authortype": "Community",    
     "runtimeversion": "v2"
   },
   {
@@ -597,5 +616,43 @@
     "type": "functionapp",
     "authortype": "Community",
     "runtimeversion": "v2"
+  },
+  {
+    "title": "Functions running as a Managed Service identity MSI for ARM calls in C#",
+    "template": "https://raw.githubusercontent.com/fashaikh/functions-msi-csharp/master/azuredeploy.json",
+    "repository": "https://github.com/fashaikh/functions-msi-csharp",
+    "description": "Once installed it creates a Function App linked to an MSI. If you go ahead and change the access of the MSI to particular resources, then it is able to talk to ARM and return the results",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
+  },
+  {
+    "title": "FunctionApp v1 with AWS S3 bucket and queue bindings Cognitive Services and CosmosDB",
+    "template": "https://raw.githubusercontent.com/fashaikh/functions-aws-s3-cosmosdb-v1/master/azuredeploy.json",
+    "repository": "https://github.com/fashaikh/functions-aws-s3-cosmosdb-v1",
+    "description": "V1 FunctionApp with AWS S3 bucket and queue bindings,Cognitive Services and CosmosDB: 1)TimerTriggerFromS3: OCR images from S3 2) GetS3PreSignedUrl: Creates a pre signed Url for any S3 bucket 3) BlobTriggerToS3:From Azure Storage to S3",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v1"
+  },
+  {
+    "title": "Python functions with Blob and Event Grid",
+    "repository": "https://github.com/priyaananthasankar/messaging-pattern",
+    "description": "This sample shows how to deploy a blob storage that subscribes to an event grid which sends messages to an Azure Function through a WebHook Trigger. This is a commonly used messaging pattern for many customers.",
+    "language": "python",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
+  },
+  {
+    "title": "Scheduled-based Python function for social media reporting",
+    "repository": "https://github.com/gbowerman/twitter-code/tree/master/azurefunctions/dailyreport",
+    "description": "Python function designed to run a daily Twitter search and send output to a Microsoft Teams channel",
+    "language": "python",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "na"
   }
 ]
