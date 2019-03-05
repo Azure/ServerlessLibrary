@@ -17,7 +17,7 @@ namespace ServerlessLibrary
                 : value;
         }
 
-        public static string SLStorageString { get { return config(); } }
+        public static string SLStorageString { get { return config("UseDevelopmentStorage=true"); } }
         public static string SLAppInsightsKey { get { return config(""); } }
         public static int SLCacheRefreshIntervalInSeconds { get { return Int32.Parse(config("60")); } }
         public static string CACHE_ENTRY = "_CacheEntry";
