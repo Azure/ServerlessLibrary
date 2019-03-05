@@ -56,7 +56,7 @@ namespace ServerlessLibrary
             string type)
         {
             this.Title = title;
-            this.Template = new Uri(template);
+            this.Template = string.IsNullOrWhiteSpace(template)? null : new Uri(template);
             this.Repository = new Uri(repository);
             this.Description = description;
             this.Language = language;
