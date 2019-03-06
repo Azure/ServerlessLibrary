@@ -604,7 +604,8 @@
     "repository": "https://github.com/mhoeger/functions-typescript-intermediate",
     "description": "A function app written in TypeScript that shows how to create backend API functions that use custom routes, npm modules, and globally shared code between functions.",
     "language": "javascript",
-    "authortype": "Community",    
+    "type": "functionapp",
+    "authortype": "Community",
     "runtimeversion": "v2"
   },
   {
