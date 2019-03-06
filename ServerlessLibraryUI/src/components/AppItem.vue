@@ -35,7 +35,7 @@
 
         <li class="sample__data sample__label">
           <a :href="item.repository" target="_blank" class="sample__repo" v-on:click="outboundRepoClick(item)" v-on:dblclick="outboundRepoClick(item)">Source <app-icon /></a>
-          <button class="sample__deploybtn" @click="showConsentModal(item)" :disabled="item.template == ''">Deploy</button>
+          <button class="sample__deploybtn" @click="showConsentModal(item)" :disabled="!item.template || item.template == ''">Deploy</button>
         </li>
       </ul>
 
