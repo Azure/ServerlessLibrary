@@ -73,7 +73,7 @@ namespace ServerlessLibrary
             var fileContent = JsonConvert.DeserializeObject<List<LibraryItem>>(await System.IO.File.ReadAllTextAsync(file));
             foreach (var item in fileContent)
             {
-                var itemStat = stats.Where(s => s.template == item.Template.ToString()).FirstOrDefault();
+                var itemStat = item.Template != null ? stats.Where(s => s.template == item.Template.ToString()).FirstOrDefault() : null;
                 item.TotalDownloads = itemStat != null ? itemStat.totalDownloads : 1;
                 item.DownloadsThisMonth = itemStat != null ? itemStat.downloadsThisMonth : 1;
                 item.DownloadsThisWeek = itemStat != null ? itemStat.downloadsThisWeek : 1;
