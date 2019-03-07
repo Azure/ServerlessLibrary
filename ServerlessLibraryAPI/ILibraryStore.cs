@@ -19,5 +19,11 @@ namespace ServerlessLibrary
         /// </summary>
         /// <returns></returns>
         Task<IList<LibraryItem>> GetAllItems();
+
+        /// <summary>
+        /// Get count of items in the library
+        /// </summary>
+        /// <returns>count of items</returns>
+        int Count();
     }
 }

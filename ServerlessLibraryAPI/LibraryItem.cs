@@ -8,6 +8,9 @@ namespace ServerlessLibrary
 {
     public class LibraryItem
     {
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
+
         [JsonProperty(PropertyName = "title", DefaultValueHandling = DefaultValueHandling.Include)]
         public string Title { get; set; }
 

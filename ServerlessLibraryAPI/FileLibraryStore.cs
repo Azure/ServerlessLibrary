@@ -31,5 +31,10 @@ namespace ServerlessLibrary
             var fileContent = JsonConvert.DeserializeObject<List<LibraryItem>>(await System.IO.File.ReadAllTextAsync(file));
             return fileContent;
         }
+
+        public int Count()
+        {
+            throw new NotSupportedException();
+        }
     }
 }

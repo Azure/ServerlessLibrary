@@ -29,8 +29,13 @@ namespace ServerlessLibrary
 
         async public Task<IList<LibraryItem>> GetAllItems()
         {
-            IEnumerable<LibraryItem> libraryItems = await CosmosDBRepository<LibraryItem>.GetItemsAsync(i => i.Template != null);
+            IEnumerable<LibraryItem> libraryItems = await CosmosDBRepository<LibraryItem>.GetItemsAsync(i => i != null);
             return libraryItems.ToList();
+        }
+
+        public int Count()
+        {
+            return CosmosDBRepository<LibraryItem>.Count();
         }
     }
 
@@ -80,6 +85,11 @@ namespace ServerlessLibrary
             }
 
             return results;
+        }
+
+        public static int Count()
+        {
+            return client.CreateDocumentQuery(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), new FeedOptions() { EnableCrossPartitionQuery = true }).Count();
         }
 
         public static async Task<Document> CreateItemAsync(T item)

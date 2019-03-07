@@ -88,6 +88,10 @@ namespace ServerlessLibrary
                     {
                         foreach (LibraryItem libraryItem in libraryItems)
                         {
+                            int itemsCountInStore = this.libraryStore.Count();
+
+                            // Assign an Id which is a string form of integer to each item. Otherwise cosmosdb will assign a guid as id which is not user friendly.  
+                            libraryItem.Id = (itemsCountInStore + 1) + string.Empty;
                             this.libraryStore.Add(libraryItem);
                         }
                     }
