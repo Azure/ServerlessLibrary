@@ -55,7 +55,7 @@
       <!--end shadow-->
       <div class="scootover">
          <main id="mainContent" data-grid="col-12" class="content">
-            <AppItem :samples="list" />
+            <ItemPaginator :items="list" />
          </main>
       </div>
    </div>
@@ -64,11 +64,13 @@
 <script>
   import AppItem from './components/AppItem.vue'
   import AppTopbar from './components/AppTopbar.vue'
+  import ItemPaginator from './components/ItemPaginator.vue'
 
   export default {
     components: {
       AppItem,
-      AppTopbar
+      AppTopbar,
+      ItemPaginator,
     },
 
     data() {
@@ -146,7 +148,7 @@
 
         this.$router.push({query:queryParams}); 
         return temp
-      }
+      },
 
     },
 
