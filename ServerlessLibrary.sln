@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerlessLibraryFunctionApp", "ServerlessLibraryFunctionApp\ServerlessLibraryFunctionApp.csproj", "{95E9DC49-8B38-4D2C-95AD-1BD261A1CBF0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerlessLibraryAPI", "ServerlessLibraryAPI\ServerlessLibraryAPI.csproj", "{9DB5E7FD-1720-4FEC-B6BF-E91BCA659A54}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerlessLibraryAPI", "ServerlessLibraryAPI\ServerlessLibraryAPI.csproj", "{9DB5E7FD-1720-4FEC-B6BF-E91BCA659A54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
