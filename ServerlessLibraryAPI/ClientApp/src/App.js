@@ -1,20 +1,33 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
+import './App.css';
 
-export default class App extends Component {
-  displayName = App.name
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        samples: []
+    }
+    this.getCurrentSample = this.getCurrentSample.bind(this)
+}
+
+getCurrentSample(id)
+{
+  return this.state.samples.filter(s=>s.title===id);
+}
 
   render() {
     return (
-      <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
-        <Route path='/fetchdata' component={FetchData} />
-      </Layout>
+      <div className="App">
+          <div className="header" >
+            <span>header </span>
+          </div>
+         <div className="maincontent">
+          maincontent
+         </div>
+      </div>
     );
   }
 }
+
+export default App;
