@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
 
+import './App.css';
+import { Header } from './components/Header';
 
 class App extends Component {
   constructor(props) {
@@ -19,12 +20,10 @@ getCurrentSample(id)
   render() {
     return (
       <div className="App">
-          <div className="header" >
-            <span>header </span>
-          </div>
-         <div className="maincontent">
+        <Header />
+        <div className="maincontent">
           maincontent
-         </div>
+        </div>
       </div>
     );
   }
