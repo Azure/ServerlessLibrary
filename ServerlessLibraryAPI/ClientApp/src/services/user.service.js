@@ -1,14 +1,28 @@
+import { handleResponse } from '../helpers';
+
 export const userService = {
   getCurrentUser
 };
 
-const dummyUser = {
-  firstName: 'Nehaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-  lastName: 'Gupta',
-  fullName: 'Neha Gupta',
-  avatarUrl: 'https://github.com/msnehagup.png'
+const useFakeApi = true;
+
+const getFakeUser = () => {
+  return Promise.resolve({
+    fullName: 'Aaaaaaaaaaaaaaaaaaa Bbbbbbbbbbbb',
+    email: 'abc@xyz.com',
+    avatarUrl: 'https://avatars2.githubusercontent.com/u/45184761?v=4',
+    firstName: 'Aaaaaaaaaaaaaaaaaaa'
+  });
 };
 
 function getCurrentUser() {
-  return Promise.resolve(dummyUser);
+  if (useFakeApi) {
+    return getFakeUser();
+  }
+  
+  const requestOptions = {
+    method: 'GET'
+  };  
+  return fetch('/api/user', requestOptions)
+    .then(handleResponse);
 }

@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ServerlessLibraryAPI.OAuth.GitHub;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace ServerlessLibrary
@@ -21,6 +23,20 @@ namespace ServerlessLibrary
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMemoryCache();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultChallengeScheme = GitHubAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+            .AddCookie()
+            .AddOAuth<GitHubAuthenticationOptions, GitHubAuthenticationHandler>(
+                GitHubAuthenticationDefaults.AuthenticationScheme,
+                GitHubAuthenticationDefaults.DisplayName,
+                options => {
+                    options.ClientId = Configuration["Authentication:GitHub:ClientId"]; // these settings need to be present in appSettings (or in secrets.json)
+                    options.ClientSecret = Configuration["Authentication:GitHub:ClientSecret"];
+                });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -56,7 +72,6 @@ namespace ServerlessLibrary
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
@@ -67,6 +82,8 @@ namespace ServerlessLibrary
                 c.RoutePrefix = "swagger";
             });
 
+            app.UseAuthentication();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -74,15 +91,18 @@ namespace ServerlessLibrary
                     template: "{controller}/{action=Index}/{id?}");
             });
 
-            app.UseSpa(spa =>
+            if (!ServerlessLibrarySettings.ApiOnly)
             {
-                spa.Options.SourcePath = "ClientApp";
-
-                if (env.IsDevelopment())
+                app.UseSpa(spa =>
                 {
-                    spa.UseReactDevelopmentServer(npmScript: "start");
-                }
-            });
+                    spa.Options.SourcePath = "ClientApp";
+
+                    if (env.IsDevelopment())
+                    {
+                        spa.UseReactDevelopmentServer(npmScript: "start");
+                    }
+                });
+            }
 
             app.Use(async (context, next) =>
             {
