@@ -1,0 +1,9 @@
+.searchbarContainer{
+    display: flex;
+    flex-direction: column;
+}
+.sortbybox
+{
+    display: flex;
+    flex-direction: row-reverse;
+}
