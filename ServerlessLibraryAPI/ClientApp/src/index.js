@@ -11,8 +11,8 @@ const rootElement = document.getElementById('root');
 
 ReactDOM.render(
   <BrowserRouter>
-  <Provider store={store}>
-    <AppContainer />
+    <Provider store={store}>
+      <AppContainer />
     </Provider>
   </BrowserRouter>,
   rootElement);

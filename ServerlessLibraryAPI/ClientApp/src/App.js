@@ -56,9 +56,9 @@ const mapDispatchToProps = {
   samplesReceived
 };
 
-const AppContainer = connect(
+const AppContainer = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(App));
 
 export default AppContainer;
