@@ -1,10 +1,8 @@
 
   .mainContainer{
     display: flex;
-    height: 100%;
   }
   .sidebar {
-    height: 100%;
     width: 20%;
     padding: 10px;
     background-color: #F9F9F9;

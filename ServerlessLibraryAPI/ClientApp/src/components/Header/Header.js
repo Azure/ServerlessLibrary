@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Persona, PersonaSize } from 'office-ui-fabric-react';
+import { initializeIcons } from '@uifabric/icons';
 import { getTheme, FontSizes } from '@uifabric/styling';
 
 import './Header.scss';
@@ -55,7 +56,9 @@ class Header extends Component {
       user: {}
     };
   }
-
+  componentWillMount() {
+    initializeIcons();
+}
   componentDidMount() {
     this.setState({
       user: {}

@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { initializeIcons } from '@uifabric/icons';
 import { Checkbox } from 'office-ui-fabric-react/lib/index';
 import { FunctionAppChanged, LogicAppChanged, JavascriptChanged, CsharpChanged } from '../../actions/FilterChangeActions'
 
 import './SideBar.css';
 
 class SideBar extends Component {
-    componentWillMount() {
-        initializeIcons();
-    }
-
+ 
     render() {
         const checkboxStyles = () => {
             return {

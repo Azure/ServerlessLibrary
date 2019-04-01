@@ -1,12 +1,10 @@
 html {
     width: 100%;
-    min-height: 100% !important;
     margin: 0px;
   }
   body {
     margin: 0;
-    padding: 0;  height:100vh;
-    min-height: 100% !important;
+    padding: 0;  
     width: 100%;
     margin: 0px;
     display: flex;
@@ -22,8 +20,6 @@ html {
     /* display: flex; */
     width: 100%;
     margin-bottom: 0px;
-    height:100%;
-    min-height: 100% !important;
     position: absolute;
   }
   
