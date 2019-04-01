@@ -655,5 +655,62 @@
     "type": "functionapp",
     "authortype": "Community",
     "runtimeversion": "na"
+  },
+  {
+    "title": "Basic Image CAPTCHA Example",
+    "repository": "https://github.com/ankitkumarr/image-game-sample",
+    "description": "An image game sample that shows how to decode/encode images to JSON and to perform image transformation on them.",
+    "language": "python",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
+  },
+  {
+    "title": "Alexa Skill",
+    "template": "https://raw.githubusercontent.com/LinaSerry/AlexaSkill_AzureFunction/master/azuredeploy.json",
+    "repository": "https://github.com/LinaSerry/AlexaSkill_AzureFunction",
+    "description": "Azure function which allows you to interact with your QnA azure bot using Alexa",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
+  },
+  {
+    "title": "MSI GetToken Function App",
+    "template": "https://raw.githubusercontent.com/StratusOn/MSI-GetToken-FunctionApp/master/azuredeploy.json",
+    "repository": "https://github.com/StratusOn/MSI-GetToken-FunctionApp",
+    "description": "An Azure Function App to help get tokens from a Managed Service Identity (MSI) service configured on the Function App.",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v1"
+  },
+  {
+    "title": "Media Transport to Azure Files UNC Share",
+    "template": "https://raw.githubusercontent.com/StratusOn/Media-Transport-to-UNC/master/src/Deployments/azuredeploy.json",
+    "repository": "https://github.com/StratusOn/Media-Transport-to-UNC",
+    "description": "Transports media files from a watched Azure Storage account to an Azure Files UNC file share.",
+    "language": "csharp",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v1"
+  },
+  {
+    "title": "Azure Resource Management using Python Functions",
+    "repository": "https://github.com/asavaritayal/azure-resource-management",
+    "description": "Python Function App to automate resource cleanup in Azure.",
+    "language": "python",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
+  },
+  {
+    "title": "Image Classification",
+    "repository": "https://github.com/asavaritayal/dog-classification",
+    "description": "Azure Function written in Python that predicts the dog breed based on an Image URL.",
+    "language": "python",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
   }
 ]
