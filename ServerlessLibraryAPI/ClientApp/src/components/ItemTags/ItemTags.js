@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { FilterTextChanged } from '../../actions/FilterChangeActions'
-
 import './ItemTags.css';
 
 class ItemTags extends Component {
@@ -78,7 +75,7 @@ class ItemTags extends Component {
     let languageTag;
     if (this.props.language !== '' && this.props.language !== 'na') {
       let itemLanguageToDisplay = this.ToDisplayLanguage(this.props.language);
-      languageTag = <span className="tag" onClick={() => this.props.FilterTextChanged(this.props.language)}>
+      languageTag = <span className="tag" >
         {itemLanguageToDisplay}
       </span>
     }
@@ -86,14 +83,14 @@ class ItemTags extends Component {
     let tags;
     if (this.props.tags) {
       tags = this.props.tags.map((value, index) => {
-        return <span className="tag" key={index} onClick={() => this.props.FilterTextChanged(value)} >{value}</span>
+        return <span className="tag" key={index} >{value}</span>
       })
     }
 
     return (
       <div className="tagcontainer">
         Tags :
-          <span className="tag" onClick={() => this.props.FilterTextChanged(this.props.type)}>
+          <span className="tag">
           {svgIcon}
           <span>{itemTypeToDisplay}</span>
         </span>
@@ -104,13 +101,5 @@ class ItemTags extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  FilterTextChanged,
-};
 
-const ItemTagsContainer = connect(
-  null,
-  mapDispatchToProps
-)(ItemTags);
-
-export default ItemTagsContainer;
+export default ItemTags;

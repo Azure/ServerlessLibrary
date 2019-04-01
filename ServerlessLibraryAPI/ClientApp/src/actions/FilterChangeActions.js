@@ -23,11 +23,6 @@ export const FilterTextChanged = (changedfilter) => ({
   changedfilter,
 });
 
-export const TagChanged = (changedfilter) => ({
-  type: 'TAG_CHANGE',
-  changedfilter,
-});
-
 export const SortbyChanged = (changedfilter) => ({
   type: 'SORTBY_CHANGE',
   changedfilter,
