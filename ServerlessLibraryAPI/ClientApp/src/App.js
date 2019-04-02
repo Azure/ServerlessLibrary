@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import Main from "./components/Main/Main";
+
 import "./App.css";
+
+import Main from "./components/Main/Main";
 import { Header } from "./components/Header";
 import DetailView from "./components/DetailView/DetailView";
-import { samplesReceived } from "./actions/FilterChangeActions";
 import { Login } from "./components/Login";
+import { Contribute } from "./components/Contribute/Contribute";
+import { samplesReceived } from "./actions/FilterChangeActions";
 import { libraryService } from "./services";
 
 class App extends Component {
@@ -16,6 +19,7 @@ class App extends Component {
       .then(samples => this.props.samplesReceived(samples))
       .catch(error => console.log(error));
   }
+
   render() {
     return (
       <div id="container">
@@ -27,6 +31,7 @@ class App extends Component {
             <Route exact path="/" component={Main} />
             <Route path="/sample/:id" component={DetailView} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/Contribute" component={Contribute} />
           </Switch>
         </div>
       </div>
