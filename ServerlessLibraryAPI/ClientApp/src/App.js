@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { Link } from 'office-ui-fabric-react';
 
 import './App.css';
 import { Header } from './components/Header';
+import { Contribute } from './components/Contribute/Contribute';
 
 class App extends Component {
   constructor(props) {
@@ -21,9 +24,12 @@ getCurrentSample(id)
     return (
       <div className="App">
         <Header />
-        <div className="maincontent">
-          maincontent
-        </div>
+        <Switch>
+          <Route exact path='/' render={() => 
+            <Link href='/Contribute'>Contributions</Link>
+          } />
+          <Route exact path='/Contribute' component={Contribute} />
+        </Switch>
       </div>
     );
   }
