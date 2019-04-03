@@ -1,0 +1,33 @@
+
+.detailpagecontainer
+{
+    max-width: 70%;
+}
+.tabcontainer{
+    /* width: 80%; */
+}
+
+.actioncontainer
+{
+    display: flex;
+    flex-direction: row;
+    margin-top:20px;
+
+}
+p { word-break: break-all }
+.pivotitemcontainer{
+    background-color:#FBFBFB;;
+    /* width: 80%; */
+}
+
+.actionitems
+{
+    margin-left: 10px;
+    margin-right: 20px
+}
+
+.content{
+    max-height: 200;
+    position: relative;
+    white-space: pre;
+}
