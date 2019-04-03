@@ -3,8 +3,9 @@ import { Switch, Route } from 'react-router-dom';
 import { Link } from 'office-ui-fabric-react';
 
 import './App.css';
+import { PrivateRoute } from './components/PrivateRoute';
 import { Header } from './components/Header';
-import { Contribute } from './components/Contribute/Contribute';
+import { Contribute } from './components/Contribute';
 
 class App extends Component {
   constructor(props) {
@@ -26,9 +27,12 @@ getCurrentSample(id)
         <Header />
         <Switch>
           <Route exact path='/' render={() => 
-            <Link href='/Contribute'>Contributions</Link>
+            <Link href='/contribute'>Contributions</Link>
           } />
-          <Route exact path='/Contribute' component={Contribute} />
+          <Route exact path='/login' render={() => 
+            <div>Please sign in</div>
+          } />
+          <PrivateRoute exact path='/contribute' component={Contribute} />
         </Switch>
       </div>
     );
