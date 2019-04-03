@@ -12,7 +12,7 @@ class SearchBar extends Component {
     super(props);
     this.state = {
       filterText: this.props.initialSearchText,
-      sortby: this.props.initialSortKey
+      sortby: this.props.initialSortBy
     };
   }
 
@@ -33,7 +33,7 @@ class SearchBar extends Component {
     if (newValue === "atoz") {
       params["sortby"] = newValue;
     }
-
+    this.setState({ sortby: newValue });
     this.props.history.push(Helpers.paramsToQueryString(params));
   }
 
@@ -49,6 +49,9 @@ class SearchBar extends Component {
         label: {
           display: "inline-block",
           marginRight: "10px"
+        },
+        Dropdown: {
+          width: 120
         }
       };
     };
@@ -80,11 +83,9 @@ class SearchBar extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-});
+const mapStateToProps = state => ({});
 
-const mapDispatchToProps = {
-};
+const mapDispatchToProps = {};
 
 const SearchBarContainer = connect(
   mapStateToProps,
