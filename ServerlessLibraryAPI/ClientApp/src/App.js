@@ -9,6 +9,7 @@ import { Header } from "./components/Header";
 import DetailView from "./components/DetailView/DetailView";
 import { Login } from "./components/Login";
 import { Contribute } from "./components/Contribute/Contribute";
+import { PrivateRoute } from "./components/PrivateRoute";
 import { samplesReceived } from "./actions/FilterChangeActions";
 import { libraryService } from "./services";
 
@@ -31,7 +32,7 @@ class App extends Component {
             <Route exact path="/" component={Main} />
             <Route path="/sample/:id" component={DetailView} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/Contribute" component={Contribute} />
+            <PrivateRoute exact path="/contribute" component={Contribute} />
           </Switch>
         </div>
       </div>

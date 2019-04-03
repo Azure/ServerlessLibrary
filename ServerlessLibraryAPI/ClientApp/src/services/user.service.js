@@ -1,23 +1,40 @@
 import { handleResponse } from "../helpers";
 
 export const userService = {
-  getCurrentUser
+  getCurrentUser,
+  isAuthenticated
 };
 
 const useFakeApi = true;
 
-const getFakeUser = () => {
-  return Promise.resolve({
-    fullName: "Aaaaaaaaaaaaaaaaaaa Bbbbbbbbbbbb",
-    email: "abc@xyz.com",
-    avatarUrl: "https://avatars2.githubusercontent.com/u/45184761?v=4",
-    firstName: "Aaaaaaaaaaaaaaaaaaa"
-  });
+const validUser = {
+  firstName: "Nehaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  lastName: "Gupta",
+  fullName: "Neha Gupta",
+  avatarUrl: "https://github.com/msnehagup.png"
 };
+
+// const invalidUser = {
+//   abc: 'xyz'
+// };
+
+// const noUser = null;
+
+function isAuthenticated() {
+  return getCurrentUser().then(
+    user => {
+      return Promise.resolve(user && user.firstName && user.firstName !== "");
+    },
+    () => {
+      return Promise.resolve(false);
+    }
+  );
+}
 
 function getCurrentUser() {
   if (useFakeApi) {
-    return getFakeUser();
+    return Promise.resolve(validUser);
+    // return Promise.resolve(noUser);
   }
 
   const requestOptions = {
