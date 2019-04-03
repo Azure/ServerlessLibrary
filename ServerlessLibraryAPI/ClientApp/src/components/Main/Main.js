@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
 import SideBarContainer from '../../components/sidebar/SideBar'
 import SearchBarContainer from '../../components/SearchBar/SearchBar'
 import ItemList from '../../components/ItemList/ItemList'
@@ -7,19 +8,26 @@ import { samplesReceived } from '../../actions/FilterChangeActions'
 import { connect } from 'react-redux';
 
 class Main extends Component {
+    constructor(props)
+    {
+        super(props);
+        this.state={
+            initialFilters:this.getFiltersFromQueryParams(),
+        }
+
+        this.filterSamples=this.filterSamples.bind(this);
+        this.getFiltersFromQueryParams = this.getFiltersFromQueryParams.bind(this);
+        
+    }
     getLocalFilteredSamples() {
+        var currentfilters = this.getFiltersFromQueryParams();
         return this.filterSamples(this.props.samples,
-            this.props.functionapp,
-            this.props.logicapp,
-            this.props.csharp,
-            this.props.javascript,
-            this.props.filterText,
-            this.props.sortby
+            currentfilters
         )
     }
 
-    filterSamples(samples, functionapp, logicapp, csharp, javascript, filterText, sortby) {
-        var filter = new RegExp(filterText, 'i');
+    filterSamples(samples, currentfilters) {
+        var filter = new RegExp(currentfilters.filtertext, 'i');
         samples = samples.filter(el =>
             el.title.match(filter)
             || el.description.match(filter)
@@ -31,32 +39,17 @@ class Main extends Component {
             || (el.tags && el.tags.some(x => x.match(filter)))
         )
 
-        var selectedTypes = [];
-        if (functionapp) {
-            selectedTypes.push("functionapp");
-        }
-        if (logicapp) {
-            selectedTypes.push("logicapp");
+        if (currentfilters.categories.types.length > 0) {
+            samples = samples.filter(s => currentfilters.categories.types.includes(s.type));
         }
 
-        if (selectedTypes.length > 0) {
-            samples = samples.filter(s => selectedTypes.includes(s.type));
+        if (currentfilters.categories.languages.length > 0) {
+            samples = samples.filter(s => currentfilters.categories.languages.includes(s.language));
         }
 
-        var selectedLanguages = [];
-        if (csharp) {
-            selectedLanguages.push("csharp");
-        }
-        if (javascript) {
-            selectedLanguages.push("javascript");
-        }
-
-        if (selectedLanguages.length > 0) {
-            samples = samples.filter(s => selectedLanguages.includes(s.language));
-        }
-
-        return this.Sort(samples, sortby);
+        return this.Sort(samples, currentfilters.sortby);
     }
+
 
     Sort(list, sortby) {
         list = list.map(a => a);
@@ -81,14 +74,65 @@ class Main extends Component {
         return list;
     }
 
+    getFiltersFromQueryParams()
+    {
+        var queryString = this.props.location.search.substring(1);
+        var filter={
+            categories:{
+                types:[],
+                languages:[]
+            },
+            filtertext:'',
+            sortby:'totaldownloads'
+        }
+        
+        var params = this.queryStringToJSON(queryString);
+       if (params.type && params.type.length>0)
+       {
+           filter.categories.types= params.type.split(',');
+       }
+
+       if (params.language && params.language.length>0)
+       {
+           filter.categories.languages= params.language.split(',');
+       }
+
+       if (params.filtertext && params.filtertext.length>0)
+       {
+           filter.filtertext= params.filtertext;
+       }
+       if (params.sortby && params.sortby.length>0)
+       {
+           filter.sortby= params.sortby;
+       }
+
+        return filter;
+    }
+
+    queryStringToJSON(queryString) {
+        if(queryString.indexOf('?') > -1){
+          queryString = queryString.split('?')[1];
+        }
+        var pairs = queryString.split('&');
+        var result = {};
+        pairs.forEach(function(pair) {
+          pair = pair.split('=');
+          result[pair[0]] = decodeURIComponent(pair[1] || '');
+        });
+        return result;
+      }
+
+
+
     render() {
         return (
             <div className="mainContainer">
                 <div className="sidebar" >
-                    <SideBarContainer />
+                    <SideBarContainer initialFilters={this.state.initialFilters.categories} />
                 </div>
                 <div className="main">
-                    <SearchBarContainer />
+                <button type="button" onClick={()=>this.props.history.push("/test")}>Click Me!</button> 
+                    <SearchBarContainer initialSearchText={this.state.initialFilters.filtertext} initialSortBy={this.state.initialFilters.sortby} />
                     <ItemList filteredSamples={this.getLocalFilteredSamples()} />
                 </div>
             </div>
@@ -99,12 +143,6 @@ class Main extends Component {
 const mapStateToProps = state => ({
     samples: state.samples,
     filteredSamples: state.filteredSamples,
-    functionapp: state.functionapp,
-    logicapp: state.logicapp,
-    csharp: state.csharp,
-    javascript: state.javascript,
-    filterText: state.filterText,
-    sortby: state.sortby
 });
 
 const mapDispatchToProps = {
@@ -114,7 +152,7 @@ const mapDispatchToProps = {
 const MainContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Main);
+)(withRouter(Main));
 
 export default MainContainer;
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from "react-router-dom";
 import { SearchBox } from 'office-ui-fabric-react/lib/SearchBox';
 import { Dropdown } from 'office-ui-fabric-react/lib/Dropdown';
 import { FilterTextChanged, SortbyChanged } from '../../actions/FilterChangeActions'
@@ -7,6 +8,58 @@ import { FilterTextChanged, SortbyChanged } from '../../actions/FilterChangeActi
 import './SearchBar.css';
 
 class SearchBar extends Component {
+    constructor(props)
+    {
+        super(props);
+        this.state={
+            initialSearchText:this.props.initialSearchText,
+            initialSortKey:this.props.initialSortKey
+        }
+    }
+
+    FilterTextChanged(newValue){
+        console.log(newValue);
+        var queryString = this.props.location.search.substring(1);
+        var params = this.queryStringToJSON(queryString);
+        delete params["filtertext"];
+        if (newValue && newValue!=="")
+        {
+            params["filtertext"] = newValue;
+        }
+
+        this.setState({initialSearchText:newValue});
+        queryString = Object.keys(params).map((key) => {
+            return encodeURIComponent(key) + '=' + encodeURIComponent(params[key])
+        }).join('&');
+        this.props.history.push("?" +queryString);
+    }
+
+    SortbyChanged(newValue){
+        var queryString = this.props.location.search.substring(1);
+        var params = this.queryStringToJSON(queryString);
+        delete params["sortby"];
+        if (newValue==="atoz")
+        {
+            params["sortby"] = newValue;
+        }
+        queryString = Object.keys(params).map((key) => {
+            return encodeURIComponent(key) + '=' + encodeURIComponent(params[key])
+        }).join('&');
+        this.props.history.push("?" +queryString);
+    }
+    queryStringToJSON(queryString) {
+        if(queryString.indexOf('?') > -1){
+          queryString = queryString.split('?')[1];
+        }
+        var pairs = queryString.split('&');
+        var result = {};
+        pairs.forEach(function(pair) {
+          pair = pair.split('=');
+          result[pair[0]] = decodeURIComponent(pair[1] || '');
+        });
+        return result;
+      }
+
     render() {
         const dropdownStyles = () => {
             return {
@@ -28,13 +81,13 @@ class SearchBar extends Component {
                 <div>
                     <SearchBox
                         placeholder="Search"
-                        value={this.props.filterText}
-                        onSearch={newValue => this.props.FilterTextChanged(newValue)}
+                        value={this.state.initialSearchText}
+                        onSearch={newValue => this.FilterTextChanged(newValue)}
                     />
                 </div>
                 <div className="sortbybox">
                     <Dropdown
-                        defaultSelectedKey="totaldownloads"
+                        defaultSelectedKey={this.state.initialSortKey}
                         options={[
                             { key: 'totaldownloads', text: 'Most downloads' },
 
@@ -43,7 +96,7 @@ class SearchBar extends Component {
                         ]}
                         label="Sort By"
                         styles={dropdownStyles}
-                        onChange={(ev, item) => this.props.SortbyChanged(item.key)} 
+                        onChange={(ev, item) => this.SortbyChanged(item.key)} 
                     />
                 </div>
             </div>
@@ -65,5 +118,5 @@ const SearchBarContainer = connect(
     mapDispatchToProps
 )(SearchBar);
 
-export default SearchBarContainer;
+export default withRouter(SearchBarContainer);
 
