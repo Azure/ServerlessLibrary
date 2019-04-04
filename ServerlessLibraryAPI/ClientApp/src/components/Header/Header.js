@@ -61,7 +61,8 @@ class Header extends Component {
       user: {}
     });
     userService.getCurrentUser()
-     .then(user => this.setState({ user }));
+     .then(user => this.setState({ user }))
+     .catch(error => console.log(error));
   }
 
   render() {
@@ -70,7 +71,7 @@ class Header extends Component {
       <div className="headerbar" >
         <span>
           <Link styles={linkStyles} href="https://azure.microsoft.com/" target="_blank">Microsoft Azure</Link>
-          {user.firstName !== '' &&
+          {user && user.firstName && user.firstName !== '' &&
             <Persona 
               styles={personaStyles}
               text={user.firstName}
