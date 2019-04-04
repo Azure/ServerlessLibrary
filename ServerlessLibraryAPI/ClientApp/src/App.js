@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { Link } from 'office-ui-fabric-react';
 
 import './App.css';
+import { PrivateRoute } from './components/PrivateRoute';
 import { Header } from './components/Header';
 import { Login } from './components/Login';
+import { Contribute } from './components/Contribute';
 
 class App extends Component {
   constructor(props) {
@@ -28,11 +31,13 @@ getCurrentSample(id)
             return (
               <div className="maincontent">
                 maincontent
+                <Link href='/contribute'>Contributions</Link>
               </div>
             );
           }} 
-          />
+          />          
           <Route exact path='/login' component={Login} />
+          <PrivateRoute exact path='/contribute' component={Contribute} />
         </Switch>
       </div>
     );
