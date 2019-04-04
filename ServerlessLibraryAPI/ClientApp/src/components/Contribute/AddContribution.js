@@ -5,6 +5,7 @@ import { contributionService } from '../../services';
 
 const initialState = {
   showForm: false,
+  error: '',
   title: '',
   description: '',
   repository: '',
@@ -40,7 +41,11 @@ class AddContribution extends Component {
 
   onAddButtonClick = () => {
     contributionService.submitNewItem(this.state)
-      .then(this.resetForm());
+      .then(
+        item => console.log("submitted item: ", item),
+        error => this.setState({ error }))
+      .then(this.resetForm())
+      .catch(error => console.log(error));
   }
 
   onCancelButtonClick = () => {
@@ -52,7 +57,7 @@ class AddContribution extends Component {
   }
 
   render() {
-    const { showForm } = this.state;
+    const { showForm, error } = this.state;
     return (
       <div>
         <Link 
@@ -60,6 +65,9 @@ class AddContribution extends Component {
         >
           Add new contribution
         </Link>
+        {error && error !== '' && 
+          <div>Submission failed! Details: {error}</div>
+        }
         {showForm && 
           <div>
             <div>

@@ -8,6 +8,9 @@ namespace ServerlessLibrary
 {
     public class LibraryItem
     {
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
+
         [JsonProperty(PropertyName = "title", DefaultValueHandling = DefaultValueHandling.Include)]
         public string Title { get; set; }
 
@@ -30,7 +33,7 @@ namespace ServerlessLibrary
         public string Type { get; set; }
 
         [JsonProperty(PropertyName = "author", DefaultValueHandling = DefaultValueHandling.Include)]
-        public string Author { get; private set; }
+        public string Author { get; set; }
 
         [JsonProperty(PropertyName = "authortype", DefaultValueHandling = DefaultValueHandling.Include)]
         public string AuthorType { get; set; }
@@ -46,6 +49,7 @@ namespace ServerlessLibrary
 
         [JsonProperty(PropertyName = "downloadsthisweek", DefaultValueHandling = DefaultValueHandling.Include)]
         public int DownloadsThisWeek { get; set; }
+
         [JsonProperty(PropertyName = "downloadstoday", DefaultValueHandling = DefaultValueHandling.Include)]
         public int DownloadsToday { get; set; }
         
