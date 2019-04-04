@@ -9,7 +9,7 @@ namespace ServerlessLibraryAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        [HttpGet("~/Login"), HttpPost("~/Login")]
+        [HttpGet("login"), HttpPost("login")]
         public IActionResult Login(string returnUrl = "/")
         {
             if (User.Identity.IsAuthenticated)
@@ -24,7 +24,7 @@ namespace ServerlessLibraryAPI.Controllers
             return Challenge(new AuthenticationProperties { RedirectUri = returnUrl });
         }
 
-        [HttpGet("~/Logout"), HttpPost("~/Logout")]
+        [HttpGet("logout"), HttpPost("logout")]
         public IActionResult Logout()
         {
             // Instruct the cookies middleware to delete the local cookie which 
