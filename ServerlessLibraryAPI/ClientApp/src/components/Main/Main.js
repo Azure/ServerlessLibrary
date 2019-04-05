@@ -14,7 +14,6 @@ class Main extends Component {
     this.state = {
       initialFilters: this.getFiltersFromQueryParams()
     };
-
   }
 
   filteredSamples() {
@@ -51,11 +50,11 @@ class Main extends Component {
   Sort(list, sortby) {
     list = list.map(a => a);
     if (sortby === "totaldownloads") {
-      list = list.sort(function(a, b) {
+      list = list.sort(function (a, b) {
         return b.totaldownloads - a.totaldownloads;
       });
     } else {
-      list = list.sort(function(a, b) {
+      list = list.sort(function (a, b) {
         var titleA = a.title.toLowerCase(),
           titleB = b.title.toLowerCase();
         if (titleA < titleB)
@@ -97,21 +96,19 @@ class Main extends Component {
 
     return filter;
   }
-
   render() {
     return (
-      <div className="mainContainer">
-        <div className="sidebar">
-          <SideBarContainer
-            initialFilters={this.state.initialFilters.categories}
-          />
+      <div id="mainContainer">
+        <div id="sidebar">
+          <SideBarContainer initialFilters={this.state.initialFilters.categories} />
         </div>
-        <div className="main">
-          <SearchBarContainer
-            initialSearchText={this.state.initialFilters.filtertext}
-            initialSortBy={this.state.initialFilters.sortby}
-          />
-          <ItemList filteredSamples={this.filteredSamples()} />
+        <div id="content">
+          <div id="searchbar">
+            <SearchBarContainer initialSearchText={this.state.initialFilters.filtertext} initialSortBy={this.state.initialFilters.sortby} />
+          </div>
+          <div id="list">
+            <ItemList filteredSamples={this.filteredSamples()} />
+          </div>
         </div>
       </div>
     );

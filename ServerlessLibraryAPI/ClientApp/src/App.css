@@ -1,12 +1,11 @@
-.App
-{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 
+/* #container { background: blue; } */
+#header { 
+  height: 40px;
 }
-.header {
-  width: 100%;
-  color: bisque;
-  background-color:rgb(13, 13, 13);
+#main {  
+  height: calc(100% - 40px);  
+}
+#container { 
+  overflow-y: auto;
 }

@@ -3,6 +3,17 @@
 {
     max-width: 70%;
 }
+
+.detailpagetitle{
+    display: flex;
+    flex-direction: row;
+}
+.title1{
+   /* margin: auto; */
+   font-size: 24px;
+
+}
+
 .tabcontainer{
     /* width: 80%; */
 }
@@ -11,7 +22,7 @@
 {
     display: flex;
     flex-direction: row;
-    margin-top:20px;
+   
 
 }
 p { word-break: break-all }

@@ -49,7 +49,7 @@ class DetailView extends Component {
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     this.handleLinkClick = this.handleLinkClick.bind(this);
     this.handleDeplayClick = this.handleDeplayClick.bind(this);
-    this.handleOpenInVSCodeClick= this.handleBackButtonClick.bind(this);
+    this.handleOpenInVSCodeClick = this.handleBackButtonClick.bind(this);
     this.getVScodeLink = this.getVScodeLink.bind(this);
   }
 
@@ -126,7 +126,7 @@ class DetailView extends Component {
     window.open(url);
   }
 
-getVScodeLink() {
+  getVScodeLink() {
     return 'vscode://vscode.git/clone?url=' + encodeURIComponent(this.state.sample.repository);
   }
   render() {
@@ -138,51 +138,56 @@ getVScodeLink() {
     };
     return (
       <div className="detailpagecontainer">
-        <h3><IconButton iconProps={{ iconName: 'Back' }} title="Like" ariaLabel="Like" onClick={() => this.handleBackButtonClick()} /> {this.state.sample.title}</h3>
+
+
+        <div className="detailpagetitle">
+          <div><IconButton iconProps={{ iconName: 'Back' }} title="Like" ariaLabel="Like" onClick={() => this.handleBackButtonClick()} /></div>
+          <div className="title1"><span>{this.state.sample.title}</span></div>
+        </div>
         <MetricBar numlikes="5" repository={this.state.sample.repository} downloads={this.state.sample.totaldownloads} />
         <p>{this.state.sample.description}</p>
         <div className="tabcontainer">
-        <Pivot selectedKey={this.state.selectedKey} linkSize={PivotLinkSize.large} onLinkClick={(item, ev) => this.handleLinkClick(item, ev)} >
-          <PivotItem headerText="Overview" itemKey="overview">
-            <div className="pivotitemcontainer">
-              <hr></hr>
-              <Label >Sample details</Label>
-              <div className={classNames.wrapper}>
-                <ScrollablePane styles={{ root: classNames.pane }}>
-                  <ReactMarkdown >{this.state.markdownText}</ReactMarkdown>
-                </ScrollablePane>
+          <Pivot selectedKey={this.state.selectedKey} linkSize={PivotLinkSize.large} onLinkClick={(item, ev) => this.handleLinkClick(item, ev)} >
+            <PivotItem headerText="Overview" itemKey="overview">
+              <div className="pivotitemcontainer">
+                <hr></hr>
+                <Label >Sample details</Label>
+                <div className={classNames.wrapper}>
+                  <ScrollablePane styles={{ root: classNames.pane }}>
+                    <ReactMarkdown >{this.state.markdownText}</ReactMarkdown>
+                  </ScrollablePane>
+                </div>
               </div>
-            </div>
 
-          </PivotItem>
-          <PivotItem headerText="ARM template" itemKey="armtemplate">
-            <div className="pivotitemcontainer">
-              <hr></hr>
-              <Label >ARM template </Label>
-              <div className={classNames.wrapper}>
-                <ScrollablePane styles={{ root: classNames.pane }}>
-                  {this.state.armTemplateText}
-                </ScrollablePane>
+            </PivotItem>
+            <PivotItem headerText="ARM template" itemKey="armtemplate">
+              <div className="pivotitemcontainer">
+                <hr></hr>
+                <Label >ARM template </Label>
+                <div className={classNames.wrapper}>
+                  <ScrollablePane styles={{ root: classNames.pane }}>
+                    {this.state.armTemplateText}
+                  </ScrollablePane>
+                </div>
               </div>
-            </div>
-          </PivotItem>
-          <PivotItem headerText="Licence" itemKey="licence">
-            <div className="pivotitemcontainer">
-              <hr></hr>
-              <Label styles={styles}>Licence details</Label>
-              <div className={classNames.wrapper}>
-                <ScrollablePane styles={{ root: classNames.pane }}>
-                  <p>Each application is licensed to you by its owner (which may or may not be Microsoft) under the agreement which accompanies the application. Microsoft is not responsible for any non-Microsoft code and does not screen for security, compatibility, or performance. The applications are not supported by any Microsoft support program or service. The applications are provided AS IS without warranty of any kind</p>
-                  <p> Also, please note that the Function App you've selected was created with Azure Functions 1.x. As such, it might not contain the latest features, but will still work as provided.</p>
-                </ScrollablePane>
+            </PivotItem>
+            <PivotItem headerText="Licence" itemKey="licence">
+              <div className="pivotitemcontainer">
+                <hr></hr>
+                <Label styles={styles}>Licence details</Label>
+                <div className={classNames.wrapper}>
+                  <ScrollablePane styles={{ root: classNames.pane }}>
+                    <p>Each application is licensed to you by its owner (which may or may not be Microsoft) under the agreement which accompanies the application. Microsoft is not responsible for any non-Microsoft code and does not screen for security, compatibility, or performance. The applications are not supported by any Microsoft support program or service. The applications are provided AS IS without warranty of any kind</p>
+                    <p> Also, please note that the Function App you've selected was created with Azure Functions 1.x. As such, it might not contain the latest features, but will still work as provided.</p>
+                  </ScrollablePane>
+                </div>
               </div>
-            </div>
-          </PivotItem>
-        </Pivot>
+            </PivotItem>
+          </Pivot>
         </div>
         <div className="actioncontainer">
           <div className="actionitems">
-            <PrimaryButton text="Deploy"  onClick={this.handleDeplayClick} />
+            <PrimaryButton text="Deploy" onClick={this.handleDeplayClick} />
           </div>
           <div className="actionitems">
             <PrimaryButton text="Edit in VS code" onClick={this.handleOpenInVSCodeClick} />

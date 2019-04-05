@@ -70,7 +70,6 @@ class SearchBar extends Component {
             defaultSelectedKey={this.state.sortby}
             options={[
               { key: "totaldownloads", text: "Most downloads" },
-
               { key: "atoz", text: "A to Z" }
             ]}
             label="Sort By"
