@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { Link } from 'office-ui-fabric-react';
+import { Switch, Route, Link } from 'react-router-dom';
+import { Link as FabricLink } from 'office-ui-fabric-react';
 
 import './App.css';
 import { PrivateRoute } from './components/PrivateRoute';
@@ -31,11 +31,11 @@ getCurrentSample(id)
             return (
               <div className="maincontent">
                 maincontent
-                <Link href='/contribute'>Contributions</Link>
+                <FabricLink as={Link} to='/contribute'>Contributions</FabricLink>
               </div>
             );
           }} 
-          />          
+          />
           <Route exact path='/login' component={Login} />
           <PrivateRoute exact path='/contribute' component={Contribute} />
         </Switch>

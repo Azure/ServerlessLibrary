@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-
-import { Link } from 'office-ui-fabric-react';
+import { Link as FabricLink } from 'office-ui-fabric-react';
 
 class Login extends Component {
   constructor(props) {
@@ -29,11 +28,11 @@ class Login extends Component {
     return (
       <div>
         <p>You must log in to view the page at {from.pathname}</p>
-        <Link href={`/api/user/login?returnUrl=${from.pathname}`}>Sign in using Fabric Link</Link>
+        <FabricLink href={`/api/user/login?returnUrl=${from.pathname}`}>Sign in using Fabric Link</FabricLink>
         <br/>
-        <Link href={'/api/user/logout'}>Sign out</Link>
+        <FabricLink href={'/api/user/logout'}>Sign out</FabricLink>
         <br/>
-        <button onClick={this.newLogin}>Sign in</button>
+        <button onClick={this.onLogin}>Sign in</button>
       </div>
     )
   }
