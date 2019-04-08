@@ -1,7 +1,10 @@
 
 .detailpagecontainer
 {
-    max-width: 70%;
+    /* max-width: 70%; */
+    padding-left: 23px;
+    padding-top: 20px;
+    background: #FFFFFF;;
 }
 
 .detailpagetitle{
@@ -10,10 +13,15 @@
 }
 .title1{
    /* margin: auto; */
-   font-size: 24px;
+   font-size: 18px;
+   font-weight: bold;
+   color:#161616;
 
 }
-
+.sampledescription{
+    font-size: 12px;
+    color: #161616;
+}
 .tabcontainer{
     /* width: 80%; */
 }
@@ -22,13 +30,21 @@
 {
     display: flex;
     flex-direction: row;
-   
+   margin-top:20px;
 
 }
 p { word-break: break-all }
 .pivotitemcontainer{
-    background-color:#FBFBFB;;
+    background-color:#FFFFFF;;;
     /* width: 80%; */
+}
+
+.content1{
+    overflow-wrap: break-word;
+    /* background-color: aqua; */
+    overflow-x: hidden;
+    width: 100%;
+    background-color: #FBFBFB;
 }
 
 .actionitems

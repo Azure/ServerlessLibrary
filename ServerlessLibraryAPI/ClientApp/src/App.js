@@ -9,7 +9,7 @@ import { samplesReceived } from './actions/FilterChangeActions'
 import { Login } from './components/Login';
 
 class App extends Component {
-  componentWillMount() {
+  componentDidMount() {
     fetch('https://www.serverlesslibrary.net/api/Library')
       .then(response => response.json())
       .then(data => {
