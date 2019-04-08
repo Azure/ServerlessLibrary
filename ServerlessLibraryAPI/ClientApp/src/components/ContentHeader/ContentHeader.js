@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { SearchBox,Dropdown } from "office-ui-fabric-react/lib/index";
+import { SearchBox, Dropdown, Icon } from "office-ui-fabric-react/lib/index";
+import { Link } from 'react-router-dom';
 import Helpers from "../../Helpers/Helper";
 
 import "./ContentHeader.css";
@@ -69,7 +70,17 @@ class ContentHeader extends Component {
     }
     return (
       <div className="content-header">
-        <h3 class="content-header-title"> Azure serverless community library</h3>
+        <div className="content-header-titlewapper">
+          <div className="content-header-title">Azure serverless community library</div>
+          <div style={{ marginLeft: 'auto' }}>
+            <Link className="titlelink" style={{ color: '#000000', fontSize: '12px' }} to="/sample/Blob: Image Resize">
+              <div style={{ display: 'flex' }}>
+                <Icon iconName="FabricFolder" style={{ fontSize: '16px' }} />
+                <div style={{ marginLeft: '10px' }}>Contributions</div>
+              </div>
+            </Link>
+          </div>
+        </div>
         <SearchBox
           placeholder="Search"
           value={this.state.filterText}
@@ -78,7 +89,7 @@ class ContentHeader extends Component {
         />
         <div className="content-header-sortbywrappper">
           <div className="content-header-count">Displaying {this.props.samples.length} results.</div>
-          <div className="content-header-sortby">
+          <div style={{ marginLeft: 'auto' }}>
             <Dropdown
               defaultSelectedKey={this.state.sortby}
               options={[

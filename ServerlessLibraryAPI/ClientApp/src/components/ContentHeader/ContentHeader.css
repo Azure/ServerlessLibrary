@@ -1,12 +1,15 @@
 .content-header{
     margin-left: 37px;
 }
+
+.content-header-titlewapper{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 .content-header-title{
     font-size: 18px;
-}
-.content-header-sortby
-{
-    margin-left: auto;
+    font-weight: bold;
 }
 
 .content-header-sortbywrappper{
