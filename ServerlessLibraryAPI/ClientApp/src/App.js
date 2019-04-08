@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
 import { Header } from './components/Header';
+import { Login } from './components/Login';
 
 class App extends Component {
   constructor(props) {
@@ -21,9 +23,17 @@ getCurrentSample(id)
     return (
       <div className="App">
         <Header />
-        <div className="maincontent">
-          maincontent
-        </div>
+        <Switch>
+          <Route exact path='/' render={() => {
+            return (
+              <div className="maincontent">
+                maincontent
+              </div>
+            );
+          }} 
+          />
+          <Route exact path='/login' component={Login} />
+        </Switch>
       </div>
     );
   }
