@@ -1,0 +1,26 @@
+.content-header{
+    margin-left: 37px;
+}
+.content-header-title{
+    font-size: 18px;
+}
+.content-header-sortby
+{
+    margin-left: auto;
+}
+
+.content-header-sortbywrappper{
+    display: flex;
+    margin-top:20px;
+    margin-bottom: 5px;
+  
+}
+
+.content-header-count{
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #000000;
+    font-size: 16px;
+    line-height: normal;
+}

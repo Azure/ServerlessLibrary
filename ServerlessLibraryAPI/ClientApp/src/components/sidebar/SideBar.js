@@ -14,7 +14,7 @@ class SideBar extends Component {
   }
 
   isChecked(category, item) {
-    return true;;
+    return this.state.filters[category].includes(item);
   }
 
   checkboxclicked(ev, checked, category, item) {

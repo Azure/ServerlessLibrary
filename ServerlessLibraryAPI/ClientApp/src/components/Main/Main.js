@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import SideBarContainer from "../../components/sidebar/SideBar";
-import SearchBarContainer from "../../components/SearchBar/SearchBar";
+import ContentHeaderContainer from "../ContentHeader/ContentHeader";
 import ItemList from "../../components/ItemList/ItemList";
 import "./Main.css";
 import { samplesReceived } from "../../actions/FilterChangeActions";
@@ -104,7 +104,7 @@ class Main extends Component {
         </div>
         <div id="content">
           <div id="searchbar">
-            <SearchBarContainer initialSearchText={this.state.initialFilters.filtertext} initialSortBy={this.state.initialFilters.sortby} />
+            <ContentHeaderContainer initialSearchText={this.state.initialFilters.filtertext} initialSortBy={this.state.initialFilters.sortby} samples={this.filteredSamples()}/>
           </div>
           <div id="list">
             <ItemList filteredSamples={this.filteredSamples()} />
