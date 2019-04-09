@@ -1,11 +1,10 @@
-
 /* #container { background: blue; } */
-#header { 
+#header {
   height: 40px;
 }
-#main {  
-  height: calc(100% - 40px);  
+#main {
+  height: calc(100% - 40px);
 }
-#container { 
+#container {
   overflow-y: auto;
 }

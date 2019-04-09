@@ -1,2 +1,13 @@
-html, body { margin: 0; padding:0; overflow: hidden; }
-html, body, #root, #container { height: 100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+html,
+body,
+#root,
+#container {
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}

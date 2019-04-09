@@ -1,13 +1,13 @@
-import './index.css';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from './reducers/ItemReducer';
+import "./index.css";
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./reducers/ItemReducer";
 
-import AppContainer from './App';
+import AppContainer from "./App";
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 
 ReactDOM.render(
   <BrowserRouter>
@@ -15,4 +15,5 @@ ReactDOM.render(
       <AppContainer />
     </Provider>
   </BrowserRouter>,
-  rootElement);
+  rootElement
+);

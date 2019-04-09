@@ -32,7 +32,6 @@ class SideBar extends Component {
 
   ChangeUrl() {
     var params = Helpers.queryStringToParams(this.props.location.search);
-    console.log(params);
     delete params["type"];
     delete params["language"];
     if (this.state.filters.types.length > 0) {
@@ -107,11 +106,9 @@ class SideBar extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-});
+const mapStateToProps = state => ({});
 
-const mapDispatchToProps = {
-};
+const mapDispatchToProps = {};
 
 const SideBarContainer = connect(
   mapStateToProps,

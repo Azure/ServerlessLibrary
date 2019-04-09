@@ -1,34 +1,31 @@
 .functionslogo,
-.logicappslogo {  
+.logicappslogo {
   vertical-align: baseline;
   margin-right: 4px;
 }
 
-.tagcontainer
-{
-    display: flex;
-    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 14px;
-    line-height: normal;
-    color: #555555;
-    vertical-align: sub;
+.tagcontainer {
+  display: flex;
+  font-family: "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: normal;
+  color: #555555;
+  vertical-align: sub;
 }
 
-.tag
-{
-    color: black;
-    text-align: center;
-    display: table;
-    vertical-align: super;
-    margin-right: 20px;
-    margin-left: 1px;
-    background: #EFEFEF;
-    border-radius: 12px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 3px;
-    font-size:12px;
-    cursor: pointer;
-    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif
-
+.tag {
+  color: black;
+  text-align: center;
+  display: table;
+  vertical-align: super;
+  margin-right: 20px;
+  margin-left: 1px;
+  background: #efefef;
+  border-radius: 12px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 3px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
 }
