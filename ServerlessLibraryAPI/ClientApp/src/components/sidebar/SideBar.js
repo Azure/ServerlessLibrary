@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Checkbox } from "office-ui-fabric-react/lib/index";
-import Helpers from "../../Helpers/Helper";
+import { paramsToQueryString, queryStringToParams } from "../../helpers";
 import "./SideBar.css";
 
 class SideBar extends Component {
@@ -31,7 +31,7 @@ class SideBar extends Component {
   }
 
   ChangeUrl() {
-    var params = Helpers.queryStringToParams(this.props.location.search);
+    var params = queryStringToParams(this.props.location.search);
     delete params["type"];
     delete params["language"];
     if (this.state.filters.types.length > 0) {
@@ -41,7 +41,7 @@ class SideBar extends Component {
       params["language"] = this.state.filters.languages.join();
     }
 
-    this.props.history.push(Helpers.paramsToQueryString(params));
+    this.props.history.push(paramsToQueryString(params));
   }
 
   render() {

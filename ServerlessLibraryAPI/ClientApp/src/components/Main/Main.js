@@ -6,7 +6,7 @@ import ItemList from "../../components/ItemList/ItemList";
 import "./Main.css";
 import { samplesReceived } from "../../actions/FilterChangeActions";
 import { connect } from "react-redux";
-import Helpers from "../../Helpers/Helper";
+import { queryStringToParams } from "../../helpers";
 
 class Main extends Component {
   constructor(props) {
@@ -78,7 +78,7 @@ class Main extends Component {
       sortby: "totaldownloads"
     };
 
-    var params = Helpers.queryStringToParams(this.props.location.search);
+    var params = queryStringToParams(this.props.location.search);
     if (params.type && params.type.length > 0) {
       filter.categories.types = params.type.split(",");
     }

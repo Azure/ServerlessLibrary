@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { SearchBox, Dropdown, Icon } from "office-ui-fabric-react/lib/index";
 import { Link } from "react-router-dom";
-import Helpers from "../../Helpers/Helper";
+import { paramsToQueryString, queryStringToParams } from "../../helpers";
 
 import "./ContentHeader.css";
 
@@ -17,24 +17,24 @@ class ContentHeader extends Component {
   }
 
   FilterTextChanged(newValue) {
-    var params = Helpers.queryStringToParams(this.props.location.search);
+    var params = queryStringToParams(this.props.location.search);
     delete params["filtertext"];
     if (newValue && newValue !== "") {
       params["filtertext"] = newValue;
     }
 
     this.setState({ filterText: newValue });
-    this.props.history.push(Helpers.paramsToQueryString(params));
+    this.props.history.push(paramsToQueryString(params));
   }
 
   SortbyChanged(newValue) {
-    var params = Helpers.queryStringToParams(this.props.location.search);
+    var params = queryStringToParams(this.props.location.search);
     delete params["sortby"];
     if (newValue === "atoz") {
       params["sortby"] = newValue;
     }
     this.setState({ sortby: newValue });
-    this.props.history.push(Helpers.paramsToQueryString(params));
+    this.props.history.push(paramsToQueryString(params));
   }
 
   render() {
