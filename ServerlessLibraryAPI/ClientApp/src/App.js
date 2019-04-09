@@ -1,42 +1,49 @@
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-
-import './App.css';
-import { Header } from './components/Header';
-import { Login } from './components/Login';
+import React, { Component } from "react";
+import { Switch, Route, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import Main from "./components/Main/Main";
+import "./App.css";
+import { Header } from "./components/Header";
+import DetailView from "./components/DetailView/DetailView";
+import { samplesReceived } from "./actions/FilterChangeActions";
+import { Login } from "./components/Login";
+import { libraryService } from "./services";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        samples: []
-    }
-    this.getCurrentSample = this.getCurrentSample.bind(this)
-}
-
-getCurrentSample(id)
-{
-  return this.state.samples.filter(s=>s.title===id);
-}
-
+  componentDidMount() {
+    libraryService
+      .getAllSamples()
+      .then(samples => this.props.samplesReceived(samples))
+      .catch(error => console.log(error));
+  }
   render() {
     return (
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route exact path='/' render={() => {
-            return (
-              <div className="maincontent">
-                maincontent
-              </div>
-            );
-          }} 
-          />
-          <Route exact path='/login' component={Login} />
-        </Switch>
+      <div id="container">
+        <div id="header">
+          <Header />
+        </div>
+        <div id="main">
+          <Switch>
+            <Route exact path="/" component={Main} />
+            <Route path="/sample/:id" component={DetailView} />
+            <Route exact path="/login" component={Login} />
+          </Switch>
+        </div>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = {
+  samplesReceived
+};
+const AppContainer = withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(App)
+);
+
+export default AppContainer;

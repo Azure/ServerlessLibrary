@@ -1,6 +1,13 @@
-@media (max-width: 767px) {
-    /* On small screens, the nav menu spans the full width of the screen. Leave a space for it. */
-    body {
-        padding-top: 50px;
-    }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+html,
+body,
+#root,
+#container {
+  height: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
