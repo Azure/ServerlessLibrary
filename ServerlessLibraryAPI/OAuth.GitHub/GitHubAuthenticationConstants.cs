@@ -1,4 +1,4 @@
-﻿namespace ServerlessLibraryAPI.OAuth.GitHub
+﻿namespace ServerlessLibrary.OAuth.GitHub
 {
     /// <summary>
     /// Contains constants specific to the <see cref="GitHubAuthenticationHandler"/>.

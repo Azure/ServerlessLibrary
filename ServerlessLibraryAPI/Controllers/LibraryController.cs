@@ -1,29 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.AspNetCore.Hosting;
-using Newtonsoft.Json;
-using System.Threading;
-using System.Net;
 using System.Text.RegularExpressions;
+using ServerlessLibrary.Models;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace ServerlessLibrary
+namespace ServerlessLibrary.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
     public class LibraryController : Controller
     {
         ICacheService _cacheService;
-        public LibraryController(ICacheService cacheService)
+        ILibraryStore _libraryStore;
+
+        public LibraryController(ICacheService cacheService, ILibraryStore libraryStore)
         {
             this._cacheService = cacheService;
+            this._libraryStore = libraryStore;
         }
+
         // GET: api/<controller>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<LibraryItem>), 200)]
@@ -51,16 +50,22 @@ namespace ServerlessLibrary
             return new JsonResult(filteredResults);
         }
 
-        // PUT api/<controller>/
-        [ProducesResponseType(typeof(bool), 200)]
-        [HttpPut()]
-        public JsonResult Put([FromBody]string template)
+        [HttpPut]
+        [ProducesResponseType(typeof(LibraryItem), 200)]
+        public IActionResult Put([FromBody]LibraryItem libraryItem)
         {
-            
-            StorageHelper.updateDownloadCount(JsonConvert.SerializeObject( new { template = WebUtility.UrlDecode(template) }));
-            return new JsonResult(true);
-        }
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized();
+            }
 
+            libraryItem.Id = Guid.NewGuid().ToString();
+
+            GitHubUser user = new GitHubUser(User);
+            libraryItem.Author = user.UserName;
+            // this._libraryStore.Add(libraryItem);
+            return new JsonResult(libraryItem);
+        }
     }
 
 

@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
+using Newtonsoft.Json;
 
-namespace ServerlessLibrary
+namespace ServerlessLibrary.Models
 {
     public class LibraryItem
     {
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
+
         [JsonProperty(PropertyName = "title", DefaultValueHandling = DefaultValueHandling.Include)]
         public string Title { get; set; }
 
@@ -30,7 +30,7 @@ namespace ServerlessLibrary
         public string Type { get; set; }
 
         [JsonProperty(PropertyName = "author", DefaultValueHandling = DefaultValueHandling.Include)]
-        public string Author { get; private set; }
+        public string Author { get; internal set; }
 
         [JsonProperty(PropertyName = "authortype", DefaultValueHandling = DefaultValueHandling.Include)]
         public string AuthorType { get; set; }
@@ -46,6 +46,7 @@ namespace ServerlessLibrary
 
         [JsonProperty(PropertyName = "downloadsthisweek", DefaultValueHandling = DefaultValueHandling.Include)]
         public int DownloadsThisWeek { get; set; }
+
         [JsonProperty(PropertyName = "downloadstoday", DefaultValueHandling = DefaultValueHandling.Include)]
         public int DownloadsToday { get; set; }
         

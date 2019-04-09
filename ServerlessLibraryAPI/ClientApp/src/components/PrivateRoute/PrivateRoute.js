@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import React, { Component } from "react";
+import { Route, Redirect } from "react-router-dom";
 
-import { userService } from '../../services';
+import { userService } from "../../services";
 
 class PrivateRoute extends Component {
   constructor(props) {
@@ -10,11 +10,11 @@ class PrivateRoute extends Component {
     this.state = {
       loading: true,
       isAuthenticated: false
-    }
+    };
   }
 
   componentDidMount() {
-    userService.isAuthenticated().then((isAuthenticated) => {
+    userService.isAuthenticated().then(isAuthenticated => {
       this.setState({
         loading: false,
         isAuthenticated
@@ -23,20 +23,23 @@ class PrivateRoute extends Component {
   }
 
   render() {
-    const {component: Component, ...rest} = this.props;
-    
+    const { component: Component, ...rest } = this.props;
+
     return (
       <Route
         {...rest}
-        render={props => (
-          this.state.isAuthenticated
-            ? <Component {...props} />
-            : (
-              this.state.loading 
-                ? <div></div> 
-                : <Redirect to={{ pathname: '/login', state: { from: props.location }}} />
-            )
-      )} />
+        render={props =>
+          this.state.isAuthenticated ? (
+            <Component {...props} />
+          ) : this.state.loading ? (
+            <div />
+          ) : (
+            <Redirect
+              to={{ pathname: "/login", state: { from: props.location } }}
+            />
+          )
+        }
+      />
     );
   }
 }

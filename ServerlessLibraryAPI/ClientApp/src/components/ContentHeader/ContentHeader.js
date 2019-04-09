@@ -78,7 +78,7 @@ class ContentHeader extends Component {
             <Link
               className="titlelink"
               style={{ color: "#000000", fontSize: "12px" }}
-              to="/sample/Blob: Image Resize"
+              to="/contribute"
             >
               <div style={{ display: "flex" }}>
                 <Icon iconName="FabricFolder" style={{ fontSize: "16px" }} />

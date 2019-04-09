@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
-using static ServerlessLibraryAPI.OAuth.GitHub.GitHubAuthenticationConstants;
+using static ServerlessLibrary.OAuth.GitHub.GitHubAuthenticationConstants;
 
-namespace ServerlessLibraryAPI.Models
+namespace ServerlessLibrary.Models
 {
     public class GitHubUser
     {
@@ -14,6 +14,7 @@ namespace ServerlessLibraryAPI.Models
             this.FullName = claimsPrincipal.FindFirstValue(Claims.Name);
             this.Email = claimsPrincipal.FindFirstValue(ClaimTypes.Email);
             this.AvatarUrl = claimsPrincipal.FindFirstValue(Claims.Avatar);
+            this.UserName = claimsPrincipal.FindFirstValue(Claims.Login);
         }
 
         public string FullName { get; set; }
@@ -21,6 +22,8 @@ namespace ServerlessLibraryAPI.Models
         public string Email { get; set; }
 
         public string AvatarUrl { get; set; }
+
+        public string UserName { get; set; }
 
         public string FirstName
         {

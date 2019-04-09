@@ -1,4 +1,4 @@
-﻿namespace ServerlessLibraryAPI.OAuth.GitHub
+﻿namespace ServerlessLibrary.OAuth.GitHub
 {
     /// <summary>
     /// Default values used by the GitHub authentication middleware.
