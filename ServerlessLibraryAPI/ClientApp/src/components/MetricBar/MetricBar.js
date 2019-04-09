@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { IconButton } from "office-ui-fabric-react/lib/index";
+import { IconButton } from "office-ui-fabric-react";
 
 import "./MetricBar.css";
 class MetricBar extends Component {
@@ -13,7 +13,7 @@ class MetricBar extends Component {
     };
   }
 
-  getAutherName(repository) {
+  getAuthorName(repository) {
     var parser = document.createElement("a");
     parser.href = repository;
     var pathArray = parser.pathname.split("/");
@@ -38,7 +38,7 @@ class MetricBar extends Component {
     }
   }
   render() {
-    let username = this.getAutherName(this.props.repository);
+    let username = this.getAuthorName(this.props.repository);
     let lastupdated;
     if (this.props.lastupdated) {
       lastupdated = (

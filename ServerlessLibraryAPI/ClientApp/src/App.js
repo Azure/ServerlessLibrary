@@ -7,14 +7,14 @@ import { Header } from "./components/Header";
 import DetailView from "./components/DetailView/DetailView";
 import { samplesReceived } from "./actions/FilterChangeActions";
 import { Login } from "./components/Login";
+import { libraryService } from "./services";
 
 class App extends Component {
   componentDidMount() {
-    fetch("https://www.serverlesslibrary.net/api/Library")
-      .then(response => response.json())
-      .then(data => {
-        this.props.samplesReceived(data);
-      });
+    libraryService
+      .getAllSamples()
+      .then(samples => this.props.samplesReceived(samples))
+      .catch(error => console.log(error));
   }
   render() {
     return (

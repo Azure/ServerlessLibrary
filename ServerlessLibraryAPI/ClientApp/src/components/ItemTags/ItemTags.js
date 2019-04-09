@@ -2,15 +2,6 @@ import React, { Component } from "react";
 import "./ItemTags.css";
 
 class ItemTags extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      type: props.type,
-      language: props.language,
-      tags: props.tags
-    };
-  }
-
   ToDisplayType(value) {
     if (!value) {
       return "";

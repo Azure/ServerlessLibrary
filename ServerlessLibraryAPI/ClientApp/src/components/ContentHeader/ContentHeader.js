@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { SearchBox, Dropdown, Icon } from "office-ui-fabric-react/lib/index";
+import { SearchBox, Dropdown, Icon } from "office-ui-fabric-react";
 import { Link } from "react-router-dom";
 import { paramsToQueryString, queryStringToParams } from "../../helpers";
 
@@ -16,7 +16,7 @@ class ContentHeader extends Component {
     };
   }
 
-  FilterTextChanged(newValue) {
+  filterTextChanged(newValue) {
     var params = queryStringToParams(this.props.location.search);
     delete params["filtertext"];
     if (newValue && newValue !== "") {
@@ -27,7 +27,7 @@ class ContentHeader extends Component {
     this.props.history.push(paramsToQueryString(params));
   }
 
-  SortbyChanged(newValue) {
+  sortbyChanged(newValue) {
     var params = queryStringToParams(this.props.location.search);
     delete params["sortby"];
     if (newValue === "atoz") {
@@ -90,7 +90,7 @@ class ContentHeader extends Component {
         <SearchBox
           placeholder="Search"
           value={this.state.filterText}
-          onSearch={newValue => this.FilterTextChanged(newValue)}
+          onSearch={newValue => this.filterTextChanged(newValue)}
           styles={searchBoxStyles}
         />
         <div className="content-header-sortbywrappper">
@@ -106,7 +106,7 @@ class ContentHeader extends Component {
               ]}
               label="Sort By"
               styles={dropdownStyles}
-              onChange={(ev, item) => this.SortbyChanged(item.key)}
+              onChange={(ev, item) => this.sortbyChanged(item.key)}
             />
           </div>
         </div>

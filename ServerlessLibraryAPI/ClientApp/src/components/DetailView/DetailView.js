@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactMarkdown from "markdown-to-jsx";
 import { connect } from "react-redux";
+import { libraryService } from "../../services";
 import {
   IconButton,
   Label,
@@ -13,7 +14,7 @@ import {
 } from "office-ui-fabric-react/lib/index";
 import { samplesReceived } from "../../actions/FilterChangeActions";
 import MetricBar from "../MetricBar/MetricBar";
-import { getTheme, mergeStyleSets } from "office-ui-fabric-react/lib/Styling";
+import { getTheme, mergeStyleSets } from "office-ui-fabric-react";
 import "./DetailView.css";
 const theme = getTheme();
 const classNames = mergeStyleSets({
@@ -51,31 +52,31 @@ class DetailView extends Component {
 
     this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     this.handleLinkClick = this.handleLinkClick.bind(this);
-    this.handleDeplayClick = this.handleDeplayClick.bind(this);
-    this.handleOpenInVSCodeClick = this.handleBackButtonClick.bind(this);
     this.getVScodeLink = this.getVScodeLink.bind(this);
   }
 
   handleBackButtonClick() {
     this.props.history.goBack();
   }
+
   componentDidMount() {
     var id = this.props.match.params.id;
     var currentItem;
     if (this.props.samples.length > 0) {
       currentItem = this.props.samples.filter(s => s.title === id)[0];
       this.setState({ sample: currentItem });
+      this.setState({ repository: currentItem.repository });
     } else {
-      fetch("https://www.serverlesslibrary.net/api/Library")
-        .then(response => response.json())
-        .then(data => {
-          this.props.samplesReceived(data);
-          currentItem = data.filter(s => s.title === id)[0];
+      libraryService
+        .getAllSamples()
+        .then(samples => {
+          this.props.samplesReceived(samples);
+          currentItem = samples.filter(s => s.title === id)[0];
           this.setState({ sample: currentItem });
-        });
+        })
+        .catch(error => console.log(error));
     }
   }
-
   handleLinkClick(pivotItem, ev) {
     this.setState({
       selectedKey: pivotItem.props.itemKey
@@ -119,17 +120,10 @@ class DetailView extends Component {
     }
   }
 
-  handleDeplayClick() {
+  handleDeployClick() {
     var url =
       "https://portal.azure.com/#create/Microsoft.Template/uri/" +
       encodeURIComponent(this.state.sample.template);
-    window.open(url);
-  }
-
-  handleOpenInVSCodeClick() {
-    var url =
-      "vscode://vscode.git/clone?url=" +
-      encodeURIComponent(this.state.sample.repository);
     window.open(url);
   }
 
@@ -163,7 +157,7 @@ class DetailView extends Component {
           </div>
         </div>
         <MetricBar
-          numlikes="5"
+          numlikes="0"
           repository={this.state.sample.repository}
           downloads={this.state.sample.totaldownloads}
         />
@@ -191,9 +185,7 @@ class DetailView extends Component {
                 <Label>ARM template </Label>
                 <div className={classNames.wrapper}>
                   <ScrollablePane styles={{ root: classNames.pane }}>
-                    <div className="content1">
-                      {this.state.armTemplateText}
-                    </div>
+                    <div className="content1">{this.state.armTemplateText}</div>
                   </ScrollablePane>
                 </div>
               </div>
@@ -230,7 +222,7 @@ class DetailView extends Component {
         {/* Pending styling and telemetry of user actions */}
         <div className="actioncontainer">
           <div className="actionitems">
-            <PrimaryButton text="Deploy" onClick={this.handleDeplayClick} />
+            <PrimaryButton text="Deploy" onClick={this.handleDeployClick} />
           </div>
           <div className="actionitems">
             <Link href={this.state.sample.repository}>Open in Github</Link>

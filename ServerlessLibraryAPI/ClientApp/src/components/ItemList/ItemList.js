@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import {
-  FocusZone,
-  FocusZoneDirection
-} from "office-ui-fabric-react/lib/FocusZone";
-import { List } from "office-ui-fabric-react/lib/List";
+import { FocusZone, FocusZoneDirection, List } from "office-ui-fabric-react";
 import { Link } from "react-router-dom";
 import ItemTags from "../ItemTags/ItemTags";
 import MetricBar from "../MetricBar/MetricBar";
