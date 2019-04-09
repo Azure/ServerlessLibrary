@@ -59,7 +59,7 @@ class MetricBar extends Component {
       <div className="metrics">
         <div>
           <span>
-            By: {username} | {this.props.downloads} downloads {lastupdated} |{" "}
+            By: {username} | {this.props.downloads} downloads {lastupdated} |
           </span>
         </div>
         <IconButton

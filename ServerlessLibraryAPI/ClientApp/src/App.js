@@ -13,17 +13,13 @@ class App extends Component {
     fetch("https://www.serverlesslibrary.net/api/Library")
       .then(response => response.json())
       .then(data => {
-        var samples = data.sort(function(a, b) {
-          return b.totaldownloads - a.totaldownloads;
-        });
-        this.props.samplesReceived(samples);
+        this.props.samplesReceived(data);
       });
   }
   render() {
     return (
       <div id="container">
         <div id="header">
-          {" "}
           <Header />
         </div>
         <div id="main">

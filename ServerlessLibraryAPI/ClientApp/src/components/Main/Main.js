@@ -105,7 +105,7 @@ class Main extends Component {
           />
         </div>
         <div id="content">
-          <div id="searchbar">
+          <div id="contentheader">
             <ContentHeaderContainer
               initialSearchText={this.state.initialFilters.filtertext}
               initialSortBy={this.state.initialFilters.sortby}

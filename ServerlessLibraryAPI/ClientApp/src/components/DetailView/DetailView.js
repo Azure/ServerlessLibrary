@@ -192,7 +192,6 @@ class DetailView extends Component {
                 <div className={classNames.wrapper}>
                   <ScrollablePane styles={{ root: classNames.pane }}>
                     <div className="content1">
-                      {/* <p>{this.state.armTemplateText}</p> */}
                       {this.state.armTemplateText}
                     </div>
                   </ScrollablePane>
@@ -215,7 +214,6 @@ class DetailView extends Component {
                       service. The applications are provided AS IS without
                       warranty of any kind
                       <p>
-                        {" "}
                         Also, please note that the Function App you've selected
                         was created with Azure Functions 1.x. As such, it might
                         not contain the latest features, but will still work as

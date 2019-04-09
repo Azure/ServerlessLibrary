@@ -22,12 +22,11 @@ class ItemList extends Component {
         <div className="libraryitem">
           <div className="title">
             <Link className="titlelink" to={`/sample/${item.title}`}>
-              {" "}
               {item.title}
             </Link>{" "}
           </div>
           <MetricBar
-            numlikes="5"
+            numlikes="0"
             repository={item.repository}
             downloads={item.totaldownloads}
           />
