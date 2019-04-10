@@ -1,17 +1,17 @@
 import { handleResponse } from "../helpers";
+import { useMockApi } from "./index";
 
 export const userService = {
   getCurrentUser,
   logout
 };
 
-const useMockApi = true;
-
 const validUser = {
-  firstName: "Nehaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-  lastName: "Gupta",
-  fullName: "Neha Gupta",
-  avatarUrl: "https://github.com/msnehagup.png"
+  firstName: "Aaaaaaaaa",
+  fullName: "Aaaaaaaaa Bbbbbbbb",
+  email: "abc@xyz.com",
+  avatarUrl: "https://avatars2.githubusercontent.com/u/45184761?v=4",
+  userName: "aabbaabb"
 };
 
 // const invalidUser = {

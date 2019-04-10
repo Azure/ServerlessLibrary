@@ -6,7 +6,7 @@ import {
   DefaultButton
 } from "office-ui-fabric-react";
 
-import { contributionService } from "../../services";
+import { libraryService } from "../../services";
 
 const initialState = {
   showForm: false,
@@ -21,46 +21,54 @@ class AddContribution extends Component {
     super(props);
 
     this.state = initialState;
+
+    this.onLinkClick = this.onLinkClick.bind(this);
+    this.onTitleChange = this.onTitleChange.bind(this);
+    this.onDescriptionChange = this.onDescriptionChange.bind(this);
+    this.onRepositoryChange = this.onRepositoryChange.bind(this);
+    this.onTemplateChange = this.onTemplateChange.bind(this);
+    this.onAddButtonClick = this.onAddButtonClick.bind(this);
+    this.onCancelButtonClick = this.onCancelButtonClick.bind(this);
   }
 
-  onLinkClick = () => {
+  onLinkClick() {
     this.setState({ showForm: true });
-  };
+  }
 
-  onTitleChange = (event, newValue) => {
+  onTitleChange(event, newValue) {
     this.setState({ title: newValue || "" });
-  };
+  }
 
-  onDescriptionChange = (event, newValue) => {
+  onDescriptionChange(event, newValue) {
     this.setState({ description: newValue || "" });
-  };
+  }
 
-  onRepositoryChange = (event, newValue) => {
+  onRepositoryChange(event, newValue) {
     this.setState({ repository: newValue || "" });
-  };
+  }
 
-  onTemplateChange = (event, newValue) => {
+  onTemplateChange(event, newValue) {
     this.setState({ template: newValue || "" });
-  };
+  }
 
-  onAddButtonClick = () => {
-    contributionService
-      .submitNewItem(this.state)
+  onAddButtonClick() {
+    libraryService
+      .submitNewSample(this.state)
       .then(
         item => console.log("submitted item: ", item),
         error => this.setState({ error })
       )
       .then(this.resetForm())
       .catch(error => console.log(error));
-  };
+  }
 
-  onCancelButtonClick = () => {
+  onCancelButtonClick() {
     this.resetForm();
-  };
+  }
 
-  resetForm = () => {
+  resetForm() {
     this.setState(initialState);
-  };
+  }
 
   render() {
     const { showForm, error } = this.state;
