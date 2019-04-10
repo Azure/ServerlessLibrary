@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Linq;
 
-namespace ServerlessLibraryAPI.OAuth.GitHub
+namespace ServerlessLibrary.OAuth.GitHub
 {
     public class GitHubAuthenticationHandler : OAuthHandler<GitHubAuthenticationOptions>
     {

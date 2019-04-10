@@ -1,75 +1,61 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Link, Persona, PersonaSize } from "office-ui-fabric-react";
-import { initializeIcons } from "@uifabric/icons";
-import { getTheme, FontSizes } from "@uifabric/styling";
+import { getTheme, FontSizes } from "office-ui-fabric-react";
 
 import "./Header.scss";
 import { userService } from "../../services";
-
-const theme = getTheme();
-const linkStyles = () => {
-  return {
-    root: {
-      marginLeft: "15px",
-      lineHeight: "40px",
-      fontSize: FontSizes.mediumPlus,
-      color: theme.palette.white,
-      selectors: {
-        "&:active, &:hover, &:active:hover, &:visited": {
-          color: theme.palette.white
-        }
-      }
-    }
-  };
-};
-
-const personaStyles = () => {
-  return {
-    root: {
-      height: "40px",
-      color: theme.palette.white,
-      float: "right",
-      selectors: {
-        ":hover": {
-          selectors: {
-            $primaryText: {
-              color: theme.palette.white
-            }
-          }
-        }
-      }
-    },
-    details: {
-      width: "85px"
-    },
-    primaryText: {
-      color: theme.palette.white
-    }
-  };
-};
+import { userActions } from "../../actions/userActions";
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: {}
-    };
-  }
-  componentWillMount() {
-    initializeIcons();
-  }
   componentDidMount() {
-    this.setState({
-      user: {}
-    });
     userService
       .getCurrentUser()
-      .then(user => this.setState({ user }))
+      .then(user => this.props.getCurrentUserSuccess(user))
       .catch(error => console.log(error));
   }
 
   render() {
-    const { user } = this.state;
+    const theme = getTheme();
+    const linkStyles = {
+      root: {
+        marginLeft: "15px",
+        lineHeight: "40px",
+        fontSize: FontSizes.mediumPlus,
+        color: theme.palette.white,
+        selectors: {
+          "&:active, &:hover, &:active:hover, &:visited": {
+            color: theme.palette.white
+          }
+        }
+      }
+    };
+
+    const personaStyles = {
+      root: {
+        height: "40px",
+        color: theme.palette.white,
+        float: "right",
+        selectors: {
+          ":hover": {
+            selectors: {
+              $primaryText: {
+                color: theme.palette.white
+              }
+            }
+          }
+        }
+      },
+      details: {
+        width: "85px"
+      },
+      primaryText: {
+        color: theme.palette.white
+      }
+    };
+
+    const { user } = this.props;
+
     return (
       <div className="headerbar">
         <span>
@@ -97,4 +83,18 @@ class Header extends Component {
   }
 }
 
-export { Header };
+const mapStateToProps = state => ({
+  loggedIn: state.authentication.loggedIn,
+  user: state.authentication.user
+});
+
+const mapDispatchToProps = {
+  getCurrentUserSuccess: userActions.getCurrentUserSuccess
+};
+
+const HeaderContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);
+
+export default HeaderContainer;

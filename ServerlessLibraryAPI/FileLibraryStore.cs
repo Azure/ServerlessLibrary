@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json;
+using ServerlessLibrary.Models;
 
 namespace ServerlessLibrary
 {

@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Http;
-using static ServerlessLibraryAPI.OAuth.GitHub.GitHubAuthenticationConstants;
+using static ServerlessLibrary.OAuth.GitHub.GitHubAuthenticationConstants;
 
-namespace ServerlessLibraryAPI.OAuth.GitHub
+namespace ServerlessLibrary.OAuth.GitHub
 {
     /// <summary>
     /// Defines a set of options used by <see cref="GitHubAuthenticationHandler"/>.
