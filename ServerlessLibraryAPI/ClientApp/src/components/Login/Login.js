@@ -12,12 +12,14 @@ class Login extends Component {
     this.state = {
       from: from
     };
+
+    this.onLogin = this.onLogin.bind(this);
   }
 
-  onLogin = () => {
+  onLogin() {
     const { from } = this.state;
     window.location = `/api/user/login?returnUrl=${from.pathname}`;
-  };
+  }
 
   render() {
     const { from } = this.state;

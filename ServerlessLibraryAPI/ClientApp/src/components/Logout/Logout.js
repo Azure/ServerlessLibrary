@@ -7,10 +7,16 @@ import { userService } from "../../services";
 import { userActions } from "../../actions/userActions";
 
 class Logout extends Component {
-  onLogout = () => {
+  constructor(props) {
+    super(props);
+
+    this.onLogout = this.onLogout.bind(this);
+  }
+
+  onLogout() {
     this.props.logout(); // clear the redux store before the api call
     userService.logout().then(this.props.history.push("/"));
-  };
+  }
 
   render() {
     const { loggedIn } = this.props;
