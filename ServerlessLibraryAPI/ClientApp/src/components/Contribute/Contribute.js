@@ -18,4 +18,4 @@ class Contribute extends Component {
   }
 }
 
-export { Contribute };
+export default Contribute;

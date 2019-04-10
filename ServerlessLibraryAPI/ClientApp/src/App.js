@@ -5,11 +5,11 @@ import { connect } from "react-redux";
 import "./App.css";
 
 import Main from "./components/Main/Main";
-import { Header } from "./components/Header";
+import Header from "./components/Header/Header";
 import DetailView from "./components/DetailView/DetailView";
-import { Login } from "./components/Login";
-import { Contribute } from "./components/Contribute/Contribute";
-import { PrivateRoute } from "./components/PrivateRoute";
+import Login from "./components/Login/Login";
+import Contribute from "./components/Contribute/Contribute";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { samplesReceived } from "./actions/FilterChangeActions";
 import { libraryService } from "./services";
 

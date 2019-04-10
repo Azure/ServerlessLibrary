@@ -44,4 +44,4 @@ class PrivateRoute extends Component {
   }
 }
 
-export { PrivateRoute };
+export default PrivateRoute;

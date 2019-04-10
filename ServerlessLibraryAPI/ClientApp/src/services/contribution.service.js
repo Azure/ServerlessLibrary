@@ -4,15 +4,15 @@ export const contributionService = {
   submitNewItem
 };
 
-const useFakeApi = true;
+const useMockApi = true;
 
 function submitNewItem(item) {
   console.log("submitting new item");
   console.log(item);
 
-  if (useFakeApi) {
-    item.id = "fakeid"; // id and author are set by the backend api
-    item.author = "fakeauthor";
+  if (useMockApi) {
+    item.id = "someid"; // id and author are set by the backend api
+    item.author = "someauthor";
     return Promise.resolve(item);
   }
 

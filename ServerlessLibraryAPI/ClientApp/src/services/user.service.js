@@ -5,7 +5,7 @@ export const userService = {
   isAuthenticated
 };
 
-const useFakeApi = true;
+const useMockApi = true;
 
 const validUser = {
   firstName: "Nehaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -18,7 +18,10 @@ const validUser = {
 //   abc: 'xyz'
 // };
 
-// const noUser = null;
+function getMockUser() {
+  return Promise.resolve(validUser);
+  // return Promise.reject("No User is signed in!!");
+}
 
 function isAuthenticated() {
   return getCurrentUser().then(
@@ -32,9 +35,8 @@ function isAuthenticated() {
 }
 
 function getCurrentUser() {
-  if (useFakeApi) {
-    return Promise.resolve(validUser);
-    // return Promise.resolve(noUser);
+  if (useMockApi) {
+    return getMockUser();
   }
 
   const requestOptions = {
