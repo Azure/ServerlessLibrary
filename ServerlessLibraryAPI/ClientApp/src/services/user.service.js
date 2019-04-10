@@ -2,7 +2,7 @@ import { handleResponse } from "../helpers";
 
 export const userService = {
   getCurrentUser,
-  isAuthenticated
+  logout
 };
 
 const useMockApi = true;
@@ -23,17 +23,6 @@ function getMockUser() {
   // return Promise.reject("No User is signed in!!");
 }
 
-function isAuthenticated() {
-  return getCurrentUser().then(
-    user => {
-      return Promise.resolve(user && user.firstName && user.firstName !== "");
-    },
-    () => {
-      return Promise.resolve(false);
-    }
-  );
-}
-
 function getCurrentUser() {
   if (useMockApi) {
     return getMockUser();
@@ -43,4 +32,15 @@ function getCurrentUser() {
     method: "GET"
   };
   return fetch("/api/user", requestOptions).then(handleResponse);
+}
+
+function logout() {
+  if (useMockApi) {
+    return Promise.resolve();
+  }
+
+  const requestOptions = {
+    method: "GET"
+  };
+  return fetch("/api/user/logout", requestOptions).then(handleResponse);
 }

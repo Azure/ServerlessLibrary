@@ -117,11 +117,6 @@ class ContentHeader extends Component {
 
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = {};
-
-const ContentHeaderContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ContentHeader);
+const ContentHeaderContainer = connect(mapStateToProps)(ContentHeader);
 
 export default withRouter(ContentHeaderContainer);

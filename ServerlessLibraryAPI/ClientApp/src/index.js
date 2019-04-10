@@ -3,10 +3,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "./reducers/ItemReducer";
+import { initializeIcons } from "@uifabric/icons";
+import configureStore from "./reducers";
 
 import AppContainer from "./App";
 
+const store = configureStore();
+initializeIcons();
 const rootElement = document.getElementById("root");
 
 ReactDOM.render(

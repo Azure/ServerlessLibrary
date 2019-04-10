@@ -1,38 +1,17 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
-
-import { userService } from "../../services";
+import { connect } from "react-redux";
 
 class PrivateRoute extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: true,
-      isAuthenticated: false
-    };
-  }
-
-  componentDidMount() {
-    userService.isAuthenticated().then(isAuthenticated => {
-      this.setState({
-        loading: false,
-        isAuthenticated
-      });
-    });
-  }
-
   render() {
-    const { component: Component, ...rest } = this.props;
+    const { component: Component, loggedIn, ...rest } = this.props;
 
     return (
       <Route
         {...rest}
         render={props =>
-          this.state.isAuthenticated ? (
+          loggedIn ? (
             <Component {...props} />
-          ) : this.state.loading ? (
-            <div />
           ) : (
             <Redirect
               to={{ pathname: "/login", state: { from: props.location } }}
@@ -44,4 +23,10 @@ class PrivateRoute extends Component {
   }
 }
 
-export default PrivateRoute;
+const mapStateToProps = state => ({
+  loggedIn: state.authentication.loggedIn
+});
+
+const PrivateRouteContainer = connect(mapStateToProps)(PrivateRoute);
+
+export default PrivateRouteContainer;

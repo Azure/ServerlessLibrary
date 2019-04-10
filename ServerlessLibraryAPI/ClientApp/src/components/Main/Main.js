@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import SideBarContainer from "../../components/sidebar/SideBar";
 import ContentHeaderContainer from "../ContentHeader/ContentHeader";
 import ItemList from "../../components/ItemList/ItemList";
 import "./Main.css";
-import { samplesReceived } from "../../actions/FilterChangeActions";
-import { connect } from "react-redux";
 import { queryStringToParams } from "../../helpers";
 
 class Main extends Component {
@@ -17,9 +16,9 @@ class Main extends Component {
   }
 
   filteredSamples() {
-    var samples = this.props.samples;
-    var currentfilters = this.getFiltersFromQueryParams();
-    var filter = new RegExp(currentfilters.filtertext, "i");
+    let samples = this.props.samples;
+    let currentfilters = this.getFiltersFromQueryParams();
+    let filter = new RegExp(currentfilters.filtertext, "i");
     samples = samples.filter(
       el =>
         el.title.match(filter) ||
@@ -125,13 +124,6 @@ const mapStateToProps = state => ({
   samples: state.samples
 });
 
-const mapDispatchToProps = {
-  samplesReceived
-};
-
-const MainContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withRouter(Main));
+const MainContainer = connect(mapStateToProps)(withRouter(Main));
 
 export default MainContainer;

@@ -1,28 +1,17 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Link, Persona, PersonaSize } from "office-ui-fabric-react";
-import { initializeIcons } from "@uifabric/icons";
 import { getTheme, FontSizes } from "office-ui-fabric-react";
 
 import "./Header.scss";
 import { userService } from "../../services";
+import { userActions } from "../../actions/userActions";
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: {}
-    };
-
-    initializeIcons();
-  }
-
   componentDidMount() {
-    this.setState({
-      user: {}
-    });
     userService
       .getCurrentUser()
-      .then(user => this.setState({ user }))
+      .then(user => this.props.getCurrentUserSuccess(user))
       .catch(error => console.log(error));
   }
 
@@ -65,7 +54,7 @@ class Header extends Component {
       }
     };
 
-    const { user } = this.state;
+    const { user } = this.props;
 
     return (
       <div className="headerbar">
@@ -94,4 +83,18 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  loggedIn: state.authentication.loggedIn,
+  user: state.authentication.user
+});
+
+const mapDispatchToProps = {
+  getCurrentUserSuccess: userActions.getCurrentUserSuccess
+};
+
+const HeaderContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);
+
+export default HeaderContainer;

@@ -12,7 +12,7 @@ import {
   PivotLinkSize,
   ScrollablePane
 } from "office-ui-fabric-react/lib/index";
-import { samplesReceived } from "../../actions/FilterChangeActions";
+import { sampleActions } from "../../actions/sampleActions";
 import MetricBar from "../MetricBar/MetricBar";
 import { getTheme, mergeStyleSets } from "office-ui-fabric-react";
 import "./DetailView.css";
@@ -70,7 +70,7 @@ class DetailView extends Component {
       libraryService
         .getAllSamples()
         .then(samples => {
-          this.props.samplesReceived(samples);
+          this.props.getSamplesSuccess(samples);
           currentItem = samples.filter(s => s.title === id)[0];
           this.setState({ sample: currentItem });
         })
@@ -242,7 +242,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  samplesReceived
+  getSamplesSuccess: sampleActions.getSamplesSuccess
 };
 
 const DetailViewContainer = connect(
