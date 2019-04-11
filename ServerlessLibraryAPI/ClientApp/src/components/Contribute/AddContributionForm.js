@@ -7,17 +7,17 @@ import {
 } from "office-ui-fabric-react";
 
 import { libraryService } from "../../services";
+import "./Contribute.scss";
 
 const initialState = {
   showForm: false,
-  error: "",
   title: "",
   description: "",
   repository: "",
   template: ""
 };
 
-class AddContribution extends Component {
+class AddContributionForm extends Component {
   constructor(props) {
     super(props);
 
@@ -57,10 +57,10 @@ class AddContribution extends Component {
       .submitNewSample(this.state)
       .then(
         item => console.log("submitted item: ", item),
-        error => this.setState({ error })
+        error => console.log(error) // todo
       )
       .then(this.resetForm())
-      .catch(error => console.log(error));
+      .catch(error => console.log(error)); // todo
   }
 
   onCancelButtonClick() {
@@ -72,13 +72,10 @@ class AddContribution extends Component {
   }
 
   render() {
-    const { showForm, error } = this.state;
+    const { showForm } = this.state;
     return (
-      <div>
+      <div className="contribution-form-container">
         <Link onClick={this.onLinkClick}>Add new contribution</Link>
-        {error && error !== "" && (
-          <div>Submission failed! Details: {error}</div>
-        )}
         {showForm && (
           <div>
             <div>
@@ -121,4 +118,4 @@ class AddContribution extends Component {
   }
 }
 
-export default AddContribution;
+export default AddContributionForm;

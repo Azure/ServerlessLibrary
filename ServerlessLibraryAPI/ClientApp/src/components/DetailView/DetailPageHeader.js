@@ -11,8 +11,11 @@ class DetailPageHeader extends Component {
       description,
       numlikes
     } = this.props;
+    const headerStyles = {
+      marginLeft: "23px"
+    };
     return (
-      <div>
+      <div style={headerStyles}>
         <PageHeaderWithBackButton title={title}>
           <MetricBar
             numlikes={numlikes}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Label } from "office-ui-fabric-react";
 import ItemList from "../../components/ItemList/ItemList";
 
 class ContributionsList extends Component {
@@ -25,8 +26,17 @@ class ContributionsList extends Component {
   }
 
   render() {
+    const headerLabelStyles = {
+      root: {
+        fontSize: "12px",
+        fontWeight: "bold",
+        paddingTop: "0px",
+        paddingBottom: "6px"
+      }
+    };
     return (
-      <div>
+      <div className="contribution-list-container">
+        <Label styles={headerLabelStyles}>My samples</Label>
         <ItemList
           filteredSamples={this.filteredSamples()}
           disableHover={true}
