@@ -10,6 +10,7 @@ import { libraryService } from "../../services";
 
 const initialState = {
   showForm: false,
+  error: "",
   title: "",
   description: "",
   repository: "",
@@ -120,4 +121,4 @@ class AddContribution extends Component {
   }
 }
 
-export { AddContribution };
+export default AddContribution;

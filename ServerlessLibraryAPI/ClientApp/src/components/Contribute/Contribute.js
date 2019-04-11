@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { AddContribution } from "./AddContribution";
+import AddContribution from "./AddContribution";
+import ContributionsList from "./ContributionsList";
 
 class Contribute extends Component {
   render() {
@@ -13,6 +14,9 @@ class Contribute extends Component {
         </p>
         <br />
         <AddContribution />
+        <br />
+        <p>My samples</p>
+        <ContributionsList />
       </div>
     );
   }

@@ -10,28 +10,35 @@ class ItemList extends Component {
   constructor(props) {
     super(props);
     this._onRenderCell = this._onRenderCell.bind(this);
+    this.disableHover = this.props.disableHover || false;
   }
 
   _onRenderCell(item, index) {
     return (
       <article>
-        <div className="libraryitem">
-          <div className="title">
-            <Link className="titlelink" to={`/sample/${item.title}`}>
-              {item.title}
-            </Link>
+        <div className={this.disableHover ? "" : "libraryitemContainer"}>
+          <div
+            className={
+              this.disableHover ? "libraryitem" : "libraryitem-withhover"
+            }
+          >
+            <div className="title">
+              <Link className="titlelink" to={`/sample/${item.title}`}>
+                {item.title}
+              </Link>
+            </div>
+            <MetricBar
+              numlikes="0"
+              repository={item.repository}
+              downloads={item.totaldownloads}
+            />
+            <p className="description">{item.description}</p>
+            <ItemTags
+              type={item.type}
+              language={item.language}
+              tags={item.tags}
+            />
           </div>
-          <MetricBar
-            numlikes="0"
-            repository={item.repository}
-            downloads={item.totaldownloads}
-          />
-          <p className="description">{item.description}</p>
-          <ItemTags
-            type={item.type}
-            language={item.language}
-            tags={item.tags}
-          />
         </div>
       </article>
     );
@@ -39,7 +46,7 @@ class ItemList extends Component {
 
   render() {
     return (
-      <div className="listcontainer">
+      <div>
         <FocusZone direction={FocusZoneDirection.vertical}>
           <List
             items={this.props.filteredSamples}
