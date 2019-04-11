@@ -15,17 +15,12 @@ class DetailView extends Component {
     };
   }
 
-  handleBackButtonClick() {
-    this.props.history.goBack();
-  }
-
   componentDidMount() {
     var id = this.props.match.params.id;
     var currentItem;
     if (this.props.samples.length > 0) {
       currentItem = this.props.samples.filter(s => s.title === id)[0];
       this.setState({ sample: currentItem });
-      this.setState({ repository: currentItem.repository });
     } else {
       libraryService
         .getAllSamples()

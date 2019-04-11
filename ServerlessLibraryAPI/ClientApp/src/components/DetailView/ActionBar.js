@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Icon, PrimaryButton, Link } from "office-ui-fabric-react/lib/index";
+import { Icon, PrimaryButton, Link } from "office-ui-fabric-react";
 import { registerIcons } from "office-ui-fabric-react";
 import "./ActionBar.scss";
 
