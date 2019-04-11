@@ -1,9 +1,9 @@
-.detail-page-header {
+.page-header {
   padding-left: 23px;
   padding-top: 20px;
   background: #ffffff;
 }
-.detail-page-title {
+.page-title-container {
   display: flex;
   flex-direction: row;
   margin-bottom: 11px;
@@ -13,14 +13,15 @@
   margin: auto 0;
 }
 
-.sample-title {
+.page-title {
   font-size: 18px;
   font-weight: bold;
-  color: #161616;
+  color: black;
   margin-bottom: auto;
 }
 
-.sample-description {
+.page-description-container {
   font-size: 12px;
+  line-height: 14px;
   color: #161616;
 }
