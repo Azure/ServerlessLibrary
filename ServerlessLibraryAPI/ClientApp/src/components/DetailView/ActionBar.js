@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Icon, PrimaryButton, Link } from "office-ui-fabric-react/lib/index";
 import { registerIcons } from "office-ui-fabric-react";
-import { actionContainerStyle, actionItemStyle } from "./ActionBar.styles";
+import "./ActionBar.scss";
 
 registerIcons({
   icons: {
@@ -48,20 +48,18 @@ class ActionBar extends Component {
     let { repository } = this.props;
 
     return (
-      <div style={actionContainerStyle}>
-        <div style={actionItemStyle}>
+      <div className="action-container">
+        <div className="action-item">
           <PrimaryButton text="Deploy" onClick={this.onDeployClick} />
         </div>
 
-        <div style={actionItemStyle}>
+        <div className="action-item">
           <PrimaryButton text="Open in vscode" onClick={this.onVSCodeClick} />
         </div>
-        <div style={actionItemStyle}>
+        <div className="action-item">
           <Link href={repository}>
             <Icon iconName="gitgub-svg" />
-            <span style={{ marginLeft: "8px", fontSize: "12px" }}>
-              Open in Github
-            </span>
+            <span className="github-open">Open in Github</span>
           </Link>
         </div>
       </div>

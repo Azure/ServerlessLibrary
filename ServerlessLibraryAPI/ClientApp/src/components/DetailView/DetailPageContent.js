@@ -7,11 +7,7 @@ import {
   ScrollablePane
 } from "office-ui-fabric-react/lib/index";
 import { getTheme, mergeStyleSets } from "office-ui-fabric-react";
-import {
-  containerContentStyle,
-  pivotStyles,
-  pivotItemContainerStyle
-} from "./DetailPageContent.styles";
+import "./DetailPageContent.scss";
 const theme = getTheme();
 
 const classNames = mergeStyleSets({
@@ -94,6 +90,30 @@ class DetailPageContent extends Component {
   }
 
   render() {
+    const pivotStyles = {
+      root: {
+        borderBottom: "1px solid rgba(105, 130, 155, 0.25)",
+        paddingLeft: "15px",
+        width: "80%"
+      },
+      text: {
+        color: " #0058AD",
+        fontSize: "14px"
+      },
+      link: {
+        color: "black"
+      },
+      linkIsSelected: {
+        selectors: {
+          ":before": {
+            color: "#161616",
+            boxSizing: "border-box",
+            borderBottom: "2px solid #161616"
+          }
+        }
+      }
+    };
+
     return (
       <div>
         <Pivot
@@ -103,7 +123,7 @@ class DetailPageContent extends Component {
           onLinkClick={(item, ev) => this.handleLinkClick(item, ev)}
         >
           <PivotItem headerText="Overview" itemKey="overview">
-            <div style={pivotItemContainerStyle}>
+            <div className="pivot-item-container">
               <h4>Sample details</h4>
               <div className={classNames.wrapper}>
                 <ScrollablePane styles={{ root: classNames.pane }}>
@@ -113,11 +133,11 @@ class DetailPageContent extends Component {
             </div>
           </PivotItem>
           <PivotItem headerText="ARM template" itemKey="armtemplate">
-            <div style={pivotItemContainerStyle}>
+            <div className="pivot-item-container">
               <h4>ARM template</h4>
               <div className={classNames.wrapper}>
                 <ScrollablePane styles={{ root: classNames.pane }}>
-                  <div style={containerContentStyle}>
+                  <div className="container-content">
                     {this.state.armTemplateText}
                   </div>
                 </ScrollablePane>
@@ -125,11 +145,11 @@ class DetailPageContent extends Component {
             </div>
           </PivotItem>
           <PivotItem headerText="Licence" itemKey="licence">
-            <div style={pivotItemContainerStyle}>
+            <div className="pivot-item-container">
               <h4>Licence details</h4>
               <div className={classNames.wrapper}>
                 <ScrollablePane styles={{ root: classNames.pane }}>
-                  <div style={containerContentStyle}>
+                  <div className="container-content">
                     Each application is licensed to you by its owner (which may
                     or may not be Microsoft) under the agreement which
                     accompanies the application. Microsoft is not responsible

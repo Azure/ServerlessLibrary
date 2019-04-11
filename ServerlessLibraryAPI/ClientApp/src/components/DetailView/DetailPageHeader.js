@@ -2,14 +2,8 @@ import React, { Component } from "react";
 import { IconButton } from "office-ui-fabric-react/lib/index";
 import { withRouter } from "react-router-dom";
 import MetricBar from "../MetricBar/MetricBar";
-import {
-  backButtonIconContainerStyle,
-  backButtonStyles,
-  detailPageHeaderStyle,
-  detailPageTitleStyle,
-  sampleTitleStyle,
-  sampleDescriptionStyle
-} from "./DetailPageHeader.styles";
+
+import "./DetailPageHeader.scss";
 
 class DetailPageHeader extends Component {
   constructor(props) {
@@ -30,19 +24,26 @@ class DetailPageHeader extends Component {
       numlikes
     } = this.props;
 
+    const backButton = {
+      button: {
+        width: 17,
+        height: 18,
+        marginRight: 12
+      }
+    };
     return (
-      <div style={detailPageHeaderStyle}>
-        <div style={detailPageTitleStyle}>
-          <div style={backButtonIconContainerStyle}>
+      <div className="detail-page-header">
+        <div className="detail-page-title">
+          <div className="back-button-icon-container">
             <IconButton
               iconProps={{ iconName: "Back" }}
-              title="Like"
-              ariaLabel="Like"
-              style={backButtonStyles.button}
+              title="Back"
+              ariaLabel="Back"
+              style={backButton.button}
               onClick={() => this.handleBackButtonClick()}
             />
           </div>
-          <div style={sampleTitleStyle}>
+          <div className="sample-title">
             <span>{title}</span>
           </div>
         </div>
@@ -51,7 +52,7 @@ class DetailPageHeader extends Component {
           repository={repository}
           downloads={totaldownloads}
         />
-        <p style={sampleDescriptionStyle}>{description}</p>
+        <p className="sample-description">{description}</p>
       </div>
     );
   }

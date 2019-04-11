@@ -19,7 +19,7 @@ class ItemList extends Component {
           <div className="title">
             <Link className="titlelink" to={`/sample/${item.title}`}>
               {item.title}
-            </Link>{" "}
+            </Link>
           </div>
           <MetricBar
             numlikes="0"
