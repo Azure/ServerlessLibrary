@@ -12,16 +12,6 @@ class ContributionsList extends Component {
       el => el.repository.replace("https://github.com/", "").match(filter) // this match should be against author
     );
 
-    samples = samples.sort(function(a, b) {
-      var titleA = a.title.toLowerCase(),
-        titleB = b.title.toLowerCase();
-      if (titleA < titleB)
-        //sort string ascending
-        return -1;
-      if (titleA > titleB) return 1;
-      return 0; //default return value (no sorting)
-    });
-
     return samples;
   }
 
