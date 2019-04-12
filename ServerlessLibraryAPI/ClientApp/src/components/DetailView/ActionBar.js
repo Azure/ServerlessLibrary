@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import { Icon, PrimaryButton, Link } from "office-ui-fabric-react";
+import {
+  Icon,
+  DefaultButton,
+  PrimaryButton,
+  Link
+} from "office-ui-fabric-react";
 import { registerIcons } from "office-ui-fabric-react";
+import * as commonStyles from "../shared/Button.styles";
 import "./ActionBar.scss";
 
 registerIcons({
@@ -50,11 +56,19 @@ class ActionBar extends Component {
     return (
       <div className="action-container">
         <div className="action-item">
-          <PrimaryButton text="Deploy" onClick={this.onDeployClick} />
+          <PrimaryButton
+            styles={commonStyles.buttonStyles}
+            text="Deploy"
+            onClick={this.onDeployClick}
+          />
         </div>
 
         <div className="action-item">
-          <PrimaryButton text="Open in vscode" onClick={this.onVSCodeClick} />
+          <DefaultButton
+            styles={commonStyles.secondaryButtonStyles}
+            text="Open in vscode"
+            onClick={this.onVSCodeClick}
+          />
         </div>
         <div className="action-item">
           <Link href={repository}>

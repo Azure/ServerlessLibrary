@@ -35,4 +35,9 @@
   width: 100%;
   padding: 10px;
   padding-right: 20%;
+  padding-left: 19px;
+}
+
+.list-container {
+  max-width: 765px;
 }

@@ -112,7 +112,9 @@ class Main extends Component {
             />
           </div>
           <div id="list">
-            <ItemList filteredSamples={this.filteredSamples()} />
+            <div className="list-container">
+              <ItemList filteredSamples={this.filteredSamples()} />
+            </div>
           </div>
         </div>
       </div>

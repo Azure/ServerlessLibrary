@@ -1,0 +1,29 @@
+.page-header {
+  margin-top: 20px;
+  // margin-bottom: 23px; // this cannot be set at the common header control because of pivot control sizes
+  background: #ffffff;
+  margin-left: 23px;
+}
+.page-title-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 11px;
+}
+
+.back-button-icon-container {
+  margin: auto 0;
+  height: 18px;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: auto;
+}
+
+.page-description-container {
+  font-size: 12px;
+  line-height: 14px;
+  color: #161616;
+}
