@@ -6,26 +6,24 @@
 
 .tagcontainer {
   display: flex;
-  font-family: "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
   line-height: normal;
-  color: #555555;
   vertical-align: sub;
 }
 
 .tag {
-  color: black;
-  text-align: center;
-  display: table;
-  vertical-align: super;
-  margin-right: 20px;
-  margin-left: 1px;
+  margin-right: 5px;
   background: #efefef;
-  border-radius: 12px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 3px;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   font-size: 12px;
-  cursor: pointer;
-  font-family: "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+}
+
+.svg {
+  width: 17px;
+  height: 17px;
+  vertical-align: baseline;
+  margin-right: 4px;
 }
