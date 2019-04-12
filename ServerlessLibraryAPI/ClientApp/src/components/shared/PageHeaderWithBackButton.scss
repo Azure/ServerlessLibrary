@@ -1,7 +1,8 @@
 .page-header {
   margin-top: 20px;
-  // margin-bottom: 23px; // this cannot be set because of pivot control sizes
+  // margin-bottom: 23px; // this cannot be set at the common header control because of pivot control sizes
   background: #ffffff;
+  margin-left: 23px;
 }
 .page-title-container {
   display: flex;
@@ -11,6 +12,7 @@
 
 .back-button-icon-container {
   margin: auto 0;
+  height: 18px;
 }
 
 .page-title {

@@ -1,4 +1,4 @@
-.contribute-page-container {
+.left-margin {
   margin-left: 23px;
 }
 
@@ -6,11 +6,29 @@
   max-width: 785px;
 }
 
-.contribution-form-container {
+.add-contribution-container {
   margin-top: 23px;
   margin-bottom: 22px;
 }
 
+.add-contribution-link {
+  @extend .left-margin;
+  font-size: 12px;
+}
+
+.contribution-form-container {
+  background-color: #fbfbfb;
+  margin-top: 12px;
+  padding-top: 15px;
+  padding-left: 23px;
+  padding-bottom: 28px;
+}
+
+.contribution-form-actions-container {
+  margin-top: 28px;
+}
+
 .contribution-list-container {
+  @extend .left-margin;
   max-width: 746px;
 }

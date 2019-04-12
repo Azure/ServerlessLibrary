@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {
+  Icon,
   Link,
   TextField,
   PrimaryButton,
@@ -7,10 +8,12 @@ import {
 } from "office-ui-fabric-react";
 
 import { libraryService } from "../../services";
+import * as formStyles from "./AddContributionForm.styles";
+import * as commonStyles from "../shared/Button.styles";
 import "./Contribute.scss";
 
 const initialState = {
-  showForm: false,
+  showForm: true,
   title: "",
   description: "",
   repository: "",
@@ -74,12 +77,18 @@ class AddContributionForm extends Component {
   render() {
     const { showForm } = this.state;
     return (
-      <div className="contribution-form-container">
-        <Link onClick={this.onLinkClick}>Add new contribution</Link>
+      <div className="add-contribution-container">
+        <div className="add-contribution-link">
+          <Link onClick={this.onLinkClick}>
+            <Icon iconName="Edit" style={{ marginRight: "5px" }} />
+            Add new contribution
+          </Link>
+        </div>
         {showForm && (
-          <div>
+          <div className="contribution-form-container">
             <div>
               <TextField
+                styles={formStyles.textFieldStyles}
                 label="Title"
                 required={true}
                 placeholder="Enter your custom title"
@@ -87,6 +96,7 @@ class AddContributionForm extends Component {
                 onChange={this.onTitleChange}
               />
               <TextField
+                styles={formStyles.textFieldStyles}
                 label="Description"
                 required={true}
                 placeholder="Enter a brief description"
@@ -94,6 +104,7 @@ class AddContributionForm extends Component {
                 onChange={this.onDescriptionChange}
               />
               <TextField
+                styles={formStyles.textFieldStyles}
                 label="URL"
                 required={true}
                 placeholder="Enter GitHub URL"
@@ -101,15 +112,24 @@ class AddContributionForm extends Component {
                 onChange={this.onRepositoryChange}
               />
               <TextField
+                styles={formStyles.textFieldStyles}
                 label="ARM template link"
                 placeholder="Enter ARM template link"
                 value={this.state.template}
                 onChange={this.onTemplateChange}
               />
             </div>
-            <div>
-              <PrimaryButton text="Add" onClick={this.onAddButtonClick} />
-              <DefaultButton text="Cancel" onClick={this.onCancelButtonClick} />
+            <div className="contribution-form-actions-container">
+              <PrimaryButton
+                styles={commonStyles.buttonStyles}
+                text="Add"
+                onClick={this.onAddButtonClick}
+              />
+              <DefaultButton
+                styles={commonStyles.secondaryButtonStyles}
+                text="Cancel"
+                onClick={this.onCancelButtonClick}
+              />
             </div>
           </div>
         )}
