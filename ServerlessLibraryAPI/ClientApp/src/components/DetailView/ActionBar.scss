@@ -1,15 +1,26 @@
 .action-container {
   display: flex;
   flex-direction: row;
-  margin-top: 20px;
-  margin-left: 23px;
+  padding-top: 61px;
+  border-top: 1px solid rgba(105, 130, 155, 0.25);
 }
 
 .action-item {
-  margin-right: 16px;
+  margin-left: 10px;
+  margin-right: 20px;
 }
 
-.github-open {
+.open-in-github-link {
+  height: 100%;
+  display: flex;
+}
+
+.githubicon {
+  margin: auto;
+}
+
+.open-in-github-link-text {
   margin-left: 8px;
   font-size: 12px;
+  margin: auto;
 }

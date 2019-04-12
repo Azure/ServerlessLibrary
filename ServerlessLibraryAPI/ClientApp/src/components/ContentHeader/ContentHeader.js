@@ -1,11 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { SearchBox, Dropdown, Icon } from "office-ui-fabric-react";
+import {
+  SearchBox,
+  Dropdown,
+  Icon,
+  Link as FabricLink
+} from "office-ui-fabric-react";
 import { Link } from "react-router-dom";
 import { paramsToQueryString, queryStringToParams } from "../../helpers";
-
+import { registerIcons } from "office-ui-fabric-react";
+import { ReactComponent as ContributionSvg } from "../../assets/contribution.svg";
 import "./ContentHeader.css";
+
+registerIcons({
+  icons: {
+    "contribution-svg": <ContributionSvg className="svg" />
+  }
+});
 
 class ContentHeader extends Component {
   constructor(props) {
@@ -68,6 +80,7 @@ class ContentHeader extends Component {
         }
       };
     };
+
     return (
       <div className="content-header">
         <div className="content-header-titlewapper">
@@ -75,16 +88,16 @@ class ContentHeader extends Component {
             Azure serverless community library
           </div>
           <div style={{ marginLeft: "auto" }}>
-            <Link
-              className="titlelink"
-              style={{ color: "#000000", fontSize: "12px" }}
+            <FabricLink
+              as={Link}
               to="/contribute"
+              className="content-header-contributionLink"
             >
-              <div style={{ display: "flex" }}>
-                <Icon iconName="FabricFolder" style={{ fontSize: "16px" }} />
-                <div style={{ marginLeft: "10px" }}>Contributions</div>
+              <div className="contributionLink-content">
+                <Icon iconName="contribution-svg" />
+                <div className="contribution-link-text">Contributions</div>
               </div>
-            </Link>
+            </FabricLink>
           </div>
         </div>
         <SearchBox
