@@ -13,7 +13,7 @@ import * as commonStyles from "../shared/Button.styles";
 import "./Contribute.scss";
 
 const initialState = {
-  showForm: true,
+  showForm: false,
   title: "",
   description: "",
   repository: "",
@@ -27,32 +27,19 @@ class AddContributionForm extends Component {
     this.state = initialState;
 
     this.onLinkClick = this.onLinkClick.bind(this);
-    this.onTitleChange = this.onTitleChange.bind(this);
-    this.onDescriptionChange = this.onDescriptionChange.bind(this);
-    this.onRepositoryChange = this.onRepositoryChange.bind(this);
-    this.onTemplateChange = this.onTemplateChange.bind(this);
     this.onAddButtonClick = this.onAddButtonClick.bind(this);
     this.onCancelButtonClick = this.onCancelButtonClick.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event, newValue) {
+    const target = event.target;
+    const name = target.name;
+    this.setState({ [name]: newValue });
   }
 
   onLinkClick() {
     this.setState({ showForm: true });
-  }
-
-  onTitleChange(event, newValue) {
-    this.setState({ title: newValue || "" });
-  }
-
-  onDescriptionChange(event, newValue) {
-    this.setState({ description: newValue || "" });
-  }
-
-  onRepositoryChange(event, newValue) {
-    this.setState({ repository: newValue || "" });
-  }
-
-  onTemplateChange(event, newValue) {
-    this.setState({ template: newValue || "" });
   }
 
   onAddButtonClick() {
@@ -86,37 +73,41 @@ class AddContributionForm extends Component {
         </div>
         {showForm && (
           <div className="contribution-form-container">
-            <div>
+            <div className="contribution-form-fields-container">
               <TextField
                 styles={formStyles.textFieldStyles}
+                name="title"
                 label="Title"
                 required={true}
                 placeholder="Enter your custom title"
                 value={this.state.title}
-                onChange={this.onTitleChange}
+                onChange={this.handleInputChange}
               />
               <TextField
                 styles={formStyles.textFieldStyles}
+                name="description"
                 label="Description"
                 required={true}
                 placeholder="Enter a brief description"
                 value={this.state.description}
-                onChange={this.onDescriptionChange}
+                onChange={this.handleInputChange}
               />
               <TextField
                 styles={formStyles.textFieldStyles}
+                name="repository"
                 label="URL"
                 required={true}
                 placeholder="Enter GitHub URL"
                 value={this.state.repository}
-                onChange={this.onRepositoryChange}
+                onChange={this.handleInputChange}
               />
               <TextField
                 styles={formStyles.textFieldStyles}
+                name="template"
                 label="ARM template link"
                 placeholder="Enter ARM template link"
                 value={this.state.template}
-                onChange={this.onTemplateChange}
+                onChange={this.handleInputChange}
               />
             </div>
             <div className="contribution-form-actions-container">

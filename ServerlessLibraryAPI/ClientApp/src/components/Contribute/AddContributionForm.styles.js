@@ -10,8 +10,7 @@ const labelStyles = {
 
 export const textFieldStyles = {
   root: {
-    marginBottom: "10px",
-    width: "402px"
+    marginBottom: "10px"
   },
   fieldGroup: {
     height: "23px"
