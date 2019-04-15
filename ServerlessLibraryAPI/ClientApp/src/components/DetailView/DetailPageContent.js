@@ -91,7 +91,7 @@ class DetailPageContent extends Component {
         >
           <PivotItem headerText="Overview" itemKey="overview">
             <div className="pivot-item-container">
-              <div className="wrapper">
+              <div className="scrollablePane-wrapper">
                 <ScrollablePane>
                   <ReactMarkdown>{this.state.markdownText}</ReactMarkdown>
                 </ScrollablePane>
@@ -100,7 +100,7 @@ class DetailPageContent extends Component {
           </PivotItem>
           <PivotItem headerText="ARM template" itemKey="armtemplate">
             <div className="pivot-item-container">
-              <div className="wrapper">
+              <div className="scrollablePane-wrapper">
                 <ScrollablePane>
                   <div className="tab-summary">ARM template</div>
                   <div className="armtemplate-content">
@@ -112,7 +112,7 @@ class DetailPageContent extends Component {
           </PivotItem>
           <PivotItem headerText="Licence" itemKey="licence">
             <div className="pivot-item-container">
-              <div className="wrapper">
+              <div className="scrollablePane-wrapper">
                 <ScrollablePane>
                   <div className="tab-summary">Licence details</div>
                   <div className="licence-content">
