@@ -25,11 +25,21 @@ namespace ServerlessLibrary.Models
 
         public string UserName { get; set; }
 
-        public string FirstName
+        public string DisplayName
         {
             get
             {
-                return this.FullName.Split(' ')?[0];
+                if (!string.IsNullOrWhiteSpace(this.FullName))
+                {
+                    return this.FullName.Split(' ')?[0];
+                }
+
+                if (!string.IsNullOrWhiteSpace(this.UserName))
+                {
+                    return this.UserName;
+                }
+
+                return string.Empty;
             }
         }
     }

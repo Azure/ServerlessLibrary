@@ -66,15 +66,19 @@ class Header extends Component {
           >
             Microsoft Azure
           </Link>
-          {user && user.firstName && user.firstName !== "" && (
+          {user && user.displayName && user.displayName !== "" && (
             <Persona
               styles={personaStyles}
-              text={user.firstName}
+              text={user.displayName}
               imageUrl={user.avatarUrl}
-              imageAlt={user.fullName}
+              imageAlt={
+                user.fullName && user.fullName !== ""
+                  ? user.fullName
+                  : user.displayName
+              }
               size={PersonaSize.size28}
               hidePersonaDetails={false}
-              showUnknownPersonaCoin={user.firstName === ""}
+              showUnknownPersonaCoin={user.displayName === ""}
             />
           )}
         </span>
