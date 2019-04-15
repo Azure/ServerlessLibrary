@@ -6,27 +6,7 @@ import {
   PivotLinkSize,
   ScrollablePane
 } from "office-ui-fabric-react/lib/index";
-import { getTheme, mergeStyleSets } from "office-ui-fabric-react";
 import "./DetailPageContent.scss";
-const theme = getTheme();
-
-const classNames = mergeStyleSets({
-  wrapper: {
-    minHeight: "60vh",
-    position: "relative",
-    maxHeight: "inherit"
-  },
-  pane: {
-    minHeight: "60vh",
-    border: "0px solid " + theme.palette.neutralLight,
-    whiteSpace: "pre",
-    backgroundColor: "#FBFBFB",
-    width: "80%"
-  },
-  textContent: {
-    padding: "15px 10px"
-  }
-});
 
 class DetailPageContent extends Component {
   constructor(props) {
@@ -93,29 +73,16 @@ class DetailPageContent extends Component {
     const pivotStyles = {
       root: {
         borderBottom: "1px solid rgba(105, 130, 155, 0.25)",
-        paddingLeft: "15px",
-        width: "80%"
+        paddingLeft: "15px"
       },
       text: {
         color: " #0058AD",
         fontSize: "14px"
-      },
-      link: {
-        color: "black"
-      },
-      linkIsSelected: {
-        selectors: {
-          ":before": {
-            color: "#161616",
-            boxSizing: "border-box",
-            borderBottom: "2px solid #161616"
-          }
-        }
       }
     };
 
     return (
-      <div>
+      <div className="detail-page-content">
         <Pivot
           styles={pivotStyles}
           selectedKey={this.state.selectedKey}
@@ -124,9 +91,8 @@ class DetailPageContent extends Component {
         >
           <PivotItem headerText="Overview" itemKey="overview">
             <div className="pivot-item-container">
-              <h4>Sample details</h4>
-              <div className={classNames.wrapper}>
-                <ScrollablePane styles={{ root: classNames.pane }}>
+              <div className="scrollablePane-wrapper">
+                <ScrollablePane>
                   <ReactMarkdown>{this.state.markdownText}</ReactMarkdown>
                 </ScrollablePane>
               </div>
@@ -134,10 +100,10 @@ class DetailPageContent extends Component {
           </PivotItem>
           <PivotItem headerText="ARM template" itemKey="armtemplate">
             <div className="pivot-item-container">
-              <h4>ARM template</h4>
-              <div className={classNames.wrapper}>
-                <ScrollablePane styles={{ root: classNames.pane }}>
-                  <div className="container-content">
+              <div className="scrollablePane-wrapper">
+                <ScrollablePane>
+                  <div className="tab-summary">ARM template</div>
+                  <div className="armtemplate-content">
                     {this.state.armTemplateText}
                   </div>
                 </ScrollablePane>
@@ -146,17 +112,20 @@ class DetailPageContent extends Component {
           </PivotItem>
           <PivotItem headerText="Licence" itemKey="licence">
             <div className="pivot-item-container">
-              <h4>Licence details</h4>
-              <div className={classNames.wrapper}>
-                <ScrollablePane styles={{ root: classNames.pane }}>
-                  <div className="container-content">
-                    Each application is licensed to you by its owner (which may
-                    or may not be Microsoft) under the agreement which
-                    accompanies the application. Microsoft is not responsible
-                    for any non-Microsoft code and does not screen for security,
-                    compatibility, or performance. The applications are not
-                    supported by any Microsoft support program or service. The
-                    applications are provided AS IS without warranty of any kind
+              <div className="scrollablePane-wrapper">
+                <ScrollablePane>
+                  <div className="tab-summary">Licence details</div>
+                  <div className="licence-content">
+                    <p>
+                      Each application is licensed to you by its owner (which
+                      may or may not be Microsoft) under the agreement which
+                      accompanies the application. Microsoft is not responsible
+                      for any non-Microsoft code and does not screen for
+                      security, compatibility, or performance. The applications
+                      are not supported by any Microsoft support program or
+                      service. The applications are provided AS IS without
+                      warranty of any kind
+                    </p>
                     <p>
                       Also, please note that the Function App you've selected
                       was created with Azure Functions 1.x. As such, it might

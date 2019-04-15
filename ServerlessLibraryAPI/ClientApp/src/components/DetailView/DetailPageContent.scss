@@ -1,12 +1,29 @@
 .pivot-item-container {
-  margin-left: 23px;
-  width: 100%;
+  padding-left: 23px;
+  background-color: #fbfbfb;
+}
+.scrollablePane-wrapper {
+  min-height: 60vh;
+  position: relative;
+  max-height: inherit;
 }
 
-.container-content {
+.tab-summary {
+  background: #ffffff;
+  padding-top: 17px;
+  padding-bottom: 13px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.armtemplate-content {
   overflow-wrap: break-word;
   white-space: pre-line;
   justify-content: center;
-  overflow-x: hidden;
-  width: 100%;
+}
+
+.licence-content {
+  max-width: 750px;
+  text-align: justify;
+  text-justify: inter-word;
 }
