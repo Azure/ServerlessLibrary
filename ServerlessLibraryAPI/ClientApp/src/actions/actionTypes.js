@@ -1,5 +1,6 @@
 export const sampleActionTypes = {
-  GETSAMPLES_SUCCESS: "GETSAMPLES_SUCCESS"
+  GETSAMPLES_SUCCESS: "GETSAMPLES_SUCCESS",
+  ADDSAMPLE_SUCCESS: "ADDSAMPLE_SUCCESS"
 };
 
 export const userActionTypes = {

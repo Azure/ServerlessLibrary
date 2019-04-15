@@ -18,9 +18,13 @@ function getAllSamples() {
 }
 
 function submitNewSample(item) {
+  item.type = "functionapp"; // todo - these props should come from the contribution form
+  item.runtimeversion = "v2";
+  item.language = "javascript";
+
   if (useMockApi) {
     item.id = "someid"; // id and author are set by the backend api
-    item.author = "someauthor";
+    item.author = "msnehagup";
     return Promise.resolve(item);
   }
 

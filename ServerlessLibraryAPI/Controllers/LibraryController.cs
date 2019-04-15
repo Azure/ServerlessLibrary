@@ -40,9 +40,9 @@ namespace ServerlessLibrary.Controllers
                         || Regex.IsMatch(x.Title, filterText, RegexOptions.IgnoreCase)
                         || Regex.IsMatch(x.Description, filterText, RegexOptions.IgnoreCase)
                         || Regex.IsMatch(x.AuthorType, filterText, RegexOptions.IgnoreCase)
-                        || Regex.IsMatch(x.Repository.AbsoluteUri.Replace("https://github.com/", "", StringComparison.InvariantCulture), filterText, RegexOptions.IgnoreCase)
+                        || Regex.IsMatch(x.Repository.Replace("https://github.com/", "", StringComparison.InvariantCulture), filterText, RegexOptions.IgnoreCase)
                         || (x.RuntimeVersion != null && Regex.IsMatch(x.RuntimeVersion, filterText, RegexOptions.IgnoreCase))
-                        || (x.Tags != null && x.Tags.Any(t => Regex.IsMatch(t,filterText, RegexOptions.IgnoreCase)))
+                        || (x.Tags != null && x.Tags.Any(t => Regex.IsMatch(t, filterText, RegexOptions.IgnoreCase)))
                     )
                 )
             );
@@ -58,15 +58,39 @@ namespace ServerlessLibrary.Controllers
             {
                 return Unauthorized();
             }
+            
+            if (string.IsNullOrWhiteSpace(libraryItem.Repository) || !IsValidUri(libraryItem.Repository))
+            {
+                return BadRequest("GitHub URL is mandatory, and must be a valid URL");
+            }
 
+            if (!string.IsNullOrWhiteSpace(libraryItem.Template) && !IsValidUri(libraryItem.Template))
+            {
+                return BadRequest("ARM template link must be a valid URL");
+            }
+
+            // assign new id
             libraryItem.Id = Guid.NewGuid().ToString();
 
+            // set the author to current authenticated user
             GitHubUser user = new GitHubUser(User);
             libraryItem.Author = user.UserName;
+
             // this._libraryStore.Add(libraryItem);
             return new JsonResult(libraryItem);
         }
+
+        private static bool IsValidUri(string uriString)
+        {
+            try
+            {
+                var uri = new Uri(uriString);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
-
-
 }

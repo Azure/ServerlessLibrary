@@ -7,11 +7,11 @@ export const userService = {
 };
 
 const validUser = {
-  firstName: "Aaaaaaaaa",
-  fullName: "Aaaaaaaaa Bbbbbbbb",
+  displayName: "Neha",
+  fullName: "Neha Gupta",
   email: "abc@xyz.com",
   avatarUrl: "https://avatars2.githubusercontent.com/u/45184761?v=4",
-  userName: "aabbaabb"
+  userName: "msnehagup"
 };
 
 // const invalidUser = {

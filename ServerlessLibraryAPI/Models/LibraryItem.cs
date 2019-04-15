@@ -12,10 +12,10 @@ namespace ServerlessLibrary.Models
         public string Title { get; set; }
 
         [JsonProperty(PropertyName = "template", DefaultValueHandling = DefaultValueHandling.Include)]
-        public Uri Template { get; set; }
+        public string Template { get; set; }
 
         [JsonProperty(PropertyName = "repository", DefaultValueHandling = DefaultValueHandling.Include)]
-        public Uri Repository { get; set; }
+        public string Repository { get; set; }
 
         [JsonProperty(PropertyName = "description", DefaultValueHandling = DefaultValueHandling.Include)]
         public string Description { get; set; }
@@ -57,8 +57,8 @@ namespace ServerlessLibrary.Models
             string type)
         {
             this.Title = title;
-            this.Template = string.IsNullOrWhiteSpace(template)? null : new Uri(template);
-            this.Repository = new Uri(repository);
+            this.Template = title;
+            this.Repository = repository;
             this.Description = description;
             this.Language = language;
             this.Type = type;

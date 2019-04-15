@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import {
   Icon,
   Link,
@@ -8,6 +9,7 @@ import {
 } from "office-ui-fabric-react";
 
 import { libraryService } from "../../services";
+import { sampleActions } from "../../actions/sampleActions";
 import * as formStyles from "./AddContributionForm.styles";
 import * as commonStyles from "../shared/Button.styles";
 import "./Contribute.scss";
@@ -46,7 +48,7 @@ class AddContributionForm extends Component {
     libraryService
       .submitNewSample(this.state)
       .then(
-        item => console.log("submitted item: ", item),
+        sample => this.props.addSampleSuccess(sample),
         error => console.log(error) // todo
       )
       .then(this.resetForm())
@@ -129,4 +131,17 @@ class AddContributionForm extends Component {
   }
 }
 
-export default AddContributionForm;
+function mapStateToProps(state) {
+  return {};
+}
+
+const mapDispatchToProps = {
+  addSampleSuccess: sampleActions.addSampleSuccess
+};
+
+const AddContributionFormContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddContributionForm);
+
+export default AddContributionFormContainer;
