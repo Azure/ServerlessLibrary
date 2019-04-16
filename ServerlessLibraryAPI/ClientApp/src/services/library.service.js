@@ -13,7 +13,7 @@ function getAllSamples() {
   };
 
   return fetch(
-    "https://www.serverlesslibrary.net/api/Library",
+    "/api/Library",
     requestOptions
   ).then(handleResponse);
 }
@@ -39,10 +39,10 @@ function submitNewSample(item) {
   return fetch("/api/library", requestOptions).then(handleResponse);
 }
 
-function updateUserActionStats(template, userAction){
+function updateUserActionStats(id, userAction){
   const requestOptions = {
     method: "PUT",
-    body: '"' + template + '"',
+    body: '"' + id + '"',
     headers: {
       "Content-Type": "application/json"
     }

@@ -59,7 +59,7 @@ class SideBar extends Component {
         <h3 className="filterHeader">Filter by </h3>
         <div>
           <fieldset className="filterset">
-            <summary>Type</summary>
+            <span>Type</span>
             <div className="filterList">
               <Checkbox
                 styles={checkboxStyles}
@@ -81,7 +81,7 @@ class SideBar extends Component {
         </div>
         <div>
           <fieldset className="filterset">
-            <summary>Language</summary>
+            <span>Language</span>
             <div className="filterList">
               <Checkbox
                 styles={checkboxStyles}

@@ -23,7 +23,6 @@ class Main extends Component {
       el =>
         el.title.match(filter) ||
         el.description.match(filter) ||
-        el.authortype.match(filter) ||
         el.language.match(filter) ||
         el.type.match(filter) ||
         el.repository.replace("https://github.com/", "").match(filter) ||

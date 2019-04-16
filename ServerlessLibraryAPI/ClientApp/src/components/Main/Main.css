@@ -27,7 +27,7 @@
 #contentheader {
   overflow-y: hidden;
   height: 20%;
-  width: 80%;
+  max-width: 765px;
 }
 #list {
   overflow-y: auto;

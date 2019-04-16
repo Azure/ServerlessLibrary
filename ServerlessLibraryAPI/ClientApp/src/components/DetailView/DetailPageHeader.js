@@ -6,19 +6,19 @@ class DetailPageHeader extends Component {
   render() {
     let {
       title,
-      repository,
-      template,
+      author,
+      id,
       totaldownloads,
       description,
-      numlikes
+      likes
     } = this.props;
     return (
       <div>
         <PageHeaderWithBackButton title={title}>
           <MetricBar
-            numlikes={numlikes}
-            repository={repository}
-            template ={template}
+            likes={likes}
+            author={author}
+            id={id}
             downloads={totaldownloads}
           />
           <p>{description}</p>

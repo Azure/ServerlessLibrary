@@ -12,8 +12,8 @@ class MetricBar extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.template && nextProps.template !== prevState.template) {
-      var sampleLiked = localStorage.getItem(nextProps.template);
+    if (nextProps.id && nextProps.id !== prevState.id) {
+      var sampleLiked = localStorage.getItem(nextProps.id);
       if (sampleLiked === "liked") {
         return {
           liked: true
@@ -25,37 +25,30 @@ class MetricBar extends Component {
     } else return null;
   }
 
-  getAuthorName(repository) {
-    var parser = document.createElement("a");
-    parser.href = repository;
-    var pathArray = parser.pathname.split("/");
-    var username = pathArray.length > 1 ? pathArray[1] : null;
-    return username;
-  }
-
   handleLikeClick() {
     if (this.state.liked === true) {
-      localStorage.setItem(this.props.template, "unliked");
+      localStorage.setItem(this.props.id, "unliked");
       this.setState({ liked: false });
     } else {
-      localStorage.setItem(this.props.template, "liked");
+      localStorage.setItem(this.props.id, "liked");
       this.setState({ liked: true });
     }
 
     libraryService
-      .updateUserActionStats(this.props.template, "like")
+      .updateUserActionStats(this.props.id, "like")
       .then(response => response.body)
       .catch(error => console.log(error));
   }
+
   render() {
-    let username = this.getAuthorName(this.props.repository);
+    let username = this.props.author;
     let iconName = "Like";
     let title = "Like";
-    let numlikes = this.props.numlikes;
+    let likes = this.props.likes;
     if (this.state.liked) {
       iconName = "LikeSolid";
       title = "Liked";
-      numlikes = this.props.numlikes + 1;
+      likes = this.props.likes + 1;
     }
 
     let lastupdated;
@@ -90,7 +83,7 @@ class MetricBar extends Component {
           ariaLabel={title}
           onClick={() => this.handleLikeClick()}
         />
-        <div>{numlikes}</div>
+        <div>{likes}</div>
       </div>
     );
   }

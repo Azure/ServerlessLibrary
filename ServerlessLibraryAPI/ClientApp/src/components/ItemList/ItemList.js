@@ -24,14 +24,14 @@ class ItemList extends Component {
             }
           >
             <div className="title">
-              <Link className="titlelink" to={`/sample/${item.title}`}>
+              <Link className="titlelink" to={`/sample/${item.id}`}>
                 {item.title}
               </Link>
             </div>
             <MetricBar
-              numlikes={likes}
-              repository={item.repository}
-              template={item.template}
+              likes={likes}
+              author={item.author}
+              id={item.id}
               downloads={item.totaldownloads}
             />
             <p className="description">{item.description}</p>

@@ -13,9 +13,9 @@ namespace ServerlessLibrary.Controllers
         [ProducesResponseType(typeof(bool), 200)]
         [HttpPut]
         [Route("{userAction}")]
-        public JsonResult Put([FromBody]string template, string userAction)
+        public JsonResult Put([FromBody]string id, string userAction)
         {
-            StorageHelper.updateUserStats(JsonConvert.SerializeObject(new { template = WebUtility.UrlDecode(template), userAction }));
+            StorageHelper.updateUserStats(JsonConvert.SerializeObject(new { id = WebUtility.UrlDecode(id), userAction }));
             return new JsonResult(true);
         }
     }

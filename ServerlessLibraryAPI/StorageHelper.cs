@@ -55,8 +55,8 @@ namespace ServerlessLibrary
         public static async Task<IEnumerable<SLItemStats>> getSLItemRecordsAsync()
         {
 
-            TableQuery<SLItemStats> query = new TableQuery<SLItemStats>().Select(new List<string> { "template", "totalDownloads"
-            ,"downloadsToday","downloadsThisWeek","downloadsThisMonth"});
+            TableQuery<SLItemStats> query = new TableQuery<SLItemStats>().Select(new List<string> { "id", "totalDownloads"
+            ,"downloadsToday","downloadsThisWeek","downloadsThisMonth", "likes"});
             TableContinuationToken continuationToken = null;
             List<SLItemStats> entities = new List<SLItemStats>();
             var opContext = new OperationContext();
@@ -71,9 +71,9 @@ namespace ServerlessLibrary
             return entities;
         }
 
-        public async Task<SLItemStats> GetItem(string template)
+        public async Task<SLItemStats> GetItem(string id)
         {
-            TableOperation operation = TableOperation.Retrieve<SLItemStats>(template, template);
+            TableOperation operation = TableOperation.Retrieve<SLItemStats>(id, id);
 
             TableResult result = await (await getTableReference()).ExecuteAsync(operation);
 
@@ -84,7 +84,7 @@ namespace ServerlessLibrary
 
     public class SLItemStats : TableEntity
     {
-        public string template { get; set; }
+        public string id { get; set; }
         public int totalDownloads { get; set; }
         public int downloadsToday { get; set; }
         public int downloadsThisWeek { get; set; }

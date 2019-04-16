@@ -18,9 +18,9 @@ namespace ServerlessLibraryFunctionApp
         public static async void Run([QueueTrigger("slitemstats")]string myQueueItemJson, [Table("slitemstats")] CloudTable table, ILogger log)
         {
             var payload = JsonConvert.DeserializeObject(((dynamic)myQueueItemJson));
-            string template = payload.template.ToString();
+            string id = payload.id.ToString();
             var userActionString = payload.userAction.ToString();
-            log.LogInformation($"Template:{template}, UserAction: {userActionString}");
+            log.LogInformation($"Id:{id}, UserAction: {userActionString}");
             UserAction userAction;
             if (!Enum.TryParse(userActionString, true, out userAction))
             {
@@ -28,7 +28,7 @@ namespace ServerlessLibraryFunctionApp
                 return;
             }
 
-            string mainFilter = TableQuery.GenerateFilterCondition("template", QueryComparisons.Equal, template);
+            string mainFilter = TableQuery.GenerateFilterCondition("id", QueryComparisons.Equal, id);
             TableQuery<SLItemStats> query = new TableQuery<SLItemStats>().Where(mainFilter);
             TableContinuationToken continuationToken = null;
             List<SLItemStats> entities = new List<SLItemStats>();
@@ -58,7 +58,7 @@ namespace ServerlessLibraryFunctionApp
                     {
                         PartitionKey = Guid.NewGuid().ToString(),
                         RowKey = Guid.NewGuid().ToString(),
-                        template = template,
+                        id = id,
                         totalDownloads = 0,
                         downloadsThisMonth = 0,
                         downloadsThisWeek = 0,
@@ -74,7 +74,7 @@ namespace ServerlessLibraryFunctionApp
                     {
                         PartitionKey = Guid.NewGuid().ToString(),
                         RowKey = Guid.NewGuid().ToString(),
-                        template = template,
+                        id = id,
                         totalDownloads = 1,
                         downloadsThisMonth = 1,
                         downloadsThisWeek = 1,
@@ -137,7 +137,7 @@ namespace ServerlessLibraryFunctionApp
 
     public class SLItemStats : TableEntity
     {
-        public string template { get; set; }
+        public string id { get; set; }
         public int totalDownloads { get; set; }
         public int downloadsToday { get; set; }
         public int downloadsThisWeek { get; set; }

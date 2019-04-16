@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Caching.Memory;
 using ServerlessLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace ServerlessLibrary
 {
     public interface ICacheService {
-        IList<LibraryItem> GetCachedItems();
+        IList<LibraryItemWithStats> GetCachedItems();
     }
     //https://stackoverflow.com/questions/44723017/in-memory-caching-with-auto-regeneration-on-asp-net-core
     public class CacheService:ICacheService
@@ -29,7 +30,7 @@ namespace ServerlessLibrary
 
         private void InitTimer()
         {
-            _cache.Set<LibraryItemsResult>(ServerlessLibrarySettings.CACHE_ENTRY, new LibraryItemsResult() { Result = new List<LibraryItem>(), IsBusy = true });
+            _cache.Set<LibraryItemsResult>(ServerlessLibrarySettings.CACHE_ENTRY, new LibraryItemsResult() { Result = new List<LibraryItemWithStats>(), IsBusy = true });
 
             Timer = new Timer(TimerTickAsync, null, 1000, ServerlessLibrarySettings.SLCacheRefreshIntervalInSeconds * 1000);
         }
@@ -38,7 +39,7 @@ namespace ServerlessLibrary
         public Timer Timer { get; set; }
         public bool LoadingBusy = false;
 
-        public IList<LibraryItem> GetCachedItems() {
+        public IList<LibraryItemWithStats> GetCachedItems() {
             return _cache.Get<LibraryItemsResult>(ServerlessLibrarySettings.CACHE_ENTRY).Result;
         }
         private async void TimerTickAsync(object state)
@@ -68,9 +69,10 @@ namespace ServerlessLibrary
             }
             catch { }
         }
-        private async Task<IList<LibraryItem>> ConstructCache()
+        private async Task<IList<LibraryItemWithStats>> ConstructCache()
         {
             IList<LibraryItem> libraryItems;
+            IList<LibraryItemWithStats> libraryItemsWithStats = new List<LibraryItemWithStats>();
 
             if (cosmosDBInitialized)
             {
@@ -99,23 +101,27 @@ namespace ServerlessLibrary
                 }
             }
 
-            var stats = await StorageHelper.getSLItemRecordsAsync();
-            foreach (var item in libraryItems)
+            var stats = await StorageHelper.getSLItemRecordsAsync();            
+            foreach (var storeItem in libraryItems)
             {
-                var itemStat = item.Template != null ? stats.Where(s => s.template == item.Template.ToString()).FirstOrDefault() : null;
-                item.TotalDownloads = itemStat != null ? itemStat.totalDownloads : 1;
-                item.DownloadsThisMonth = itemStat != null ? itemStat.downloadsThisMonth : 1;
-                item.DownloadsThisWeek = itemStat != null ? itemStat.downloadsThisWeek : 1;
-                item.DownloadsToday = itemStat != null ? itemStat.downloadsToday : 1;
-                item.Likes = itemStat != null ? itemStat.likes : 1;
-                item.AuthorTypeDesc = (item.AuthorType == "Microsoft" ? "This has been authored by Microsoft" : "This is a community contribution");
+                var item = storeItem.ConvertTo<LibraryItemWithStats>();
+                var itemStat = stats.Where(s => s.id == storeItem.Id.ToString()).FirstOrDefault();
+
+
+                item.TotalDownloads = itemStat != null && itemStat.totalDownloads > 0 ? itemStat.totalDownloads : 1;
+                item.DownloadsThisMonth = itemStat != null && itemStat.downloadsThisMonth > 0 ? itemStat.downloadsThisMonth : 1;
+                item.DownloadsThisWeek = itemStat != null && itemStat.downloadsThisWeek > 0 ? itemStat.downloadsThisWeek : 1;
+                item.DownloadsToday = itemStat != null && itemStat.downloadsToday > 0 ? itemStat.downloadsToday : 1;
+                item.Likes = itemStat != null && itemStat.likes > 0 ? itemStat.likes : 1;
+                libraryItemsWithStats.Add(item);
             }
 
-            return libraryItems;
+            return libraryItemsWithStats;
         }
     }
+
     public class LibraryItemsResult {
-        public IList<LibraryItem> Result { get; set; }
+        public IList<LibraryItemWithStats> Result { get; set; }
         public bool IsBusy{ get; set; }
     }
 
