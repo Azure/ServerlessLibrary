@@ -5,12 +5,6 @@ namespace ServerlessLibrary.Models
 {
     public class LibraryItemWithStats : LibraryItem
     {
-        internal static LibraryItemWithStats Load(LibraryItem libraryItem)
-        {
-            var serializedObj = JsonConvert.SerializeObject(libraryItem);
-            return JsonConvert.DeserializeObject<LibraryItemWithStats>(serializedObj);
-        }
-
         [JsonProperty(PropertyName = "totaldownloads", DefaultValueHandling = DefaultValueHandling.Include)]
         public int TotalDownloads { get;  set; }
 

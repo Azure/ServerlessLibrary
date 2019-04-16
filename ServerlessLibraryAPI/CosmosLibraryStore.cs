@@ -30,7 +30,7 @@ namespace ServerlessLibrary
 
         async public Task<IList<LibraryItem>> GetAllItems()
         {
-            IEnumerable<LibraryItem> libraryItems = await CosmosDBRepository<LibraryItem>.GetItemsAsync();
+            IEnumerable<LibraryItem> libraryItems = await CosmosDBRepository<LibraryItem>.GetAllItemsAsync();
             return libraryItems.ToList();
         }
     }
@@ -66,7 +66,7 @@ namespace ServerlessLibrary
             }
         }
 
-        public static async Task<List<T>> GetItemsAsync()
+        public static async Task<List<T>> GetAllItemsAsync()
         {
             IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
                 UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId),
