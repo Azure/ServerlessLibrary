@@ -1,16 +1,28 @@
 import React, { Component } from "react";
 import { IconButton } from "office-ui-fabric-react";
+import { libraryService } from "../../services";
 
 import "./MetricBar.css";
 class MetricBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      numlikes: props.numlikes,
-      liked: false,
-      title: "Like",
-      iconName: "Like"
+      liked: false
     };
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.template && nextProps.template !== prevState.template) {
+      var sampleLiked = localStorage.getItem(nextProps.template);
+      if (sampleLiked === "liked") {
+        return {
+          liked: true
+        };
+      } else
+        return {
+          liked: false
+        };
+    } else return null;
   }
 
   getAuthorName(repository) {
@@ -20,25 +32,32 @@ class MetricBar extends Component {
     var username = pathArray.length > 1 ? pathArray[1] : null;
     return username;
   }
-  componentDidMount() {
-    var sampleLiked = localStorage.getItem(this.props.repository);
-    if (sampleLiked === "clicked") {
-      this.setState({ liked: true });
-      this.setState({ title: "Liked" });
-      this.setState({ iconName: "LikeSolid" });
-    }
-  }
 
   handleLikeClick() {
-    if (!this.state.liked) {
-      localStorage.setItem(this.props.repository, "clicked");
+    if (this.state.liked === true) {
+      localStorage.setItem(this.props.template, "unliked");
+      this.setState({ liked: false });
+    } else {
+      localStorage.setItem(this.props.template, "liked");
       this.setState({ liked: true });
-      this.setState({ title: "Liked" });
-      this.setState({ iconName: "LikeSolid" });
     }
+
+    libraryService
+      .updateUserActionStats(this.props.template, "like")
+      .then(response => response.body)
+      .catch(error => console.log(error));
   }
   render() {
     let username = this.getAuthorName(this.props.repository);
+    let iconName = "Like";
+    let title = "Like";
+    let numlikes = this.props.numlikes;
+    if (this.state.liked) {
+      iconName = "LikeSolid";
+      title = "Liked";
+      numlikes = this.props.numlikes + 1;
+    }
+
     let lastupdated;
     if (this.props.lastupdated) {
       lastupdated = (
@@ -66,12 +85,12 @@ class MetricBar extends Component {
           style={styles.button}
           iconStyle={styles.icon}
           tooltipStyles={styles.tooltip}
-          iconProps={{ iconName: this.state.iconName }}
-          title={this.state.title}
-          ariaLabel={this.state.title}
+          iconProps={{ iconName: iconName }}
+          title={title}
+          ariaLabel={title}
           onClick={() => this.handleLikeClick()}
         />
-        <div>{this.props.numlikes}</div>
+        <div>{numlikes}</div>
       </div>
     );
   }

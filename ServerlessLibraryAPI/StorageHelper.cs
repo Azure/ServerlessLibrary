@@ -8,7 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace ServerlessLibrary {
+namespace ServerlessLibrary
+{
     /// <summary>
     /// Summary description for StorageHelper
     /// </summary>
@@ -40,16 +41,15 @@ namespace ServerlessLibrary {
             await table.CreateIfNotExistsAsync();
             return table;
         }
-        private static async Task<CloudQueue> getQueueReference(string  queueName = slItemTableName)
+        private static async Task<CloudQueue> getQueueReference(string queueName = slItemTableName)
         {
             CloudQueue queue = cloudQueueClient().GetQueueReference(queueName);
             await queue.CreateIfNotExistsAsync();
             return queue;
         }
-        public static async void updateDownloadCount(string templateName)
+        public static async void updateUserStats(string statsPayload)
         {
-            var message = new CloudQueueMessage(templateName);
-            message.SetMessageContent(templateName);
+            var message = new CloudQueueMessage(statsPayload);
             await (await getQueueReference()).AddMessageAsync(message);
         }
         public static async Task<IEnumerable<SLItemStats>> getSLItemRecordsAsync()
@@ -80,7 +80,7 @@ namespace ServerlessLibrary {
             return (SLItemStats)(dynamic)result.Result;
         }
 
- }
+    }
 
     public class SLItemStats : TableEntity
     {
@@ -90,6 +90,7 @@ namespace ServerlessLibrary {
         public int downloadsThisWeek { get; set; }
         public int downloadsThisMonth { get; set; }
         public DateTime lastUpdated { get; set; }
+        public int likes { get; set; }
 
     }
 

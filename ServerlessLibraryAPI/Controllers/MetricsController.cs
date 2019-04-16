@@ -9,13 +9,13 @@ namespace ServerlessLibrary.Controllers
     [ApiController]
     public class MetricsController : ControllerBase
     {
-        // PUT api/<controller>/
+        // PUT api/<controller>/{userAction}
         [ProducesResponseType(typeof(bool), 200)]
-        [HttpPut()]
-        public JsonResult Put([FromBody]string template)
+        [HttpPut]
+        [Route("{userAction}")]
+        public JsonResult Put([FromBody]string template, string userAction)
         {
-
-            StorageHelper.updateDownloadCount(JsonConvert.SerializeObject(new { template = WebUtility.UrlDecode(template) }));
+            StorageHelper.updateUserStats(JsonConvert.SerializeObject(new { template = WebUtility.UrlDecode(template), userAction }));
             return new JsonResult(true);
         }
     }

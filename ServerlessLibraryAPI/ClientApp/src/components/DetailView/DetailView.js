@@ -34,14 +34,18 @@ class DetailView extends Component {
   }
 
   render() {
+    let likes = this.state.sample.likes? this.state.sample.likes : 0;
+    
     return (
+     
       <div>
         <DetailPageHeader
           title={this.state.sample.title}
           repository={this.state.sample.repository}
+          template={this.state.sample.template}
           totaldownloads={this.state.sample.totaldownloads}
           description={this.state.sample.description}
-          numlikes={0}
+          numlikes={likes}
         />
         <DetailPageContent
           template={this.state.sample.template}

@@ -7,6 +7,7 @@ class DetailPageHeader extends Component {
     let {
       title,
       repository,
+      template,
       totaldownloads,
       description,
       numlikes
@@ -17,6 +18,7 @@ class DetailPageHeader extends Component {
           <MetricBar
             numlikes={numlikes}
             repository={repository}
+            template ={template}
             downloads={totaldownloads}
           />
           <p>{description}</p>

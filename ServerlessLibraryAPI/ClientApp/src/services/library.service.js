@@ -3,7 +3,8 @@ import { useMockApi } from "./index";
 
 export const libraryService = {
   getAllSamples,
-  submitNewSample
+  submitNewSample,
+  updateUserActionStats
 };
 
 function getAllSamples() {
@@ -36,4 +37,15 @@ function submitNewSample(item) {
     }
   };
   return fetch("/api/library", requestOptions).then(handleResponse);
+}
+
+function updateUserActionStats(template, userAction){
+  const requestOptions = {
+    method: "PUT",
+    body: '"' + template + '"',
+    headers: {
+      "Content-Type": "application/json"
+    }
+  };
+  return fetch("/api/metrics/"+ userAction, requestOptions).then(handleResponse);
 }

@@ -49,7 +49,10 @@ namespace ServerlessLibrary.Models
 
         [JsonProperty(PropertyName = "downloadstoday", DefaultValueHandling = DefaultValueHandling.Include)]
         public int DownloadsToday { get; set; }
-        
+
+        [JsonProperty(PropertyName = "likes", DefaultValueHandling = DefaultValueHandling.Include)]
+        public int Likes { get; set; }
+
         [JsonProperty(PropertyName = "runtimeversion", DefaultValueHandling = DefaultValueHandling.Include)]
         public string RuntimeVersion { get; set; }
 

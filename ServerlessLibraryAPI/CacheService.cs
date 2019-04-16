@@ -107,6 +107,7 @@ namespace ServerlessLibrary
                 item.DownloadsThisMonth = itemStat != null ? itemStat.downloadsThisMonth : 1;
                 item.DownloadsThisWeek = itemStat != null ? itemStat.downloadsThisWeek : 1;
                 item.DownloadsToday = itemStat != null ? itemStat.downloadsToday : 1;
+                item.Likes = itemStat != null ? itemStat.likes : 1;
                 item.AuthorTypeDesc = (item.AuthorType == "Microsoft" ? "This has been authored by Microsoft" : "This is a community contribution");
             }
 
