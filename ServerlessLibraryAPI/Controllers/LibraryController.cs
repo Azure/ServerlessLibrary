@@ -25,7 +25,7 @@ namespace ServerlessLibrary.Controllers
 
         // GET: api/<controller>
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<LibraryItem>), 200)]
+        [ProducesResponseType(typeof(IEnumerable<LibraryItemWithStats>), 200)]
         public JsonResult Get(string filterText, string type, string language)
         {
             
@@ -39,8 +39,8 @@ namespace ServerlessLibrary.Controllers
                         string.IsNullOrWhiteSpace(filterText)
                         || Regex.IsMatch(x.Title, filterText, RegexOptions.IgnoreCase)
                         || Regex.IsMatch(x.Description, filterText, RegexOptions.IgnoreCase)
-                        || Regex.IsMatch(x.AuthorType, filterText, RegexOptions.IgnoreCase)
                         || Regex.IsMatch(x.Repository.Replace("https://github.com/", "", StringComparison.InvariantCulture), filterText, RegexOptions.IgnoreCase)
+                        || (!string.IsNullOrWhiteSpace(x.Author) && Regex.IsMatch(x.Author, filterText, RegexOptions.IgnoreCase))
                         || (x.RuntimeVersion != null && Regex.IsMatch(x.RuntimeVersion, filterText, RegexOptions.IgnoreCase))
                         || (x.Tags != null && x.Tags.Any(t => Regex.IsMatch(t, filterText, RegexOptions.IgnoreCase)))
                     )
@@ -51,7 +51,7 @@ namespace ServerlessLibrary.Controllers
         }
 
         [HttpPut]
-        [ProducesResponseType(typeof(LibraryItem), 200)]
+        [ProducesResponseType(typeof(LibraryItemWithStats), 200)]
         public IActionResult Put([FromBody]LibraryItem libraryItem)
         {
             if (!User.Identity.IsAuthenticated)
@@ -69,15 +69,16 @@ namespace ServerlessLibrary.Controllers
                 return BadRequest("ARM template link must be a valid URL");
             }
 
-            // assign new id
+            // assign id, created date
             libraryItem.Id = Guid.NewGuid().ToString();
+            libraryItem.CreatedDate = DateTimeOffset.UtcNow.Date;
 
             // set the author to current authenticated user
             GitHubUser user = new GitHubUser(User);
             libraryItem.Author = user.UserName;
 
             // this._libraryStore.Add(libraryItem);
-            return new JsonResult(libraryItem);
+            return new JsonResult(libraryItem.ConvertTo<LibraryItemWithStats>());
         }
 
         private static bool IsValidUri(string uriString)

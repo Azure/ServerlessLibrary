@@ -30,7 +30,7 @@ namespace ServerlessLibrary
 
         async public Task<IList<LibraryItem>> GetAllItems()
         {
-            IEnumerable<LibraryItem> libraryItems = await CosmosDBRepository<LibraryItem>.GetItemsAsync(i => i.Template != null);
+            IEnumerable<LibraryItem> libraryItems = await CosmosDBRepository<LibraryItem>.GetItemsAsync();
             return libraryItems.ToList();
         }
     }
@@ -66,12 +66,11 @@ namespace ServerlessLibrary
             }
         }
 
-        public static async Task<List<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
+        public static async Task<List<T>> GetItemsAsync()
         {
             IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
                 UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId),
                 new FeedOptions { MaxItemCount = -1, EnableCrossPartitionQuery = true })
-                .Where(predicate)
                 .AsDocumentQuery();
 
             List<T> results = new List<T>();
