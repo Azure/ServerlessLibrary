@@ -4,7 +4,7 @@ import { useMockApi } from "./index";
 export const libraryService = {
   getAllSamples,
   submitNewSample,
-  updateUserActionStats
+  updateUserSentimentStats
 };
 
 function getAllSamples() {
@@ -12,10 +12,7 @@ function getAllSamples() {
     method: "GET"
   };
 
-  return fetch(
-    "/api/Library",
-    requestOptions
-  ).then(handleResponse);
+  return fetch("/api/Library", requestOptions).then(handleResponse);
 }
 
 function submitNewSample(item) {
@@ -39,7 +36,7 @@ function submitNewSample(item) {
   return fetch("/api/library", requestOptions).then(handleResponse);
 }
 
-function updateUserActionStats(id, userAction){
+function updateUserSentimentStats(id, likeChanges, dislikeChanges) {
   const requestOptions = {
     method: "PUT",
     body: '"' + id + '"',
@@ -47,5 +44,8 @@ function updateUserActionStats(id, userAction){
       "Content-Type": "application/json"
     }
   };
-  return fetch("/api/metrics/"+ userAction, requestOptions).then(handleResponse);
+  return fetch(
+    "/api/metrics/sentiment/" + likeChanges + "/" + dislikeChanges,
+    requestOptions
+  ).then(handleResponse);
 }

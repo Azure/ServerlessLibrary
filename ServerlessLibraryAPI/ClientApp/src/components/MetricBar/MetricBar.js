@@ -7,48 +7,64 @@ class MetricBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      liked: false
+      sentimentAction: "none"
     };
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.id && nextProps.id !== prevState.id) {
-      var sampleLiked = localStorage.getItem(nextProps.id);
-      if (sampleLiked === "liked") {
-        return {
-          liked: true
-        };
-      } else
-        return {
-          liked: false
-        };
-    } else return null;
+      return { sentimentAction: localStorage.getItem(nextProps.id) };
+    }
+
+    return null;
   }
 
   handleLikeClick() {
-    if (this.state.liked === true) {
-      localStorage.setItem(this.props.id, "unliked");
-      this.setState({ liked: false });
+    if (this.state.sentimentAction === "liked") {
+      this.updateSentiment("none", -1, 0);
+    } else if (this.state.sentimentAction === "disliked") {
+      this.updateSentiment("liked", 1, -1);
     } else {
-      localStorage.setItem(this.props.id, "liked");
-      this.setState({ liked: true });
+      this.updateSentiment("liked", 1, 0);
     }
+  }
 
+  handleDislikeClick() {
+    if (this.state.sentimentAction === "liked") {
+      this.updateSentiment("disliked", -1, 1);
+    } else if (this.state.sentimentAction === "disliked") {
+      this.updateSentiment("none", 0, -1);
+    } else {
+      this.updateSentiment("disliked", 0, 1);
+    }
+  }
+
+  updateSentiment(choice, likeChanges, dislikeChanges) {
+    localStorage.setItem(this.props.id, choice);
+    this.setState({ sentimentAction: choice });
     libraryService
-      .updateUserActionStats(this.props.id, "like")
+      .updateUserSentimentStats(this.props.id, likeChanges, dislikeChanges)
       .then(response => response.body)
       .catch(error => console.log(error));
   }
 
   render() {
-    let username = this.props.author;
-    let iconName = "Like";
-    let title = "Like";
-    let likes = this.props.likes;
-    if (this.state.liked) {
-      iconName = "LikeSolid";
-      title = "Liked";
-      likes = this.props.likes + 1;
+    let {author, downloads, likes, dislikes} = this.props;
+    let likeIconName = "Like";
+    let likeTitle = "Like";
+    let dislikeIconName = "Dislike";
+    let dislikeTitle = "Disike";
+ 
+    if (this.state.sentimentAction === "liked") {
+      likeIconName = "LikeSolid";
+      likeTitle = "Liked";
+      likes = likes + 1;
+    }
+
+    if (this.state.sentimentAction === "disliked") {
+      dislikeIconName = "DislikeSolid";
+      dislikeTitle = "Disliked";
+      dislikes = dislikes + 1;
     }
 
     let lastupdated;
@@ -71,19 +87,31 @@ class MetricBar extends Component {
       <div className="metrics">
         <div>
           <span>
-            By: {username} | {this.props.downloads} downloads {lastupdated} |
+            By: {author} | {downloads} downloads {lastupdated} |
           </span>
         </div>
+
         <IconButton
           style={styles.button}
           iconStyle={styles.icon}
           tooltipStyles={styles.tooltip}
-          iconProps={{ iconName: iconName }}
-          title={title}
-          ariaLabel={title}
+          iconProps={{ iconName: likeIconName }}
+          title={likeTitle}
+          ariaLabel={likeTitle}
           onClick={() => this.handleLikeClick()}
         />
         <div>{likes}</div>
+
+        <IconButton
+          style={styles.button}
+          iconStyle={styles.icon}
+          tooltipStyles={styles.tooltip}
+          iconProps={{ iconName: dislikeIconName }}
+          title={dislikeTitle}
+          ariaLabel={dislikeTitle}
+          onClick={() => this.handleDislikeClick()}
+        />
+        <div>{dislikes}</div>
       </div>
     );
   }

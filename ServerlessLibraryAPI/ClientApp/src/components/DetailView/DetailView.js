@@ -35,6 +35,7 @@ class DetailView extends Component {
 
   render() {
     let likes = this.state.sample.likes? this.state.sample.likes : 0;
+    let dislikes = this.state.sample.dislikes? this.state.sample.dislikes : 0;
     
     return (
      
@@ -46,6 +47,7 @@ class DetailView extends Component {
           totaldownloads={this.state.sample.totaldownloads}
           description={this.state.sample.description}
           likes={likes}
+          dislikes={dislikes}
         />
         <DetailPageContent
           template={this.state.sample.template}

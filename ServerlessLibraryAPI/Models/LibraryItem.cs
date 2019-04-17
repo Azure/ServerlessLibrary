@@ -19,6 +19,9 @@ namespace ServerlessLibrary.Models
 
         [JsonProperty(PropertyName = "likes", DefaultValueHandling = DefaultValueHandling.Include)]
         public int Likes { get; set; }
+
+        [JsonProperty(PropertyName = "dislikes", DefaultValueHandling = DefaultValueHandling.Include)]
+        public int Dislikes { get; set; }
     }
 
     public class LibraryItem

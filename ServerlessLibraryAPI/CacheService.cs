@@ -106,13 +106,12 @@ namespace ServerlessLibrary
             {
                 var item = storeItem.ConvertTo<LibraryItemWithStats>();
                 var itemStat = stats.Where(s => s.id == storeItem.Id.ToString()).FirstOrDefault();
-
-
                 item.TotalDownloads = itemStat != null && itemStat.totalDownloads > 0 ? itemStat.totalDownloads : 1;
                 item.DownloadsThisMonth = itemStat != null && itemStat.downloadsThisMonth > 0 ? itemStat.downloadsThisMonth : 1;
                 item.DownloadsThisWeek = itemStat != null && itemStat.downloadsThisWeek > 0 ? itemStat.downloadsThisWeek : 1;
                 item.DownloadsToday = itemStat != null && itemStat.downloadsToday > 0 ? itemStat.downloadsToday : 1;
-                item.Likes = itemStat != null && itemStat.likes > 0 ? itemStat.likes : 1;
+                item.Likes = itemStat != null && itemStat.likes > 0 ? itemStat.likes : 0;
+                item.Dislikes = itemStat != null && itemStat.dislikes > 0 ? itemStat.dislikes : 0;
                 libraryItemsWithStats.Add(item);
             }
 

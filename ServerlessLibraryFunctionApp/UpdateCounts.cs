@@ -19,6 +19,7 @@ namespace ServerlessLibraryFunctionApp
         {
             var payload = JsonConvert.DeserializeObject(((dynamic)myQueueItemJson));
             string id = payload.id.ToString();
+            
             var userActionString = payload.userAction.ToString();
             log.LogInformation($"Id:{id}, UserAction: {userActionString}");
             UserAction userAction;
@@ -26,6 +27,19 @@ namespace ServerlessLibraryFunctionApp
             {
                 log.LogInformation($"Unknown user action received.");
                 return;
+            }
+
+            int likeChanges = 0, dislikeChanges = 0;
+            if (userAction== UserAction.Sentiment)
+            {
+                try
+                {
+                    likeChanges = (int)payload.likeChanges;
+                    dislikeChanges = (int)payload.dislikeChanges;
+                }catch (Exception ex)
+                {
+                    log.LogInformation($"Exception got in casting {ex}"  );
+                }
             }
 
             string mainFilter = TableQuery.GenerateFilterCondition("id", QueryComparisons.Equal, id);
@@ -43,96 +57,60 @@ namespace ServerlessLibraryFunctionApp
             } while (continuationToken != null);
             if (entities.Count == 0)
             {
-                if (userAction == UserAction.Unlike)
-                {
-                    log.LogInformation($"Unexpected user action. Unlike is not allowed if item has not received a single like.");
-                    return;
-                }
-
                 // Create new entry
                 SLItemStats item = null;
-                if (userAction== UserAction.Like)
+                item = new SLItemStats()
                 {
-
-                    item = new SLItemStats()
-                    {
-                        PartitionKey = Guid.NewGuid().ToString(),
-                        RowKey = Guid.NewGuid().ToString(),
-                        id = id,
-                        totalDownloads = 0,
-                        downloadsThisMonth = 0,
-                        downloadsThisWeek = 0,
-                        downloadsToday = 0,
-                        lastUpdated = DateTime.UtcNow,
-                        likes = 1
-                    };
-                } 
-                else
-                {
-                    // download
-                    item = new SLItemStats()
-                    {
-                        PartitionKey = Guid.NewGuid().ToString(),
-                        RowKey = Guid.NewGuid().ToString(),
-                        id = id,
-                        totalDownloads = 1,
-                        downloadsThisMonth = 1,
-                        downloadsThisWeek = 1,
-                        downloadsToday = 1,
-                        lastUpdated = DateTime.UtcNow,
-                        likes = 0
-                    };
-                }
+                    PartitionKey = Guid.NewGuid().ToString(),
+                    RowKey = Guid.NewGuid().ToString(),
+                    id = id,
+                    totalDownloads = userAction== UserAction.Download? 1: 0,
+                    downloadsThisMonth = userAction == UserAction.Download ? 1 : 0,
+                    downloadsThisWeek = userAction == UserAction.Download ? 1 : 0,
+                    downloadsToday = userAction == UserAction.Download ? 1 : 0,
+                    lastUpdated = DateTime.UtcNow,
+                    likes = likeChanges,
+                    dislikes = dislikeChanges
+                };    
 
                 // Create the TableOperation that inserts the itemStats entity.
                 TableOperation insertOperation = TableOperation.Insert(item);
 
                 // Execute the insert operation.
                 await table.ExecuteAsync(insertOperation);
-    
+
             }
             else
             {
                 //Update existing entry
                 var item = entities[0];
-                if (userAction== UserAction.Unlike)
+                switch (userAction)
                 {
-                    if (item.likes > 0)
-                    {
-                        item.likes -= 1;
-                    }
-                    else
-                    {
-                        log.LogInformation($"Unexpected user action. Unlike is not allowed if item has not received a single like.");
+                    case UserAction.Download:
+                        item.downloadsThisMonth += 1;
+                        item.downloadsThisWeek += 1;
+                        item.downloadsToday += 1;
+                        item.totalDownloads += 1;
+                        break;
+                    case UserAction.Sentiment:
+                        item.likes += likeChanges;
+                        item.dislikes += dislikeChanges;
+                        break;
+                    default:
+                        log.LogInformation($"Unexpected user action.");
                         return;
-                    }
-
-                      
-                }
-                else if (userAction == UserAction.Like)
-                {
-                    item.likes += 1;                               
-                }
-                else
-                {
-                    item.downloadsThisMonth += 1;
-                    item.downloadsThisWeek += 1;
-                    item.downloadsToday += 1;
-                    item.totalDownloads += 1;
                 }
 
                 TableOperation operation = TableOperation.InsertOrMerge(item);
-                await table.ExecuteAsync(operation);         
+                await table.ExecuteAsync(operation);
             }
-
         }
     }
 
     enum UserAction
     {
         Download,
-        Like,
-        Unlike
+        Sentiment
     }
 
     public class SLItemStats : TableEntity
@@ -144,6 +122,7 @@ namespace ServerlessLibraryFunctionApp
         public int downloadsThisMonth { get; set; }
         public DateTime lastUpdated { get; set; }
         public int likes { get; set; }
+        public int dislikes { get; set; }
 
     }
 }
