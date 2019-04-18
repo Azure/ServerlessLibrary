@@ -42,21 +42,29 @@ class MetricBar extends Component {
   updateSentiment(choice, likeChanges, dislikeChanges) {
     localStorage.setItem(this.props.id, choice);
     this.setState({ sentimentAction: choice });
+
+    var sentimentPayload={
+      Id:this.props.id,
+      LikeChanges:likeChanges,
+      DislikeChanges:dislikeChanges
+    }
+
     libraryService
-      .updateUserSentimentStats(this.props.id, likeChanges, dislikeChanges)
+      .updateUserSentimentStats(sentimentPayload)
       .then(response => response.body)
       .catch(error => console.log(error));
   }
 
   render() {
     let {author, downloads, createddate, likes, dislikes} = this.props;
+    console.log(createddate);
     let createdonDate = new  Date(createddate);
     let createdonLocaleDate = createdonDate.toLocaleDateString();
 
     let likeIconName = "Like";
     let likeTitle = "Like";
     let dislikeIconName = "Dislike";
-    let dislikeTitle = "Disike";
+    let dislikeTitle = "Dislike";
  
     if (this.state.sentimentAction === "liked") {
       likeIconName = "LikeSolid";

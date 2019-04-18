@@ -36,16 +36,16 @@ function submitNewSample(item) {
   return fetch("/api/library", requestOptions).then(handleResponse);
 }
 
-function updateUserSentimentStats(id, likeChanges, dislikeChanges) {
+function updateUserSentimentStats(sentimentPayload) {
   const requestOptions = {
     method: "PUT",
-    body: '"' + id + '"',
+    body: JSON.stringify(sentimentPayload),
     headers: {
       "Content-Type": "application/json"
     }
   };
   return fetch(
-    "/api/metrics/sentiment/" + likeChanges + "/" + dislikeChanges,
+    "/api/metrics/sentiment",
     requestOptions
   ).then(handleResponse);
 }

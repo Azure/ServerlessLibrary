@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using ServerlessLibrary.Models;
 
 namespace ServerlessLibrary.Controllers
 {
@@ -15,19 +16,26 @@ namespace ServerlessLibrary.Controllers
             StorageHelper.updateUserStats(JsonConvert.SerializeObject(new { id, userAction = "download" }));
             return new JsonResult(true);
         }
-
         // PUT api/<controller>/sentiment
         [ProducesResponseType(typeof(bool), 200)]
         [HttpPut]
-        [Route("sentiment/{likeChanges}/{dislikeChanges}")]
-        public IActionResult Sentiment([FromBody]string id, int likeChanges, int dislikeChanges)
+        [Route("sentiment")]
+        public IActionResult Sentiment([FromBody]SentimentPayload sentimentPayload)
         {
-            if (likeChanges < -1 || likeChanges > 1 || likeChanges == dislikeChanges)
+            if (sentimentPayload.LikeChanges < -1 
+                || sentimentPayload.LikeChanges > 1 
+                || sentimentPayload.LikeChanges == sentimentPayload.DislikeChanges)
             {
                 return BadRequest("Invalid values for like or dislike count");
             }
 
-            StorageHelper.updateUserStats(JsonConvert.SerializeObject(new { id, userAction = "Sentiment", likeChanges, dislikeChanges }));
+            StorageHelper.updateUserStats(JsonConvert.SerializeObject(new
+                                            {
+                                                id = sentimentPayload.Id,
+                                                userAction = "Sentiment",
+                                                likeChanges = sentimentPayload.LikeChanges,
+                                                dislikeChanges = sentimentPayload.DislikeChanges
+                                            }));
             return new JsonResult(true);
         }
     }

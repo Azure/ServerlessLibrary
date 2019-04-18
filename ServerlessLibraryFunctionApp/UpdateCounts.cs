@@ -19,7 +19,7 @@ namespace ServerlessLibraryFunctionApp
         {
             var payload = JsonConvert.DeserializeObject(((dynamic)myQueueItemJson));
             string id = payload.id.ToString();
-            
+
             var userActionString = payload.userAction.ToString();
             log.LogInformation($"Id:{id}, UserAction: {userActionString}");
             UserAction userAction;
@@ -30,15 +30,16 @@ namespace ServerlessLibraryFunctionApp
             }
 
             int likeChanges = 0, dislikeChanges = 0;
-            if (userAction== UserAction.Sentiment)
+            if (userAction == UserAction.Sentiment)
             {
                 try
                 {
                     likeChanges = (int)payload.likeChanges;
                     dislikeChanges = (int)payload.dislikeChanges;
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
-                    log.LogInformation($"Exception got in casting {ex}"  );
+                    log.LogInformation($"Exception got in casting {ex}");
                 }
             }
 
@@ -64,11 +65,11 @@ namespace ServerlessLibraryFunctionApp
                     PartitionKey = Guid.NewGuid().ToString(),
                     RowKey = Guid.NewGuid().ToString(),
                     id = id,
-                    totalDownloads = userAction== UserAction.Download? 1: 0,
+                    totalDownloads = userAction == UserAction.Download ? 1 : 0,
                     lastUpdated = DateTime.UtcNow,
                     likes = likeChanges,
                     dislikes = dislikeChanges
-                };    
+                };
 
                 // Create the TableOperation that inserts the itemStats entity.
                 TableOperation insertOperation = TableOperation.Insert(item);
@@ -84,7 +85,7 @@ namespace ServerlessLibraryFunctionApp
                 switch (userAction)
                 {
                     case UserAction.Download:
-                        item.downloadsThisMonth += 1;
+                        item.totalDownloads += 1;
                         break;
                     case UserAction.Sentiment:
                         item.likes += likeChanges;
@@ -111,9 +112,6 @@ namespace ServerlessLibraryFunctionApp
     {
         public string id { get; set; }
         public int totalDownloads { get; set; }
-        public int downloadsToday { get; set; }
-        public int downloadsThisWeek { get; set; }
-        public int downloadsThisMonth { get; set; }
         public DateTime lastUpdated { get; set; }
         public int likes { get; set; }
         public int dislikes { get; set; }
