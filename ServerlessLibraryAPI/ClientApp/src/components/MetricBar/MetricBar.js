@@ -20,6 +20,10 @@ class MetricBar extends Component {
   }
 
   handleLikeClick() {
+
+    // If user already liked, then decrement like count and set the sentiment state to none.
+    // If in past disliked and choose to like the sample, then decrement dislike count and increment like count
+    // If not action taken ealier, just increment like count and set sentiment state to liked.
     if (this.state.sentimentAction === "liked") {
       this.updateSentiment("none", -1, 0);
     } else if (this.state.sentimentAction === "disliked") {
@@ -57,7 +61,6 @@ class MetricBar extends Component {
 
   render() {
     let {author, downloads, createddate, likes, dislikes} = this.props;
-    console.log(createddate);
     let createdonDate = new  Date(createddate);
     let createdonLocaleDate = createdonDate.toLocaleDateString();
 
