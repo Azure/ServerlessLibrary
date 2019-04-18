@@ -65,9 +65,6 @@ namespace ServerlessLibraryFunctionApp
                     RowKey = Guid.NewGuid().ToString(),
                     id = id,
                     totalDownloads = userAction== UserAction.Download? 1: 0,
-                    downloadsThisMonth = userAction == UserAction.Download ? 1 : 0,
-                    downloadsThisWeek = userAction == UserAction.Download ? 1 : 0,
-                    downloadsToday = userAction == UserAction.Download ? 1 : 0,
                     lastUpdated = DateTime.UtcNow,
                     likes = likeChanges,
                     dislikes = dislikeChanges
@@ -88,9 +85,6 @@ namespace ServerlessLibraryFunctionApp
                 {
                     case UserAction.Download:
                         item.downloadsThisMonth += 1;
-                        item.downloadsThisWeek += 1;
-                        item.downloadsToday += 1;
-                        item.totalDownloads += 1;
                         break;
                     case UserAction.Sentiment:
                         item.likes += likeChanges;

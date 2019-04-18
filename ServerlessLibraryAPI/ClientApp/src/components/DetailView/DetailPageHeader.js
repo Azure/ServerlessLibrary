@@ -9,6 +9,7 @@ class DetailPageHeader extends Component {
       author,
       id,
       totaldownloads,
+      createddate,
       description,
       likes,
       dislikes
@@ -22,6 +23,7 @@ class DetailPageHeader extends Component {
             author={author}
             id={id}
             downloads={totaldownloads}
+            createddate={createddate}
           />
           <p>{description}</p>
         </PageHeaderWithBackButton>

@@ -56,7 +56,7 @@ namespace ServerlessLibrary
         {
 
             TableQuery<SLItemStats> query = new TableQuery<SLItemStats>().Select(new List<string> { "id", "totalDownloads"
-            ,"downloadsToday","downloadsThisWeek","downloadsThisMonth", "likes", "dislikes"});
+            , "likes", "dislikes"});
             TableContinuationToken continuationToken = null;
             List<SLItemStats> entities = new List<SLItemStats>();
             var opContext = new OperationContext();
@@ -86,9 +86,6 @@ namespace ServerlessLibrary
     {
         public string id { get; set; }
         public int totalDownloads { get; set; }
-        public int downloadsToday { get; set; }
-        public int downloadsThisWeek { get; set; }
-        public int downloadsThisMonth { get; set; }
         public DateTime lastUpdated { get; set; }
         public int likes { get; set; }
         public int dislikes { get; set; }

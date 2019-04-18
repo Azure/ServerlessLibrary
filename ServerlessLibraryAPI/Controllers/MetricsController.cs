@@ -10,7 +10,6 @@ namespace ServerlessLibrary.Controllers
         // PUT api/<controller>
         [ProducesResponseType(typeof(bool), 200)]
         [HttpPut]
-        [Route("{userAction}")]
         public JsonResult Put([FromBody]string id)
         {
             StorageHelper.updateUserStats(JsonConvert.SerializeObject(new { id, userAction = "download" }));

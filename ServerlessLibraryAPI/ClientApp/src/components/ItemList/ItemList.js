@@ -35,6 +35,7 @@ class ItemList extends Component {
               author={item.author}
               id={item.id}
               downloads={item.totaldownloads}
+              createddate={item.createddate}
             />
             <p className="description">{item.description}</p>
             <ItemTags

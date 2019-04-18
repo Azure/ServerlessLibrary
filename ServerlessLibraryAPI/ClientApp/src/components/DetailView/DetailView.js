@@ -45,6 +45,7 @@ class DetailView extends Component {
           author={this.state.sample.author}
           id={this.state.sample.id}
           totaldownloads={this.state.sample.totaldownloads}
+          createddate={this.state.sample.createddate}
           description={this.state.sample.description}
           likes={likes}
           dislikes={dislikes}

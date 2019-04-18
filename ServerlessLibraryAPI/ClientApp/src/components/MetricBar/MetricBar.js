@@ -49,7 +49,10 @@ class MetricBar extends Component {
   }
 
   render() {
-    let {author, downloads, likes, dislikes} = this.props;
+    let {author, downloads, createddate, likes, dislikes} = this.props;
+    let createdonDate = new  Date(createddate);
+    let createdonLocaleDate = createdonDate.toLocaleDateString();
+
     let likeIconName = "Like";
     let likeTitle = "Like";
     let dislikeIconName = "Dislike";
@@ -66,14 +69,7 @@ class MetricBar extends Component {
       dislikeTitle = "Disliked";
       dislikes = dislikes + 1;
     }
-
-    let lastupdated;
-    if (this.props.lastupdated) {
-      lastupdated = (
-        <span>| Last updated: {this.props.lastupdated} days ago</span>
-      );
-    }
-
+   
     const styles = {
       button: {
         width: 16,
@@ -87,7 +83,7 @@ class MetricBar extends Component {
       <div className="metrics">
         <div>
           <span>
-            By: {author} | {downloads} downloads {lastupdated} |
+            By: {author} | {downloads} downloads | Created on: {createdonLocaleDate} |
           </span>
         </div>
 
