@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@uifabric/styling": "^6.45.1",
+    "@uifabric/styling": "^6.46.0",
     "markdown-to-jsx": "^6.9.3",
     "node-sass": "^4.11.0",
-    "office-ui-fabric-react": "^6.161.0",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
+    "office-ui-fabric-react": "^6.167.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
-    "react-router-dom": "^4.2.2",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.8",
     "redux": "^4.0.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.3"
   },
   "scripts": {
     "start": "rimraf ./build && react-scripts start",
