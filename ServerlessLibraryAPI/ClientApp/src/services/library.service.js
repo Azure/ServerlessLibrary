@@ -3,7 +3,8 @@ import { useMockApi } from "./index";
 
 export const libraryService = {
   getAllSamples,
-  submitNewSample
+  submitNewSample,
+  updateUserSentimentStats
 };
 
 function getAllSamples() {
@@ -11,10 +12,7 @@ function getAllSamples() {
     method: "GET"
   };
 
-  return fetch(
-    "https://www.serverlesslibrary.net/api/Library",
-    requestOptions
-  ).then(handleResponse);
+  return fetch("/api/Library", requestOptions).then(handleResponse);
 }
 
 function submitNewSample(item) {
@@ -36,4 +34,18 @@ function submitNewSample(item) {
     }
   };
   return fetch("/api/library", requestOptions).then(handleResponse);
+}
+
+function updateUserSentimentStats(sentimentPayload) {
+  const requestOptions = {
+    method: "PUT",
+    body: JSON.stringify(sentimentPayload),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  };
+  return fetch(
+    "/api/metrics/sentiment",
+    requestOptions
+  ).then(handleResponse);
 }

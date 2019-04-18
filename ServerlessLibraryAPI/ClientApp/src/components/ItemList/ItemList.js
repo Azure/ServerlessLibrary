@@ -14,6 +14,8 @@ class ItemList extends Component {
   }
 
   _onRenderCell(item, index) {
+    let likes = item.likes? item.likes : 0;
+    let dislikes = item.dislikes? item.dislikes : 0;
     return (
       <article>
         <div className={this.disableHover ? "" : "libraryitemContainer"}>
@@ -23,14 +25,17 @@ class ItemList extends Component {
             }
           >
             <div className="title">
-              <Link className="titlelink" to={`/sample/${item.title}`}>
+              <Link className="titlelink" to={`/sample/${item.id}`}>
                 {item.title}
               </Link>
             </div>
             <MetricBar
-              numlikes="0"
-              repository={item.repository}
+              likes={likes}
+              dislikes={dislikes}
+              author={item.author}
+              id={item.id}
               downloads={item.totaldownloads}
+              createddate={item.createddate}
             />
             <p className="description">{item.description}</p>
             <ItemTags

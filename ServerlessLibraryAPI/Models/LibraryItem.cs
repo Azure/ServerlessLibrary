@@ -8,14 +8,11 @@ namespace ServerlessLibrary.Models
         [JsonProperty(PropertyName = "totaldownloads", DefaultValueHandling = DefaultValueHandling.Include)]
         public int TotalDownloads { get;  set; }
 
-        [JsonProperty(PropertyName = "downloadsthismonth", DefaultValueHandling = DefaultValueHandling.Include)]
-        public int DownloadsThisMonth { get; set; }
+        [JsonProperty(PropertyName = "likes", DefaultValueHandling = DefaultValueHandling.Include)]
+        public int Likes { get; set; }
 
-        [JsonProperty(PropertyName = "downloadsthisweek", DefaultValueHandling = DefaultValueHandling.Include)]
-        public int DownloadsThisWeek { get; set; }
-
-        [JsonProperty(PropertyName = "downloadstoday", DefaultValueHandling = DefaultValueHandling.Include)]
-        public int DownloadsToday { get; set; }
+        [JsonProperty(PropertyName = "dislikes", DefaultValueHandling = DefaultValueHandling.Include)]
+        public int Dislikes { get; set; }
     }
 
     public class LibraryItem

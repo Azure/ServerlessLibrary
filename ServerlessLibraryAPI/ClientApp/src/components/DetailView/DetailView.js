@@ -19,14 +19,14 @@ class DetailView extends Component {
     var id = this.props.match.params.id;
     var currentItem;
     if (this.props.samples.length > 0) {
-      currentItem = this.props.samples.filter(s => s.title === id)[0];
+      currentItem = this.props.samples.filter(s => s.id === id)[0];
       this.setState({ sample: currentItem });
     } else {
       libraryService
         .getAllSamples()
         .then(samples => {
           this.props.getSamplesSuccess(samples);
-          currentItem = samples.filter(s => s.title === id)[0];
+          currentItem = samples.filter(s => s.id === id)[0];
           this.setState({ sample: currentItem });
         })
         .catch(error => console.log(error));
@@ -34,14 +34,21 @@ class DetailView extends Component {
   }
 
   render() {
+    let likes = this.state.sample.likes? this.state.sample.likes : 0;
+    let dislikes = this.state.sample.dislikes? this.state.sample.dislikes : 0;
+    
     return (
+     
       <div>
         <DetailPageHeader
           title={this.state.sample.title}
-          repository={this.state.sample.repository}
+          author={this.state.sample.author}
+          id={this.state.sample.id}
           totaldownloads={this.state.sample.totaldownloads}
+          createddate={this.state.sample.createddate}
           description={this.state.sample.description}
-          numlikes={0}
+          likes={likes}
+          dislikes={dislikes}
         />
         <DetailPageContent
           template={this.state.sample.template}
