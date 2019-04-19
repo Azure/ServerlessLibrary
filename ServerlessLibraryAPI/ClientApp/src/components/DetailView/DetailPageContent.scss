@@ -1,3 +1,8 @@
+.detail-page-content{
+  margin-top: 24px;
+  border-top: 1px solid rgba(105, 130, 155, 0.25);
+  border-bottom: 1px solid rgba(105, 130, 155, 0.25);
+}
 .pivot-item-container {
   padding-left: 23px;
   background-color: #fbfbfb;
@@ -8,21 +13,13 @@
   max-height: inherit;
 }
 
-.tab-summary {
-  background: #ffffff;
-  padding-top: 17px;
-  padding-bottom: 13px;
-  font-size: 13px;
-  font-weight: bold;
-}
-
 .armtemplate-content {
   overflow-wrap: break-word;
   white-space: pre-line;
   justify-content: center;
 }
 
-.licence-content {
+.license-content {
   max-width: 750px;
   text-align: justify;
   text-justify: inter-word;

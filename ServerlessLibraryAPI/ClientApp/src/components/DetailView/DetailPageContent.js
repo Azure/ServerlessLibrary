@@ -14,7 +14,7 @@ class DetailPageContent extends Component {
     this.state = {
       armTemplateText: "",
       markdownText: "",
-      selectedKey: "licence"
+      selectedKey: "overview"
     };
 
     this.handleLinkClick = this.handleLinkClick.bind(this);
@@ -31,48 +31,59 @@ class DetailPageContent extends Component {
       let { template } = this.props;
       if (template) {
         fetch(template)
-          .then(response => response.text())
+          .then(response => {
+            if (response.ok) {
+              return response.text();
+            }
+            throw new Error("Network response was not ok.");
+          })
           .then(data => {
             this.setState({ armTemplateText: data });
-          });
+          })
+          .catch(error =>
+            this.setState({ armTemplateText: "Unable to fetch ARM template." })
+          );
       } else {
         this.setState({
-          armTemplateText: "This sample does not have an arm template"
+          armTemplateText: "This sample does not have an arm template."
         });
       }
     }
+  }
 
-    if (
-      pivotItem.props.itemKey === "overview" &&
-      this.state.markdownText === ""
-    ) {
-      //todo: fetch proper readme file of the sample. Now a fixed url readme is used
+  componentDidMount() {
+    let { repository } = this.props;
+    repository = repository.replace(
+      "https://github.com",
+      "https://raw.githubusercontent.com"
+    );
 
-      //   let { repository } = this.props;
-      //   let readmefileUrl = repository + "/blob/master/README.md";
-      //   if (repository.includes("/tree/")) {
-      //     readmefileUrl = repository + "/README.md";
-      //   }
-      //   fetch(readmefileUrl)
-      //     .then(response => response.text())
-      //     .then(data => {
-      //       this.setState({ markdownText: data });
-      //     });
-
-      fetch(
-        "https://raw.githubusercontent.com/jefking/fl-image-resize/master/README.md"
-      )
-        .then(response => response.text())
-        .then(data => {
-          this.setState({ markdownText: data });
-        });
+    repository = repository.replace("/tree/", "/");
+    let readmefileUrl = repository + "/master/README.md";
+    if (repository.includes("/master/")) {
+      readmefileUrl = repository + "README.md";
     }
+
+    fetch(readmefileUrl)
+      .then(response => {
+        if (response.ok) {
+          return response.text();
+        }
+        throw new Error("Network response was not ok.");
+      })
+      .then(data => {
+        data = data.replace("http://azuredeploy.net/deploybutton.svg", "");
+        data = data.replace("http://azuredeploy.net/deploybutton.png", "");
+        this.setState({ markdownText: data });
+      })
+      .catch(error =>
+        this.setState({ markdownText: "No readme file available " })
+      );
   }
 
   render() {
     const pivotStyles = {
       root: {
-        borderBottom: "1px solid rgba(105, 130, 155, 0.25)",
         paddingLeft: "15px"
       },
       text: {
@@ -98,24 +109,11 @@ class DetailPageContent extends Component {
               </div>
             </div>
           </PivotItem>
-          <PivotItem headerText="ARM template" itemKey="armtemplate">
+          <PivotItem headerText="License" itemKey="license">
             <div className="pivot-item-container">
               <div className="scrollablePane-wrapper">
                 <ScrollablePane>
-                  <div className="tab-summary">ARM template</div>
-                  <div className="armtemplate-content">
-                    {this.state.armTemplateText}
-                  </div>
-                </ScrollablePane>
-              </div>
-            </div>
-          </PivotItem>
-          <PivotItem headerText="Licence" itemKey="licence">
-            <div className="pivot-item-container">
-              <div className="scrollablePane-wrapper">
-                <ScrollablePane>
-                  <div className="tab-summary">Licence details</div>
-                  <div className="licence-content">
+                  <div className="license-content">
                     <p>
                       Each application is licensed to you by its owner (which
                       may or may not be Microsoft) under the agreement which
@@ -132,6 +130,17 @@ class DetailPageContent extends Component {
                       not contain the latest features, but will still work as
                       provided.
                     </p>
+                  </div>
+                </ScrollablePane>
+              </div>
+            </div>
+          </PivotItem>
+          <PivotItem headerText="ARM template" itemKey="armtemplate">
+            <div className="pivot-item-container">
+              <div className="scrollablePane-wrapper">
+                <ScrollablePane>
+                  <div className="armtemplate-content">
+                    {this.state.armTemplateText}
                   </div>
                 </ScrollablePane>
               </div>

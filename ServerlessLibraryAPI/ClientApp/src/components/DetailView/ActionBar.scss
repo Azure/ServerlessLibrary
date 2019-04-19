@@ -1,26 +1,35 @@
 .action-container {
   display: flex;
   flex-direction: row;
-  padding-top: 20px;
+  padding-top: 7px;
   padding-left: 23px;
-  border-top: 1px solid rgba(105, 130, 155, 0.25);
 }
 
 .action-item {
   margin-right: 16px;
 }
 
-.open-in-github-link {
+.action-link-wrapper {
   height: 100%;
   display: flex;
 }
 
-.githubicon {
-  margin: auto;
+.fabric-icon-link {
+  font-size: 12px;
+  width: 13px;
+  height: 11px;
 }
 
-.open-in-github-link-text {
-  margin-left: 8px;
+.githubicon {
+  font-size: 12px;
+  fill: parent;
+  height: 11px;
+  width: 13px;
+  fill: #0078d7;
+}
+
+.action-link-text {
+  padding-left: 8px;
   font-size: 12px;
   margin: auto;
 }
