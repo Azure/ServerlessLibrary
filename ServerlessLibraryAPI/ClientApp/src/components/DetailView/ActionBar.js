@@ -31,7 +31,7 @@ class ActionBar extends Component {
     return (
       <div className="action-container">
         <div className="action-item">
-          <FabricLink href={this.getDeployLink(template)} disabled={deployDisabled}>
+          <FabricLink href={this.getDeployLink(template)} disabled={deployDisabled} target="_blank">
             <div className="action-link-wrapper">
               <Icon iconName="Deploy" className="fabric-icon-link" />
               <span className="action-link-text">Deploy</span>
@@ -47,7 +47,7 @@ class ActionBar extends Component {
           </FabricLink>
         </div>
         <div className="action-item">
-          <FabricLink href={repository}>
+          <FabricLink href={repository} target="_blank">
             <div className="action-link-wrapper">
               <Icon iconName="github-svg" className="githubicon" />
               <span className="action-link-text">Open in Github</span>
