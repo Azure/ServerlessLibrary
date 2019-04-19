@@ -1,16 +1,9 @@
 import React, { Component } from "react";
 import { Icon, Link as FabricLink } from "office-ui-fabric-react";
-import { registerIcons } from "office-ui-fabric-react";
-import { ReactComponent as GithubIconSvg } from "../../assets/github.svg";
 import "./ActionBar.scss";
 
-registerIcons({
-  icons: {
-    "github-svg": <GithubIconSvg />
-  }
-});
 class ActionBar extends Component {
-   getDeployLink(template) {
+  getDeployLink(template) {
     return (
       "https://portal.azure.com/#create/Microsoft.Template/uri/" +
       encodeURIComponent(template)
@@ -31,7 +24,11 @@ class ActionBar extends Component {
     return (
       <div className="action-container">
         <div className="action-item">
-          <FabricLink href={this.getDeployLink(template)} disabled={deployDisabled} target="_blank">
+          <FabricLink
+            href={this.getDeployLink(template)}
+            disabled={deployDisabled}
+            target="_blank"
+          >
             <div className="action-link-wrapper">
               <Icon iconName="Deploy" className="fabric-icon-link" />
               <span className="action-link-text">Deploy</span>
@@ -49,7 +46,7 @@ class ActionBar extends Component {
         <div className="action-item">
           <FabricLink href={repository} target="_blank">
             <div className="action-link-wrapper">
-              <Icon iconName="github-svg" className="githubicon" />
+              <Icon iconName="GitHub-12px" className="githubicon" />
               <span className="action-link-text">Open in Github</span>
             </div>
           </FabricLink>
