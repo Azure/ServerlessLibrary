@@ -11,8 +11,11 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      initialFilters: this.getFiltersFromQueryParams()
+      initialFilters: this.getFiltersFromQueryParams(),
+      showContentHeaderShadow: false
     };
+
+    this.onListScrollEvent = this.onListScrollEvent.bind(this);
   }
 
   filteredSamples() {
@@ -94,7 +97,20 @@ class Main extends Component {
 
     return filter;
   }
+
+  onListScrollEvent(e) {
+    let element = e.target;
+    if (element.scrollTop > 0) {
+      !this.state.showContentHeaderShadow && this.setState({ showContentHeaderShadow: true });
+    } else {
+      this.state.showContentHeaderShadow && this.setState({ showContentHeaderShadow: false });
+    }
+  }
   render() {
+    const contentheaderShadowStyle = {
+      boxShadow: this.state.showContentHeaderShadow ? "0 4px 6px -6px #222" : "none"
+    };
+
     return (
       <div id="mainContainer">
         <div id="sidebar">
@@ -103,14 +119,14 @@ class Main extends Component {
           />
         </div>
         <div id="content">
-          <div id="contentheader">
+          <div id="contentheader" style={contentheaderShadowStyle}>
             <ContentHeaderContainer
               initialSearchText={this.state.initialFilters.filtertext}
               initialSortBy={this.state.initialFilters.sortby}
               samples={this.filteredSamples()}
             />
           </div>
-          <div id="list">
+          <div id="list" onScroll={this.onListScrollEvent}>
             <div className="list-container">
               <ItemList filteredSamples={this.filteredSamples()} />
             </div>
