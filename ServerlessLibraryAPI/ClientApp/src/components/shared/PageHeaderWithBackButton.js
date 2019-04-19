@@ -7,17 +7,17 @@ import "./PageHeaderWithBackButton.scss";
 class PageHeaderWithBackButton extends Component {
   constructor(props) {
     super(props);
-    this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
+    this.handleHomeButtonClick = this.handleHomeButtonClick.bind(this);
   }
 
-  handleBackButtonClick() {
-    this.props.history.goBack();
+  handleHomeButtonClick() {
+    this.props.history.push("/");
   }
 
   render() {
     let { title } = this.props;
 
-    const backButton = {
+    const homeButton = {
       button: {
         width: 17,
         height: 18,
@@ -30,11 +30,11 @@ class PageHeaderWithBackButton extends Component {
         <div className="page-title-container">
           <div className="back-button-icon-container">
             <IconButton
-              iconProps={{ iconName: "Back" }}
-              title="Back"
-              ariaLabel="Back"
-              style={backButton.button}
-              onClick={() => this.handleBackButtonClick()}
+              iconProps={{ iconName: "Home" }}
+              title="Home"
+              ariaLabel="Home"
+              style={homeButton.button}
+              onClick={() => this.handleHomeButtonClick()}
             />
           </div>
           <div className="page-title">

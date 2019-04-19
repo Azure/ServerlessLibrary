@@ -104,6 +104,7 @@ class ContentHeader extends Component {
           placeholder="Search"
           value={this.state.filterText}
           onSearch={newValue => this.filterTextChanged(newValue)}
+          onClear={() =>this.filterTextChanged('')}
           styles={searchBoxStyles}
         />
         <div className="content-header-sortbywrappper">
