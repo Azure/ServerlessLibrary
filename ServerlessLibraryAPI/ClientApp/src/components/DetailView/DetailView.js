@@ -34,11 +34,19 @@ class DetailView extends Component {
   }
 
   render() {
-    let likes = this.state.sample.likes? this.state.sample.likes : 0;
-    let dislikes = this.state.sample.dislikes? this.state.sample.dislikes : 0;
-    
+    let likes = this.state.sample.likes ? this.state.sample.likes : 0;
+    let dislikes = this.state.sample.dislikes ? this.state.sample.dislikes : 0;
+
+    let detailPageContent;
+    if (this.state.sample.template && this.state.sample.repository) {
+      detailPageContent = (
+        <DetailPageContent
+          template={this.state.sample.template}
+          repository={this.state.sample.repository}
+        />
+      );
+    }
     return (
-     
       <div>
         <DetailPageHeader
           title={this.state.sample.title}
@@ -50,14 +58,11 @@ class DetailView extends Component {
           likes={likes}
           dislikes={dislikes}
         />
-        <DetailPageContent
-          template={this.state.sample.template}
-          repository={this.state.sample.repository}
-        />
         <ActionBar
           template={this.state.sample.template}
           repository={this.state.sample.repository}
         />
+        {detailPageContent}
       </div>
     );
   }
