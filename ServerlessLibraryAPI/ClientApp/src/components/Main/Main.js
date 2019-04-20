@@ -30,7 +30,8 @@ class Main extends Component {
         el.type.match(filter) ||
         el.repository.replace("https://github.com/", "").match(filter) ||
         (el.runtimeversion && el.runtimeversion.match(filter)) ||
-        (el.tags && el.tags.some(x => x.match(filter)))
+        (el.tags && el.tags.some(x => x.match(filter))) ||
+        (el.author && el.author.match(filter))
     );
 
     if (currentfilters.categories.types.length > 0) {

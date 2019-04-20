@@ -9,7 +9,9 @@ class ContributionsList extends Component {
     let { userName } = user || "__nouser__";
     let filter = new RegExp(userName, "i");
     samples = samples.filter(
-      el => el.repository.replace("https://github.com/", "").match(filter) // this match should be against author
+      el =>
+        el.repository.replace("https://github.com/", "").match(filter) || // this match should be against author
+        (el.author && el.author.match(filter))
     );
 
     return samples;
