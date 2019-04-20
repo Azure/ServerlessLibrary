@@ -78,7 +78,7 @@ class AuthControl extends Component {
   render() {
     return (
       <span>
-        <div className="auth-control" ref={this._menuButtonElement}>
+        <div className="auth-control">
           <ActionButton
             onRenderMenuIcon={this._renderMenuIcon}
             menuProps={{
