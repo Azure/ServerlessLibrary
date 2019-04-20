@@ -61,7 +61,7 @@ class DetailPageContent extends Component {
     repository = repository.replace("/tree/", "/");
     let readmefileUrl = repository + "/master/README.md";
     if (repository.includes("/master/")) {
-      readmefileUrl = repository + "README.md";
+      readmefileUrl = repository + "/README.md";
     }
 
     fetch(readmefileUrl)
@@ -72,8 +72,11 @@ class DetailPageContent extends Component {
         throw new Error("Network response was not ok.");
       })
       .then(data => {
-        data = data.replace("http://azuredeploy.net/deploybutton.svg", "");
-        data = data.replace("http://azuredeploy.net/deploybutton.png", "");
+        var r = new RegExp(
+          "https?://Azuredeploy.net/deploybutton.(png|svg)",
+          "ig"
+        );
+        data = data.replace(r, "");
         this.setState({ markdownText: data });
       })
       .catch(error =>
@@ -140,7 +143,7 @@ class DetailPageContent extends Component {
               <div className="scrollablePane-wrapper">
                 <ScrollablePane>
                   <div className="armtemplate-content">
-                    {this.state.armTemplateText}
+                    <pre>{this.state.armTemplateText}</pre>
                   </div>
                 </ScrollablePane>
               </div>

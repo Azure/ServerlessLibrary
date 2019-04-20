@@ -77,7 +77,7 @@ namespace ServerlessLibrary.Controllers
             GitHubUser user = new GitHubUser(User);
             libraryItem.Author = user.UserName;
 
-            // this._libraryStore.Add(libraryItem);
+            this._libraryStore.Add(libraryItem);
             return new JsonResult(libraryItem.ConvertTo<LibraryItemWithStats>());
         }
 
