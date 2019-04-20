@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { FocusZone, FocusZoneDirection, List } from "office-ui-fabric-react";
+import {
+  FocusZone,
+  FocusZoneDirection,
+  List,
+  Link as FabricLink
+} from "office-ui-fabric-react";
 import { Link } from "react-router-dom";
 import ItemTags from "../ItemTags/ItemTags";
 import MetricBar from "../MetricBar/MetricBar";
@@ -14,8 +19,8 @@ class ItemList extends Component {
   }
 
   _onRenderCell(item, index) {
-    let likes = item.likes? item.likes : 0;
-    let dislikes = item.dislikes? item.dislikes : 0;
+    let likes = item.likes ? item.likes : 0;
+    let dislikes = item.dislikes ? item.dislikes : 0;
     return (
       <article>
         <div className={this.disableHover ? "" : "libraryitemContainer"}>
@@ -25,9 +30,13 @@ class ItemList extends Component {
             }
           >
             <div className="title">
-              <Link className="titlelink" to={`/sample/${item.id}`}>
+              <FabricLink
+                as={Link}
+                className="titlelink"
+                to={`/sample/${item.id}`}
+              >
                 {item.title}
-              </Link>
+              </FabricLink>
             </div>
             <MetricBar
               likes={likes}
