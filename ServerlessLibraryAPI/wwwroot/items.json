@@ -992,7 +992,7 @@
     "description": "Tweetverse: scan twitter, analyze sentiment and post sentiment in Slack channel",
     "language": "javascript",
     "type": "functionapp",
-    "category": [ "" ],
+    "category": [ "Machine Learning" ],
     "author": "simonaco",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -1006,7 +1006,7 @@
     "description": "Http endpoint that submits links to the Reddit API",
     "language": "javascript",
     "type": "functionapp",
-    "category": [ "" ],
+    "category": [ "Web API" ],
     "author": "simonaco",
     "authortype": "Community",
     "runtimeversion": "v2"
