@@ -8,10 +8,11 @@
     "description": "App for reading license plate info from a photo.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Machine Learning" ],
     "author": "anthonychu",
     "authortype": "Community",
     "runtimeversion": "v1",
-    "tags": [ "functionapp", "csharp", "OpenALPR" ]
+    "tags": [ "OpenALPR" ]
   },
   {
     "id": "89752d28-9fb4-40c0-bf29-59e0dafa2042",
@@ -23,10 +24,11 @@
     "language": "javascript",
     "type": "functionapp",
     "blog": "http://pjdecarlo.com/2017/06/super-cheap-subscription-and-payment-services-with-stripe-on-microsoft-azure-using-serverless-code-via-azure-functions-node-js.html",
+    "category": [ "Integration" ],
     "author": "toolboc",
     "authortype": "Community",
     "runtimeversion": "v1",
-    "tags": [ "functionapp", "javascript", "Payment" ]
+    "tags": [ "Payment" ]
   },
   {
     "id": "7044ca9c-682a-408a-8acb-f17c552301bf",
@@ -37,6 +39,7 @@
     "description": "Timers that set the color of an LIFX bulb based on the outside temperature.",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Scheduled Jobs", "IoT" ],
     "author": "burkeholland",
     "authortype": "Community",
     "runtimeversion": "v1",
@@ -51,6 +54,7 @@
     "description": "An HTTP API for CRUD operations against CosmosDB. (So boring, why would you write it yourself?!!)",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Web API" ],
     "author": "nastassiar",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -65,6 +69,7 @@
     "language": "javascript",
     "type": "functionapp",
     "blog": "https://ricardodsanchez.com/what-can-you-do-with-azure-functions-heres-one-example/",
+    "category": [ "Web API" ],
     "author": "ricardodsanchez",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -79,6 +84,7 @@
     "blog": "https://aka.ms/aztugofwar",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Web API", "Event Processing", "Gaming" ],
     "author": "joescars",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -92,6 +98,7 @@
     "description": "App for tracking Purolator shipments.",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Event Processing", "Scheduled Jobs" ],
     "author": "akos-sebestyen",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -105,6 +112,7 @@
     "description": "A simple raffle application.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Web API", "Static Website", "Gaming" ],
     "author": "anthonychu",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -118,6 +126,7 @@
     "description": "Test your own images in bulk against Microsoft Cognitive Services: Smart Thumbnail API.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Machine Learning" ],
     "author": "jefking",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -131,6 +140,7 @@
     "description": "Test your own images in bulk against Microsoft Cognitive Services: Computer Vision API.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Machine Learning" ],
     "author": "jefking",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -144,6 +154,7 @@
     "description": "Test your own images in bulk against Microsoft Cognitive Services: OCR.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Machine Learning" ],
     "author": "nastassiar",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -157,6 +168,7 @@
     "description": "This is a sample HTTP trigger Azure Function that returns a SAS token for Azure Storage for the specified container, blob, and permissions.",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Web API", "Authentication" ],
     "author": "Azure-Samples",
     "authortype": "Microsoft",
     "runtimeversion": "v1"
@@ -170,6 +182,7 @@
     "description": "This Azure Function binds to an Azure Storage container to process PDF files, extract metadata (using Regular Expressions), stores the result in DocumentDB (extracted text + captured metadata) which can then be used by Azure Search",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Data Processing" ],
     "author": "m-gagne",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -183,6 +196,7 @@
     "description": "Stores a queue message in SQL Database; uses Entity Framework.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Data Processing" ],
     "author": "AzureBytes",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -196,6 +210,7 @@
     "description": "The easiest way to resize images stored in Blob Storage (on Azure); uses ImageProcessor.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Data Processing" ],
     "author": "jefking",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -210,6 +225,7 @@
     "language": "csharp",
     "blog": "https://github.com/cfe84/slack-users-change-alerts",
     "type": "functionapp",
+    "category": [ "Event Processing" ],
     "author": "anthonychu",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -224,6 +240,7 @@
     "addTemplate": "https://raw.githubusercontent.com/fashaikh/AzureFunctions/master/ClosedLoopFunction/deploy/addfunction.json",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "IoT", "Data Processing" ],
     "author": "khilscher",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -238,20 +255,8 @@
     "blog": "http://anthonychu.ca/post/azure-functions-static-file-server",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Web API", "Static Website" ],
     "author": "anthonychu",
-    "authortype": "Community",
-    "runtimeversion": "v1"
-  },
-  {
-    "id": "937b806a-f483-42cd-9968-3a3815039f28",
-    "createddate": "2017-06-30",
-    "title": "Blob: Static Web Server",
-    "template": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.json",
-    "repository": "https://github.com/jefking/fl-default-static",
-    "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites.",
-    "language": "csharp",
-    "type": "functionapp",
-    "author": "jefking",
     "authortype": "Community",
     "runtimeversion": "v1"
   },
@@ -264,6 +269,7 @@
     "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites. This deployment contains a CDN layered 'over top' of the function.",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Static Website" ],
     "author": "jefking",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -277,6 +283,7 @@
     "description": "This sample demonstrates how to use the Azure billing commerce APIs to find consumption cost per subscription and resource-groups.",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Web API", "Authentication" ],
     "author": "Azure-Samples",
     "authortype": "Microsoft",
     "runtimeversion": "v1"
@@ -290,6 +297,7 @@
     "description": "This template allows you to create a Logic App that will run a SQL stored procedure on schedule. Any arguments for the procedure can be put into the body section of the template.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Integration", "Scheduled Jobs" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -303,6 +311,7 @@
     "description": "This template allows you to create a Logic app that sends an email. You can add an additional triggers or actions to customize it to your needs.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Integration" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -316,6 +325,7 @@
     "description": "This template allows you to create a Logic app that listens to a folder on an FTP server and will copy it to an Azure Blob container. You can add an additional triggers or actions to customize it to your needs.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Integration" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -329,6 +339,7 @@
     "description": "Posted messages get added to Azure Storage Queue.",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Web API", "Data Processing" ],
     "author": "jefking",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -342,6 +353,7 @@
     "description": "Posted messages get added to Azure Service Bus Queue.",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Web API", "Data Processing" ],
     "author": "jefking",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -355,6 +367,7 @@
     "description": "Posted messages get added to Azure Service Bus Topic.",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Web API", "Data Processing" ],
     "author": "jefking",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -368,6 +381,7 @@
     "description": "Posted Body gets added to Azure Service Bus Queue.",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Web API", "Data Processing" ],
     "author": "jefking",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -381,6 +395,7 @@
     "description": "Scheduled email notifications of Reddit Posts",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Scheduled Jobs" ],
     "author": "isaac2004",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -394,6 +409,7 @@
     "description": "Sample for use with Azure Media Services. Ingest from Azure Blobs, encode and output to Azure Blobs, monitor encoding progress, and use WebHooks or Queues to hook into the workflow.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Data Processing", "Web API", "Integration", "Automation" ],
     "author": "jefking",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -407,6 +423,7 @@
     "description": "CoderCards is a geek trading card generator. It uses Microsoft Cognitive Services to detect the predominant emotion in a face, which is used to choose a card back.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Web API", "Machine Learning", "Static Website", "Data Processing" ],
     "author": "Azure-Samples",
     "authortype": "Microsoft",
     "runtimeversion": "v1"
@@ -420,6 +437,7 @@
     "description": "This template creates a Serverless app in Azure with Logic Apps and Functions. The Logic App triggers on an HTTP POST, calls the Azure Function, and returns the response.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Integration" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -433,6 +451,7 @@
     "description": "Create a Logic App from a template",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Integration" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -446,6 +465,7 @@
     "description": "This template creates a request-response Logic App which performs XSLT based transformation. The XSLT map takes primitives (integer, string etc.) as input parameters as uses them during XML transformation.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Integration", "Data Processing" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -459,6 +479,7 @@
     "description": "This template creates a VETER pipeline using Logic Apps.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Integration", "Data Processing" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -472,6 +493,7 @@
     "description": "This template creates a webhook based C# azure function with transform capabilites to use in logic apps integration scenarios.",
     "language": "csharp",
     "type": "logicapp",
+    "category": [ "Integration", "Web API" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -485,6 +507,7 @@
     "description": "Call into your own custom API that can run your own code.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Integration", "Authentication", "Web API" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -498,6 +521,7 @@
     "description": "This template demonstrates B2B Disaster Recovery replication using Logic Apps.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Automation" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -511,6 +535,7 @@
     "description": "This template demonstrates AS2 Send Receive using Logic Apps.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Integration" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -524,6 +549,7 @@
     "description": "Add the alert payload you pass to an Azure Storage queue that you specify.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Event Processing", "Web API", "Integration", "Automation" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -537,6 +563,7 @@
     "description": "When the Alert is triggered, it will post a message to a slack channel that you specify",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Integration", "Event Processing" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -550,6 +577,7 @@
     "description": "When the Alert is triggered, it will send you a text message with the details of the alert.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Integration", "Web API" ],
     "author": "Azure",
     "authortype": "Microsoft",
     "runtimeversion": "na"
@@ -563,6 +591,7 @@
     "description": "Provide API to create temporary Resource Group. Provide function to remove temporary resource group each day",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Automation", "Web API" ],
     "author": "wilfriedwoivre",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -576,6 +605,7 @@
     "description": "Triggered every 5 minutes to do a GET from an API, check for duplicated records in Azure blob storage it has already seen and POST any new alerts to another API.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Scheduled Jobs", "Integration" ],
     "author": "nastassiar",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -589,6 +619,7 @@
     "description": "Trigger your function by- and publish messages to your MQTT topics",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Event Processing" ],
     "author": "keesschollaart81",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -602,6 +633,7 @@
     "description": "This provides Azure Logic Apps to clean up ARM deployment history before hitting 800 limits.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Automation" ],
     "author": "justinyoo",
     "authortype": "Community",
     "runtimeversion": "na"
@@ -615,6 +647,7 @@
     "description": "This provides a custom Key Vault API Connector for Logic Apps.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Integration", " Authentication" ],
     "author": "justinyoo",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -628,6 +661,7 @@
     "description": "This solution allows you to Start and Stop Azure VM's for a given Subscription, Resource Group or Tags based on a schedule. The implementation uses Azure VM async API's and hence potentially hundreds of VM's can be started/stopped.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Automation", "Integration", " Authentication" ],
     "author": "anirudhgarg",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -641,6 +675,7 @@
     "description": "A demo showing how to use @Microsoft.KeyVault in appsettings for simplified secret management",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Authentication" ],
     "author": "JimPaine",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -654,6 +689,7 @@
     "description": "An HTML5 page which streams your camera to the Face API for age and emotion, all via a V2 function",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Static Website", "Authentication" ],
     "author": "JimPaine",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -667,6 +703,7 @@
     "description": "This Function examples uses the Push Rest API of PowerBI to push data into it, the content of your request (in json) needs to match the datastructure in json for it to work.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Web API", "Data Processing" ],
     "author": "eavanvalkenburg",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -680,6 +717,7 @@
     "description": "It sends and receives SMS using Twilio and Azure Functions. It is based on three functions: HandleMessage, which receives the message that you want to send. SendSMS, which sends the message to Twilio.SMSReceived, the SMS sent by the user to a specific Twilio mobile number is received.",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Web API", "Event Processing" ],
     "author": "0GiS0",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -693,6 +731,7 @@
     "description": "Conversions using ffmpeg and transcriptions with Speech Service: Mp3ToWav: It converts from MP3 to WAV in order to be treated by Speech service from Cognitive Services, but it can be used simply as a transformation method. WavToText: Use Speech Service to get the audio transcript.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Data Processing" ],
     "author": "0GiS0",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -706,6 +745,7 @@
     "description": "It removes file metadata using Azure Functions.",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Data Processing" ],
     "author": "0GiS0",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -719,6 +759,7 @@
     "description": "This application takes a specific type of csv file (detailed in the project README), cleans the data and then places the contents in .json format into a Queue.",
     "language": "python",
     "type": "functionapp",
+    "category": [ "Data Processing" ],
     "author": "raahmed",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -732,6 +773,7 @@
     "description": "Create a Logic App to notify an individual over mail whenever he/she is assigned to a Work Item (Bug) with high priority.",
     "language": "na",
     "type": "logicapp",
+    "category": [ "Automation" ],
     "author": "gdprtcl",
     "authortype": "Community",
     "runtimeversion": "na"
@@ -745,6 +787,7 @@
     "description": "20+ ready-to-use examples of triggers and bindings with Azure Java Functions",
     "language": "java",
     "type": "functionapp",
+    "category": [ "Data Processing", "Event Processing", "Web API", "Integration" ],
     "author": "daniel-rocha",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -758,6 +801,7 @@
     "description": "A series of events in queue storage are collected and added to CosmosDB.",
     "language": "python",
     "type": "functionapp",
+    "category": [ "Data Processing" ],
     "author": "raahmed",
     "authortype": "Community",
     "runtimeversion": "na"
@@ -771,6 +815,7 @@
     "description": "A simple example of using Azure Functions to implement a GitHub webhook",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Automation", "Web API", "Authentication" ],
     "author": "paulbatum",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -784,6 +829,7 @@
     "description": "A function app written in TypeScript that shows how to create backend API functions that use custom routes, npm modules, and globally shared code between functions.",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Web API" ],
     "author": "mhoeger",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -797,6 +843,7 @@
     "description": "Build a serverless API with Node.js on top of Azure Functions and Azure Cosmos DB",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "Web API" ],
     "author": "simonaco",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -810,6 +857,7 @@
     "description": "Once installed it creates a Function App linked to an MSI. If you go ahead and change the access of the MSI to particular resources, then it is able to talk to ARM and return the results",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Authentication" ],
     "author": "fashaikh",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -823,6 +871,7 @@
     "description": "V1 FunctionApp with AWS S3 bucket and queue bindings,Cognitive Services and CosmosDB: 1)TimerTriggerFromS3: OCR images from S3 2) GetS3PreSignedUrl: Creates a pre signed Url for any S3 bucket 3) BlobTriggerToS3:From Azure Storage to S3",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Scheduled Jobs", "Web API", "Data Processing", "Machine Learning" ],
     "author": "fashaikh",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -835,6 +884,7 @@
     "description": "This sample shows how to deploy a blob storage that subscribes to an event grid which sends messages to an Azure Function through a WebHook Trigger. This is a commonly used messaging pattern for many customers.",
     "language": "python",
     "type": "functionapp",
+    "category": [ "Data Processing", "Event Processing" ],
     "author": "priyaananthasankar",
     "authortype": "Community",
     "runtimeversion": "na"
@@ -847,6 +897,7 @@
     "description": "Python function designed to run a daily Twitter search and send output to a Microsoft Teams channel",
     "language": "python",
     "type": "functionapp",
+    "category": [ "Scheduled Jobs" ],
     "author": "gbowerman",
     "authortype": "Community",
     "runtimeversion": "na"
@@ -859,6 +910,7 @@
     "description": "An image game sample that shows how to decode/encode images to JSON and to perform image transformation on them.",
     "language": "python",
     "type": "functionapp",
+    "category": [ "Web API", "Gaming", "Data Processing" ],
     "author": "ankitkumarr",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -872,6 +924,7 @@
     "description": "Azure function which allows you to interact with your QnA azure bot using Alexa",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Integration" ],
     "author": "LinaSerry",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -885,6 +938,7 @@
     "description": "An Azure Function App to help get tokens from a Managed Service Identity (MSI) service configured on the Function App.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Authentication" ],
     "author": "raouche",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -898,6 +952,7 @@
     "description": "Transports media files from a watched Azure Storage account to an Azure Files UNC file share.",
     "language": "csharp",
     "type": "functionapp",
+    "category": [ "Data Processing" ],
     "author": "raouche",
     "authortype": "Community",
     "runtimeversion": "v1"
@@ -910,6 +965,7 @@
     "description": "Python Function App to automate resource cleanup in Azure.",
     "language": "python",
     "type": "functionapp",
+    "category": [ "Automation", "Authentication" ],
     "author": "asavaritayal",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -922,6 +978,7 @@
     "description": "Azure Function written in Python that predicts the dog breed based on an Image URL.",
     "language": "python",
     "type": "functionapp",
+    "category": [ "Machine Learning", "Web API" ],
     "author": "asavaritayal",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -935,6 +992,7 @@
     "description": "Tweetverse: scan twitter, analyze sentiment and post sentiment in Slack channel",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "" ],
     "author": "simonaco",
     "authortype": "Community",
     "runtimeversion": "v2"
@@ -948,6 +1006,7 @@
     "description": "Http endpoint that submits links to the Reddit API",
     "language": "javascript",
     "type": "functionapp",
+    "category": [ "" ],
     "author": "simonaco",
     "authortype": "Community",
     "runtimeversion": "v2"

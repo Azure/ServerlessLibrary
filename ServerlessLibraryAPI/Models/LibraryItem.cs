@@ -37,12 +37,15 @@ namespace ServerlessLibrary.Models
 
         [JsonProperty(PropertyName = "tags", DefaultValueHandling = DefaultValueHandling.Include)]
         public string[] Tags { get; set; }
-
+             
         [JsonProperty(PropertyName = "language", DefaultValueHandling = DefaultValueHandling.Include)]
         public string Language { get; set; }
 
         [JsonProperty(PropertyName = "type", DefaultValueHandling = DefaultValueHandling.Include)]
         public string Type { get; set; }
+
+        [JsonProperty(PropertyName = "category", DefaultValueHandling = DefaultValueHandling.Include)]
+        public string[] Category { get; set; }
 
         [JsonProperty(PropertyName = "author", DefaultValueHandling = DefaultValueHandling.Include)]
         public string Author { get; internal set; }
