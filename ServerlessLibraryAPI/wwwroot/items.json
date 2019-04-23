@@ -8,7 +8,7 @@
     "type": "functionapp",
     "authortype": "Community",
     "runtimeversion": "v1",
-    "tags": [ "functionapp", "csharp", "OpenALPR" ]
+    "tags": ["functionapp", "csharp", "OpenALPR"]
   },
   {
     "title": "Stripe Payment Service",
@@ -20,7 +20,7 @@
     "blog": "http://pjdecarlo.com/2017/06/super-cheap-subscription-and-payment-services-with-stripe-on-microsoft-azure-using-serverless-code-via-azure-functions-node-js.html",
     "authortype": "Community",
     "runtimeversion": "v1",
-    "tags": [ "functionapp", "javascript", "Payment" ]
+    "tags": ["functionapp", "javascript", "Payment"]
   },
   {
     "title": "LIFX Light Bulb color changer",
@@ -709,6 +709,26 @@
     "repository": "https://github.com/asavaritayal/dog-classification",
     "description": "Azure Function written in Python that predicts the dog breed based on an Image URL.",
     "language": "python",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
+  },
+  {
+    "title": "Tweetverse: scan twitter, analyze sentiment and post sentiment in Slack channel",
+    "template": "https://raw.githubusercontent.com/simonaco/tweetverse/master/azuredeploy.json",
+    "repository": "https://github.com/simonaco/tweetverse",
+    "description": "Tweetverse: scan twitter, analyze sentiment and post sentiment in Slack channel",
+    "language": "javascript",
+    "type": "functionapp",
+    "authortype": "Community",
+    "runtimeversion": "v2"
+  },
+  {
+    "title": "Redditifier - Submit links to Reddit api",
+    "template": "https://raw.githubusercontent.com/simonaco/redditifier/master/azuredeploy.json",
+    "repository": "https://github.com/simonaco/redditifier",
+    "description": "Http endpoint that submits links to the Reddit API",
+    "language": "javascript",
     "type": "functionapp",
     "authortype": "Community",
     "runtimeversion": "v2"
