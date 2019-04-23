@@ -43,6 +43,7 @@ namespace ServerlessLibrary.Controllers
                         || (!string.IsNullOrWhiteSpace(x.Author) && Regex.IsMatch(x.Author, filterText, RegexOptions.IgnoreCase))
                         || (x.RuntimeVersion != null && Regex.IsMatch(x.RuntimeVersion, filterText, RegexOptions.IgnoreCase))
                         || (x.Tags != null && x.Tags.Any(t => Regex.IsMatch(t, filterText, RegexOptions.IgnoreCase)))
+                        || (x.Category != null && x.Category.Any(t => Regex.IsMatch(t, filterText, RegexOptions.IgnoreCase)))
                     )
                 )
             );
