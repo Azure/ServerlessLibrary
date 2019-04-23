@@ -1,0 +1,378 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "logicAppName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "metadata": {
+        "description": "Name of the Logic App."
+      }
+    },
+    "logicAppLocation": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "allowedValues": [
+        "[resourceGroup().location]",
+        "eastasia",
+        "southeastasia",
+        "centralus",
+        "eastus",
+        "eastus2",
+        "westus",
+        "northcentralus",
+        "southcentralus",
+        "northeurope",
+        "westeurope",
+        "japanwest",
+        "japaneast",
+        "brazilsouth",
+        "australiaeast",
+        "australiasoutheast",
+        "southindia",
+        "centralindia",
+        "westindia",
+        "canadacentral",
+        "canadaeast",
+        "uksouth",
+        "ukwest",
+        "westcentralus",
+        "westus2"
+      ],
+      "metadata": {
+        "description": "Location of the Logic App."
+      }
+    },
+    "office365_1_Connection_Name": {
+      "type": "string",
+      "defaultValue": "office365"
+    },
+    "office365_1_Connection_DisplayName": {
+      "type": "string",
+      "defaultValue": "nehagup@microsoft.com"
+    },
+    "documentdb_1_Connection_Name": {
+      "type": "string",
+      "defaultValue": "documentdb"
+    },
+    "documentdb_1_Connection_DisplayName": {
+      "type": "string",
+      "defaultValue": "slfunctionapptest-cosmosdb"
+    },
+    "documentdb_1_databaseAccount": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the account without 'documents.azure.com' part"
+      },
+      "defaultValue": "slfunctionapptest"
+    },
+    "documentdb_1_accessKey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Primary or Secondary Key"
+      }
+    },
+    "azurequeues_1_Connection_Name": {
+      "type": "string",
+      "defaultValue": "azurequeues"
+    },
+    "azurequeues_1_Connection_DisplayName": {
+      "type": "string",
+      "defaultValue": "slfunctionapptest-queue"
+    },
+    "azurequeues_1_storageaccount": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of your storage account"
+      },
+      "defaultValue": "slfunctionapptest"
+    },
+    "azurequeues_1_sharedkey": {
+      "type": "securestring",
+      "metadata": {
+        "description": "The shared storage key of your storage account"
+      }
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "name": "[parameters('logicAppName')]",
+      "type": "Microsoft.Logic/workflows",
+      "location": "[parameters('logicAppLocation')]",
+      "tags": {
+        "displayName": "LogicApp"
+      },
+      "apiVersion": "2016-06-01",
+      "properties": {
+        "definition": {
+          "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "actions": {
+            "ParseJSON": {
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@triggerBody()?['MessageText']",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "createddate": {
+                      "type": "string"
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "template": {
+                      "type": "string"
+                    },
+                    "repository": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "tags": {},
+                    "language": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "author": {
+                      "type": "string"
+                    },
+                    "runtimeversion": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "runAfter": {}
+            },
+            "SendApprovalEmail": {
+              "type": "ApiConnectionWebhook",
+              "inputs": {
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+                },
+                "body": {
+                  "NotificationUrl": "@{listCallbackUrl()}",
+                  "Message": {
+                    "To": "nehagup@microsoft.com",
+                    "Subject": "Serverless Library Approval Request for sample: \"@{body('ParseJSON')?['title']}\"",
+                    "Options": "Approve, Reject",
+                    "Body": "@triggerBody()?['MessageText']",
+                    "Importance": "Normal"
+                  }
+                },
+                "path": "/approvalmail/$subscriptions"
+              },
+              "runAfter": {
+                "ParseJSON": [
+                  "Succeeded"
+                ]
+              }
+            },
+            "IsRequestApproved": {
+              "type": "If",
+              "expression": {
+                "and": [
+                  {
+                    "equals": [
+                      "@body('SendApprovalEmail')?['SelectedOption']",
+                      "Approve"
+                    ]
+                  }
+                ]
+              },
+              "actions": {
+                "AddContributionToCosmosDB": {
+                  "type": "ApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connection": {
+                        "name": "@parameters('$connections')['documentdb']['connectionId']"
+                      }
+                    },
+                    "method": "post",
+                    "body": "@triggerBody()?['MessageText']",
+                    "path": "/dbs/@{encodeURIComponent('serverlesslibrary')}/colls/@{encodeURIComponent('contributions')}/docs"
+                  },
+                  "runAfter": {}
+                }
+              },
+              "runAfter": {
+                "SendApprovalEmail": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "SendRejectionNotificationEmail": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connection": {
+                          "name": "@parameters('$connections')['office365']['connectionId']"
+                        }
+                      },
+                      "method": "post",
+                      "body": {
+                        "To": "nehagup@microsoft.com",
+                        "Subject": "Request for sample \"@{body('ParseJSON')?['title']}\" was rejected!",
+                        "Body": "@triggerBody()?['MessageText']"
+                      },
+                      "path": "/Mail"
+                    },
+                    "runAfter": {
+                      "CopyRequestToRejectedQueue": [
+                        "Succeeded"
+                      ]
+                    }
+                  },
+                  "CopyRequestToRejectedQueue": {
+                    "type": "ApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connection": {
+                          "name": "@parameters('$connections')['azurequeues']['connectionId']"
+                        }
+                      },
+                      "method": "post",
+                      "body": "@triggerBody()?['MessageText']",
+                      "path": "/@{encodeURIComponent('rejected-requests')}/messages"
+                    },
+                    "runAfter": {}
+                  }
+                }
+              }
+            },
+            "DeleteRequestFromQueue": {
+              "type": "ApiConnection",
+              "inputs": {
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['azurequeues']['connectionId']"
+                  }
+                },
+                "method": "delete",
+                "path": "/@{encodeURIComponent('contribution-requests')}/messages/@{encodeURIComponent(triggerBody()?['MessageId'])}",
+                "queries": {
+                  "popreceipt": "@triggerBody()?['PopReceipt']"
+                }
+              },
+              "runAfter": {
+                "IsRequestApproved": [
+                  "Succeeded"
+                ]
+              }
+            }
+          },
+          "parameters": {
+            "$connections": {
+              "defaultValue": {},
+              "type": "Object"
+            }
+          },
+          "triggers": {
+            "When_a_new_contribution_request_is_submitted": {
+              "type": "ApiConnection",
+              "inputs": {
+                "host": {
+                  "connection": {
+                    "name": "@parameters('$connections')['azurequeues']['connectionId']"
+                  }
+                },
+                "method": "get",
+                "path": "/@{encodeURIComponent('contribution-requests')}/message_trigger"
+              },
+              "recurrence": {
+                "frequency": "Minute",
+                "interval": 3
+              },
+              "splitOn": "@triggerBody()?['QueueMessagesList']?['QueueMessage']"
+            }
+          },
+          "contentVersion": "1.0.0.0",
+          "outputs": {}
+        },
+        "parameters": {
+          "$connections": {
+            "value": {
+              "office365": {
+                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', parameters('logicAppLocation'), '/managedApis/', 'office365')]",
+                "connectionId": "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
+                "connectionName": "[parameters('office365_1_Connection_Name')]"
+              },
+              "documentdb": {
+                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', parameters('logicAppLocation'), '/managedApis/', 'documentdb')]",
+                "connectionId": "[resourceId('Microsoft.Web/connections', parameters('documentdb_1_Connection_Name'))]",
+                "connectionName": "[parameters('documentdb_1_Connection_Name')]"
+              },
+              "azurequeues": {
+                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', parameters('logicAppLocation'), '/managedApis/', 'azurequeues')]",
+                "connectionId": "[resourceId('Microsoft.Web/connections', parameters('azurequeues_1_Connection_Name'))]",
+                "connectionName": "[parameters('azurequeues_1_Connection_Name')]"
+              }
+            }
+          }
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]",
+        "[resourceId('Microsoft.Web/connections', parameters('documentdb_1_Connection_Name'))]",
+        "[resourceId('Microsoft.Web/connections', parameters('azurequeues_1_Connection_Name'))]"
+      ]
+    },
+    {
+      "type": "MICROSOFT.WEB/CONNECTIONS",
+      "apiVersion": "2016-06-01",
+      "name": "[parameters('office365_1_Connection_Name')]",
+      "location": "[parameters('logicAppLocation')]",
+      "properties": {
+        "api": {
+          "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', parameters('logicAppLocation'), '/managedApis/', 'office365')]"
+        },
+        "displayName": "[parameters('office365_1_Connection_DisplayName')]"
+      }
+    },
+    {
+      "type": "MICROSOFT.WEB/CONNECTIONS",
+      "apiVersion": "2016-06-01",
+      "name": "[parameters('documentdb_1_Connection_Name')]",
+      "location": "[parameters('logicAppLocation')]",
+      "properties": {
+        "api": {
+          "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', parameters('logicAppLocation'), '/managedApis/', 'documentdb')]"
+        },
+        "displayName": "[parameters('documentdb_1_Connection_DisplayName')]",
+        "parameterValues": {
+          "databaseAccount": "[parameters('documentdb_1_databaseAccount')]",
+          "accessKey": "[parameters('documentdb_1_accessKey')]"
+        }
+      }
+    },
+    {
+      "type": "MICROSOFT.WEB/CONNECTIONS",
+      "apiVersion": "2016-06-01",
+      "name": "[parameters('azurequeues_1_Connection_Name')]",
+      "location": "[parameters('logicAppLocation')]",
+      "properties": {
+        "api": {
+          "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', parameters('logicAppLocation'), '/managedApis/', 'azurequeues')]"
+        },
+        "displayName": "[parameters('azurequeues_1_Connection_DisplayName')]",
+        "parameterValues": {
+          "storageaccount": "[parameters('azurequeues_1_storageaccount')]",
+          "sharedkey": "[parameters('azurequeues_1_sharedkey')]"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}

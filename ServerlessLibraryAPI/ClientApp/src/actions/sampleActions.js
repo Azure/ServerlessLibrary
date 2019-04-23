@@ -2,7 +2,7 @@ import { sampleActionTypes } from "./actionTypes";
 
 export const sampleActions = {
   getSamplesSuccess,
-  addSampleSuccess
+  sampleSubmittedSuccess
 };
 
 function getSamplesSuccess(samples) {
@@ -12,9 +12,9 @@ function getSamplesSuccess(samples) {
   };
 }
 
-function addSampleSuccess(sample) {
+function sampleSubmittedSuccess(sample) {
   return {
-    type: sampleActionTypes.ADDSAMPLE_SUCCESS,
+    type: sampleActionTypes.SAMPLESUBMITTED_SUCCESS,
     sample
   };
 }
