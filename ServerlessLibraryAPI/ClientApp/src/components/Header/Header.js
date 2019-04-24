@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "office-ui-fabric-react";
-import { getTheme } from "office-ui-fabric-react";
+import { getTheme, mergeStyleSets } from "office-ui-fabric-react";
 
 import "./Header.scss";
 import AuthControl from "./AuthControl";
+import { commonLinkStyles } from "../shared/Link.styles";
 
 class Header extends Component {
   render() {
     const theme = getTheme();
-    const linkStyles = {
+    const customLinkStyles = mergeStyleSets(commonLinkStyles, {
       root: {
         marginLeft: "15px",
         lineHeight: "40px",
@@ -21,13 +22,13 @@ class Header extends Component {
           }
         }
       }
-    };
+    });
 
     return (
       <div className="headerbar">
         <span>
           <Link
-            styles={linkStyles}
+            styles={customLinkStyles}
             href="https://azure.microsoft.com/"
             target="_blank"
           >

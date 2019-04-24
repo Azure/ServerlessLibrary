@@ -11,7 +11,8 @@ import {
 import { libraryService } from "../../services";
 import { sampleActions } from "../../actions/sampleActions";
 import * as formStyles from "./AddContributionForm.styles";
-import * as commonStyles from "../shared/Button.styles";
+import { buttonStyles } from "../shared/Button.styles";
+import { commonLinkStyles } from "../shared/Link.styles";
 import "./Contribute.scss";
 
 const initialState = {
@@ -68,7 +69,7 @@ class AddContributionForm extends Component {
     return (
       <div className="add-contribution-container">
         <div className="add-contribution-link">
-          <Link onClick={this.onLinkClick}>
+          <Link styles={commonLinkStyles} onClick={this.onLinkClick}>
             <Icon iconName="Edit" style={{ marginRight: "5px" }} />
             Add new contribution
           </Link>
@@ -114,12 +115,12 @@ class AddContributionForm extends Component {
             </div>
             <div className="contribution-form-actions-container">
               <PrimaryButton
-                styles={commonStyles.buttonStyles}
+                styles={buttonStyles}
                 text="Add"
                 onClick={this.onAddButtonClick}
               />
               <DefaultButton
-                styles={commonStyles.buttonStyles}
+                styles={buttonStyles}
                 text="Cancel"
                 onClick={this.onCancelButtonClick}
               />

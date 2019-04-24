@@ -1,4 +1,3 @@
-
 .content-header-titlewapper {
   display: flex;
   margin-top: 20px;
@@ -8,19 +7,12 @@
   font-size: 18px;
   font-weight: bold;
 }
-.content-header-contributionLink {
-  text-decoration: none;
-}
+
 .contributionLink-content {
-  color: #000000;
   font-size: 12px;
   display: flex;
-  text-decoration: none;
 }
 
-.contribution-link-text {
-  margin: auto;
-}
 .content-header-sortbywrappper {
   display: flex;
   margin-top: 20px;

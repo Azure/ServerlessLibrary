@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { paramsToQueryString, queryStringToParams } from "../../helpers";
 import { registerIcons } from "office-ui-fabric-react";
 import { ReactComponent as ContributionSvg } from "../../assets/contribution.svg";
+import { commonLinkStyles } from "../shared/Link.styles";
 import "./ContentHeader.css";
 
 registerIcons({
@@ -88,14 +89,10 @@ class ContentHeader extends Component {
             Azure serverless community library
           </div>
           <div style={{ marginLeft: "auto" }}>
-            <FabricLink
-              as={Link}
-              to="/contribute"
-              className="content-header-contributionLink"
-            >
+            <FabricLink styles={commonLinkStyles} as={Link} to="/contribute">
               <div className="contributionLink-content">
                 <Icon iconName="contribution-svg" />
-                <div className="contribution-link-text">Contributions</div>
+                <div>Contributions</div>
               </div>
             </FabricLink>
           </div>
@@ -104,7 +101,7 @@ class ContentHeader extends Component {
           placeholder="Search"
           value={this.state.filterText}
           onSearch={newValue => this.filterTextChanged(newValue)}
-          onClear={() =>this.filterTextChanged('')}
+          onClear={() => this.filterTextChanged("")}
           styles={searchBoxStyles}
         />
         <div className="content-header-sortbywrappper">

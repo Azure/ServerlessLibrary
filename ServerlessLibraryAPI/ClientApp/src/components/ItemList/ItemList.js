@@ -1,15 +1,17 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import {
   FocusZone,
   FocusZoneDirection,
   List,
   Link as FabricLink
 } from "office-ui-fabric-react";
-import { Link } from "react-router-dom";
+import { mergeStyleSets } from "office-ui-fabric-react";
 import ItemTags from "../ItemTags/ItemTags";
 import MetricBar from "../MetricBar/MetricBar";
 
 import "./ItemList.scss";
+import { commonLinkStyles } from "../shared/Link.styles";
 
 class ItemList extends Component {
   constructor(props) {
@@ -19,6 +21,12 @@ class ItemList extends Component {
   }
 
   _onRenderCell(item, index) {
+    const customLinkStyles = mergeStyleSets(commonLinkStyles, {
+      root: {
+        fontSize: "24px"
+      }
+    });
+
     let likes = item.likes ? item.likes : 0;
     let dislikes = item.dislikes ? item.dislikes : 0;
     return (
@@ -29,10 +37,10 @@ class ItemList extends Component {
               this.disableHover ? "libraryitem" : "libraryitem-withhover"
             }
           >
-            <div className="title">
+            <div>
               <FabricLink
+                styles={customLinkStyles}
                 as={Link}
-                className="titlelink"
                 to={`/sample/${item.id}`}
               >
                 {item.title}

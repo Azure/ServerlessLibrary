@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Icon, Link as FabricLink } from "office-ui-fabric-react";
 import "./ActionBar.scss";
+import { commonLinkStyles } from "../shared/Link.styles";
 
 class ActionBar extends Component {
   getDeployLink(template) {
@@ -25,6 +26,7 @@ class ActionBar extends Component {
       <div className="action-container">
         <div className="action-item">
           <FabricLink
+            styles={commonLinkStyles}
             href={this.getDeployLink(template)}
             disabled={deployDisabled}
             target="_blank"
@@ -36,7 +38,10 @@ class ActionBar extends Component {
           </FabricLink>
         </div>
         <div className="action-item">
-          <FabricLink href={this.getOpenInVSCodeLink(repository)}>
+          <FabricLink
+            styles={commonLinkStyles}
+            href={this.getOpenInVSCodeLink(repository)}
+          >
             <div className="action-link-wrapper">
               <Icon iconName="Edit" className="fabric-icon-link" />
               <span className="action-link-text">Edit in VS Code</span>
@@ -44,9 +49,13 @@ class ActionBar extends Component {
           </FabricLink>
         </div>
         <div className="action-item">
-          <FabricLink href={repository} target="_blank">
+          <FabricLink
+            styles={commonLinkStyles}
+            href={repository}
+            target="_blank"
+          >
             <div className="action-link-wrapper">
-              <Icon iconName="GitHub-12px" className="githubicon" />
+              <Icon iconName="GitHub-12px" className="fabric-icon-link" />
               <span className="action-link-text">Open in Github</span>
             </div>
           </FabricLink>
