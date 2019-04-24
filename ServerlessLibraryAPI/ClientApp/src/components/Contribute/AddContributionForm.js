@@ -119,7 +119,7 @@ class AddContributionForm extends Component {
                 onClick={this.onAddButtonClick}
               />
               <DefaultButton
-                styles={commonStyles.secondaryButtonStyles}
+                styles={commonStyles.buttonStyles}
                 text="Cancel"
                 onClick={this.onCancelButtonClick}
               />
