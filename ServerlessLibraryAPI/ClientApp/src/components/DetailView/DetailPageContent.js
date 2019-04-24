@@ -87,10 +87,10 @@ class DetailPageContent extends Component {
   render() {
     const pivotStyles = {
       root: {
-        paddingLeft: "15px"
+        paddingLeft: "15px",
+        borderBottom: "none"
       },
       text: {
-        color: " #0058AD",
         fontSize: "14px"
       }
     };
