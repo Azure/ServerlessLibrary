@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@uifabric/azure-themes": "0.1.7",
     "@uifabric/styling": "^6.46.1",
     "markdown-to-jsx": "^6.9.4",
     "node-sass": "^4.11.0",
