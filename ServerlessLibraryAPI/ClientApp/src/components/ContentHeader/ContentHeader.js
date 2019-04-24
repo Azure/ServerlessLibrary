@@ -9,16 +9,8 @@ import {
 } from "office-ui-fabric-react";
 import { Link } from "react-router-dom";
 import { paramsToQueryString, queryStringToParams } from "../../helpers";
-import { registerIcons } from "office-ui-fabric-react";
-import { ReactComponent as ContributionSvg } from "../../assets/contribution.svg";
 import { commonLinkStyles } from "../shared/Link.styles";
 import "./ContentHeader.css";
-
-registerIcons({
-  icons: {
-    "contribution-svg": <ContributionSvg className="svg" />
-  }
-});
 
 class ContentHeader extends Component {
   constructor(props) {
@@ -92,7 +84,7 @@ class ContentHeader extends Component {
             <FabricLink styles={commonLinkStyles} as={Link} to="/contribute">
               <div className="contributionLink-content">
                 <Icon iconName="contribution-svg" />
-                <div>Contributions</div>
+                <div style={{ marginLeft: "12px" }}>Contributions</div>
               </div>
             </FabricLink>
           </div>

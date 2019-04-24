@@ -39,7 +39,7 @@ class Login extends Component {
         <PrimaryButton
           styles={buttonStyles}
           primary={true}
-          iconProps={{ iconName: "GitHub-17px" }}
+          iconProps={{ iconName: "GitHub-16px" }}
           onClick={this.handleButtonClick}
         >
           Sign in with GitHub
