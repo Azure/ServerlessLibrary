@@ -48,9 +48,10 @@ class ItemList extends Component {
             />
             <p className="description">{item.description}</p>
             <ItemTags
-              type={item.type}
+              technologies={item.technologies}
               language={item.language}
               tags={item.tags}
+              solutionareas={item.solutionareas}
             />
           </div>
         </div>

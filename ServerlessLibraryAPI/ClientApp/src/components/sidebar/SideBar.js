@@ -5,6 +5,37 @@ import { Checkbox } from "office-ui-fabric-react/lib/index";
 import { paramsToQueryString, queryStringToParams } from "../../helpers";
 import "./SideBar.css";
 
+const technologies = [
+  "Functions 1.x",
+  "Functions 2.x",
+  "Logic Apps",
+  "Cosmos DB"
+];
+const solutionAreas = [
+  "Web API",
+  "Data Processing",
+  "Integration",
+  "Authentication",
+  "Automation",
+  "Event Processing",
+  "Machine Learning",
+  "Scheduled Jobs",
+  "Static Website",
+  "Gaming",
+  "IoT"
+];
+
+const languages = [
+  "JavaScript",
+  "TypeScript",
+  "Java",
+  "C#",
+  "C# Script",
+  "F#",
+  "Python",
+  "PowerShell"
+];
+
 class SideBar extends Component {
   constructor(props) {
     super(props);
@@ -32,50 +63,55 @@ class SideBar extends Component {
 
   ChangeUrl() {
     var params = queryStringToParams(this.props.location.search);
-    delete params["type"];
+    delete params["technology"];
     delete params["language"];
-    if (this.state.filters.types.length > 0) {
-      params["type"] = this.state.filters.types.join();
+    delete params["solutionarea"];
+    if (this.state.filters.technologies.length > 0) {
+      params["technology"] = this.state.filters.technologies.join();
     }
     if (this.state.filters.languages.length > 0) {
       params["language"] = this.state.filters.languages.join();
+    }
+    if (this.state.filters.solutionareas.length > 0) {
+      params["solutionarea"] = this.state.filters.solutionareas.join();
     }
 
     this.props.history.push(paramsToQueryString(params));
   }
 
   render() {
-    const checkboxStyles = () => {
+    const checkboxStyles = index => {
       return {
         root: {
-          marginTop: "10px",
-          marginBottom: "5px",
-          color: "red"
+          marginTop: index === 0 ? "10px" : "0px",
+          marginBottom: "5px"
         }
       };
     };
+
     return (
       <div>
         <h3 className="filterHeader">Filter by </h3>
         <div>
           <fieldset className="filterset">
-            <span>Type</span>
+            <span>Technology</span>
             <div className="filterList">
-              <Checkbox
-                styles={checkboxStyles}
-                label="Function app"
-                defaultChecked={this.isChecked("types", "functionapp")}
-                onChange={(ev, checked) =>
-                  this.checkboxclicked(ev, checked, "types", "functionapp")
-                }
-              />
-              <Checkbox
-                label="Logic app"
-                defaultChecked={this.isChecked("types", "logicapp")}
-                onChange={(ev, checked) =>
-                  this.checkboxclicked(ev, checked, "types", "logicapp")
-                }
-              />
+              {technologies.map((technology, index) => (
+                <Checkbox
+                  styles={checkboxStyles(index)}
+                  label={technology}
+                  key={technology}
+                  defaultChecked={this.isChecked("technologies", technology)}
+                  onChange={(ev, checked) =>
+                    this.checkboxclicked(
+                      ev,
+                      checked,
+                      "technologies",
+                      technology
+                    )
+                  }
+                />
+              ))}
             </div>
           </fieldset>
         </div>
@@ -83,21 +119,40 @@ class SideBar extends Component {
           <fieldset className="filterset">
             <span>Language</span>
             <div className="filterList">
-              <Checkbox
-                styles={checkboxStyles}
-                label="C#"
-                defaultChecked={this.isChecked("languages", "csharp")}
-                onChange={(ev, checked) =>
-                  this.checkboxclicked(ev, checked, "languages", "csharp")
-                }
-              />
-              <Checkbox
-                label="Javascript"
-                defaultChecked={this.isChecked("languages", "javascript")}
-                onChange={(ev, checked) =>
-                  this.checkboxclicked(ev, checked, "languages", "javascript")
-                }
-              />
+              {languages.map((language, index) => (
+                <Checkbox
+                  styles={checkboxStyles(index)}
+                  label={language}
+                  key={language}
+                  defaultChecked={this.isChecked("languages", language)}
+                  onChange={(ev, checked) =>
+                    this.checkboxclicked(ev, checked, "languages", language)
+                  }
+                />
+              ))}
+            </div>
+          </fieldset>
+        </div>
+        <div>
+          <fieldset className="filterset">
+            <span>Solution Area</span>
+            <div className="filterList">
+              {solutionAreas.map((solutionarea, index) => (
+                <Checkbox
+                  styles={checkboxStyles(index)}
+                  label={solutionarea}
+                  key={solutionarea}
+                  defaultChecked={this.isChecked("solutionareas", solutionarea)}
+                  onChange={(ev, checked) =>
+                    this.checkboxclicked(
+                      ev,
+                      checked,
+                      "solutionareas",
+                      solutionarea
+                    )
+                  }
+                />
+              ))}
             </div>
           </fieldset>
         </div>

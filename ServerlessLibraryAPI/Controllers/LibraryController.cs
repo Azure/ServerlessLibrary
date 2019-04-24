@@ -26,25 +26,24 @@ namespace ServerlessLibrary.Controllers
         // GET: api/<controller>
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<LibraryItemWithStats>), 200)]
-        public JsonResult Get(string filterText, string type, string language)
-        {
-            
+        public JsonResult Get(string filterText, string language)
+        {    
+            //TODO: Add filtering for solution areas and technologies.
             var results = _cacheService.GetCachedItems();
             var filteredResults = results.Where(
                 x =>
                 (
                     (string.IsNullOrWhiteSpace(language) || x.Language == language) &&
-                    (string.IsNullOrWhiteSpace(type) || x.Type == type) &&
                     (
                         string.IsNullOrWhiteSpace(filterText)
                         || Regex.IsMatch(x.Title, filterText, RegexOptions.IgnoreCase)
                         || Regex.IsMatch(x.Description, filterText, RegexOptions.IgnoreCase)
                         || Regex.IsMatch(x.Repository.Replace("https://github.com/", "", StringComparison.InvariantCulture), filterText, RegexOptions.IgnoreCase)
                         || (!string.IsNullOrWhiteSpace(x.Author) && Regex.IsMatch(x.Author, filterText, RegexOptions.IgnoreCase))
-                        || (x.RuntimeVersion != null && Regex.IsMatch(x.RuntimeVersion, filterText, RegexOptions.IgnoreCase))
                         || (x.Tags != null && x.Tags.Any(t => Regex.IsMatch(t, filterText, RegexOptions.IgnoreCase)))
-                        || (x.Category != null && x.Category.Any(t => Regex.IsMatch(t, filterText, RegexOptions.IgnoreCase)))
-                    )
+                        || (x.Technologies != null && x.Technologies.Any(t => Regex.IsMatch(t, filterText, RegexOptions.IgnoreCase)))
+                        || (x.SolutionAreas != null && x.SolutionAreas.Any(c => Regex.IsMatch(c, filterText, RegexOptions.IgnoreCase)))
+                      )
                 )
             );
 

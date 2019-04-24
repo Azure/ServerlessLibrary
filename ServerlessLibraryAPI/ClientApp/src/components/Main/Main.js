@@ -27,22 +27,28 @@ class Main extends Component {
         el.title.match(filter) ||
         el.description.match(filter) ||
         el.language.match(filter) ||
-        el.type.match(filter) ||
         el.repository.replace("https://github.com/", "").match(filter) ||
-        (el.runtimeversion && el.runtimeversion.match(filter)) ||
         (el.tags && el.tags.some(x => x.match(filter))) ||
+        (el.technologies && el.technologies.some(x => x.match(filter))) ||
+        (el.solutionareas && el.solutionareas.some(x => x.match(filter))) ||
         (el.author && el.author.match(filter))
     );
 
-    if (currentfilters.categories.types.length > 0) {
+    if (currentfilters.categories.technologies.length > 0) {
       samples = samples.filter(s =>
-        currentfilters.categories.types.includes(s.type)
+        s.technologies.some(t=> currentfilters.categories.technologies.includes(t))
       );
     }
 
     if (currentfilters.categories.languages.length > 0) {
-      samples = samples.filter(s =>
+       samples = samples.filter(s =>
         currentfilters.categories.languages.includes(s.language)
+      );
+    }
+
+    if (currentfilters.categories.solutionareas.length > 0) {
+      samples = samples.filter(s =>
+        s.solutionareas.some(a=> currentfilters.categories.solutionareas.includes(a))
       );
     }
 
@@ -73,22 +79,26 @@ class Main extends Component {
   getFiltersFromQueryParams() {
     var filter = {
       categories: {
-        types: [],
-        languages: []
+        technologies: [],
+        languages: [],
+        solutionareas: [],
       },
       filtertext: "",
       sortby: "totaldownloads"
     };
 
     var params = queryStringToParams(this.props.location.search);
-    if (params.type && params.type.length > 0) {
-      filter.categories.types = params.type.split(",");
+    if (params.technology && params.technology.length > 0) {
+      filter.categories.technologies = params.technology.split(",");
     }
 
     if (params.language && params.language.length > 0) {
       filter.categories.languages = params.language.split(",");
     }
 
+    if (params.solutionarea && params.solutionarea.length > 0) {
+      filter.categories.solutionareas = params.solutionarea.split(",");
+    }
     if (params.filtertext && params.filtertext.length > 0) {
       filter.filtertext = params.filtertext;
     }
