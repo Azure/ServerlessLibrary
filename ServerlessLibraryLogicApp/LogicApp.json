@@ -163,7 +163,7 @@
                 "body": {
                   "NotificationUrl": "@{listCallbackUrl()}",
                   "Message": {
-                    "To": "nehagup@microsoft.com",
+                    "To": "serverless-admins@microsoft.com",
                     "Subject": "Serverless Library Approval Request for sample: \"@{body('ParseJSON')?['title']}\"",
                     "Options": "Approve, Reject",
                     "Body": "@triggerBody()?['MessageText']",
@@ -204,6 +204,28 @@
                     "path": "/dbs/@{encodeURIComponent('serverlesslibrary')}/colls/@{encodeURIComponent('contributions')}/docs"
                   },
                   "runAfter": {}
+                },
+                "SendApprovalNotificationEmail": {
+                  "type": "ApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connection": {
+                        "name": "@parameters('$connections')['office365']['connectionId']"
+                      }
+                    },
+                    "method": "post",
+                    "body": {
+                      "To": "serverless-admins@microsoft.com",
+                      "Subject": "Request for sample \"@{body('ParseJSON')?['title']}\" was approved",
+                      "Body": "@triggerBody()?['MessageText']"
+                    },
+                    "path": "/Mail"
+                  },
+                  "runAfter": {
+                    "AddContributionToCosmosDB": [
+                      "Succeeded"
+                    ]
+                  }
                 }
               },
               "runAfter": {
@@ -223,7 +245,7 @@
                       },
                       "method": "post",
                       "body": {
-                        "To": "nehagup@microsoft.com",
+                        "To": "serverless-admins@microsoft.com",
                         "Subject": "Request for sample \"@{body('ParseJSON')?['title']}\" was rejected!",
                         "Body": "@triggerBody()?['MessageText']"
                       },
