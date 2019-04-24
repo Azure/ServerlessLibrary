@@ -76,10 +76,24 @@ class AuthControl extends Component {
   }
 
   render() {
+    const actionButtonStyles = {
+      root: {
+        backgroundColor: "black",
+        border: "none"
+      },
+      rootHovered: {
+        border: "none"
+      },
+      rootPressed: {
+        border: "none"
+      }
+    };
+
     return (
       <span>
         <div className="auth-control">
           <ActionButton
+            styles={actionButtonStyles}
             onRenderMenuIcon={this._renderMenuIcon}
             menuProps={{
               onRenderMenuList: this._renderMenuList,
