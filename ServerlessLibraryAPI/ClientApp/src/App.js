@@ -7,9 +7,7 @@ import "./App.css";
 import Main from "./components/Main/Main";
 import Header from "./components/Header/Header";
 import DetailView from "./components/DetailView/DetailView";
-import LoginDialog from "./components/LoginDialog/LoginDialog";
-import Contribute from "./components/Contribute/Contribute";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import ContributionsPage from "./components/Contribute/Contribute";
 import { sampleActions } from "./actions/sampleActions";
 import { userActions } from "./actions/userActions";
 import { libraryService, userService } from "./services";
@@ -21,10 +19,11 @@ class App extends Component {
       .then(samples => this.props.getSamplesSuccess(samples))
       .catch(error => console.log(error));
 
+    this.props.getCurrentUserRequest();
     userService
       .getCurrentUser()
       .then(user => this.props.getCurrentUserSuccess(user))
-      .catch(error => console.log(error));
+      .catch(error => this.props.getCurrentUserFailure());
   }
 
   render() {
@@ -37,8 +36,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/sample/:id" component={DetailView} />
-            <Route exact path="/login" component={LoginDialog} />
-            <PrivateRoute exact path="/contribute" component={Contribute} />
+            <Route exact path="/contribute" component={ContributionsPage} />
           </Switch>
         </div>
       </div>
@@ -52,7 +50,9 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   getSamplesSuccess: sampleActions.getSamplesSuccess,
-  getCurrentUserSuccess: userActions.getCurrentUserSuccess
+  getCurrentUserRequest: userActions.getCurrentUserRequest,
+  getCurrentUserSuccess: userActions.getCurrentUserSuccess,
+  getCurrentUserFailure: userActions.getCurrentUserFailure
 };
 const AppContainer = withRouter(
   connect(

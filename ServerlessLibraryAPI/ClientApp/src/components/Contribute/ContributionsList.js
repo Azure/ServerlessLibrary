@@ -5,8 +5,12 @@ import ItemList from "../../components/ItemList/ItemList";
 
 class ContributionsList extends Component {
   filteredSamples() {
-    let { samples, user } = this.props;
-    let { userName } = user || "__nouser__";
+    let { loggedIn, user, samples } = this.props;
+    let { userName } = user;
+    if (!loggedIn || !userName) {
+      return {};
+    }
+
     let filter = new RegExp(userName, "i");
     samples = samples.filter(
       el =>
@@ -41,6 +45,7 @@ class ContributionsList extends Component {
 function mapStateToProps(state) {
   return {
     samples: state.samples,
+    loggedIn: state.authentication.loggedIn,
     user: state.authentication.user
   };
 }

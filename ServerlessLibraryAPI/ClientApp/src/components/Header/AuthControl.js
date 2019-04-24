@@ -5,7 +5,7 @@ import { ActionButton, ContextualMenuItemType } from "office-ui-fabric-react";
 
 import { userService } from "../../services";
 import { userActions } from "../../actions/userActions";
-import LoginDialog from "../LoginDialog//LoginDialog";
+import SignInButton from "../shared/SignInButton";
 import UserPersona from "./UserPersona";
 
 class AuthControl extends Component {
@@ -60,8 +60,8 @@ class AuthControl extends Component {
     }
 
     return (
-      <div>
-        <LoginDialog />
+      <div className="signin-button-container">
+        <SignInButton />
       </div>
     );
   }

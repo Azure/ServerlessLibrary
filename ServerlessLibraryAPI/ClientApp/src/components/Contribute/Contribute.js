@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import AddContributionForm from "./AddContributionForm";
 import ContributionsList from "./ContributionsList";
+import SignInDialog from "./SignInDialog";
 import PageHeaderWithBackButton from "../shared/PageHeaderWithBackButton";
 
 import "./Contribute.scss";
 
-class Contribute extends Component {
+class ContributionsPage extends Component {
   render() {
     return (
       <div className="contribute-page-container">
@@ -18,9 +19,10 @@ class Contribute extends Component {
         </PageHeaderWithBackButton>
         <AddContributionForm />
         <ContributionsList />
+        <SignInDialog />
       </div>
     );
   }
 }
 
-export default Contribute;
+export default ContributionsPage;
