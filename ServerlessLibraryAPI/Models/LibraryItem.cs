@@ -41,17 +41,14 @@ namespace ServerlessLibrary.Models
         [JsonProperty(PropertyName = "language", DefaultValueHandling = DefaultValueHandling.Include)]
         public string Language { get; set; }
 
-        [JsonProperty(PropertyName = "type", DefaultValueHandling = DefaultValueHandling.Include)]
-        public string Type { get; set; }
+        [JsonProperty(PropertyName = "technologies", DefaultValueHandling = DefaultValueHandling.Include)]
+        public string[] Technologies { get; set; }
 
-        [JsonProperty(PropertyName = "category", DefaultValueHandling = DefaultValueHandling.Include)]
-        public string[] Category { get; set; }
+        [JsonProperty(PropertyName = "solutionareas", DefaultValueHandling = DefaultValueHandling.Include)]
+        public string[] SolutionAreas { get; set; }
 
         [JsonProperty(PropertyName = "author", DefaultValueHandling = DefaultValueHandling.Include)]
-        public string Author { get; internal set; }
-
-        [JsonProperty(PropertyName = "runtimeversion", DefaultValueHandling = DefaultValueHandling.Include)]
-        public string RuntimeVersion { get; set; }
+        public string Author { get; internal set; }    
 
         internal T ConvertTo<T>()
         {

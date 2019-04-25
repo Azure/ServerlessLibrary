@@ -6,13 +6,12 @@
     "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-openalpr/master/azuredeploy.json",
     "repository": "https://github.com/anthonychu/azure-functions-openalpr",
     "description": "App for reading license plate info from a photo.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Machine Learning" ],
+    "language": "C# Script",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Machine Learning" ],
     "author": "anthonychu",
     "authortype": "Community",
-    "runtimeversion": "v1",
-    "tags": [ "OpenALPR" ]
+    "tags": []
   },
   {
     "id": "89752d28-9fb4-40c0-bf29-59e0dafa2042",
@@ -21,13 +20,12 @@
     "template": "https://raw.githubusercontent.com/toolboc/stripe-function/master/azuredeploy.json",
     "repository": "https://github.com/toolboc/stripe-function",
     "description": "Allows for incorporating Stripe payment functionality as a callable web service.",
-    "language": "javascript",
-    "type": "functionapp",
+    "language": "JavaScript",
+    "technologies": [ "Functions 1.x" ],
     "blog": "http://pjdecarlo.com/2017/06/super-cheap-subscription-and-payment-services-with-stripe-on-microsoft-azure-using-serverless-code-via-azure-functions-node-js.html",
-    "category": [ "Integration" ],
+    "solutionareas": [ "Integration" ],
     "author": "toolboc",
     "authortype": "Community",
-    "runtimeversion": "v1",
     "tags": [ "Payment" ]
   },
   {
@@ -37,12 +35,11 @@
     "template": "https://raw.githubusercontent.com/jefking/weather-bulb/master/azuredeploy.json",
     "repository": "https://github.com/burkeholland/weather-bulb",
     "description": "Timers that set the color of an LIFX bulb based on the outside temperature.",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Scheduled Jobs", "IoT" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Scheduled Jobs", "IoT" ],
     "author": "burkeholland",
     "authortype": "Community",
-    "runtimeversion": "v1",
     "tags": []
   },
   {
@@ -52,12 +49,11 @@
     "template": "https://raw.githubusercontent.com/nastassiar/crudfunctions/master/azure-deploy.json",
     "repository": "https://github.com/nastassiar/crudfunctions",
     "description": "An HTTP API for CRUD operations against CosmosDB. (So boring, why would you write it yourself?!!)",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Web API" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Web API" ],
     "author": "nastassiar",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "469ccf91-933c-46ba-bb60-2e2c00d5e6fa",
@@ -66,13 +62,12 @@
     "template": "https://raw.githubusercontent.com/ricardodsanchez/WhatToBring/master/azuredeploy.json",
     "repository": "https://github.com/ricardodsanchez/WhatToBring",
     "description": "Returns a list of what items you should bring when traveling to certain cities.",
-    "language": "javascript",
-    "type": "functionapp",
+    "language": "JavaScript",
+    "technologies": [ "Functions 1.x" ],
     "blog": "https://ricardodsanchez.com/what-can-you-do-with-azure-functions-heres-one-example/",
-    "category": [ "Web API" ],
+    "solutionareas": [ "Web API" ],
     "author": "ricardodsanchez",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "6cba2b6c-5d37-4d49-846f-9fdd27ae851a",
@@ -82,12 +77,11 @@
     "repository": "https://github.com/joescars/TugOfWar-FunctionsDemo",
     "description": "This simple demo game is used to teach basic concepts around building Azure Functions with node.js.",
     "blog": "https://aka.ms/aztugofwar",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Web API", "Event Processing", "Gaming" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Web API", "Event Processing", "Gaming" ],
     "author": "joescars",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "759e36f8-c5e8-4fd2-aa9a-3e5475a3e76d",
@@ -96,12 +90,11 @@
     "template": "https://raw.githubusercontent.com/akos-sebestyen/purolator-tracker/master/azuredeploy.json",
     "repository": "https://github.com/akos-sebestyen/purolator-tracker",
     "description": "App for tracking Purolator shipments.",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Event Processing", "Scheduled Jobs" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Event Processing", "Scheduled Jobs" ],
     "author": "akos-sebestyen",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "dad41d66-6ed2-49c6-b5a8-2e05b4a57dd6",
@@ -110,12 +103,11 @@
     "template": "https://raw.githubusercontent.com/anthonychu/azure-functions-raffle/master/azuredeploy.portal.json",
     "repository": "https://github.com/anthonychu/azure-functions-raffle",
     "description": "A simple raffle application.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Web API", "Static Website", "Gaming" ],
+    "language": "C# Script",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Web API", "Static Website", "Gaming" ],
     "author": "anthonychu",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "6f597021-7636-49d5-830b-5decbb39c6e5",
@@ -124,12 +116,11 @@
     "template": "https://raw.githubusercontent.com/jefking/fn-smart-thumbnail/master/azuredeploy.json",
     "repository": "https://github.com/jefking/fn-smart-thumbnail",
     "description": "Test your own images in bulk against Microsoft Cognitive Services: Smart Thumbnail API.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Machine Learning" ],
+    "language": "C# Script",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Machine Learning" ],
     "author": "jefking",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "393c17a3-9ddd-4c95-a66b-2f98209e7049",
@@ -138,12 +129,11 @@
     "template": "https://raw.githubusercontent.com/jefking/fn-computer-vision/master/azuredeploy.json",
     "repository": "https://github.com/jefking/fn-computer-vision",
     "description": "Test your own images in bulk against Microsoft Cognitive Services: Computer Vision API.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Machine Learning" ],
+    "language": "C# Script",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Machine Learning" ],
     "author": "jefking",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "79965897-9349-4aad-9425-7eb74cccfa09",
@@ -152,12 +142,11 @@
     "template": "https://raw.githubusercontent.com/nastassiar/CognitiveServicesOCRFunction/master/azuredeploy.json",
     "repository": "https://github.com/nastassiar/RecognizeTextFunction",
     "description": "Test your own images in bulk against Microsoft Cognitive Services: OCR.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Machine Learning" ],
+    "language": "C# Script",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Machine Learning" ],
     "author": "nastassiar",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "b6be0db6-2103-4af0-b935-441107e05d27",
@@ -166,12 +155,11 @@
     "template": "https://raw.githubusercontent.com/Azure-Samples/functions-node-sas-token/master/azuredeploy.json",
     "repository": "https://github.com/Azure-Samples/functions-node-sas-token",
     "description": "This is a sample HTTP trigger Azure Function that returns a SAS token for Azure Storage for the specified container, blob, and permissions.",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Web API", "Authentication" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Web API", "Authentication" ],
     "author": "Azure-Samples",
-    "authortype": "Microsoft",
-    "runtimeversion": "v1"
+    "authortype": "Microsoft"
   },
   {
     "id": "75734710-3806-4afd-acd7-c873bb30e1e3",
@@ -180,12 +168,11 @@
     "template": "https://raw.githubusercontent.com/m-gagne/PDF2AzSearch/master/azuredeploy.json",
     "repository": "https://github.com/m-gagne/PDF2AzSearch",
     "description": "This Azure Function binds to an Azure Storage container to process PDF files, extract metadata (using Regular Expressions), stores the result in DocumentDB (extracted text + captured metadata) which can then be used by Azure Search",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Data Processing" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Data Processing" ],
     "author": "m-gagne",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "d96c6b44-c94d-4c2d-b5b5-62b5fce91098",
@@ -194,12 +181,11 @@
     "template": "https://raw.githubusercontent.com/AzureBytes/functionsstorsql/master/deploy/azuredeploy.json",
     "repository": "https://github.com/AzureBytes/functionsstorsql/tree/master/src/WebToDatabase",
     "description": "Stores a queue message in SQL Database; uses Entity Framework.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Data Processing" ],
+    "language": "C# Script",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Data Processing" ],
     "author": "AzureBytes",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "9456a47b-9440-40d8-991c-c642e375ec33",
@@ -208,12 +194,11 @@
     "template": "https://raw.githubusercontent.com/jefking/fl-image-resize/master/azuredeploy.json",
     "repository": "https://github.com/jefking/fl-image-resize",
     "description": "The easiest way to resize images stored in Blob Storage (on Azure); uses ImageProcessor.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Data Processing" ],
+    "language": "C#",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Data Processing" ],
     "author": "jefking",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "1e9a4295-fa5c-49a7-82b1-cbcddc17d44a",
@@ -222,13 +207,12 @@
     "template": "https://raw.githubusercontent.com/anthonychu/slack-user-change-alerts/master/azuredeploy.portal.json",
     "repository": "https://github.com/anthonychu/slack-user-change-alerts/tree/master/src/SlackUserChangeAlerts.Function",
     "description": "Sends a Slackbot notification to specified users or channels when users are added or removed from Slack.",
-    "language": "csharp",
+    "language": "C# Script",
     "blog": "https://github.com/cfe84/slack-users-change-alerts",
-    "type": "functionapp",
-    "category": [ "Event Processing" ],
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Event Processing" ],
     "author": "anthonychu",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "f21191dd-dec4-4a65-a257-d72831611068",
@@ -238,12 +222,11 @@
     "repository": "https://github.com/khilscher/AzureFunctions",
     "description": "The Closed-Loop function binds to the Event Hub compatible name of an IoT Hub. Each message into the IoT Hub will trigger the function. The sample function reads the JSON message payload, deserializes it, adds the two integer values (DataPoint1 and DataPoint2), and sends the sum back to the device, via IoT Hub, using a C2D message.",
     "addTemplate": "https://raw.githubusercontent.com/fashaikh/AzureFunctions/master/ClosedLoopFunction/deploy/addfunction.json",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "IoT", "Data Processing" ],
+    "language": "C# Script",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "IoT", "Data Processing" ],
     "author": "khilscher",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "2790c79e-012d-497e-87df-11f7f7df06b6",
@@ -253,12 +236,11 @@
     "repository": "https://github.com/anthonychu/azure-functions-static-file-server",
     "description": "Serves a static website from a www root with a default index.html page.",
     "blog": "http://anthonychu.ca/post/azure-functions-static-file-server",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Web API", "Static Website" ],
+    "language": "C# Script",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Web API", "Static Website" ],
     "author": "anthonychu",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "00f691ca-6b7e-45d7-bb06-73894a0ade83",
@@ -267,12 +249,11 @@
     "template": "https://raw.githubusercontent.com/jefking/fl-default-static/master/azuredeploy.cdn.json",
     "repository": "https://github.com/jefking/fl-default-static",
     "description": "Defaults page (index.htm) for containers. No need for compute on top of raw storage; if you are running static sites. This deployment contains a CDN layered 'over top' of the function.",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Static Website" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Static Website" ],
     "author": "jefking",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "040f400e-3678-42eb-8fdc-71a159288091",
@@ -281,12 +262,11 @@
     "template": "https://raw.githubusercontent.com/Azure-Samples/consumption-cost-node/master/azuredeploy.json",
     "repository": "https://github.com/Azure-Samples/consumption-cost-node",
     "description": "This sample demonstrates how to use the Azure billing commerce APIs to find consumption cost per subscription and resource-groups.",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Web API", "Authentication" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Web API", "Authentication" ],
     "author": "Azure-Samples",
-    "authortype": "Microsoft",
-    "runtimeversion": "v1"
+    "authortype": "Microsoft"
   },
   {
     "id": "3c848cd3-833c-4ef1-ae9e-b3c8bba42fde",
@@ -296,11 +276,10 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc",
     "description": "This template allows you to create a Logic App that will run a SQL stored procedure on schedule. Any arguments for the procedure can be put into the body section of the template.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Integration", "Scheduled Jobs" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Integration", "Scheduled Jobs" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "7fde130b-25f3-4649-b66e-83c8497a1c35",
@@ -310,11 +289,10 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sendgrid",
     "description": "This template allows you to create a Logic app that sends an email. You can add an additional triggers or actions to customize it to your needs.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Integration" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Integration" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "6a4c9526-6cc5-4b5c-ba6f-5e1c104d60da",
@@ -324,11 +302,10 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-ftp-to-blob",
     "description": "This template allows you to create a Logic app that listens to a folder on an FTP server and will copy it to an Azure Blob container. You can add an additional triggers or actions to customize it to your needs.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Integration" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Integration" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "68147b76-3ac6-492e-8edf-98be8899a289",
@@ -337,12 +314,11 @@
     "template": "https://raw.githubusercontent.com/jefking/fn-http-queue-s/master/azuredeploy.json",
     "repository": "https://github.com/jefking/fn-http-queue-s",
     "description": "Posted messages get added to Azure Storage Queue.",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Web API", "Data Processing" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Web API", "Data Processing" ],
     "author": "jefking",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "5f622630-62a9-4b0a-9ed8-d4f80643204b",
@@ -351,12 +327,11 @@
     "template": "https://raw.githubusercontent.com/jefking/fn-http-queue-sb/master/azuredeploy.json",
     "repository": "https://github.com/jefking/fn-http-queue-sb",
     "description": "Posted messages get added to Azure Service Bus Queue.",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Web API", "Data Processing" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Web API", "Data Processing" ],
     "author": "jefking",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "0a75686b-f366-4944-9dab-3b17be998c9d",
@@ -365,12 +340,11 @@
     "template": "https://raw.githubusercontent.com/jefking/fn-http-topic/master/azuredeploy.json",
     "repository": "https://github.com/jefking/fn-http-topic",
     "description": "Posted messages get added to Azure Service Bus Topic.",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Web API", "Data Processing" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Web API", "Data Processing" ],
     "author": "jefking",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "7b55f6a9-143d-4f61-ada1-27db81b121ef",
@@ -379,12 +353,11 @@
     "template": "https://raw.githubusercontent.com/jefking/fn-webhook-queue/master/azuredeploy.json",
     "repository": "https://github.com/jefking/fn-webhook-queue",
     "description": "Posted Body gets added to Azure Service Bus Queue.",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Web API", "Data Processing" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Web API", "Data Processing" ],
     "author": "jefking",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "6edae071-7f81-4b44-be20-8f313fb365f5",
@@ -393,12 +366,11 @@
     "template": "https://raw.githubusercontent.com/jefking/RedditPoller/master/azuredeploy.json",
     "repository": "https://github.com/isaac2004/RedditPoller",
     "description": "Scheduled email notifications of Reddit Posts",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Scheduled Jobs" ],
+    "language": "C#",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Scheduled Jobs" ],
     "author": "isaac2004",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "4a72ffe0-0922-4d0c-9bc8-d71d88fd1513",
@@ -407,12 +379,11 @@
     "template": "https://raw.githubusercontent.com/jefking/media-services-dotnet-functions-integration/master/azuredeploy.json",
     "repository": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration",
     "description": "Sample for use with Azure Media Services. Ingest from Azure Blobs, encode and output to Azure Blobs, monitor encoding progress, and use WebHooks or Queues to hook into the workflow.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Data Processing", "Web API", "Integration", "Automation" ],
+    "language": "C# Script",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Data Processing", "Web API", "Integration", "Automation" ],
     "author": "jefking",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "3b578297-c2ae-4026-bee7-7df44942bf17",
@@ -421,12 +392,11 @@
     "template": "https://raw.githubusercontent.com/Azure-Samples/functions-dotnet-codercards/master/AzureDeploy/azuredeploy.json",
     "repository": "https://github.com/Azure-Samples/functions-dotnet-codercards",
     "description": "CoderCards is a geek trading card generator. It uses Microsoft Cognitive Services to detect the predominant emotion in a face, which is used to choose a card back.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Web API", "Machine Learning", "Static Website", "Data Processing" ],
+    "language": "C#",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Web API", "Machine Learning", "Static Website", "Data Processing" ],
     "author": "Azure-Samples",
-    "authortype": "Microsoft",
-    "runtimeversion": "v1"
+    "authortype": "Microsoft"
   },
   {
     "id": "0d77b7f2-3646-486e-926b-4d72ee82a6aa",
@@ -436,11 +406,10 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-and-function-app",
     "description": "This template creates a Serverless app in Azure with Logic Apps and Functions. The Logic App triggers on an HTTP POST, calls the Azure Function, and returns the response.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Integration" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Integration" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "f7892925-42cf-4e6a-9eee-b66f2f91dcf3",
@@ -450,11 +419,10 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-create",
     "description": "Create a Logic App from a template",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Integration" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Integration" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "1d99a544-bebb-4364-8e78-4deb66b1ce1f",
@@ -464,11 +432,10 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-xslt-with-params",
     "description": "This template creates a request-response Logic App which performs XSLT based transformation. The XSLT map takes primitives (integer, string etc.) as input parameters as uses them during XML transformation.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Integration", "Data Processing" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Integration", "Data Processing" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "e868616a-d1d2-4d5c-8f9f-5c88ab8b796c",
@@ -478,11 +445,10 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline",
     "description": "This template creates a VETER pipeline using Logic Apps.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Integration", "Data Processing" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Integration", "Data Processing" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "10917ea5-cbae-462f-b6db-88491fc2bc14",
@@ -491,12 +457,11 @@
     "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-logic-app-transform-function/azuredeploy.json",
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-transform-function",
     "description": "This template creates a webhook based C# azure function with transform capabilites to use in logic apps integration scenarios.",
-    "language": "csharp",
-    "type": "logicapp",
-    "category": [ "Integration", "Web API" ],
+    "language": "C# Script",
+    "technologies": [ "Logic Apps", "Functions 2.x", "Functions 1.x" ],
+    "solutionareas": [ "Integration", "Web API" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "5d11d0e0-8157-4586-b350-62807e9b9eb3",
@@ -506,11 +471,10 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api",
     "description": "Call into your own custom API that can run your own code.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Integration", "Authentication", "Web API" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Integration", "Authentication", "Web API" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "23b20bf4-e45b-4bf0-974d-92631d2d74f4",
@@ -520,11 +484,10 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-b2b-disaster-recovery-replication",
     "description": "This template demonstrates B2B Disaster Recovery replication using Logic Apps.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Automation" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Automation" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "3c65bb1e-3ae2-4b09-9b38-a69cdf5dccfd",
@@ -534,11 +497,10 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-as2-send-receive",
     "description": "This template demonstrates AS2 Send Receive using Logic Apps.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Integration" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Integration" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "42bd78a4-fd2c-4d0f-b677-e0c69ab53a3f",
@@ -548,11 +510,10 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app",
     "description": "Add the alert payload you pass to an Azure Storage queue that you specify.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Event Processing", "Web API", "Integration", "Automation" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Event Processing", "Web API", "Integration", "Automation" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "4833d5fd-c9dd-4778-98ac-ea8c0b707880",
@@ -562,11 +523,10 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app",
     "description": "When the Alert is triggered, it will post a message to a slack channel that you specify",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Integration", "Event Processing" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Integration", "Event Processing" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "2a8991bc-59ec-4a86-b5ba-17b06f8e0412",
@@ -576,11 +536,10 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app",
     "description": "When the Alert is triggered, it will send you a text message with the details of the alert.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Integration", "Web API" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Integration", "Web API" ],
     "author": "Azure",
-    "authortype": "Microsoft",
-    "runtimeversion": "na"
+    "authortype": "Microsoft"
   },
   {
     "id": "e677e615-a1d3-4c4a-80e3-3cedf5062554",
@@ -589,12 +548,12 @@
     "template": "https://raw.githubusercontent.com/wilfriedwoivre/azure-sandbox-function/master/azuredeploy.json",
     "repository": "https://github.com/wilfriedwoivre/azure-sandbox-function",
     "description": "Provide API to create temporary Resource Group. Provide function to remove temporary resource group each day",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Automation", "Web API" ],
+    "language": "C# Script",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Automation", "Web API" ],
     "author": "wilfriedwoivre",
     "authortype": "Community",
-    "runtimeversion": "v2"
+
   },
   {
     "id": "3a3d0bc3-c100-40a1-941d-6fdbce38415b",
@@ -603,12 +562,11 @@
     "template": "https://raw.githubusercontent.com/nastassiar/WebRequestFunction/master/azuredeploy.json",
     "repository": "https://github.com/nastassiar/WebRequestFunction",
     "description": "Triggered every 5 minutes to do a GET from an API, check for duplicated records in Azure blob storage it has already seen and POST any new alerts to another API.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Scheduled Jobs", "Integration" ],
+    "language": "C#",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Scheduled Jobs", "Integration" ],
     "author": "nastassiar",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "158e3bb9-beff-46f5-a657-0e2fd48a3b43",
@@ -617,12 +575,11 @@
     "template": "https://github.com/keesschollaart81/CaseOnline.Azure.WebJobs.Extensions.Mqtt.Example/blob/master/azuredeploy.json",
     "repository": "https://github.com/keesschollaart81/CaseOnline.Azure.WebJobs.Extensions.Mqtt",
     "description": "Trigger your function by- and publish messages to your MQTT topics",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Event Processing" ],
+    "language": "C#",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Event Processing" ],
     "author": "keesschollaart81",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "d73043e7-f6ca-4a6d-99c0-3b453bf86b5e",
@@ -632,11 +589,10 @@
     "repository": "https://github.com/aliencube/ARM-Deployment-History-Cleaner",
     "description": "This provides Azure Logic Apps to clean up ARM deployment history before hitting 800 limits.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Automation" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Automation" ],
     "author": "justinyoo",
-    "authortype": "Community",
-    "runtimeversion": "na"
+    "authortype": "Community"
   },
   {
     "id": "2d17a460-7a57-4429-8c5b-6e9ae7ef8946",
@@ -645,12 +601,11 @@
     "template": "https://raw.githubusercontent.com/aliencube/Key-Vault-Connector-for-Logic-Apps/dev/azuredeploy.json",
     "repository": "https://github.com/aliencube/Key-Vault-Connector-for-Logic-Apps",
     "description": "This provides a custom Key Vault API Connector for Logic Apps.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Integration", " Authentication" ],
+    "language": "C#",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Integration", " Authentication" ],
     "author": "justinyoo",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "8abce865-49ba-400d-a364-4b43fd37687b",
@@ -660,11 +615,10 @@
     "repository": "https://github.com/anirudhgarg/functions-logicapp-startstopvms",
     "description": "This solution allows you to Start and Stop Azure VM's for a given Subscription, Resource Group or Tags based on a schedule. The implementation uses Azure VM async API's and hence potentially hundreds of VM's can be started/stopped.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Automation", "Integration", " Authentication" ],
+    "technologies": [ "Logic Apps", "Functions 2.x" ],
+    "solutionareas": [ "Automation", "Integration", " Authentication" ],
     "author": "anirudhgarg",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "2d089ad7-4a24-401f-a4d7-2f118a9680bb",
@@ -673,12 +627,11 @@
     "template": "https://raw.githubusercontent.com/JimPaine/Azure-Functions-KeyVault-Demo/master/azuredeploy.json",
     "repository": "https://github.com/JimPaine/Azure-Functions-KeyVault-Demo",
     "description": "A demo showing how to use @Microsoft.KeyVault in appsettings for simplified secret management",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Authentication" ],
+    "language": "C# Script",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Authentication" ],
     "author": "JimPaine",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "8a805c8c-a133-4572-9700-566453784771",
@@ -687,12 +640,11 @@
     "template": "https://raw.githubusercontent.com/JimPaine/emotion-checker/master/azuredeploy.json",
     "repository": "https://github.com/JimPaine/emotion-checker",
     "description": "An HTML5 page which streams your camera to the Face API for age and emotion, all via a V2 function",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Static Website", "Authentication" ],
+    "language": "C#",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Static Website", "Authentication" ],
     "author": "JimPaine",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "55b11a89-97b8-4fc7-af5d-531d7fe46d87",
@@ -701,12 +653,11 @@
     "template": "https://raw.githubusercontent.com/eavanvalkenburg/http_to_powerbi_function/master/azuredeploy.json",
     "repository": "https://github.com/eavanvalkenburg/http_to_powerbi_function",
     "description": "This Function examples uses the Push Rest API of PowerBI to push data into it, the content of your request (in json) needs to match the datastructure in json for it to work.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Web API", "Data Processing" ],
+    "language": "C# Script",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Web API", "Data Processing" ],
     "author": "eavanvalkenburg",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "fef81c19-8ad1-496c-941f-f22f8079f045",
@@ -715,12 +666,11 @@
     "template": "https://raw.githubusercontent.com/0GiS0/azure-functions-loves-twilio/master/azure.deploy.json",
     "repository": "https://github.com/0GiS0/azure-functions-loves-twilio",
     "description": "It sends and receives SMS using Twilio and Azure Functions. It is based on three functions: HandleMessage, which receives the message that you want to send. SendSMS, which sends the message to Twilio.SMSReceived, the SMS sent by the user to a specific Twilio mobile number is received.",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Web API", "Event Processing" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Web API", "Event Processing" ],
     "author": "0GiS0",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "6aefaf47-6ad4-44cb-ba43-8c1a719fb7ae",
@@ -729,12 +679,11 @@
     "template": "https://raw.githubusercontent.com/0GiS0/audio-azure-functions/master/azure.deploy.json",
     "repository": "https://github.com/0GiS0/audio-azure-functions",
     "description": "Conversions using ffmpeg and transcriptions with Speech Service: Mp3ToWav: It converts from MP3 to WAV in order to be treated by Speech service from Cognitive Services, but it can be used simply as a transformation method. WavToText: Use Speech Service to get the audio transcript.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Data Processing" ],
+    "language": "C#",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Data Processing" ],
     "author": "0GiS0",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "6365dd97-fbd7-4423-8aa2-3f069397e9f7",
@@ -743,12 +692,11 @@
     "template": "https://raw.githubusercontent.com/0GiS0/azure-function-clean-exif/master/azure.deploy.json",
     "repository": "https://github.com/0GiS0/azure-function-clean-exif",
     "description": "It removes file metadata using Azure Functions.",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Data Processing" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Data Processing" ],
     "author": "0GiS0",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "0409840c-b836-4095-8500-c57e0fa81168",
@@ -757,12 +705,11 @@
     "template": "https://raw.githubusercontent.com/raahmed/BlobStorageTrigger/master/azuredeploy.json",
     "repository": "https://github.com/raahmed/BlobStorageTrigger",
     "description": "This application takes a specific type of csv file (detailed in the project README), cleans the data and then places the contents in .json format into a Queue.",
-    "language": "python",
-    "type": "functionapp",
-    "category": [ "Data Processing" ],
+    "language": "Python",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Data Processing" ],
     "author": "raahmed",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "920a8678-4ae2-4b80-a629-992ff57c3ce9",
@@ -772,11 +719,10 @@
     "repository": "https://github.com/gdprtcl/AzDevOps-AzLA",
     "description": "Create a Logic App to notify an individual over mail whenever he/she is assigned to a Work Item (Bug) with high priority.",
     "language": "na",
-    "type": "logicapp",
-    "category": [ "Automation" ],
+    "technologies": [ "Logic Apps" ],
+    "solutionareas": [ "Automation" ],
     "author": "gdprtcl",
-    "authortype": "Community",
-    "runtimeversion": "na"
+    "authortype": "Community"
   },
   {
     "id": "270c843b-50b5-4167-b3db-9689d9fd0369",
@@ -785,12 +731,11 @@
     "template": "https://raw.githubusercontent.com/daniel-rocha/azure-functions-java-bindings/master/azuredeploy.json",
     "repository": "https://github.com/daniel-rocha/azure-functions-java-bindings",
     "description": "20+ ready-to-use examples of triggers and bindings with Azure Java Functions",
-    "language": "java",
-    "type": "functionapp",
-    "category": [ "Data Processing", "Event Processing", "Web API", "Integration" ],
+    "language": "Java",
+    "technologies": [ "Functions 2.x", "Cosmos DB" ],
+    "solutionareas": [ "Data Processing", "Event Processing", "Web API", "Integration" ],
     "author": "daniel-rocha",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "55e31e51-82a2-45ea-bcb6-53418b42a7fa",
@@ -799,12 +744,11 @@
     "template": "https://raw.githubusercontent.com/raahmed/QueueStorageTrigger/master/azuredeploy.json",
     "repository": "https://github.com/raahmed/QueueStorageTrigger",
     "description": "A series of events in queue storage are collected and added to CosmosDB.",
-    "language": "python",
-    "type": "functionapp",
-    "category": [ "Data Processing" ],
+    "language": "Python",
+    "technologies": [ "Functions 1.x", "Cosmos DB" ],
+    "solutionareas": [ "Data Processing" ],
     "author": "raahmed",
-    "authortype": "Community",
-    "runtimeversion": "na"
+    "authortype": "Community"
   },
   {
     "id": "9106d9e4-eb8b-42bb-9936-2eb6fe705f98",
@@ -813,12 +757,11 @@
     "template": "https://raw.githubusercontent.com/paulbatum/pull-request-reviewer/master/azure.deploy.json",
     "repository": "https://github.com/paulbatum/pull-request-reviewer",
     "description": "A simple example of using Azure Functions to implement a GitHub webhook",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Automation", "Web API", "Authentication" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Automation", "Web API", "Authentication" ],
     "author": "paulbatum",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "82a303ee-412d-44a0-be4b-590c0aedf5bb",
@@ -827,12 +770,11 @@
     "template": "https://raw.githubusercontent.com/mhoeger/functions-typescript-intermediate/master/azure.deploy.json",
     "repository": "https://github.com/mhoeger/functions-typescript-intermediate",
     "description": "A function app written in TypeScript that shows how to create backend API functions that use custom routes, npm modules, and globally shared code between functions.",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Web API" ],
+    "language": "TypeScript",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Web API" ],
     "author": "mhoeger",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "e78518db-6a70-4db0-9f92-3ef6d6bae969",
@@ -841,12 +783,11 @@
     "template": "https://raw.githubusercontent.com/simonaco/nodebinar/master/azuredeploy.json",
     "repository": "https://github.com/simonaco/nodebinar",
     "description": "Build a serverless API with Node.js on top of Azure Functions and Azure Cosmos DB",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Web API" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Web API" ],
     "author": "simonaco",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "d0ed4304-2ae9-4de1-9986-5db519093b43",
@@ -855,12 +796,11 @@
     "template": "https://raw.githubusercontent.com/fashaikh/functions-msi-csharp/master/azuredeploy.json",
     "repository": "https://github.com/fashaikh/functions-msi-csharp",
     "description": "Once installed it creates a Function App linked to an MSI. If you go ahead and change the access of the MSI to particular resources, then it is able to talk to ARM and return the results",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Authentication" ],
+    "language": "C#",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Authentication" ],
     "author": "fashaikh",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "81443d37-6a1f-42eb-9343-05a0342e3ec2",
@@ -869,12 +809,11 @@
     "template": "https://raw.githubusercontent.com/fashaikh/functions-aws-s3-cosmosdb-v1/master/azuredeploy.json",
     "repository": "https://github.com/fashaikh/functions-aws-s3-cosmosdb-v1",
     "description": "V1 FunctionApp with AWS S3 bucket and queue bindings,Cognitive Services and CosmosDB: 1)TimerTriggerFromS3: OCR images from S3 2) GetS3PreSignedUrl: Creates a pre signed Url for any S3 bucket 3) BlobTriggerToS3:From Azure Storage to S3",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Scheduled Jobs", "Web API", "Data Processing", "Machine Learning" ],
+    "language": "C#",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Scheduled Jobs", "Web API", "Data Processing", "Machine Learning" ],
     "author": "fashaikh",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "c8ca9ad7-552c-4807-9f77-1d88266895db",
@@ -882,12 +821,11 @@
     "title": "Python functions with Blob and Event Grid",
     "repository": "https://github.com/priyaananthasankar/messaging-pattern",
     "description": "This sample shows how to deploy a blob storage that subscribes to an event grid which sends messages to an Azure Function through a WebHook Trigger. This is a commonly used messaging pattern for many customers.",
-    "language": "python",
-    "type": "functionapp",
-    "category": [ "Data Processing", "Event Processing" ],
+    "language": "Python",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Data Processing", "Event Processing" ],
     "author": "priyaananthasankar",
-    "authortype": "Community",
-    "runtimeversion": "na"
+    "authortype": "Community"
   },
   {
     "id": "faae726b-1f09-4d1b-93d1-0240d0428a27",
@@ -895,12 +833,11 @@
     "title": "Scheduled-based Python function for social media reporting",
     "repository": "https://github.com/gbowerman/twitter-code/tree/master/azurefunctions/dailyreport",
     "description": "Python function designed to run a daily Twitter search and send output to a Microsoft Teams channel",
-    "language": "python",
-    "type": "functionapp",
-    "category": [ "Scheduled Jobs" ],
+    "language": "Python",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Scheduled Jobs" ],
     "author": "gbowerman",
-    "authortype": "Community",
-    "runtimeversion": "na"
+    "authortype": "Community"
   },
   {
     "id": "79bd3446-8032-4802-a58b-16f9064b4da7",
@@ -908,12 +845,11 @@
     "title": "Basic Image CAPTCHA Example",
     "repository": "https://github.com/ankitkumarr/image-game-sample",
     "description": "An image game sample that shows how to decode/encode images to JSON and to perform image transformation on them.",
-    "language": "python",
-    "type": "functionapp",
-    "category": [ "Web API", "Gaming", "Data Processing" ],
+    "language": "Python",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Web API", "Gaming", "Data Processing" ],
     "author": "ankitkumarr",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "323b0386-825a-420c-960f-514957098330",
@@ -922,12 +858,11 @@
     "template": "https://raw.githubusercontent.com/LinaSerry/AlexaSkill_AzureFunction/master/azuredeploy.json",
     "repository": "https://github.com/LinaSerry/AlexaSkill_AzureFunction",
     "description": "Azure function which allows you to interact with your QnA azure bot using Alexa",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Integration" ],
+    "language": "C#",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Integration" ],
     "author": "LinaSerry",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "3060e11d-3472-4f7c-aa6c-e6573688653f",
@@ -936,12 +871,11 @@
     "template": "https://raw.githubusercontent.com/StratusOn/MSI-GetToken-FunctionApp/master/azuredeploy.json",
     "repository": "https://github.com/StratusOn/MSI-GetToken-FunctionApp",
     "description": "An Azure Function App to help get tokens from a Managed Service Identity (MSI) service configured on the Function App.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Authentication" ],
+    "language": "C# Script",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Authentication" ],
     "author": "raouche",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "c8f77b34-736c-41ad-a4ff-9caf1ec98d35",
@@ -950,12 +884,11 @@
     "template": "https://raw.githubusercontent.com/StratusOn/Media-Transport-to-UNC/master/src/Deployments/azuredeploy.json",
     "repository": "https://github.com/StratusOn/Media-Transport-to-UNC",
     "description": "Transports media files from a watched Azure Storage account to an Azure Files UNC file share.",
-    "language": "csharp",
-    "type": "functionapp",
-    "category": [ "Data Processing" ],
+    "language": "C#",
+    "technologies": [ "Functions 1.x" ],
+    "solutionareas": [ "Data Processing" ],
     "author": "raouche",
-    "authortype": "Community",
-    "runtimeversion": "v1"
+    "authortype": "Community"
   },
   {
     "id": "3e4a68e3-4dff-41ab-83e1-635a842567ba",
@@ -963,12 +896,11 @@
     "title": "Azure Resource Management using Python Functions",
     "repository": "https://github.com/asavaritayal/azure-resource-management",
     "description": "Python Function App to automate resource cleanup in Azure.",
-    "language": "python",
-    "type": "functionapp",
-    "category": [ "Automation", "Authentication" ],
+    "language": "Python",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Automation", "Authentication" ],
     "author": "asavaritayal",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "028c1d04-97c3-49a9-a735-a87a868fdba7",
@@ -976,12 +908,11 @@
     "title": "Image Classification",
     "repository": "https://github.com/asavaritayal/dog-classification",
     "description": "Azure Function written in Python that predicts the dog breed based on an Image URL.",
-    "language": "python",
-    "type": "functionapp",
-    "category": [ "Machine Learning", "Web API" ],
+    "language": "Python",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Machine Learning", "Web API" ],
     "author": "asavaritayal",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "35d7b09e-3b30-45e0-a4a4-20626d7c90b1",
@@ -990,12 +921,11 @@
     "template": "https://raw.githubusercontent.com/simonaco/tweetverse/master/azuredeploy.json",
     "repository": "https://github.com/simonaco/tweetverse",
     "description": "Tweetverse: scan twitter, analyze sentiment and post sentiment in Slack channel",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Machine Learning" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Machine Learning" ],
     "author": "simonaco",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   },
   {
     "id": "bbca258e-41d0-4d0f-9003-5f4f400ebd35",
@@ -1004,11 +934,10 @@
     "template": "https://raw.githubusercontent.com/simonaco/redditifier/master/azuredeploy.json",
     "repository": "https://github.com/simonaco/redditifier",
     "description": "Http endpoint that submits links to the Reddit API",
-    "language": "javascript",
-    "type": "functionapp",
-    "category": [ "Web API" ],
+    "language": "JavaScript",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Web API" ],
     "author": "simonaco",
-    "authortype": "Community",
-    "runtimeversion": "v2"
+    "authortype": "Community"
   }
 ]
