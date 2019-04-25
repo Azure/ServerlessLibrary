@@ -9,17 +9,11 @@ class ActionBar extends Component {
     this.outboundRepoClick = this.outboundRepoClick.bind(this);
     this.outboundDeployClick = this.outboundDeployClick.bind(this);
     this.openInVSCodeClick = this.openInVSCodeClick.bind(this);
+    this.trackUserActionEvent = this.trackUserActionEvent.bind(this);
   }
 
-  outboundDeployClick(template) {
-    let eventData = this.getDeployClickEventDataToLog(template);
-    trackEvent("/sample/deploy/agree", eventData);
-  }
-
-  getDeployClickEventDataToLog(template) {
-    return {
-      template: template
-    };
+  outboundDeployClick() {
+    this.trackUserActionEvent("/sample/deploy/agree");
   }
 
   getDeployLink(template) {
@@ -29,31 +23,26 @@ class ActionBar extends Component {
     );
   }
 
-  outboundRepoClick(repository, template) {
-    let eventData = this.getDeployClickEventDataToLog(repository, template);
-    trackEvent("/sample/source", eventData);
-  }
-
-  getDeployClickEventDataToLog(repository, template) {
-    return {
-      repository: repository,
-      template: template
-    };
+  outboundRepoClick() {
+    this.trackUserActionEvent("/sample/source");
   }
 
   getOpenInVSCodeLink(repository) {
     return "vscode://vscode.git/clone?url=" + encodeURIComponent(repository);
   }
 
-  openInVSCodeClick(repository) {
-    let eventData = this.getOpenInVSCodeEventDataToLog(repository);
-    trackEvent("/sample/openinvscode", eventData);
+  openInVSCodeClick() {
+    this.trackUserActionEvent("/sample/openinvscode");
   }
 
-  getOpenInVSCodeEventDataToLog(repository) {
-    return {
-      repository: repository
+  trackUserActionEvent(eventName) {
+    let eventData = {
+      id: this.props.id,
+      repository: this.props.repository,
+      template: this.props.template
     };
+
+    trackEvent(eventName, eventData);
   }
 
   render() {
@@ -70,7 +59,7 @@ class ActionBar extends Component {
             href={this.getDeployLink(template)}
             disabled={deployDisabled}
             target="_blank"
-            onClick={() => this.outboundDeployClick(repository, template)}
+            onClick={this.outboundDeployClick}
           >
             <div className="action-link-wrapper">
               <Icon iconName="Deploy" className="fabric-icon-link" />
@@ -80,8 +69,8 @@ class ActionBar extends Component {
         </div>
         <div className="action-item">
           <FabricLink
-            href={this.getOpenInVSCodeLink(repository)}
-            onClick={() => this.openInVSCodeClick(repository)}
+            href={this.getOpenInVSCodeLink()}
+            onClick={this.openInVSCodeClick}
           >
             <div className="action-link-wrapper">
               <Icon iconName="Edit" className="fabric-icon-link" />
@@ -93,7 +82,7 @@ class ActionBar extends Component {
           <FabricLink
             href={repository}
             target="_blank"
-            onClick={() => this.outboundRepoClick(repository)}
+            onClick={this.outboundRepoClick}
           >
             <div className="action-link-wrapper">
               <Icon iconName="GitHub-12px" className="githubicon" />
