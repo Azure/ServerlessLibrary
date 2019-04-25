@@ -458,7 +458,7 @@
     "repository": "https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-transform-function",
     "description": "This template creates a webhook based C# azure function with transform capabilites to use in logic apps integration scenarios.",
     "language": "C# Script",
-    "technologies": [ "Logic Apps" ],
+    "technologies": [ "Logic Apps", "Functions 2.x", "Functions 1.x" ],
     "solutionareas": [ "Integration", "Web API" ],
     "author": "Azure",
     "authortype": "Microsoft"
@@ -615,7 +615,7 @@
     "repository": "https://github.com/anirudhgarg/functions-logicapp-startstopvms",
     "description": "This solution allows you to Start and Stop Azure VM's for a given Subscription, Resource Group or Tags based on a schedule. The implementation uses Azure VM async API's and hence potentially hundreds of VM's can be started/stopped.",
     "language": "na",
-    "technologies": [ "Logic Apps" ],
+    "technologies": [ "Logic Apps", "Functions 2.x" ],
     "solutionareas": [ "Automation", "Integration", " Authentication" ],
     "author": "anirudhgarg",
     "authortype": "Community"
@@ -885,7 +885,7 @@
     "repository": "https://github.com/StratusOn/Media-Transport-to-UNC",
     "description": "Transports media files from a watched Azure Storage account to an Azure Files UNC file share.",
     "language": "C#",
-    "technologies": [ "Functions 2.x" ],
+    "technologies": [ "Functions 1.x" ],
     "solutionareas": [ "Data Processing" ],
     "author": "raouche",
     "authortype": "Community"
