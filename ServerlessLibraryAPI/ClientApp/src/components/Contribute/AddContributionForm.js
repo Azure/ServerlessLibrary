@@ -47,7 +47,7 @@ class AddContributionForm extends Component {
     libraryService
       .submitNewSample(this.state)
       .then(
-        sample => this.props.addSampleSuccess(sample),
+        sample => this.props.sampleSubmittedSuccess(sample),
         error => console.log(error) // todo
       )
       .then(this.resetForm())
@@ -135,7 +135,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  addSampleSuccess: sampleActions.addSampleSuccess
+  sampleSubmittedSuccess: sampleActions.sampleSubmittedSuccess
 };
 
 const AddContributionFormContainer = connect(

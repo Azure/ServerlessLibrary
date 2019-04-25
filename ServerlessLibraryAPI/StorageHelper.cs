@@ -1,12 +1,10 @@
-﻿using Microsoft.WindowsAzure.Storage;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Queue;
 using Microsoft.WindowsAzure.Storage.RetryPolicies;
 using Microsoft.WindowsAzure.Storage.Table;
-using Microsoft.WindowsAzure.Storage.Queue;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
 
 namespace ServerlessLibrary
 {
@@ -16,54 +14,67 @@ namespace ServerlessLibrary
     public class StorageHelper
     {
         private const string slItemTableName = "slitemstats";
-        private static readonly TableRequestOptions tableRequestRetry = new TableRequestOptions { RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(2), 3) };
+        private const string slContributionRequests = "contribution-requests";
+        private static readonly TableRequestOptions tableRequestRetry = 
+            new TableRequestOptions { RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(2), 3) };
+
         private static CloudTableClient tableClient()
         {
             // Retrieve storage account from connection string.
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ServerlessLibrarySettings.SLStorageString);
+            CloudStorageAccount storageAccount = 
+                CloudStorageAccount.Parse(ServerlessLibrarySettings.SLStorageString);
 
             // Create the table client.
             return storageAccount.CreateCloudTableClient();
-
         }
+
         private static CloudQueueClient cloudQueueClient()
         {
             // Retrieve storage account from connection string.
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ServerlessLibrarySettings.SLStorageString);
+            CloudStorageAccount storageAccount = 
+                CloudStorageAccount.Parse(ServerlessLibrarySettings.SLStorageString);
 
             // Create the queue client.
             return storageAccount.CreateCloudQueueClient();
-
         }
+
         private static async Task<CloudTable> getTableReference(string tableName = slItemTableName)
         {
             CloudTable table = tableClient().GetTableReference(tableName);
             await table.CreateIfNotExistsAsync();
             return table;
         }
-        private static async Task<CloudQueue> getQueueReference(string queueName = slItemTableName)
+
+        private static async Task<CloudQueue> getQueueReference(string queueName)
         {
             CloudQueue queue = cloudQueueClient().GetQueueReference(queueName);
             await queue.CreateIfNotExistsAsync();
             return queue;
         }
+
+        public static async void submitContributionForApproval(string contributionPayload)
+        {
+            var message = new CloudQueueMessage(contributionPayload);
+            await (await getQueueReference(slContributionRequests)).AddMessageAsync(message);
+        }
+
         public static async void updateUserStats(string statsPayload)
         {
             var message = new CloudQueueMessage(statsPayload);
-            await (await getQueueReference()).AddMessageAsync(message);
+            await (await getQueueReference(slItemTableName)).AddMessageAsync(message);
         }
+
         public static async Task<IEnumerable<SLItemStats>> getSLItemRecordsAsync()
         {
-
-            TableQuery<SLItemStats> query = new TableQuery<SLItemStats>().Select(new List<string> { "id", "totalDownloads"
-            , "likes", "dislikes"});
+            TableQuery<SLItemStats> query = new TableQuery<SLItemStats>()
+                .Select(new List<string> { "id", "totalDownloads", "likes", "dislikes" });
             TableContinuationToken continuationToken = null;
             List<SLItemStats> entities = new List<SLItemStats>();
             var opContext = new OperationContext();
             do
             {
-                TableQuerySegment<SLItemStats>
-                queryResults = await (await getTableReference()).ExecuteQuerySegmentedAsync<SLItemStats>(query, continuationToken, tableRequestRetry, opContext);
+                TableQuerySegment<SLItemStats> queryResults = 
+                    await (await getTableReference()).ExecuteQuerySegmentedAsync<SLItemStats>(query, continuationToken, tableRequestRetry, opContext);
                 continuationToken = queryResults.ContinuationToken;
                 entities.AddRange(queryResults.Results);
 
