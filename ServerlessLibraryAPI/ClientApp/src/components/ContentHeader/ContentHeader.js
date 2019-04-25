@@ -42,7 +42,7 @@ class ContentHeader extends Component {
   sortbyChanged(newValue) {
     var params = queryStringToParams(this.props.location.search);
     delete params["sortby"];
-    if (newValue === "atoz") {
+    if (newValue !== "totaldownloads") {
       params["sortby"] = newValue;
     }
     this.setState({ sortby: newValue });
@@ -104,7 +104,7 @@ class ContentHeader extends Component {
           placeholder="Search"
           value={this.state.filterText}
           onSearch={newValue => this.filterTextChanged(newValue)}
-          onClear={() =>this.filterTextChanged('')}
+          onClear={() => this.filterTextChanged("")}
           styles={searchBoxStyles}
         />
         <div className="content-header-sortbywrappper">
@@ -116,7 +116,8 @@ class ContentHeader extends Component {
               defaultSelectedKey={this.state.sortby}
               options={[
                 { key: "totaldownloads", text: "Most downloads" },
-                { key: "atoz", text: "A to Z" }
+                { key: "atoz", text: "A to Z" },
+                { key: "createddate", text: "Most recent" }
               ]}
               label="Sort By"
               styles={dropdownStyles}
