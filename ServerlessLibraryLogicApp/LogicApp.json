@@ -109,49 +109,6 @@
         "definition": {
           "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
           "actions": {
-            "ParseJSON": {
-              "type": "ParseJson",
-              "inputs": {
-                "content": "@triggerBody()?['MessageText']",
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "createddate": {
-                      "type": "string"
-                    },
-                    "title": {
-                      "type": "string"
-                    },
-                    "template": {
-                      "type": "string"
-                    },
-                    "repository": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
-                    },
-                    "tags": {},
-                    "language": {
-                      "type": "string"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "author": {
-                      "type": "string"
-                    },
-                    "runtimeversion": {
-                      "type": "string"
-                    }
-                  }
-                }
-              },
-              "runAfter": {}
-            },
             "SendApprovalEmail": {
               "type": "ApiConnectionWebhook",
               "inputs": {
@@ -164,7 +121,7 @@
                   "NotificationUrl": "@{listCallbackUrl()}",
                   "Message": {
                     "To": "serverless-admins@microsoft.com",
-                    "Subject": "Serverless Library Approval Request for sample: \"@{body('ParseJSON')?['title']}\"",
+                    "Subject": "Serverless Library Approval Request for sample: \"@{variables('sampleTitle')}\"",
                     "Options": "Approve, Reject",
                     "Body": "@triggerBody()?['MessageText']",
                     "Importance": "Normal"
@@ -173,7 +130,7 @@
                 "path": "/approvalmail/$subscriptions"
               },
               "runAfter": {
-                "ParseJSON": [
+                "Initialize_variable": [
                   "Succeeded"
                 ]
               }
@@ -203,7 +160,11 @@
                     "body": "@triggerBody()?['MessageText']",
                     "path": "/dbs/@{encodeURIComponent('serverlesslibrary')}/colls/@{encodeURIComponent('contributions')}/docs"
                   },
-                  "runAfter": {}
+                  "runAfter": {
+                    "CopyRequestToApprovedQueue": [
+                      "Succeeded"
+                    ]
+                  }
                 },
                 "SendApprovalNotificationEmail": {
                   "type": "ApiConnection",
@@ -216,7 +177,7 @@
                     "method": "post",
                     "body": {
                       "To": "serverless-admins@microsoft.com",
-                      "Subject": "Request for sample \"@{body('ParseJSON')?['title']}\" was approved",
+                      "Subject": "Request Approved for sample: \"@{variables('sampleTitle')}\"",
                       "Body": "@triggerBody()?['MessageText']"
                     },
                     "path": "/Mail"
@@ -226,6 +187,20 @@
                       "Succeeded"
                     ]
                   }
+                },
+                "CopyRequestToApprovedQueue": {
+                  "type": "ApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connection": {
+                        "name": "@parameters('$connections')['azurequeues']['connectionId']"
+                      }
+                    },
+                    "method": "post",
+                    "body": "@triggerBody()?['MessageText']",
+                    "path": "/@{encodeURIComponent('approved-requests')}/messages"
+                  },
+                  "runAfter": {}
                 }
               },
               "runAfter": {
@@ -246,7 +221,7 @@
                       "method": "post",
                       "body": {
                         "To": "serverless-admins@microsoft.com",
-                        "Subject": "Request for sample \"@{body('ParseJSON')?['title']}\" was rejected!",
+                        "Subject": "Request Rejected for sample: \"@{variables('sampleTitle')}\"",
                         "Body": "@triggerBody()?['MessageText']"
                       },
                       "path": "/Mail"
@@ -293,6 +268,19 @@
                   "Succeeded"
                 ]
               }
+            },
+            "Initialize_variable": {
+              "type": "InitializeVariable",
+              "inputs": {
+                "variables": [
+                  {
+                    "name": "sampleTitle",
+                    "type": "String",
+                    "value": "@{json(triggerBody()?['MessageText'])?['title']}"
+                  }
+                ]
+              },
+              "runAfter": {}
             }
           },
           "parameters": {
