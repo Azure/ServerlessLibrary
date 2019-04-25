@@ -11,10 +11,7 @@ class SignInButton extends Component {
     const buttonStyles = {
       root: {
         fontSize: "12px",
-        height: "32px",
-        minWidth: "130px",
-        paddingRight: "33px",
-        paddingLeft: "33px"
+        height: "32px"
       },
       label: {
         fontWeight: "normal"

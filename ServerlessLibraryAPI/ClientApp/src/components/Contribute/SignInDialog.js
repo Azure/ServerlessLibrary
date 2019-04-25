@@ -1,15 +1,35 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { Dialog, DialogFooter } from "office-ui-fabric-react";
+import { Dialog, DialogFooter, DefaultButton } from "office-ui-fabric-react";
 
 import SignInButton from "../shared/SignInButton";
 
 class SignInDialog extends Component {
+  constructor(props) {
+    super(props);
+    this.handleHomeButtonClick = this.handleHomeButtonClick.bind(this);
+  }
+
+  handleHomeButtonClick() {
+    this.props.history.push("/");
+  }
+
   render() {
     const footerStyles = {
       actionsRight: {
         textAlign: "center",
         marginRight: "0px"
+      }
+    };
+    const buttonStyles = {
+      root: {
+        fontSize: "12px",
+        height: "32px",
+        minWidth: "40px"
+      },
+      label: {
+        fontWeight: "normal"
       }
     };
 
@@ -32,6 +52,11 @@ class SignInDialog extends Component {
         >
           <DialogFooter styles={footerStyles}>
             <SignInButton />
+            <DefaultButton
+              styles={buttonStyles}
+              text="Home"
+              onClick={this.handleHomeButtonClick}
+            />
           </DialogFooter>
         </Dialog>
       </div>
@@ -46,4 +71,4 @@ const mapStateToProps = state => ({
 
 const SignInDialogContainer = connect(mapStateToProps)(SignInDialog);
 
-export default SignInDialogContainer;
+export default withRouter(SignInDialogContainer);
