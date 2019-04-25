@@ -36,19 +36,23 @@ class Main extends Component {
 
     if (currentfilters.categories.technologies.length > 0) {
       samples = samples.filter(s =>
-        s.technologies.some(t=> currentfilters.categories.technologies.includes(t))
+        s.technologies.some(t =>
+          currentfilters.categories.technologies.includes(t)
+        )
       );
     }
 
     if (currentfilters.categories.languages.length > 0) {
-       samples = samples.filter(s =>
+      samples = samples.filter(s =>
         currentfilters.categories.languages.includes(s.language)
       );
     }
 
     if (currentfilters.categories.solutionareas.length > 0) {
       samples = samples.filter(s =>
-        s.solutionareas.some(a=> currentfilters.categories.solutionareas.includes(a))
+        s.solutionareas.some(a =>
+          currentfilters.categories.solutionareas.includes(a)
+        )
       );
     }
 
@@ -61,9 +65,15 @@ class Main extends Component {
       list = list.sort(function(a, b) {
         return b.totaldownloads - a.totaldownloads;
       });
+    } else if (sortby === "createddate") {
+      list.sort(function(a, b) {
+        let dateA = new Date(a.createddate),
+          dateB = new Date(b.createddate);
+        return dateB - dateA;
+      });
     } else {
       list = list.sort(function(a, b) {
-        var titleA = a.title.toLowerCase(),
+        let titleA = a.title.toLowerCase(),
           titleB = b.title.toLowerCase();
         if (titleA < titleB)
           //sort string ascending
@@ -81,7 +91,7 @@ class Main extends Component {
       categories: {
         technologies: [],
         languages: [],
-        solutionareas: [],
+        solutionareas: []
       },
       filtertext: "",
       sortby: "totaldownloads"
@@ -112,14 +122,18 @@ class Main extends Component {
   onListScrollEvent(e) {
     let element = e.target;
     if (element.scrollTop > 0) {
-      !this.state.showContentHeaderShadow && this.setState({ showContentHeaderShadow: true });
+      !this.state.showContentHeaderShadow &&
+        this.setState({ showContentHeaderShadow: true });
     } else {
-      this.state.showContentHeaderShadow && this.setState({ showContentHeaderShadow: false });
+      this.state.showContentHeaderShadow &&
+        this.setState({ showContentHeaderShadow: false });
     }
   }
   render() {
     const contentheaderShadowStyle = {
-      boxShadow: this.state.showContentHeaderShadow ? "0 4px 6px -6px #222" : "none"
+      boxShadow: this.state.showContentHeaderShadow
+        ? "0 4px 6px -6px #222"
+        : "none"
     };
 
     return (
