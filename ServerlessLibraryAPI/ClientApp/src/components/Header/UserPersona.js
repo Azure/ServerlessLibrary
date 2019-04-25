@@ -33,7 +33,11 @@ class UserPersona extends Component {
       }
     };
 
-    const { loggedIn, user } = this.props;
+    const { loading, loggedIn, user } = this.props;
+    if (loading) {
+      return null;
+    }
+
     return loggedIn ? (
       <Persona
         styles={personaStyles}
@@ -59,6 +63,7 @@ class UserPersona extends Component {
 }
 
 const mapStateToProps = state => ({
+  loading: state.authentication.loading,
   loggedIn: state.authentication.loggedIn,
   user: state.authentication.user
 });

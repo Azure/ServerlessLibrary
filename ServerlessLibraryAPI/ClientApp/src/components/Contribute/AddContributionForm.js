@@ -12,7 +12,6 @@ import { libraryService } from "../../services";
 import { sampleActions } from "../../actions/sampleActions";
 import * as formStyles from "./AddContributionForm.styles";
 import * as commonStyles from "../shared/Button.styles";
-import "./Contribute.scss";
 
 const initialState = {
   showForm: false,

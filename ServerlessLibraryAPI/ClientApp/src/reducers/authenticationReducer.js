@@ -6,11 +6,24 @@ export default function authenticationReducer(
   action
 ) {
   switch (action.type) {
+    case userActionTypes.GETCURRENTUSER_REQUEST:
+      return {
+        ...state,
+        loading: true
+      };
     case userActionTypes.GETCURRENTUSER_SUCCESS:
       return {
         ...state,
+        loading: false,
         loggedIn: true,
         user: action.user
+      };
+    case userActionTypes.GETCURRENTUSER_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        loggedIn: false,
+        user: {}
       };
     case userActionTypes.LOGOUT:
       return {
