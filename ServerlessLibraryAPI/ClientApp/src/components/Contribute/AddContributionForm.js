@@ -6,17 +6,19 @@ import {
   TextField,
   PrimaryButton,
   DefaultButton,
-  Dropdown
+  Dropdown,
+  Dialog
 } from "office-ui-fabric-react";
 
 import { libraryService } from "../../services";
 import { sampleActions } from "../../actions/sampleActions";
-import * as formStyles from "./AddContributionForm.styles";
 import * as commonStyles from "../shared/Button.styles";
-import * as Constants from "../shared/Constants"
+import * as Constants from "../shared/Constants";
 
 const initialState = {
   showForm: false,
+  errors: [],
+  showErrorDialog: false,
   title: "",
   description: "",
   repository: "",
@@ -36,6 +38,8 @@ class AddContributionForm extends Component {
     this.onAddButtonClick = this.onAddButtonClick.bind(this);
     this.onCancelButtonClick = this.onCancelButtonClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.onDismissErrorDialog = this.onDismissErrorDialog.bind(this);
+    this.validateForm = this.getFormValidationErrors.bind(this);
   }
 
   technologiesOptionsChanged(newValue) {
@@ -70,19 +74,69 @@ class AddContributionForm extends Component {
     this.setState({ [name]: newValue });
   }
 
+  getFormValidationErrors(sample) {
+    let errors = [];
+    if (sample.title.length === 0) {
+      errors.push("Title cannot be empty");
+    }
+    if (sample.repository.length === 0) {
+      errors.push("Repository URL cannot be empty");
+    }
+    if (sample.description.length === 0) {
+      errors.push("Description cannot be empty");
+    }
+    if (sample.technologies.length === 0) {
+      errors.push("At least one technology must be selected");
+    }
+    if (sample.language.length === 0) {
+      errors.push("Language must be selected");
+    }
+    if (sample.solutionareas.length === 0) {
+      errors.push("At least one solution area must be selected");
+    }
+
+    return errors;
+  }
+
   onLinkClick() {
     this.setState({ showForm: true });
   }
 
+  setErrorState(errors) {
+    this.setState({
+      errors: errors,
+      showErrorDialog: true
+    });
+  }
+
   onAddButtonClick() {
-    libraryService
-      .submitNewSample(this.state)
-      .then(
-        sample => this.props.sampleSubmittedSuccess(sample),
-        error => console.log(error) // todo
-      )
-      .then(this.resetForm())
-      .catch(error => console.log(error)); // todo
+    const sample = {
+      title: this.state.title,
+      description: this.state.description,
+      repository: this.state.repository,
+      template: this.state.template,
+      technologies: this.state.technologies,
+      language: this.state.language,
+      solutionareas: this.state.solutionareas
+    };
+    const errors = this.getFormValidationErrors(sample);
+    if (errors.length > 0) {
+      this.setErrorState(errors);
+      return;
+    }
+    libraryService.submitNewSample(sample).then(
+      sample => {
+        this.props.sampleSubmittedSuccess(sample);
+        this.resetForm();
+      },
+      error => {
+        this.setErrorState(error);
+      }
+    );
+  }
+
+  onDismissErrorDialog() {
+    this.setState({ showErrorDialog: false });
   }
 
   onCancelButtonClick() {
@@ -94,10 +148,16 @@ class AddContributionForm extends Component {
   }
 
   render() {
-    let technologiesOptions = Constants.technologies.map(t => ({ key: t, text: t }));
+    let technologiesOptions = Constants.technologies.map(t => ({
+      key: t,
+      text: t
+    }));
     let languageOptions = Constants.languages.map(l => ({ key: l, text: l }));
-    let solutionAreasOptions = Constants.solutionAreas.map(s => ({ key: s, text: s }));
-    const { showForm } = this.state;
+    let solutionAreasOptions = Constants.solutionAreas.map(s => ({
+      key: s,
+      text: s
+    }));
+    let { showForm, errors, showErrorDialog } = this.state;
     return (
       <div className="add-contribution-container">
         <div className="add-contribution-link">
@@ -108,6 +168,21 @@ class AddContributionForm extends Component {
         </div>
         {showForm && (
           <div className="contribution-form-container">
+            {showErrorDialog && (
+              <Dialog
+                dialogContentProps={{
+                  title: "An error occurred!"
+                }}
+                hidden={!showErrorDialog}
+                onDismiss={this.onDismissErrorDialog}
+              >
+                <ul>
+                  {errors.map((message, index) => (
+                    <li key={index}>{message}</li>
+                  ))}
+                </ul>
+              </Dialog>
+            )}
             <div className="input-container">
               <div className="contribution-form-fields-container">
                 <TextField
@@ -154,7 +229,6 @@ class AddContributionForm extends Component {
                   required={true}
                   options={languageOptions}
                 />
-
                 <Dropdown
                   placeholder="Select categories for your sample"
                   label="Solution Area"
@@ -165,7 +239,6 @@ class AddContributionForm extends Component {
                   multiSelect
                   options={solutionAreasOptions}
                 />
-
                 <TextField
                   name="template"
                   label="ARM template URL"
