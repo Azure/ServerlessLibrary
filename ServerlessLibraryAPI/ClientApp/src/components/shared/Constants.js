@@ -1,8 +1,7 @@
 export const technologies = [
   "Functions 1.x",
   "Functions 2.x",
-  "Logic Apps",
-  "Cosmos DB"
+  "Logic Apps"
 ];
 
 export const solutionAreas = [
