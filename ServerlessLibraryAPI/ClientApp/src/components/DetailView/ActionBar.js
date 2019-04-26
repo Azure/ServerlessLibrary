@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Icon, Link as FabricLink } from "office-ui-fabric-react";
 import { trackEvent } from "../../helpers";
+import { libraryService } from "../../services";
 import "./ActionBar.scss";
 
 class ActionBar extends Component {
@@ -13,6 +14,7 @@ class ActionBar extends Component {
   }
 
   outboundDeployClick() {
+    libraryService.updateDownloadCount(this.props.id);
     this.trackUserActionEvent("/sample/deploy/agree");
   }
 
@@ -32,6 +34,7 @@ class ActionBar extends Component {
   }
 
   openInVSCodeClick() {
+    libraryService.updateDownloadCount(this.props.id);
     this.trackUserActionEvent("/sample/openinvscode");
   }
 
