@@ -12,9 +12,12 @@ import { libraryService } from "../../services";
 import { sampleActions } from "../../actions/sampleActions";
 import * as formStyles from "./AddContributionForm.styles";
 import * as commonStyles from "../shared/Button.styles";
+import NotificationDialog from "../shared/NotificationDialog";
 
 const initialState = {
   showForm: false,
+  errors: [],
+  showErrorDialog: false,
   title: "",
   description: "",
   repository: "",
@@ -31,6 +34,9 @@ class AddContributionForm extends Component {
     this.onAddButtonClick = this.onAddButtonClick.bind(this);
     this.onCancelButtonClick = this.onCancelButtonClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.onDescriptionChange = this.onDescriptionChange.bind(this);
+    this.onDismissErrorDialog = this.onDismissErrorDialog.bind(this);
+    this.validateForm = this.validateForm.bind(this);
   }
 
   handleInputChange(event, newValue) {
@@ -39,19 +45,72 @@ class AddContributionForm extends Component {
     this.setState({ [name]: newValue });
   }
 
+  onDescriptionChange(event, newValue) {
+    if (!newValue || newValue.length <= 300) {
+      this.setState({ description: newValue });
+    } else {
+      // this is needed because of a known bug which won't be fixed until Fabric 7
+      this.setState({ description: this.state.description });
+    }
+  }
+
+  validateForm(sample) {
+    let errors = [];
+    if (sample.title.length === 0) {
+      errors.push("Title cannot be empty");
+    }
+    if (sample.repository.length === 0) {
+      errors.push("Repository URL cannot be empty");
+    }
+    if (sample.description.length === 0) {
+      errors.push("Description cannot be empty");
+    }
+
+    return errors;
+  }
+
   onLinkClick() {
     this.setState({ showForm: true });
   }
 
+  setErrorState(errors) {
+    this.setState({
+      errors: errors,
+      showErrorDialog: true
+    });
+  }
+
   onAddButtonClick() {
+    const sample = {
+      title: this.state.title,
+      description: this.state.description,
+      repository: this.state.repository,
+      template: this.state.template
+    };
+    const errors = this.validateForm(sample);
+    if (errors.length > 0) {
+      this.setErrorState(errors);
+      return;
+    }
+
     libraryService
-      .submitNewSample(this.state)
+      .submitNewSample(sample)
       .then(
-        sample => this.props.sampleSubmittedSuccess(sample),
-        error => console.log(error) // todo
+        sample => {
+          this.props.sampleSubmittedSuccess(sample);
+          this.resetForm();
+        },
+        error => {
+          this.setErrorState(error);
+        }
       )
-      .then(this.resetForm())
-      .catch(error => console.log(error)); // todo
+      .catch(error => {
+        this.setErrorState(error);
+      });
+  }
+
+  onDismissErrorDialog() {
+    this.setState({ showErrorDialog: false });
   }
 
   onCancelButtonClick() {
@@ -63,7 +122,7 @@ class AddContributionForm extends Component {
   }
 
   render() {
-    const { showForm } = this.state;
+    let { showForm, errors, showErrorDialog } = this.state;
     return (
       <div className="add-contribution-container">
         <div className="add-contribution-link">
@@ -74,14 +133,31 @@ class AddContributionForm extends Component {
         </div>
         {showForm && (
           <div className="contribution-form-container">
+            {showErrorDialog && (
+              <NotificationDialog
+                title="An error occurred!"
+                messageList={errors}
+                hidden={!showErrorDialog}
+                onDismiss={this.onDismissErrorDialog}
+              />
+            )}
             <div className="contribution-form-fields-container">
               <TextField
-                styles={formStyles.textFieldStyles}
+                styles={formStyles.singleLineFieldStyles}
                 name="title"
                 label="Title"
                 required={true}
-                placeholder="Enter your custom title"
+                placeholder="Enter the title of your sample"
                 value={this.state.title}
+                onChange={this.handleInputChange}
+              />
+              <TextField
+                styles={formStyles.singleLineFieldStyles}
+                name="repository"
+                label="URL"
+                required={true}
+                placeholder="Enter the URL of the GitHub repository that hosts your sample"
+                value={this.state.repository}
                 onChange={this.handleInputChange}
               />
               <TextField
@@ -89,24 +165,17 @@ class AddContributionForm extends Component {
                 name="description"
                 label="Description"
                 required={true}
-                placeholder="Enter a brief description"
+                placeholder="Briefly describe your sample (300 characters maximum)"
+                multiline
+                resizable={false}
                 value={this.state.description}
-                onChange={this.handleInputChange}
+                onChange={this.onDescriptionChange}
               />
               <TextField
-                styles={formStyles.textFieldStyles}
-                name="repository"
-                label="URL"
-                required={true}
-                placeholder="Enter GitHub URL"
-                value={this.state.repository}
-                onChange={this.handleInputChange}
-              />
-              <TextField
-                styles={formStyles.textFieldStyles}
+                styles={formStyles.singleLineFieldStyles}
                 name="template"
-                label="ARM template link"
-                placeholder="Enter ARM template link"
+                label="ARM template URL"
+                placeholder="Enter the URL of the ARM template to use to deploy your sample"
                 value={this.state.template}
                 onChange={this.handleInputChange}
               />

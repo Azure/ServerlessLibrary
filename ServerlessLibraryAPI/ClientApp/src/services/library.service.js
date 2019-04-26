@@ -34,7 +34,19 @@ function submitNewSample(item) {
       "Content-Type": "application/json"
     }
   };
-  return fetch("/api/library", requestOptions).then(handleResponse);
+  return fetch("/api/library", requestOptions).then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+
+    if (response.status === 400) {
+      return response.json().then(json => Promise.reject(json));
+    }
+
+    return response
+      .text()
+      .then(text => Promise.reject(text || response.statusText));
+  });
 }
 
 function updateUserSentimentStats(sentimentPayload) {
