@@ -59,15 +59,11 @@ namespace ServerlessLibrary.Controllers
             {
                 return Unauthorized();
             }
-            
-            if (string.IsNullOrWhiteSpace(libraryItem.Repository) || !IsValidUri(libraryItem.Repository))
-            {
-                return BadRequest("GitHub URL is mandatory, and must be a valid URL");
-            }
 
-            if (!string.IsNullOrWhiteSpace(libraryItem.Template) && !IsValidUri(libraryItem.Template))
+            var validationsErrors = ValidateLibraryItem(libraryItem);
+            if (validationsErrors?.Count > 0)
             {
-                return BadRequest("ARM template link must be a valid URL");
+                return BadRequest(validationsErrors);
             }
 
             // assign id, created date
@@ -80,6 +76,47 @@ namespace ServerlessLibrary.Controllers
 
             StorageHelper.submitContributionForApproval(JsonConvert.SerializeObject(libraryItem));
             return new JsonResult(libraryItem);
+        }
+
+        private static List<string> ValidateLibraryItem(LibraryItem libraryItem)
+        {
+            List<string> errors = new List<string>();
+            if (string.IsNullOrWhiteSpace(libraryItem.Title))
+            {
+                errors.Add("Title cannot be empty");
+            }
+
+            if (string.IsNullOrWhiteSpace(libraryItem.Repository) || !IsValidUri(libraryItem.Repository))
+            {
+                errors.Add("Repository URL must be a valid GitHub URL");
+            }
+
+            if (string.IsNullOrWhiteSpace(libraryItem.Description))
+            {
+                errors.Add("Description cannot be empty");
+            }
+
+            if (libraryItem.Technologies.Length == 0)
+            {
+                errors.Add("At least one technology must be specified");
+            }
+
+            if (string.IsNullOrWhiteSpace(libraryItem.Language))
+            {
+                errors.Add("Language must be specified");
+            }
+
+            if (libraryItem.SolutionAreas.Length == 0)
+            {
+                errors.Add("At least one solution area must be specified");
+            }
+
+            if (!string.IsNullOrWhiteSpace(libraryItem.Template) && !IsValidUri(libraryItem.Template))
+            {
+                errors.Add("ARM template URL must be a valid URL");
+            }
+
+            return errors;
         }
 
         private static bool IsValidUri(string uriString)
