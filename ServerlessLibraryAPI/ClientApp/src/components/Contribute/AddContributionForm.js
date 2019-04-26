@@ -34,7 +34,6 @@ class AddContributionForm extends Component {
     this.onAddButtonClick = this.onAddButtonClick.bind(this);
     this.onCancelButtonClick = this.onCancelButtonClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.onDescriptionChange = this.onDescriptionChange.bind(this);
     this.onDismissErrorDialog = this.onDismissErrorDialog.bind(this);
     this.validateForm = this.validateForm.bind(this);
   }
@@ -43,15 +42,6 @@ class AddContributionForm extends Component {
     const target = event.target;
     const name = target.name;
     this.setState({ [name]: newValue });
-  }
-
-  onDescriptionChange(event, newValue) {
-    if (!newValue || newValue.length <= 300) {
-      this.setState({ description: newValue });
-    } else {
-      // this is needed because of a known bug which won't be fixed until Fabric 7
-      this.setState({ description: this.state.description });
-    }
   }
 
   validateForm(sample) {
@@ -143,21 +133,12 @@ class AddContributionForm extends Component {
             )}
             <div className="contribution-form-fields-container">
               <TextField
-                styles={formStyles.singleLineFieldStyles}
+                styles={formStyles.textFieldStyles}
                 name="title"
                 label="Title"
                 required={true}
-                placeholder="Enter the title of your sample"
+                placeholder="Enter your custom title"
                 value={this.state.title}
-                onChange={this.handleInputChange}
-              />
-              <TextField
-                styles={formStyles.singleLineFieldStyles}
-                name="repository"
-                label="URL"
-                required={true}
-                placeholder="Enter the URL of the GitHub repository that hosts your sample"
-                value={this.state.repository}
                 onChange={this.handleInputChange}
               />
               <TextField
@@ -165,17 +146,24 @@ class AddContributionForm extends Component {
                 name="description"
                 label="Description"
                 required={true}
-                placeholder="Briefly describe your sample (300 characters maximum)"
-                multiline
-                resizable={false}
+                placeholder="Enter a brief description"
                 value={this.state.description}
-                onChange={this.onDescriptionChange}
+                onChange={this.handleInputChange}
               />
               <TextField
-                styles={formStyles.singleLineFieldStyles}
+                styles={formStyles.textFieldStyles}
+                name="repository"
+                label="URL"
+                required={true}
+                placeholder="Enter GitHub URL"
+                value={this.state.repository}
+                onChange={this.handleInputChange}
+              />
+              <TextField
+                styles={formStyles.textFieldStyles}
                 name="template"
-                label="ARM template URL"
-                placeholder="Enter the URL of the ARM template to use to deploy your sample"
+                label="ARM template link"
+                placeholder="Enter ARM template link"
                 value={this.state.template}
                 onChange={this.handleInputChange}
               />

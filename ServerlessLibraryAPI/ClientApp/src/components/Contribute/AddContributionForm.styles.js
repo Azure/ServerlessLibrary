@@ -1,5 +1,3 @@
-import { mergeStyleSets } from "@uifabric/styling";
-
 const labelStyles = {
   root: {
     fontSize: "13px",
@@ -14,7 +12,9 @@ export const textFieldStyles = {
   root: {
     marginBottom: "10px"
   },
-
+  fieldGroup: {
+    height: "23px"
+  },
   field: {
     fontSize: "12px",
     paddingLeft: "7px",
@@ -28,9 +28,3 @@ export const textFieldStyles = {
     label: labelStyles
   }
 };
-
-export const singleLineFieldStyles = mergeStyleSets(textFieldStyles, {
-  fieldGroup: {
-    height: "23px"
-  }
-});
