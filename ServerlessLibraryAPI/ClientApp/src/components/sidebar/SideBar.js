@@ -2,7 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Checkbox } from "office-ui-fabric-react/lib/index";
-import { paramsToQueryString, queryStringToParams } from "../../helpers";
+import {
+  paramsToQueryString,
+  queryStringToParams,
+  trackEvent
+} from "../../helpers";
 import "./SideBar.css";
 
 const technologies = [
@@ -59,6 +63,7 @@ class SideBar extends Component {
 
     currentFilters[category] = categoryArray;
     this.setState({ filters: currentFilters }, () => this.ChangeUrl());
+    trackEvent(`/filter/change/${category}`, currentFilters);
   }
 
   ChangeUrl() {

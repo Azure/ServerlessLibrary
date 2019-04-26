@@ -8,7 +8,11 @@ import {
   Link as FabricLink
 } from "office-ui-fabric-react";
 import { Link } from "react-router-dom";
-import { paramsToQueryString, queryStringToParams } from "../../helpers";
+import {
+  paramsToQueryString,
+  queryStringToParams,
+  trackEvent
+} from "../../helpers";
 import { registerIcons } from "office-ui-fabric-react";
 import { ReactComponent as ContributionSvg } from "../../assets/contribution.svg";
 import "./ContentHeader.css";
@@ -37,6 +41,7 @@ class ContentHeader extends Component {
 
     this.setState({ filterText: newValue });
     this.props.history.push(paramsToQueryString(params));
+    trackEvent("/filter/change/searchtext", newValue);
   }
 
   sortbyChanged(newValue) {
@@ -47,6 +52,7 @@ class ContentHeader extends Component {
     }
     this.setState({ sortby: newValue });
     this.props.history.push(paramsToQueryString(params));
+    trackEvent("/sortby/change", newValue);
   }
 
   render() {

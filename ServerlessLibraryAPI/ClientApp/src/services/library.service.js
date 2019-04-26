@@ -4,7 +4,8 @@ import { useMockApi } from "./index";
 export const libraryService = {
   getAllSamples,
   submitNewSample,
-  updateUserSentimentStats
+  updateUserSentimentStats,
+  updateDownloadCount
 };
 
 function getAllSamples() {
@@ -44,8 +45,16 @@ function updateUserSentimentStats(sentimentPayload) {
       "Content-Type": "application/json"
     }
   };
-  return fetch(
-    "/api/metrics/sentiment",
-    requestOptions
-  ).then(handleResponse);
+  return fetch("/api/metrics/sentiment", requestOptions).then(handleResponse);
+}
+
+function updateDownloadCount(id) {
+  const requestOptions = {
+    method: "PUT",
+    body: '"' + id + '"',
+    headers: {
+      "Content-Type": "application/json"
+    }
+  };
+  return fetch("/api/metrics", requestOptions).then(handleResponse);
 }

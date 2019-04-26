@@ -59,6 +59,7 @@ class DetailView extends Component {
           dislikes={dislikes}
         />
         <ActionBar
+          id={this.state.sample.id}
           template={this.state.sample.template}
           repository={this.state.sample.repository}
         />
