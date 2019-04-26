@@ -23,9 +23,15 @@
   padding-left: 23px;
   padding-bottom: 28px;
 }
-
+.input-container{
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
 .contribution-form-fields-container {
   max-width: 402px;
+  margin-right: 100px;
+  flex: 1;
 }
 
 .contribution-form-actions-container {

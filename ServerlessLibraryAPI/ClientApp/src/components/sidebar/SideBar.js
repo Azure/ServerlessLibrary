@@ -7,38 +7,9 @@ import {
   queryStringToParams,
   trackEvent
 } from "../../helpers";
+
+import * as Constants from "../shared/Constants";
 import "./SideBar.css";
-
-const technologies = [
-  "Functions 1.x",
-  "Functions 2.x",
-  "Logic Apps",
-  "Cosmos DB"
-];
-const solutionAreas = [
-  "Web API",
-  "Data Processing",
-  "Integration",
-  "Authentication",
-  "Automation",
-  "Event Processing",
-  "Machine Learning",
-  "Scheduled Jobs",
-  "Static Website",
-  "Gaming",
-  "IoT"
-];
-
-const languages = [
-  "JavaScript",
-  "TypeScript",
-  "Java",
-  "C#",
-  "C# Script",
-  "F#",
-  "Python",
-  "PowerShell"
-];
 
 class SideBar extends Component {
   constructor(props) {
@@ -101,7 +72,7 @@ class SideBar extends Component {
           <fieldset className="filterset">
             <span>Technology</span>
             <div className="filterList">
-              {technologies.map((technology, index) => (
+              {Constants.technologies.map((technology, index) => (
                 <Checkbox
                   styles={checkboxStyles(index)}
                   label={technology}
@@ -124,7 +95,7 @@ class SideBar extends Component {
           <fieldset className="filterset">
             <span>Language</span>
             <div className="filterList">
-              {languages.map((language, index) => (
+              {Constants.languages.map((language, index) => (
                 <Checkbox
                   styles={checkboxStyles(index)}
                   label={language}
@@ -142,7 +113,7 @@ class SideBar extends Component {
           <fieldset className="filterset">
             <span>Solution Area</span>
             <div className="filterList">
-              {solutionAreas.map((solutionarea, index) => (
+              {Constants.solutionAreas.map((solutionarea, index) => (
                 <Checkbox
                   styles={checkboxStyles(index)}
                   label={solutionarea}
