@@ -18,6 +18,45 @@ class DetailPageContent extends Component {
     };
 
     this.handleLinkClick = this.handleLinkClick.bind(this);
+   }
+
+   // This method is used to fetch readme content from repo when valid repository url is received as props
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      this.props.repository !== prevProps.repository &&
+      prevState.markdownText === ""
+    ) {
+      let { repository } = this.props;
+      repository = repository.replace(
+        "https://github.com",
+        "https://raw.githubusercontent.com"
+      );
+
+      repository = repository.replace("/tree/", "/");
+      let readmefileUrl = repository + "/master/README.md";
+      if (repository.includes("/master/")) {
+        readmefileUrl = repository + "/README.md";
+      }
+
+      fetch(readmefileUrl)
+        .then(response => {
+          if (response.ok) {
+            return response.text();
+          }
+          throw new Error("Network response was not ok.");
+        })
+        .then(data => {
+          var r = new RegExp(
+            "https?://Azuredeploy.net/deploybutton.(png|svg)",
+            "ig"
+          );
+          data = data.replace(r, "");
+          this.setState({ markdownText: data });
+        })
+        .catch(error =>
+          this.setState({ markdownText: "No readme file available " })
+        );
+    }
   }
 
   handleLinkClick(pivotItem, ev) {
@@ -49,39 +88,6 @@ class DetailPageContent extends Component {
         });
       }
     }
-  }
-
-  componentDidMount() {
-    let { repository } = this.props;
-    repository = repository.replace(
-      "https://github.com",
-      "https://raw.githubusercontent.com"
-    );
-
-    repository = repository.replace("/tree/", "/");
-    let readmefileUrl = repository + "/master/README.md";
-    if (repository.includes("/master/")) {
-      readmefileUrl = repository + "/README.md";
-    }
-
-    fetch(readmefileUrl)
-      .then(response => {
-        if (response.ok) {
-          return response.text();
-        }
-        throw new Error("Network response was not ok.");
-      })
-      .then(data => {
-        var r = new RegExp(
-          "https?://Azuredeploy.net/deploybutton.(png|svg)",
-          "ig"
-        );
-        data = data.replace(r, "");
-        this.setState({ markdownText: data });
-      })
-      .catch(error =>
-        this.setState({ markdownText: "No readme file available " })
-      );
   }
 
   render() {
