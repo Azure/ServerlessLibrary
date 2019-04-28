@@ -1,5 +1,4 @@
 import { handleResponse } from "../helpers";
-import { useMockApi } from "./index";
 
 export const libraryService = {
   getAllSamples,
