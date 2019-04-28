@@ -83,5 +83,5 @@ function updateDownloadCount(id) {
       "Content-Type": "application/json"
     }
   };
-  return fetch("/api/metrics", requestOptions).then(handleResponse);
+  return fetch("/api/metrics/downloads", requestOptions).then(handleResponse);
 }

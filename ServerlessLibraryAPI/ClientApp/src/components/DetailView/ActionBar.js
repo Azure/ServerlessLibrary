@@ -14,8 +14,19 @@ class ActionBar extends Component {
   }
 
   outboundDeployClick() {
-    libraryService.updateDownloadCount(this.props.id);
+    this.updateDownloadCount(this.props.id);
     this.trackUserActionEvent("/sample/deploy/agree");
+  }
+
+  updateDownloadCount(id) {
+    libraryService
+      .updateDownloadCount(id)
+      .then(() => {
+        // do nothing
+      })
+      .catch(() => {
+        // do nothing
+      });
   }
 
   getDeployLink(template) {
@@ -34,7 +45,7 @@ class ActionBar extends Component {
   }
 
   openInVSCodeClick() {
-    libraryService.updateDownloadCount(this.props.id);
+    this.updateDownloadCount(this.props.id);
     this.trackUserActionEvent("/sample/openinvscode");
   }
 
