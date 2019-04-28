@@ -19,3 +19,17 @@ export function handleResponse(response) {
     });
   }
 }
+
+export function handleJsonResponse(response) {
+  return handleResponse(response).then(data => {
+    try {
+      return JSON.parse(data);
+    } catch (e) {
+      console.log(e); // todo - unexpected exception - should be tracked
+      return Promise.reject({
+        status: -1,
+        error: "Encountered unexpected exception."
+      });
+    }
+  });
+}

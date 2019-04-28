@@ -1,4 +1,4 @@
-import { handleResponse } from "../helpers";
+import { handleResponse, handleJsonResponse } from "../helpers";
 
 export const libraryService = {
   getAllSamples,
@@ -12,19 +12,7 @@ function getAllSamples() {
     method: "GET"
   };
 
-  return fetch("/api/Library", requestOptions)
-    .then(handleResponse)
-    .then(data => {
-      try {
-        return JSON.parse(data);
-      } catch (e) {
-        console.log(e); // todo - unexpected exception - should be tracked
-        return Promise.reject({
-          status: -1,
-          error: "Encountered unexpected exception."
-        });
-      }
-    });
+  return fetch("/api/Library", requestOptions).then(handleJsonResponse);
 }
 
 function submitNewSample(item) {
@@ -36,18 +24,7 @@ function submitNewSample(item) {
     }
   };
   return fetch("/api/library", requestOptions)
-    .then(handleResponse)
-    .then(data => {
-      try {
-        return JSON.parse(data);
-      } catch (e) {
-        console.log(e); // todo - unexpected exception - should be tracked
-        return Promise.reject({
-          status: -1,
-          error: "Encountered unexpected exception."
-        });
-      }
-    })
+    .then(handleJsonResponse)
     .catch(data => {
       let error = data.error;
       if (data.status === 400) {

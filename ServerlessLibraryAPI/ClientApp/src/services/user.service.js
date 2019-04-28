@@ -1,4 +1,4 @@
-import { handleResponse } from "../helpers";
+import { handleResponse, handleJsonResponse } from "../helpers";
 
 export const userService = {
   getCurrentUser,
@@ -9,7 +9,7 @@ function getCurrentUser() {
   const requestOptions = {
     method: "GET"
   };
-  return fetch("/api/user", requestOptions).then(handleResponse);
+  return fetch("/api/user", requestOptions).then(handleJsonResponse);
 }
 
 function logout() {
