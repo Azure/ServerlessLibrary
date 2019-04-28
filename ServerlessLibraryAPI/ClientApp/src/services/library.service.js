@@ -14,11 +14,11 @@ function getAllSamples() {
 
   return fetch("/api/Library", requestOptions)
     .then(handleResponse)
-    .then(response => {
+    .then(data => {
       try {
-        return JSON.parse(response);
+        return JSON.parse(data);
       } catch (e) {
-        console.log(e); // todo - unexpected exception - should be logged
+        console.log(e); // todo - unexpected exception - should be tracked
         return Promise.reject({
           status: -1,
           error: "Encountered unexpected exception."
@@ -35,19 +35,33 @@ function submitNewSample(item) {
       "Content-Type": "application/json"
     }
   };
-  return fetch("/api/library", requestOptions).then(response => {
-    if (response.ok) {
-      return response.json();
-    }
-
-    if (response.status === 400) {
-      return response.json().then(json => Promise.reject(json));
-    }
-
-    return response
-      .text()
-      .then(text => Promise.reject(text || response.statusText));
-  });
+  return fetch("/api/library", requestOptions)
+    .then(handleResponse)
+    .then(data => {
+      try {
+        return JSON.parse(data);
+      } catch (e) {
+        console.log(e); // todo - unexpected exception - should be tracked
+        return Promise.reject({
+          status: -1,
+          error: "Encountered unexpected exception."
+        });
+      }
+    })
+    .catch(data => {
+      let error = data.error;
+      if (data.status === 400) {
+        try {
+          error = JSON.parse(data.error);
+        } catch (e) {
+          console.log(e); // todo - unexpected exception - should be tracked
+        }
+      }
+      return Promise.reject({
+        status: data.status,
+        error: error
+      });
+    });
 }
 
 function updateUserSentimentStats(sentimentPayload) {
