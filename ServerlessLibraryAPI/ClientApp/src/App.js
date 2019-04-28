@@ -17,7 +17,9 @@ class App extends Component {
     libraryService
       .getAllSamples()
       .then(samples => this.props.getSamplesSuccess(samples))
-      .catch(error => console.log(error));
+      .catch(() => {
+        // do nothing
+      });
 
     this.props.getCurrentUserRequest();
     userService

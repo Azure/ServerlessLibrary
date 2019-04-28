@@ -16,21 +16,21 @@ class DetailView extends Component {
   }
 
   componentDidMount() {
-    var id = this.props.match.params.id;
-    var currentItem;
-    if (this.props.samples.length > 0) {
-      currentItem = this.props.samples.filter(s => s.id === id)[0];
-      this.setState({ sample: currentItem });
-    } else {
+    // if samples array is empty try to get it from the backend
+    if (this.props.samples.length === 0) {
       libraryService
         .getAllSamples()
         .then(samples => {
           this.props.getSamplesSuccess(samples);
-          currentItem = samples.filter(s => s.id === id)[0];
-          this.setState({ sample: currentItem });
         })
-        .catch(error => console.log(error));
+        .catch(() => {
+          // do nothing
+        });
     }
+
+    const id = this.props.match.params.id;
+    const currentItem = this.props.samples.filter(s => s.id === id)[0] || {};
+    this.setState({ sample: currentItem });
   }
 
   render() {

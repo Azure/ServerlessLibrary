@@ -12,7 +12,19 @@ function getAllSamples() {
     method: "GET"
   };
 
-  return fetch("/api/Library", requestOptions).then(handleResponse);
+  return fetch("/api/Library", requestOptions)
+    .then(handleResponse)
+    .then(response => {
+      try {
+        return JSON.parse(response);
+      } catch (e) {
+        console.log(e); // todo - unexpected exception - should be logged
+        return Promise.reject({
+          status: -1,
+          error: "Encountered unexpected exception."
+        });
+      }
+    });
 }
 
 function submitNewSample(item) {
