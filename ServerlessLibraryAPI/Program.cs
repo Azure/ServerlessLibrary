@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.ApplicationInsights;
 
 namespace ServerlessLibrary
 {
@@ -20,6 +15,15 @@ namespace ServerlessLibrary
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseApplicationInsights()
-                .UseStartup<Startup>();
+                .UseStartup<Startup>()
+                .ConfigureLogging(
+                    builder =>
+                    {
+                        builder.AddApplicationInsights();
+                        builder.AddFilter<ApplicationInsightsLoggerProvider>("ServerlessLibrary.Program", LogLevel.Information);
+                        builder.AddFilter<ApplicationInsightsLoggerProvider>("ServerlessLibrary.Startup", LogLevel.Information);
+                        builder.AddFilter<ApplicationInsightsLoggerProvider>("", LogLevel.Information);
+                    }
+                );
     }
 }
