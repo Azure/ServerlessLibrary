@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AddContributionForm from "./AddContributionForm";
+import ContributionForm from "./ContributionForm";
 import ContributionsList from "./ContributionsList";
 import SignInDialog from "./SignInDialog";
 import PageHeaderWithBackButton from "../shared/PageHeaderWithBackButton";
@@ -17,7 +17,7 @@ class ContributionsPage extends Component {
             link.
           </p>
         </PageHeaderWithBackButton>
-        <AddContributionForm />
+        <ContributionForm />
         <ContributionsList />
         <SignInDialog />
       </div>
