@@ -1,4 +1,5 @@
 import { handleResponse, handleJsonResponse } from "../helpers";
+import { trackException } from "./appinsights";
 
 export const libraryService = {
   getAllSamples,
@@ -30,8 +31,8 @@ function submitNewSample(item) {
       if (data.status === 400) {
         try {
           error = JSON.parse(data.error);
-        } catch (e) {
-          console.log(e); // todo - unexpected exception - should be tracked
+        } catch (ex) {
+          trackException(ex, { method: "submitNewSample" });
         }
       }
       return Promise.reject({

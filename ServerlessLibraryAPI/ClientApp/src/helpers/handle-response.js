@@ -1,3 +1,5 @@
+import { trackError, trackException } from "./appinsights";
+
 export function handleResponse(response) {
   try {
     return response.text().then(text => {
@@ -8,11 +10,11 @@ export function handleResponse(response) {
         status: response.status,
         error: text || response.statusText
       };
-      console.log(error); // todo - http error - should be tracked
+      trackError(error.error, { ...error, url: response.url });
       return Promise.reject(error);
     });
-  } catch (e) {
-    console.log(e); // todo - unexpected exception - should be logged
+  } catch (ex) {
+    trackException(ex, { url: response.url, method: "handleResponse" });
     return Promise.reject({
       status: -1,
       error: "Encountered unexpected exception."
@@ -24,8 +26,8 @@ export function handleJsonResponse(response) {
   return handleResponse(response).then(data => {
     try {
       return JSON.parse(data);
-    } catch (e) {
-      console.log(e); // todo - unexpected exception - should be tracked
+    } catch (ex) {
+      trackException(ex, { url: response.url, method: "handleJsonResponse" });
       return Promise.reject({
         status: -1,
         error: "Encountered unexpected exception."
