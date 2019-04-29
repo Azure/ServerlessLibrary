@@ -40,7 +40,7 @@ namespace ServerlessLibrary
         public Task LoadingTask = Task.CompletedTask;
         public Timer Timer { get; set; }
         public bool LoadingBusy = false;
-        public bool isCacheLoadedOnce = false;
+        private bool isCacheLoadedOnce = false;
 
         public IList<LibraryItemWithStats> GetCachedItems()
         {
