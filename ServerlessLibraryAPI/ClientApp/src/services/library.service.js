@@ -1,5 +1,5 @@
 import { handleResponse, handleJsonResponse } from "../helpers";
-import { trackException } from "./appinsights";
+import { trackException } from "../helpers/appinsights";
 
 export const libraryService = {
   getAllSamples,
