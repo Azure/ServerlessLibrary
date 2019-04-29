@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
+import { Dialog } from "office-ui-fabric-react";
 
 import "./App.css";
 
@@ -12,21 +13,48 @@ import { sampleActions } from "./actions/sampleActions";
 import { userActions } from "./actions/userActions";
 import { libraryService, userService } from "./services";
 
+const loginErrorMsg = "We were unable to log you in. Please try again later.";
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showErrorDialog: false
+    };
+    this.onDismissErrorDialog = this.onDismissErrorDialog.bind(this);
+  }
+
   componentDidMount() {
     libraryService
       .getAllSamples()
       .then(samples => this.props.getSamplesSuccess(samples))
-      .catch(error => console.log(error));
+      .catch(() => {
+        // do nothing
+      });
 
     this.props.getCurrentUserRequest();
     userService
       .getCurrentUser()
       .then(user => this.props.getCurrentUserSuccess(user))
-      .catch(error => this.props.getCurrentUserFailure());
+      .catch(data => {
+        this.props.getCurrentUserFailure();
+        if (data.status !== 401) {
+          this.setState({
+            showErrorDialog: true
+          });
+        }
+      });
+  }
+
+  onDismissErrorDialog() {
+    this.setState({
+      showErrorDialog: false
+    });
   }
 
   render() {
+    const { showErrorDialog } = this.state;
     return (
       <div id="container">
         <div id="header">
@@ -39,6 +67,17 @@ class App extends Component {
             <Route exact path="/contribute" component={ContributionsPage} />
           </Switch>
         </div>
+        {showErrorDialog && (
+          <Dialog
+            dialogContentProps={{
+              title: "An error occurred!"
+            }}
+            hidden={!showErrorDialog}
+            onDismiss={this.onDismissErrorDialog}
+          >
+            <p>{loginErrorMsg}</p>
+          </Dialog>
+        )}
       </div>
     );
   }

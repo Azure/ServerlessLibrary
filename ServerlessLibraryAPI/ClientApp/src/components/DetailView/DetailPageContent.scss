@@ -1,4 +1,4 @@
-.detail-page-content{
+.detail-page-content {
   margin-top: 24px;
   border-top: 1px solid rgba(105, 130, 155, 0.25);
   border-bottom: 1px solid rgba(105, 130, 155, 0.25);
@@ -22,5 +22,5 @@
 .license-content {
   max-width: 750px;
   text-align: justify;
-  text-justify: inter-word;
+  white-space: pre-line;
 }

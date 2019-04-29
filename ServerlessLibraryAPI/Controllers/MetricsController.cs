@@ -6,7 +6,7 @@ using System;
 
 namespace ServerlessLibrary.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class MetricsController : ControllerBase
     {
@@ -15,10 +15,11 @@ namespace ServerlessLibrary.Controllers
         {
             this.logger = logger;
         }
-        // PUT api/<controller>
+
+        // PUT api/<controller>/downloads
         [ProducesResponseType(typeof(bool), 200)]
         [HttpPut]
-        public JsonResult Put([FromBody]string id)
+        public JsonResult Downloads([FromBody]string id)
         {
             try
             {
@@ -34,7 +35,6 @@ namespace ServerlessLibrary.Controllers
         // PUT api/<controller>/sentiment
         [ProducesResponseType(typeof(bool), 200)]
         [HttpPut]
-        [Route("sentiment")]
         public IActionResult Sentiment([FromBody]SentimentPayload sentimentPayload)
         {
             if (sentimentPayload.LikeChanges < -1

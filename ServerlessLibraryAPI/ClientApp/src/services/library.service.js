@@ -1,5 +1,5 @@
-import { handleResponse } from "../helpers";
-import { useMockApi } from "./index";
+import { handleResponse, handleJsonResponse } from "../helpers";
+import { trackException } from "../helpers/appinsights";
 
 export const libraryService = {
   getAllSamples,
@@ -13,7 +13,7 @@ function getAllSamples() {
     method: "GET"
   };
 
-  return fetch("/api/Library", requestOptions).then(handleResponse);
+  return fetch("/api/Library", requestOptions).then(handleJsonResponse);
 }
 
 function submitNewSample(item) {
@@ -24,19 +24,22 @@ function submitNewSample(item) {
       "Content-Type": "application/json"
     }
   };
-  return fetch("/api/library", requestOptions).then(response => {
-    if (response.ok) {
-      return response.json();
-    }
-
-    if (response.status === 400) {
-      return response.json().then(json => Promise.reject(json));
-    }
-
-    return response
-      .text()
-      .then(text => Promise.reject(text || response.statusText));
-  });
+  return fetch("/api/library", requestOptions)
+    .then(handleJsonResponse)
+    .catch(data => {
+      let error = data.error;
+      if (data.status === 400) {
+        try {
+          error = JSON.parse(data.error);
+        } catch (ex) {
+          trackException(ex, { method: "submitNewSample" });
+        }
+      }
+      return Promise.reject({
+        status: data.status,
+        error: error
+      });
+    });
 }
 
 function updateUserSentimentStats(sentimentPayload) {
@@ -58,5 +61,5 @@ function updateDownloadCount(id) {
       "Content-Type": "application/json"
     }
   };
-  return fetch("/api/metrics", requestOptions).then(handleResponse);
+  return fetch("/api/metrics/downloads", requestOptions).then(handleResponse);
 }

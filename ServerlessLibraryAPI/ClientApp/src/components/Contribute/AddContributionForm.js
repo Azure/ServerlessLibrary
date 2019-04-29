@@ -124,15 +124,16 @@ class AddContributionForm extends Component {
       this.setErrorState(errors);
       return;
     }
-    libraryService.submitNewSample(sample).then(
-      sample => {
+    libraryService
+      .submitNewSample(sample)
+      .then(sample => {
+        console.log(sample); // todo - give a notification to the user
         this.props.sampleSubmittedSuccess(sample);
         this.resetForm();
-      },
-      error => {
-        this.setErrorState(error);
-      }
-    );
+      })
+      .catch(data => {
+        this.setErrorState(data.error);
+      });
   }
 
   onDismissErrorDialog() {
@@ -176,11 +177,15 @@ class AddContributionForm extends Component {
                 hidden={!showErrorDialog}
                 onDismiss={this.onDismissErrorDialog}
               >
-                <ul>
-                  {errors.map((message, index) => (
-                    <li key={index}>{message}</li>
-                  ))}
-                </ul>
+                {Array.isArray(errors) ? (
+                  <ul>
+                    {errors.map((message, index) => (
+                      <li key={index}>{message}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>{String(errors)}</p>
+                )}
               </Dialog>
             )}
             <div className="input-container">
