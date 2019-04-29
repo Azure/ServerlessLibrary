@@ -13,7 +13,7 @@ namespace ServerlessLibrary
         /// Add an item to library
         /// </summary>
         /// <param name="libraryItem">Library item </param>
-        void Add(LibraryItem libraryItem);
+        Task Add(LibraryItem libraryItem);
 
         /// <summary>
         /// Get all items from library

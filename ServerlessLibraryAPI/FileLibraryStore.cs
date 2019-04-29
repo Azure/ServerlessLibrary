@@ -20,7 +20,7 @@ namespace ServerlessLibrary
             _env = env;
         }
 
-        public void Add(LibraryItem libraryItem)
+        public Task Add(LibraryItem libraryItem)
         {
             throw new NotImplementedException();
         }

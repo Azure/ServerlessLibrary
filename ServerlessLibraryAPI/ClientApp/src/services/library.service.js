@@ -36,7 +36,12 @@ function submitNewSample(item) {
     return response
       .text()
       .then(text => Promise.reject(text || response.statusText));
-  });
+  }).catch(error =>{
+    console.log(error);
+    let errors=["Something went wrong. Please try again leter"];
+    return Promise.reject(errors);
+  
+  } );
 }
 
 function updateUserSentimentStats(sentimentPayload) {
