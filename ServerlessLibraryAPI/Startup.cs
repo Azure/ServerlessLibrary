@@ -63,15 +63,8 @@ namespace ServerlessLibrary
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseExceptionHandler(a => {
-                a.Run(ctx => {
-                    ctx.Response.StatusCode = StatusCodes.Status500InternalServerError;
-                    return Task.CompletedTask;
-                });
-            });
-            app.UseStatusCodePages();
             app.UseHsts();
             app.UseDefaultFiles();
             app.UseStaticFiles();
@@ -91,18 +84,15 @@ namespace ServerlessLibrary
                     template: "{controller}/{action=Index}/{id?}");
             });
 
-            if (!ServerlessLibrarySettings.ApiOnly)
+            app.UseSpa(spa =>
             {
-                app.UseSpa(spa =>
-                {
-                    spa.Options.SourcePath = "ClientApp";
+                spa.Options.SourcePath = "ClientApp";
 
-                    if (env.IsDevelopment())
-                    {
-                        spa.UseReactDevelopmentServer(npmScript: "start");
-                    }
-                });
-            }
+                if (env.IsDevelopment())
+                {
+                    spa.UseReactDevelopmentServer(npmScript: "start");
+                }
+            });
 
             app.Use(async (context, next) =>
             {
