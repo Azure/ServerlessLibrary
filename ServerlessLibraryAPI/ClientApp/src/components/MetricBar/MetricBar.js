@@ -20,7 +20,6 @@ class MetricBar extends Component {
   }
 
   handleLikeClick() {
-
     // If user already liked, then decrement like count and set the sentiment state to none.
     // If in past disliked and choose to like the sample, then decrement dislike count and increment like count
     // If not action taken ealier, just increment like count and set sentiment state to liked.
@@ -47,28 +46,32 @@ class MetricBar extends Component {
     localStorage.setItem(this.props.id, choice);
     this.setState({ sentimentAction: choice });
 
-    var sentimentPayload={
-      Id:this.props.id,
-      LikeChanges:likeChanges,
-      DislikeChanges:dislikeChanges
-    }
+    var sentimentPayload = {
+      Id: this.props.id,
+      LikeChanges: likeChanges,
+      DislikeChanges: dislikeChanges
+    };
 
     libraryService
       .updateUserSentimentStats(sentimentPayload)
-      .then(response => response.body)
-      .catch(error => console.log(error));
+      .then(() => {
+        // do nothing
+      })
+      .catch(() => {
+        // do nothing
+      });
   }
 
   render() {
-    let {author, downloads, createddate, likes, dislikes} = this.props;
-    let createdonDate = new  Date(createddate);
+    let { author, downloads, createddate, likes, dislikes } = this.props;
+    let createdonDate = new Date(createddate);
     let createdonLocaleDate = createdonDate.toLocaleDateString();
 
     let likeIconName = "Like";
     let likeTitle = "Like";
     let dislikeIconName = "Dislike";
     let dislikeTitle = "Dislike";
- 
+
     if (this.state.sentimentAction === "liked") {
       likeIconName = "LikeSolid";
       likeTitle = "Liked";
@@ -80,7 +83,7 @@ class MetricBar extends Component {
       dislikeTitle = "Disliked";
       dislikes = dislikes + 1;
     }
-   
+
     const styles = {
       button: {
         width: 16,
@@ -94,7 +97,8 @@ class MetricBar extends Component {
       <div className="metrics">
         <div>
           <span>
-            By: {author} | {downloads} downloads | Created on: {createdonLocaleDate} |
+            By: {author} | {downloads} downloads | Created on:{" "}
+            {createdonLocaleDate} |
           </span>
         </div>
 

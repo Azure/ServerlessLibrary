@@ -72,7 +72,14 @@ class AuthControl extends Component {
 
   _onSignoutClick() {
     this.props.logout(); // clear the redux store before making a call to the backend
-    userService.logout();
+    userService
+      .logout()
+      .then(() => {
+        // do nothing
+      })
+      .catch(() => {
+        // do nothing
+      });
   }
 
   render() {
