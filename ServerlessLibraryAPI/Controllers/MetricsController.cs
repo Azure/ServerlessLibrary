@@ -10,7 +10,8 @@ namespace ServerlessLibrary.Controllers
     [ApiController]
     public class MetricsController : ControllerBase
     {
-        private ILogger<MetricsController> logger;
+        private readonly ILogger<MetricsController> logger;
+
         public MetricsController(ILogger<MetricsController> logger)
         {
             this.logger = logger;
@@ -27,11 +28,12 @@ namespace ServerlessLibrary.Controllers
             }
             catch (Exception ex)
             {
-                logger.LogError("Unable to update download count. Exception: {0}", ex.ToString());
+                this.logger.LogError(ex, "Unable to update download count");
             }
 
             return new JsonResult(true);
         }
+
         // PUT api/<controller>/sentiment
         [ProducesResponseType(typeof(bool), 200)]
         [HttpPut]
@@ -56,7 +58,7 @@ namespace ServerlessLibrary.Controllers
             }
             catch (Exception ex)
             {
-                logger.LogError("Unable to update Sentiments. Exception: {0}", ex.ToString());
+                this.logger.LogError(ex, "Unable to update sentiments");
             }
 
             return new JsonResult(true);

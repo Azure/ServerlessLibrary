@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Logging;
 using ServerlessLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -12,19 +13,21 @@ namespace ServerlessLibrary
     public interface ICacheService {
         IList<LibraryItemWithStats> GetCachedItems();
     }
+
     //https://stackoverflow.com/questions/44723017/in-memory-caching-with-auto-regeneration-on-asp-net-core
     public class CacheService:ICacheService
     {
         protected readonly IMemoryCache _cache;
         private IHostingEnvironment _env;
         private readonly ILibraryStore libraryStore;
-        private static bool cosmosDBInitialized;
+        private readonly ILogger logger;
 
-        public CacheService(IMemoryCache cache, IHostingEnvironment env, ILibraryStore libraryStore)
+        public CacheService(IMemoryCache cache, IHostingEnvironment env, ILibraryStore libraryStore, ILogger<CacheService> logger)
         {
             this._cache = cache;
             this._env = env;
             this.libraryStore = libraryStore;
+            this.logger = logger;
             InitTimer();
         }
 
@@ -67,7 +70,10 @@ namespace ServerlessLibrary
                 var items = await ConstructCache();
                 _cache.Set<LibraryItemsResult>(ServerlessLibrarySettings.CACHE_ENTRY, new LibraryItemsResult() { Result = items, IsBusy = false });
             }
-            catch { }
+            catch(Exception ex)
+            {
+                this.logger.LogError(ex, "Failed to load cache");
+            }
         }
         private async Task<IList<LibraryItemWithStats>> ConstructCache()
         {
