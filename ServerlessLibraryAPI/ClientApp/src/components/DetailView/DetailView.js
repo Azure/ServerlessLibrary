@@ -14,7 +14,15 @@ class DetailView extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setCurrentItemInState();
+  }
+
   componentDidUpdate(prevProps, prevState) {
+    this.setCurrentItemInState();
+  }
+
+  setCurrentItemInState() {
     if (!this.state.sample.id && this.props.samples.length > 0) {
       const id = this.props.match.params.id;
       let currentItem = this.props.samples.filter(s => s.id === id)[0] || {};
