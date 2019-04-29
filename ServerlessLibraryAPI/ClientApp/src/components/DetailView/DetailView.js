@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { libraryService } from "../../services";
 import ActionBar from "./ActionBar";
 import DetailPageContent from "./DetailPageContent";
 import DetailPageHeader from "./DetailPageHeader";
@@ -15,22 +14,12 @@ class DetailView extends Component {
     };
   }
 
-  componentDidMount() {
-    // if samples array is empty try to get it from the backend
-    if (this.props.samples.length === 0) {
-      libraryService
-        .getAllSamples()
-        .then(samples => {
-          this.props.getSamplesSuccess(samples);
-        })
-        .catch(() => {
-          // do nothing
-        });
+  componentDidUpdate(prevProps, prevState) {
+    if (!this.state.sample.id && this.props.samples.length > 0) {
+      const id = this.props.match.params.id;
+      let currentItem = this.props.samples.filter(s => s.id === id)[0] || {};
+      this.setState({ sample: currentItem });
     }
-
-    const id = this.props.match.params.id;
-    const currentItem = this.props.samples.filter(s => s.id === id)[0] || {};
-    this.setState({ sample: currentItem });
   }
 
   render() {

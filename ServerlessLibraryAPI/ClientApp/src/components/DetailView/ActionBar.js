@@ -60,18 +60,14 @@ class ActionBar extends Component {
   }
 
   render() {
-    let { repository, template } = this.props;
-    let deployDisabled = false;
-    if (!template) {
-      deployDisabled = true;
-    }
+    const { repository, template } = this.props;
 
     return (
       <div className="action-container">
         <div className="action-item">
           <FabricLink
             href={this.getDeployLink(template)}
-            disabled={deployDisabled}
+            disabled={!template}
             target="_blank"
             onClick={this.outboundDeployClick}
           >
@@ -84,6 +80,7 @@ class ActionBar extends Component {
         <div className="action-item">
           <FabricLink
             href={this.getOpenInVSCodeLink()}
+            disabled={!repository}
             onClick={this.openInVSCodeClick}
           >
             <div className="action-link-wrapper">
@@ -95,6 +92,7 @@ class ActionBar extends Component {
         <div className="action-item">
           <FabricLink
             href={repository}
+            disabled={!repository}
             target="_blank"
             onClick={this.outboundRepoClick}
           >
