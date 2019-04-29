@@ -26,7 +26,14 @@ class SignInDialog extends Component {
       root: {
         fontSize: "12px",
         height: "32px",
-        minWidth: "40px"
+        minWidth: "40px",
+        backgroundColor: "white",
+        border: "1px solid #0078D7",
+        color: "#0058AD"
+      },
+      rootHovered: {
+        border: "1px solid #0078D7",
+        color: "#0058AD"
       },
       label: {
         fontWeight: "normal"

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import {
   Icon,
   Link,
@@ -11,24 +10,26 @@ import {
 } from "office-ui-fabric-react";
 
 import { libraryService } from "../../services";
-import { sampleActions } from "../../actions/sampleActions";
 import * as commonStyles from "../shared/Button.styles";
 import * as Constants from "../shared/Constants";
 
 const initialState = {
   showForm: false,
-  errors: [],
-  showErrorDialog: false,
   title: "",
   description: "",
   repository: "",
   template: "",
   technologies: [],
   language: "",
-  solutionareas: []
+  solutionareas: [],
+  dialogProps: {
+    isVisible: false,
+    title: "",
+    content: {}
+  }
 };
 
-class AddContributionForm extends Component {
+class ContributionForm extends Component {
   constructor(props) {
     super(props);
 
@@ -38,7 +39,7 @@ class AddContributionForm extends Component {
     this.onAddButtonClick = this.onAddButtonClick.bind(this);
     this.onCancelButtonClick = this.onCancelButtonClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.onDismissErrorDialog = this.onDismissErrorDialog.bind(this);
+    this.onDismissDialog = this.onDismissDialog.bind(this);
     this.validateForm = this.getFormValidationErrors.bind(this);
   }
 
@@ -102,13 +103,6 @@ class AddContributionForm extends Component {
     this.setState({ showForm: true });
   }
 
-  setErrorState(errors) {
-    this.setState({
-      errors: errors,
-      showErrorDialog: true
-    });
-  }
-
   onAddButtonClick() {
     const sample = {
       title: this.state.title,
@@ -121,23 +115,35 @@ class AddContributionForm extends Component {
     };
     const errors = this.getFormValidationErrors(sample);
     if (errors.length > 0) {
-      this.setErrorState(errors);
+      this.showDialog("An error occurred!", errors);
       return;
     }
     libraryService
       .submitNewSample(sample)
       .then(sample => {
-        console.log(sample); // todo - give a notification to the user
-        this.props.sampleSubmittedSuccess(sample);
         this.resetForm();
+        this.showDialog(
+          "Thank you!",
+          "Thank you for your contribution! Your sample has been submitted for approval."
+        );
       })
       .catch(data => {
-        this.setErrorState(data.error);
+        this.showDialog("An error occurred!", data.error);
       });
   }
 
-  onDismissErrorDialog() {
-    this.setState({ showErrorDialog: false });
+  showDialog(title, content) {
+    const dialogProps = {
+      title: title,
+      content: content,
+      isVisible: true
+    };
+    this.setState({ dialogProps });
+  }
+
+  onDismissDialog() {
+    const dialogProps = { ...this.state.dialogProps, isVisible: false };
+    this.setState({ dialogProps });
   }
 
   onCancelButtonClick() {
@@ -158,7 +164,7 @@ class AddContributionForm extends Component {
       key: s,
       text: s
     }));
-    let { showForm, errors, showErrorDialog } = this.state;
+    let { showForm, dialogProps } = this.state;
     return (
       <div className="add-contribution-container">
         <div className="add-contribution-link">
@@ -167,27 +173,27 @@ class AddContributionForm extends Component {
             Add new contribution
           </Link>
         </div>
+        {dialogProps.isVisible && (
+          <Dialog
+            dialogContentProps={{
+              title: dialogProps.title
+            }}
+            hidden={!dialogProps.isVisible}
+            onDismiss={this.onDismissDialog}
+          >
+            {Array.isArray(dialogProps.content) ? (
+              <ul>
+                {dialogProps.content.map((message, index) => (
+                  <li key={index}>{message}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>{String(dialogProps.content)}</p>
+            )}
+          </Dialog>
+        )}
         {showForm && (
           <div className="contribution-form-container">
-            {showErrorDialog && (
-              <Dialog
-                dialogContentProps={{
-                  title: "An error occurred!"
-                }}
-                hidden={!showErrorDialog}
-                onDismiss={this.onDismissErrorDialog}
-              >
-                {Array.isArray(errors) ? (
-                  <ul>
-                    {errors.map((message, index) => (
-                      <li key={index}>{message}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p>{String(errors)}</p>
-                )}
-              </Dialog>
-            )}
             <div className="input-container">
               <div className="contribution-form-fields-container">
                 <TextField
@@ -272,17 +278,4 @@ class AddContributionForm extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {};
-}
-
-const mapDispatchToProps = {
-  sampleSubmittedSuccess: sampleActions.sampleSubmittedSuccess
-};
-
-const AddContributionFormContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AddContributionForm);
-
-export default AddContributionFormContainer;
+export default ContributionForm;
