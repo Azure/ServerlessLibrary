@@ -10,22 +10,21 @@ using System.Threading.Tasks;
 
 namespace ServerlessLibrary
 {
-    public interface ICacheService {
+    public interface ICacheService
+    {
         IList<LibraryItemWithStats> GetCachedItems();
     }
 
     //https://stackoverflow.com/questions/44723017/in-memory-caching-with-auto-regeneration-on-asp-net-core
-    public class CacheService:ICacheService
+    public class CacheService : ICacheService
     {
         protected readonly IMemoryCache _cache;
-        private IHostingEnvironment _env;
         private readonly ILibraryStore libraryStore;
         private readonly ILogger logger;
 
-        public CacheService(IMemoryCache cache, IHostingEnvironment env, ILibraryStore libraryStore, ILogger<CacheService> logger)
+        public CacheService(IMemoryCache cache, ILibraryStore libraryStore, ILogger<CacheService> logger)
         {
             this._cache = cache;
-            this._env = env;
             this.libraryStore = libraryStore;
             this.logger = logger;
             InitTimer();
@@ -41,13 +40,32 @@ namespace ServerlessLibrary
         public Task LoadingTask = Task.CompletedTask;
         public Timer Timer { get; set; }
         public bool LoadingBusy = false;
+        private bool isCacheLoadedOnce = false;
 
-        public IList<LibraryItemWithStats> GetCachedItems() {
+        public IList<LibraryItemWithStats> GetCachedItems()
+        {
+
+            // Make a blocking call to load cache on first time call.
+            if (!isCacheLoadedOnce)
+            {
+                try
+                {
+                    IList<LibraryItemWithStats> items = this.ConstructCache().Result;
+                    _cache.Set(ServerlessLibrarySettings.CACHE_ENTRY, new LibraryItemsResult() { Result = items, IsBusy = false });
+                }
+                catch (Exception ex)
+                {
+                    this.logger.LogError(ex, "Failed to load cache in first call");
+                }
+            }
+
+            isCacheLoadedOnce = true;
             return _cache.Get<LibraryItemsResult>(ServerlessLibrarySettings.CACHE_ENTRY).Result;
         }
+
         private async void TimerTickAsync(object state)
         {
-            if (LoadingBusy) return;
+            if (!isCacheLoadedOnce || LoadingBusy) return;
             try
             {
                 LoadingBusy = true;
@@ -70,7 +88,7 @@ namespace ServerlessLibrary
                 var items = await ConstructCache();
                 _cache.Set<LibraryItemsResult>(ServerlessLibrarySettings.CACHE_ENTRY, new LibraryItemsResult() { Result = items, IsBusy = false });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 this.logger.LogError(ex, "Failed to load cache");
             }
@@ -79,8 +97,8 @@ namespace ServerlessLibrary
         {
             IList<LibraryItem> libraryItems;
             IList<LibraryItemWithStats> libraryItemsWithStats = new List<LibraryItemWithStats>();
-            libraryItems = await this.libraryStore.GetAllItems(); 
-            var stats = await StorageHelper.getSLItemRecordsAsync();            
+            libraryItems = await this.libraryStore.GetAllItems();
+            var stats = await StorageHelper.getSLItemRecordsAsync();
             foreach (var storeItem in libraryItems)
             {
                 var item = storeItem.ConvertTo<LibraryItemWithStats>();
@@ -95,9 +113,10 @@ namespace ServerlessLibrary
         }
     }
 
-    public class LibraryItemsResult {
+    public class LibraryItemsResult
+    {
         public IList<LibraryItemWithStats> Result { get; set; }
-        public bool IsBusy{ get; set; }
+        public bool IsBusy { get; set; }
     }
 
 }
