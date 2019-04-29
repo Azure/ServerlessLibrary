@@ -17,13 +17,10 @@ namespace ServerlessLibrary
     {
         public CosmosLibraryStore()
         {
-            if (!string.IsNullOrWhiteSpace(ServerlessLibrarySettings.CosmosEndpoint))
-            {
-                CosmosDBRepository<LibraryItem>.Initialize();
-            }
+            CosmosDBRepository<LibraryItem>.Initialize();
         }
 
-        async public void Add(LibraryItem libraryItem)
+        public async Task Add(LibraryItem libraryItem)
         {
             await CosmosDBRepository<LibraryItem>.CreateItemAsync(libraryItem);
         }
@@ -34,8 +31,7 @@ namespace ServerlessLibrary
             return libraryItems.ToList();
         }
     }
-
-
+    
     /// <summary>
     /// Cosmos db APIs
     /// </summary>

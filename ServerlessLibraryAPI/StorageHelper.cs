@@ -52,13 +52,13 @@ namespace ServerlessLibrary
             return queue;
         }
 
-        public static async void submitContributionForApproval(string contributionPayload)
+        public static async Task submitContributionForApproval(string contributionPayload)
         {
             var message = new CloudQueueMessage(contributionPayload);
             await (await getQueueReference(slContributionRequests)).AddMessageAsync(message);
         }
 
-        public static async void updateUserStats(string statsPayload)
+        public static async Task updateUserStats(string statsPayload)
         {
             var message = new CloudQueueMessage(statsPayload);
             await (await getQueueReference(slItemTableName)).AddMessageAsync(message);

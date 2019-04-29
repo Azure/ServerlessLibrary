@@ -25,7 +25,6 @@ namespace ServerlessLibrary
         public static string CosmosAuthkey { get { return config(); } }
         public static string Database { get { return "serverlesslibrary"; } }
         public static string Collection { get { return "contributions"; } }
-        public static bool ApiOnly { get { return Boolean.Parse(config("false")); } }
     }
 
 }

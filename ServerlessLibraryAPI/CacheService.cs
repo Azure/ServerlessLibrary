@@ -73,34 +73,7 @@ namespace ServerlessLibrary
         {
             IList<LibraryItem> libraryItems;
             IList<LibraryItemWithStats> libraryItemsWithStats = new List<LibraryItemWithStats>();
-
-            if (cosmosDBInitialized)
-            {
-                libraryItems = await this.libraryStore.GetAllItems();
-            }
-            else
-            {
-                libraryItems = await new FileLibraryStore(_env).GetAllItems();
-
-                if (!string.IsNullOrWhiteSpace(ServerlessLibrarySettings.CosmosEndpoint))
-                {
-                    IList<LibraryItem> libraryItemsInCosmos = await this.libraryStore.GetAllItems();
-                    if (libraryItemsInCosmos.Count == 0)
-                    {
-                        foreach (LibraryItem libraryItem in libraryItems)
-                        {
-                            this.libraryStore.Add(libraryItem);
-                        }
-                    }
-                    else
-                    {
-                        libraryItems = libraryItemsInCosmos;
-                    }
-
-                    cosmosDBInitialized = true;
-                }
-            }
-
+            libraryItems = await this.libraryStore.GetAllItems(); 
             var stats = await StorageHelper.getSLItemRecordsAsync();            
             foreach (var storeItem in libraryItems)
             {

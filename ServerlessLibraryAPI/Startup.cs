@@ -1,12 +1,15 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using ServerlessLibrary.OAuth.GitHub;
 using Swashbuckle.AspNetCore.Swagger;
+using System.Threading.Tasks;
 
 namespace ServerlessLibrary
 {
@@ -14,7 +17,7 @@ namespace ServerlessLibrary
     {
         public Startup(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Configuration  = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -62,13 +65,10 @@ namespace ServerlessLibrary
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseExceptionHandler("/Error");
             app.UseHsts();
-
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Serverless library API v1");
@@ -84,18 +84,15 @@ namespace ServerlessLibrary
                     template: "{controller}/{action=Index}/{id?}");
             });
 
-            if (!ServerlessLibrarySettings.ApiOnly)
+            app.UseSpa(spa =>
             {
-                app.UseSpa(spa =>
-                {
-                    spa.Options.SourcePath = "ClientApp";
+                spa.Options.SourcePath = "ClientApp";
 
-                    if (env.IsDevelopment())
-                    {
-                        spa.UseReactDevelopmentServer(npmScript: "start");
-                    }
-                });
-            }
+                if (env.IsDevelopment())
+                {
+                    spa.UseReactDevelopmentServer(npmScript: "start");
+                }
+            });
 
             app.Use(async (context, next) =>
             {

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.RegularExpressions;
 using ServerlessLibrary.Models;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -53,7 +54,7 @@ namespace ServerlessLibrary.Controllers
 
         [HttpPut]
         [ProducesResponseType(typeof(LibraryItem), 200)]
-        public IActionResult Put([FromBody]LibraryItem libraryItem)
+        public async Task<IActionResult> Put([FromBody]LibraryItem libraryItem)
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -74,7 +75,7 @@ namespace ServerlessLibrary.Controllers
             GitHubUser user = new GitHubUser(User);
             libraryItem.Author = user.UserName;
 
-            StorageHelper.submitContributionForApproval(JsonConvert.SerializeObject(libraryItem));
+            await StorageHelper.submitContributionForApproval(JsonConvert.SerializeObject(libraryItem));
             return new JsonResult(libraryItem);
         }
 
