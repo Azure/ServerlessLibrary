@@ -160,6 +160,7 @@ class ContributionForm extends Component {
       text: t
     }));
     let languageOptions = Constants.languages.map(l => ({ key: l, text: l }));
+    languageOptions.push({key:"na", text:"Not applicable"} );
     let solutionAreasOptions = Constants.solutionAreas.map(s => ({
       key: s,
       text: s
@@ -235,7 +236,7 @@ class ContributionForm extends Component {
                 />
                 <Dropdown
                   placeholder="Select the language used by the Azure Functions involved"
-                  label="Languages"
+                  label="Language"
                   onChange={(ev, item) => this.languageOptionChanged(item.key)}
                   required={true}
                   options={languageOptions}

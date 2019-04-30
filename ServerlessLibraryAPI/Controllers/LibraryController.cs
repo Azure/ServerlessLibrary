@@ -69,12 +69,12 @@ namespace ServerlessLibrary.Controllers
 
             // assign id, created date
             libraryItem.Id = Guid.NewGuid().ToString();
-            libraryItem.CreatedDate = DateTimeOffset.UtcNow.Date;
+            libraryItem.CreatedDate = DateTime.UtcNow;
 
             // set the author to current authenticated user
             GitHubUser user = new GitHubUser(User);
             libraryItem.Author = user.UserName;
-
+            await this._libraryStore.Add(libraryItem);
             await StorageHelper.submitContributionForApproval(JsonConvert.SerializeObject(libraryItem));
             return new JsonResult(libraryItem);
         }

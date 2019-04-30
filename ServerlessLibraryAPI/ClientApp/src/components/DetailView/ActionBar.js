@@ -66,6 +66,18 @@ class ActionBar extends Component {
       <div className="action-container">
         <div className="action-item">
           <FabricLink
+            href={this.getOpenInVSCodeLink(repository)}
+            disabled={!repository}
+            onClick={this.openInVSCodeClick}
+          >
+            <div className="action-link-wrapper">
+              <Icon iconName="Edit" className="fabric-icon-link" />
+              <span className="action-link-text">Edit in VS Code</span>
+            </div>
+          </FabricLink>
+        </div>
+        <div className="action-item">
+          <FabricLink
             href={this.getDeployLink(template)}
             disabled={!template}
             target="_blank"
@@ -74,18 +86,6 @@ class ActionBar extends Component {
             <div className="action-link-wrapper">
               <Icon iconName="Deploy" className="fabric-icon-link" />
               <span className="action-link-text">Deploy</span>
-            </div>
-          </FabricLink>
-        </div>
-        <div className="action-item">
-          <FabricLink
-            href={this.getOpenInVSCodeLink(repository)}
-            disabled={!repository}
-            onClick={this.openInVSCodeClick}
-          >
-            <div className="action-link-wrapper">
-              <Icon iconName="Edit" className="fabric-icon-link" />
-              <span className="action-link-text">Edit in VS Code</span>
             </div>
           </FabricLink>
         </div>
