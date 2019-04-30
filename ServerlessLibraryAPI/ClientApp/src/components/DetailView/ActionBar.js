@@ -79,7 +79,7 @@ class ActionBar extends Component {
         </div>
         <div className="action-item">
           <FabricLink
-            href={this.getOpenInVSCodeLink()}
+            href={this.getOpenInVSCodeLink(repository)}
             disabled={!repository}
             onClick={this.openInVSCodeClick}
           >
