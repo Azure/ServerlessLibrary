@@ -1,11 +1,4 @@
-.functionslogo,
-.logicappslogo {
-  vertical-align: baseline;
-  margin-right: 4px;
-}
-
 .tagcontainer {
-  display: flex;
   font-size: 14px;
   line-height: normal;
   vertical-align: sub;
@@ -18,7 +11,7 @@
   padding-left: 10px;
   padding-right: 10px;
   font-size: 12px;
-  display: flex;
+  display: inline-block;
 }
 
 .svg {
