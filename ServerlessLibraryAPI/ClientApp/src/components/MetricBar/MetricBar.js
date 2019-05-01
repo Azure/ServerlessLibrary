@@ -98,7 +98,7 @@ class MetricBar extends Component {
         <div>
           <span>
             By: {author} | {downloads}{" "}
-            {downloads > 1 ? "downloads" : "download"} | Created on:{" "}
+            {downloads === 1 ? "download" : "downloads"} | Created on:{" "}
             {createdonLocaleDate} |
           </span>
         </div>
