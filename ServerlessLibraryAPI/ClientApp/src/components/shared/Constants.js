@@ -1,8 +1,4 @@
-export const technologies = [
-  "Functions 1.x",
-  "Functions 2.x",
-  "Logic Apps"
-];
+export const technologies = ["Functions 2.x", "Functions 1.x", "Logic Apps"];
 
 export const solutionAreas = [
   "Web API",
@@ -28,3 +24,6 @@ export const languages = [
   "Python",
   "PowerShell"
 ];
+
+export const NotApplicableLanguage = "na";
+export const OtherSolutionArea = "Other";

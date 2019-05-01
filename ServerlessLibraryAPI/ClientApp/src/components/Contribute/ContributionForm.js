@@ -118,6 +118,7 @@ class ContributionForm extends Component {
       this.showDialog("An error occurred!", errors);
       return;
     }
+
     libraryService
       .submitNewSample(sample)
       .then(sample => {
@@ -160,11 +161,19 @@ class ContributionForm extends Component {
       text: t
     }));
     let languageOptions = Constants.languages.map(l => ({ key: l, text: l }));
-    languageOptions.push({key:"na", text:"Not applicable"} );
+    languageOptions.push({
+      key: Constants.NotApplicableLanguage,
+      text: "Not applicable"
+    });
     let solutionAreasOptions = Constants.solutionAreas.map(s => ({
       key: s,
       text: s
     }));
+
+    solutionAreasOptions.push({
+      key: Constants.OtherSolutionArea,
+      text: Constants.OtherSolutionArea
+    });
     let { showForm, dialogProps } = this.state;
     return (
       <div className="add-contribution-container">
