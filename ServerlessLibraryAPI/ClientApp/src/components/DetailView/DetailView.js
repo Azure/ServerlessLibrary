@@ -5,6 +5,7 @@ import DetailPageContent from "./DetailPageContent";
 import DetailPageHeader from "./DetailPageHeader";
 
 import { sampleActions } from "../../actions/sampleActions";
+import { trackEvent } from "../../helpers";
 
 class DetailView extends Component {
   constructor(props) {
@@ -27,7 +28,17 @@ class DetailView extends Component {
       const id = this.props.match.params.id;
       let currentItem = this.props.samples.filter(s => s.id === id)[0] || {};
       this.setState({ sample: currentItem });
+      this.trackPageLoadEvent(currentItem);
     }
+  }
+
+  trackPageLoadEvent(sample) {
+    let eventData = {
+      id: sample.id,
+      repository: sample.repository,
+      template: sample.template
+    };
+    trackEvent("/sample/detailpage", eventData);
   }
 
   render() {
