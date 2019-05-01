@@ -59,78 +59,58 @@ class SideBar extends Component {
     const checkboxStyles = index => {
       return {
         root: {
-          marginTop: index === 0 ? "10px" : "0px",
+          marginTop: index === 0 ? "9px" : "0px",
           marginBottom: "5px"
         }
       };
     };
 
     return (
-      <div>
-        <h3 className="filterHeader">Filter by </h3>
-        <div>
-          <fieldset className="filterset">
-            <span>Technology</span>
-            <div className="filterList">
-              {Constants.technologies.map((technology, index) => (
-                <Checkbox
-                  styles={checkboxStyles(index)}
-                  label={technology}
-                  key={technology}
-                  defaultChecked={this.isChecked("technologies", technology)}
-                  onChange={(ev, checked) =>
-                    this.checkboxclicked(
-                      ev,
-                      checked,
-                      "technologies",
-                      technology
-                    )
-                  }
-                />
-              ))}
-            </div>
-          </fieldset>
+      <div className="sidebar-wrapper">
+        <div className="filterby-title">Filter by</div>
+        <div className="filterset">
+          <span className="Filter-list-header">Technology</span>
+          {Constants.technologies.map((technology, index) => (
+            <Checkbox
+              styles={checkboxStyles(index)}
+              label={technology}
+              key={technology}
+              defaultChecked={this.isChecked("technologies", technology)}
+              onChange={(ev, checked) =>
+                this.checkboxclicked(ev, checked, "technologies ", technology)
+              }
+            />
+          ))}
         </div>
-        <div>
-          <fieldset className="filterset">
-            <span>Language</span>
-            <div className="filterList">
-              {Constants.languages.map((language, index) => (
-                <Checkbox
-                  styles={checkboxStyles(index)}
-                  label={language}
-                  key={language}
-                  defaultChecked={this.isChecked("languages", language)}
-                  onChange={(ev, checked) =>
-                    this.checkboxclicked(ev, checked, "languages", language)
-                  }
-                />
-              ))}
-            </div>
-          </fieldset>
+
+        <div className="filterset">
+          <span className="Filter-list-header">Language</span>
+          {Constants.languages.map((language, index) => (
+            <Checkbox
+              styles={checkboxStyles(index)}
+              label={language}
+              key={language}
+              defaultChecked={this.isChecked("languages", language)}
+              onChange={(ev, checked) =>
+                this.checkboxclicked(ev, checked, "languages", language)
+              }
+            />
+          ))}
         </div>
-        <div>
-          <fieldset className="filterset">
-            <span>Solution Area</span>
-            <div className="filterList">
-              {Constants.solutionAreas.map((solutionarea, index) => (
-                <Checkbox
-                  styles={checkboxStyles(index)}
-                  label={solutionarea}
-                  key={solutionarea}
-                  defaultChecked={this.isChecked("solutionareas", solutionarea)}
-                  onChange={(ev, checked) =>
-                    this.checkboxclicked(
-                      ev,
-                      checked,
-                      "solutionareas",
-                      solutionarea
-                    )
-                  }
-                />
-              ))}
-            </div>
-          </fieldset>
+
+        <div className="filterset">
+          <span className="Filter-list-header">Solution Area</span>
+          {Constants.solutionAreas.map((solutionarea, index) => (
+            <Checkbox
+              styles={checkboxStyles(index)}
+              label={solutionarea}
+              key={solutionarea}
+              defaultChecked={this.isChecked("solutionareas", solutionarea)}
+              onChange={(ev, checked) =>
+                this.checkboxclicked(ev, checked, "solutionareas", solutionarea)
+              }
+            />
+          ))}
         </div>
       </div>
     );

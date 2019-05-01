@@ -1,12 +1,23 @@
-.filterHeader {
-  color: #536d83;
-  font-size: 1em;
-  padding: 0;
-  margin: 0 0 1.05882353em 0;
+.sidebar-wrapper{
+  padding-left: 24px;
+  padding-top: 20px;
+  padding-right: 20px;
 }
-.filterset {
-  border: none;
+.filterby-title {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 12px;
 }
-.filterList {
-  margin-left: 1em;
+
+.Filter-list-header{
+  font-size: 14px;
+  line-height: 16px;
+  color: #555555;
+  display: inline-block;
 }
+
+.filterset{
+  margin-bottom: 23px;
+}
+
+

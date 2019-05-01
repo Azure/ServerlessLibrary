@@ -87,6 +87,7 @@ class ContentHeader extends Component {
       };
     };
 
+    let resultCount = this.props.samples.length;
     return (
       <div className="content-header">
         <div className="content-header-titlewapper">
@@ -115,7 +116,7 @@ class ContentHeader extends Component {
         />
         <div className="content-header-sortbywrappper">
           <div className="content-header-count">
-            Displaying {this.props.samples.length} results.
+            Displaying {resultCount} {resultCount === 1 ? "result" : "results"}
           </div>
           <div style={{ marginLeft: "auto" }}>
             <Dropdown
