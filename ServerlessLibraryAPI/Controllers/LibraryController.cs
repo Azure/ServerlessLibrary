@@ -111,20 +111,27 @@ namespace ServerlessLibrary.Controllers
                 errors.Add("At least one solution area must be specified");
             }
 
-            if (!string.IsNullOrWhiteSpace(libraryItem.Template) && !IsValidUri(libraryItem.Template))
+            if (!string.IsNullOrWhiteSpace(libraryItem.Template) && !IsValidUri(libraryItem.Template, "raw.githubusercontent.com"))
             {
-                errors.Add("ARM template URL must be a valid URL");
+                errors.Add("ARM template URL must be the raw path to the ARM template (https://raw.githubusercontent.com/...)");
             }
 
             return errors;
         }
 
-        private static bool IsValidUri(string uriString)
+        private static bool IsValidUri(string uriString, string expectedHostName = null)
         {
             try
             {
                 var uri = new Uri(uriString);
-                return true;
+                if (string.IsNullOrWhiteSpace(expectedHostName))
+                {
+                    return true;
+                }
+                else
+                {
+                    return string.Equals(expectedHostName, uri.Host, StringComparison.OrdinalIgnoreCase);
+                }
             }
             catch
             {
