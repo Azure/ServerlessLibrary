@@ -169,7 +169,6 @@ class ContributionForm extends Component {
       key: s,
       text: s
     }));
-
     solutionAreasOptions.push({
       key: Constants.OtherSolutionArea,
       text: Constants.OtherSolutionArea
@@ -207,6 +206,7 @@ class ContributionForm extends Component {
             <div className="input-container">
               <div className="contribution-form-fields-container">
                 <TextField
+                  className="input-field-container"
                   name="title"
                   label="Title"
                   required={true}
@@ -215,6 +215,7 @@ class ContributionForm extends Component {
                   onChange={this.handleInputChange}
                 />
                 <TextField
+                  className="input-field-container"
                   name="repository"
                   label="URL"
                   required={true}
@@ -223,6 +224,7 @@ class ContributionForm extends Component {
                   onChange={this.handleInputChange}
                 />
                 <TextField
+                  className="input-field-container"
                   name="description"
                   label="Description"
                   required={true}
@@ -236,6 +238,7 @@ class ContributionForm extends Component {
               </div>
               <div className="contribution-form-fields-container">
                 <Dropdown
+                  className="input-field-container"
                   placeholder="Select which technologies are used by this sample"
                   label="Technologies"
                   onChange={(ev, item) => this.technologiesOptionsChanged(item)}
@@ -244,6 +247,7 @@ class ContributionForm extends Component {
                   options={technologiesOptions}
                 />
                 <Dropdown
+                  className="input-field-container"
                   placeholder="Select the language used by the Azure Functions involved"
                   label="Language"
                   onChange={(ev, item) => this.languageOptionChanged(item.key)}
@@ -251,6 +255,7 @@ class ContributionForm extends Component {
                   options={languageOptions}
                 />
                 <Dropdown
+                  className="input-field-container"
                   placeholder="Select categories for your sample"
                   label="Solution Area"
                   onChange={(ev, item) =>
@@ -261,6 +266,7 @@ class ContributionForm extends Component {
                   options={solutionAreasOptions}
                 />
                 <TextField
+                  className="input-field-container"
                   name="template"
                   label="ARM template URL"
                   placeholder="Enter the URL of the ARM template to use to deploy your sample"
