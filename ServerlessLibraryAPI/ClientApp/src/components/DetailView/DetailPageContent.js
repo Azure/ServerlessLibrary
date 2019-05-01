@@ -129,17 +129,19 @@ class DetailPageContent extends Component {
               </div>
             </div>
           </PivotItem>
-          <PivotItem headerText="ARM template" itemKey="armtemplate">
-            <div className="pivot-item-container">
-              <div className="scrollablePane-wrapper">
-                <ScrollablePane>
-                  <div className="armtemplate-content">
-                    <pre>{armTemplateText}</pre>
-                  </div>
-                </ScrollablePane>
+          {this.props.template && (
+            <PivotItem headerText="ARM template" itemKey="armtemplate">
+              <div className="pivot-item-container">
+                <div className="scrollablePane-wrapper">
+                  <ScrollablePane>
+                    <div className="armtemplate-content">
+                      <pre>{armTemplateText}</pre>
+                    </div>
+                  </ScrollablePane>
+                </div>
               </div>
-            </div>
-          </PivotItem>
+            </PivotItem>
+          )}
         </Pivot>
       </div>
     );
