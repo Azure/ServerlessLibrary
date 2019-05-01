@@ -39,6 +39,8 @@ class ContributionForm extends Component {
     this.onAddButtonClick = this.onAddButtonClick.bind(this);
     this.onCancelButtonClick = this.onCancelButtonClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.onTitleChange = this.onTitleChange.bind(this);
+    this.onDescriptionChange = this.onDescriptionChange.bind(this);
     this.onDismissDialog = this.onDismissDialog.bind(this);
     this.validateForm = this.getFormValidationErrors.bind(this);
   }
@@ -73,6 +75,24 @@ class ContributionForm extends Component {
     const target = event.target;
     const name = target.name;
     this.setState({ [name]: newValue });
+  }
+
+  onTitleChange(event, newValue) {
+    if (!newValue || newValue.length <= 80) {
+      this.setState({ title: newValue || "" });
+    } else {
+      // this block is needed because of Fabric bug #1350
+      this.setState({ title: this.state.title });
+    }
+  }
+
+  onDescriptionChange(event, newValue) {
+    if (!newValue || newValue.length <= 300) {
+      this.setState({ description: newValue || "" });
+    } else {
+      // this block is needed because of Fabric bug #1350
+      this.setState({ description: this.state.description });
+    }
   }
 
   getFormValidationErrors(sample) {
@@ -212,7 +232,7 @@ class ContributionForm extends Component {
                   required={true}
                   placeholder="Enter the title of your sample"
                   value={this.state.title}
-                  onChange={this.handleInputChange}
+                  onChange={this.onTitleChange}
                 />
                 <TextField
                   className="input-field-container"
@@ -233,7 +253,7 @@ class ContributionForm extends Component {
                   multiline
                   placeholder="Briefly describe your sample (300 characters maximum)"
                   value={this.state.description}
-                  onChange={this.handleInputChange}
+                  onChange={this.onDescriptionChange}
                 />
               </div>
               <div className="contribution-form-fields-container">

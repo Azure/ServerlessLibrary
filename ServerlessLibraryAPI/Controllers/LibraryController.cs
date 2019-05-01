@@ -113,7 +113,7 @@ namespace ServerlessLibrary.Controllers
 
             if (!string.IsNullOrWhiteSpace(libraryItem.Template) && !IsValidUri(libraryItem.Template, "raw.githubusercontent.com"))
             {
-                errors.Add("ARM template URL must be the raw path to the ARM template (https://raw.githubusercontent.com/...)");
+                errors.Add("ARM template URL must point to the raw path of the ARM template (https://raw.githubusercontent.com/...)");
             }
 
             return errors;
