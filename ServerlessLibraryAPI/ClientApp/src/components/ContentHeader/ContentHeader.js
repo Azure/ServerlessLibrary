@@ -13,15 +13,7 @@ import {
   queryStringToParams,
   trackEvent
 } from "../../helpers";
-import { registerIcons } from "office-ui-fabric-react";
-import { ReactComponent as ContributionSvg } from "../../assets/contribution.svg";
 import "./ContentHeader.css";
-
-registerIcons({
-  icons: {
-    "contribution-svg": <ContributionSvg className="svg" />
-  }
-});
 
 class ContentHeader extends Component {
   constructor(props) {
