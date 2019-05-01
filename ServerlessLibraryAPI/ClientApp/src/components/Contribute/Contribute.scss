@@ -23,7 +23,7 @@
   padding-left: 23px;
   padding-bottom: 28px;
 }
-.input-container{
+.input-container {
   display: flex;
   flex-direction: row;
   flex: 1;
@@ -41,4 +41,9 @@
 .contribution-list-container {
   @extend .left-margin;
   max-width: 746px;
+}
+
+.empty-contribution-list-container {
+  font-size: 12px;
+  margin-top: 6px;
 }
