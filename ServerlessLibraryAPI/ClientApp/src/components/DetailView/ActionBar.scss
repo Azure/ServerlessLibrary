@@ -18,12 +18,11 @@
   font-size: 12px;
   width: 13px;
   height: 11px;
+  margin-top: 2px;
 }
 
 .githubicon {
-  font-size: 12px;
-  height: 11px;
-  width: 13px;
+  @extend .fabric-icon-link;
   fill: currentColor;
 }
 
