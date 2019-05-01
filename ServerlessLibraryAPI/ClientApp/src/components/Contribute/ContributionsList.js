@@ -30,13 +30,17 @@ class ContributionsList extends Component {
         paddingBottom: "6px"
       }
     };
+    const filteredSamples = this.filteredSamples();
     return (
       <div className="contribution-list-container">
         <Label styles={headerLabelStyles}>My samples</Label>
-        <ItemList
-          filteredSamples={this.filteredSamples()}
-          disableHover={true}
-        />
+        {filteredSamples.length > 0 ? (
+          <ItemList filteredSamples={filteredSamples} disableHover={true} />
+        ) : (
+          <div className="empty-contribution-list-container">
+            <i>You currently do not have any samples</i>
+          </div>
+        )}
       </div>
     );
   }

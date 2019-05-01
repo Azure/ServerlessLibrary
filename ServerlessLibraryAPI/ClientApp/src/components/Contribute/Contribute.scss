@@ -23,7 +23,7 @@
   padding-left: 23px;
   padding-bottom: 28px;
 }
-.input-container{
+.input-container {
   display: flex;
   flex-direction: row;
   flex: 1;
@@ -33,12 +33,20 @@
   margin-right: 100px;
   flex: 1;
 }
+.input-field-container {
+  margin-bottom: 10px;
+}
 
 .contribution-form-actions-container {
-  margin-top: 28px;
+  margin-top: 18px;
 }
 
 .contribution-list-container {
   @extend .left-margin;
   max-width: 746px;
+}
+
+.empty-contribution-list-container {
+  font-size: 12px;
+  margin-top: 6px;
 }
