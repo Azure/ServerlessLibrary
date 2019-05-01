@@ -115,7 +115,7 @@ class ContributionForm extends Component {
     };
     const errors = this.getFormValidationErrors(sample);
     if (errors.length > 0) {
-      this.showDialog("An error occurred!", errors);
+      this.showDialog("Unable to add sample", errors);
       return;
     }
 
@@ -129,7 +129,7 @@ class ContributionForm extends Component {
         );
       })
       .catch(data => {
-        this.showDialog("An error occurred!", data.error);
+        this.showDialog("Unable to add sample", data.error);
       });
   }
 
