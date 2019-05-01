@@ -46,7 +46,7 @@ class ItemList extends Component {
               downloads={item.totaldownloads}
               createddate={item.createddate}
             />
-            <p className="description">{item.description}</p>
+            <div className="description">{item.description}</div>
             <ItemTags
               technologies={item.technologies}
               language={item.language}

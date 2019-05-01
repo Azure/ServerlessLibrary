@@ -1,6 +1,8 @@
 .metrics {
+  margin-top: 10px;
   font-size: 12px;
+  line-height: 16px;
   color: #555555;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   display: flex;
 }

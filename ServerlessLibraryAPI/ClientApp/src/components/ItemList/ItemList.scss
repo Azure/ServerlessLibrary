@@ -19,8 +19,8 @@
 }
 
 .title {
-  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
-  font-size: 24px;
+  font-size: 16px;
+  line-height: 21px;
   color: #0072c6;
   &:visited {
     text-decoration: none;
@@ -32,9 +32,10 @@
 }
 
 .description {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
+  line-height: 19px;
   color: #000000;
+  padding-bottom: 4px;
   padding-bottom: 10px;
   white-space: nowrap;
   overflow: hidden;
