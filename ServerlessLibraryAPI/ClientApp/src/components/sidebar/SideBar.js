@@ -77,7 +77,7 @@ class SideBar extends Component {
               key={technology}
               defaultChecked={this.isChecked("technologies", technology)}
               onChange={(ev, checked) =>
-                this.checkboxclicked(ev, checked, "technologies ", technology)
+                this.checkboxclicked(ev, checked, "technologies", technology)
               }
             />
           ))}
