@@ -66,6 +66,7 @@ namespace ServerlessLibrary
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseHsts();
+            app.UseHttpsRedirection();
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
