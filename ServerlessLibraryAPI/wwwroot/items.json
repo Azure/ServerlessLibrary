@@ -922,7 +922,7 @@
     "repository": "https://github.com/simonaco/tweetverse",
     "description": "Tweetverse: scan twitter, analyze sentiment and post sentiment in Slack channel",
     "language": "JavaScript",
-    "technologies": [ "Functions 2.x", "Cognitive Services" ],
+    "technologies": [ "Functions 2.x" ],
     "solutionareas": [ "Machine Learning" ],
     "author": "simonaco",
     "authortype": "Community"
@@ -938,6 +938,19 @@
     "technologies": [ "Functions 2.x" ],
     "solutionareas": [ "Web API" ],
     "author": "simonaco",
+    "authortype": "Community"
+  },
+  {
+    "id": "24000d65-f927-4f6a-bdcc-e20b112e8fa9",
+    "createddate": "2019-04-30",
+    "title": "Start / Stop VMs on a schedule",
+    "template": "https://raw.githubusercontent.com/eamonoreilly/StartStopPowerShellFunction/master/azuredeploy.json",
+    "repository": "https://github.com/eamonoreilly/StartStopPowerShellFunction",
+    "description": "Start / Stop virtual machines in the specified resource group, subscription, or by tag on a schedule. You need to assign the managed identity of the function app access to the VMs so that the Function can start or stop the VMs when the timer trigger fires.",
+    "language": "PowerShell",
+    "technologies": [ "Functions 2.x" ],
+    "solutionareas": [ "Automation" ],
+    "author": "eamonoreilly",
     "authortype": "Community"
   }
 ]
