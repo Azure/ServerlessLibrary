@@ -572,7 +572,7 @@
     "id": "158e3bb9-beff-46f5-a657-0e2fd48a3b43",
     "createddate": "2018-12-05",
     "title": "MQTT: Publish and Subscribe",
-    "template": "https://github.com/keesschollaart81/CaseOnline.Azure.WebJobs.Extensions.Mqtt.Example/blob/master/azuredeploy.json",
+    "template": "https://raw.githubusercontent.com/keesschollaart81/CaseOnline.Azure.WebJobs.Extensions.Mqtt.Example/master/azuredeploy.json",
     "repository": "https://github.com/keesschollaart81/CaseOnline.Azure.WebJobs.Extensions.Mqtt",
     "description": "Trigger your function by- and publish messages to your MQTT topics",
     "language": "C#",
