@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Logging;
-using ServerlessLibrary.Models;
+﻿using ServerlessLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Logging;
 
 namespace ServerlessLibrary
 {
@@ -21,6 +20,11 @@ namespace ServerlessLibrary
         protected readonly IMemoryCache _cache;
         private readonly ILibraryStore libraryStore;
         private readonly ILogger logger;
+
+        private Task LoadingTask = Task.CompletedTask;
+        private Timer Timer = null;
+        private bool LoadingBusy = false;
+        private bool isCacheLoadedOnce = false;
 
         public CacheService(IMemoryCache cache, ILibraryStore libraryStore, ILogger<CacheService> logger)
         {
@@ -37,21 +41,17 @@ namespace ServerlessLibrary
             Timer = new Timer(TimerTickAsync, null, 1000, ServerlessLibrarySettings.SLCacheRefreshIntervalInSeconds * 1000);
         }
 
-        public Task LoadingTask = Task.CompletedTask;
-        public Timer Timer { get; set; }
-        public bool LoadingBusy = false;
-        private bool isCacheLoadedOnce = false;
-
         public IList<LibraryItemWithStats> GetCachedItems()
         {
-
             // Make a blocking call to load cache on first time call.
             if (!isCacheLoadedOnce)
             {
                 try
                 {
+                    logger.LogTrace("Loading initial cache");
                     IList<LibraryItemWithStats> items = this.ConstructCache().Result;
                     _cache.Set(ServerlessLibrarySettings.CACHE_ENTRY, new LibraryItemsResult() { Result = items, IsBusy = false });
+                    logger.LogTrace("Loaded {0} items into cache", items.Count());
                 }
                 catch (Exception ex)
                 {
@@ -59,13 +59,20 @@ namespace ServerlessLibrary
                 }
             }
 
+            logger.LogTrace("Successfully loaded initial cache");
             isCacheLoadedOnce = true;
             return _cache.Get<LibraryItemsResult>(ServerlessLibrarySettings.CACHE_ENTRY).Result;
         }
 
         private async void TimerTickAsync(object state)
         {
-            if (!isCacheLoadedOnce || LoadingBusy) return;
+            logger.LogTrace("Cache refresh timer fired");
+            if (!isCacheLoadedOnce || LoadingBusy)
+            {
+                logger.LogWarning("Skipping cache refresh");
+                return;
+            }
+
             try
             {
                 LoadingBusy = true;
@@ -85,8 +92,10 @@ namespace ServerlessLibrary
         {
             try
             {
+                logger.LogTrace("Starting cache refresh");
                 var items = await ConstructCache();
                 _cache.Set<LibraryItemsResult>(ServerlessLibrarySettings.CACHE_ENTRY, new LibraryItemsResult() { Result = items, IsBusy = false });
+                logger.LogTrace("Updated cache with {0} items", items.Count());
             }
             catch (Exception ex)
             {
@@ -95,10 +104,13 @@ namespace ServerlessLibrary
         }
         private async Task<IList<LibraryItemWithStats>> ConstructCache()
         {
+            logger.LogTrace("Starting ConstructCache");
             IList<LibraryItem> libraryItems;
             IList<LibraryItemWithStats> libraryItemsWithStats = new List<LibraryItemWithStats>();
             libraryItems = await this.libraryStore.GetAllItems();
+            logger.LogTrace("Cosmos DB returned {0} results", libraryItems.Count());
             var stats = await StorageHelper.getSLItemRecordsAsync();
+            logger.LogTrace("Cosmos DB returned {0} results", stats.Count());
             foreach (var storeItem in libraryItems)
             {
                 var item = storeItem.ConvertTo<LibraryItemWithStats>();
@@ -109,6 +121,7 @@ namespace ServerlessLibrary
                 libraryItemsWithStats.Add(item);
             }
 
+            logger.LogTrace("ConstructCache returned {0} items", libraryItemsWithStats.Count());
             return libraryItemsWithStats;
         }
     }
