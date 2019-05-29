@@ -1,0 +1,33 @@
+.action-container {
+  display: flex;
+  flex-direction: row;
+  padding-top: 7px;
+  padding-left: 23px;
+}
+
+.action-item {
+  margin-right: 16px;
+}
+
+.action-link-wrapper {
+  height: 100%;
+  display: flex;
+}
+
+.fabric-icon-link {
+  font-size: 12px;
+  width: 13px;
+  height: 11px;
+  margin-top: 2px;
+}
+
+.githubicon {
+  @extend .fabric-icon-link;
+  fill: currentColor;
+}
+
+.action-link-text {
+  padding-left: 8px;
+  font-size: 12px;
+  margin: auto;
+}

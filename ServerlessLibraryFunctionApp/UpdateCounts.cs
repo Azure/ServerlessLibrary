@@ -17,56 +17,104 @@ namespace ServerlessLibraryFunctionApp
         [Singleton]
         public static async void Run([QueueTrigger("slitemstats")]string myQueueItemJson, [Table("slitemstats")] CloudTable table, ILogger log)
         {
-            var myQueueItem = JsonConvert.DeserializeObject( ((dynamic)myQueueItemJson)).template;
-            log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
-            string mainFilter1 = TableQuery.GenerateFilterCondition("template", QueryComparisons.Equal, myQueueItem.ToString());
+            var payload = JsonConvert.DeserializeObject(((dynamic)myQueueItemJson));
+            string id = payload.id.ToString();
 
-            TableQuery<SLItemStats> query = new TableQuery<SLItemStats>().Where(mainFilter1);
+            var userActionString = payload.userAction.ToString();
+            log.LogInformation($"Id:{id}, UserAction: {userActionString}");
+            UserAction userAction;
+            if (!Enum.TryParse(userActionString, true, out userAction))
+            {
+                log.LogInformation($"Unknown user action received.");
+                return;
+            }
+
+            int likeChanges = 0, dislikeChanges = 0;
+            if (userAction == UserAction.Sentiment)
+            {
+                try
+                {
+                    likeChanges = (int)payload.likeChanges;
+                    dislikeChanges = (int)payload.dislikeChanges;
+                }
+                catch (Exception ex)
+                {
+                    log.LogInformation($"Exception got in casting {ex}");
+                }
+            }
+
+            string mainFilter = TableQuery.GenerateFilterCondition("id", QueryComparisons.Equal, id);
+            TableQuery<SLItemStats> query = new TableQuery<SLItemStats>().Where(mainFilter);
             TableContinuationToken continuationToken = null;
             List<SLItemStats> entities = new List<SLItemStats>();
             var opContext = new OperationContext();
             do
             {
                 TableQuerySegment<SLItemStats>
-                queryResults = await(table).ExecuteQuerySegmentedAsync<SLItemStats>(query, continuationToken, tableRequestRetry, opContext);
+                queryResults = await (table).ExecuteQuerySegmentedAsync<SLItemStats>(query, continuationToken, tableRequestRetry, opContext);
                 continuationToken = queryResults.ContinuationToken;
                 entities.AddRange(queryResults.Results);
 
             } while (continuationToken != null);
             if (entities.Count == 0)
             {
-                // Create a new itemStats entity.
-                SLItemStats item = new SLItemStats() { PartitionKey = Guid.NewGuid().ToString(), RowKey = Guid.NewGuid().ToString(), template = myQueueItem,
-                    totalDownloads = 1, downloadsThisMonth=1, downloadsThisWeek=1,downloadsToday=1 ,lastUpdated=DateTime.UtcNow};
+                // Create new entry
+                SLItemStats item = null;
+                item = new SLItemStats()
+                {
+                    PartitionKey = Guid.NewGuid().ToString(),
+                    RowKey = Guid.NewGuid().ToString(),
+                    id = id,
+                    totalDownloads = userAction == UserAction.Download ? 1 : 0,
+                    lastUpdated = DateTime.UtcNow,
+                    likes = likeChanges,
+                    dislikes = dislikeChanges
+                };
+
                 // Create the TableOperation that inserts the itemStats entity.
                 TableOperation insertOperation = TableOperation.Insert(item);
 
                 // Execute the insert operation.
                 await table.ExecuteAsync(insertOperation);
+
             }
             else
             {
-                //increment
+                //Update existing entry
                 var item = entities[0];
-                item.downloadsThisMonth += 1;
-                item.downloadsThisWeek += 1;
-                item.downloadsToday += 1;
-                item.totalDownloads += 1;
-                TableOperation operation = TableOperation.InsertOrMerge(item) ;
+                switch (userAction)
+                {
+                    case UserAction.Download:
+                        item.totalDownloads += 1;
+                        break;
+                    case UserAction.Sentiment:
+                        item.likes += likeChanges;
+                        item.dislikes += dislikeChanges;
+                        break;
+                    default:
+                        log.LogInformation($"Unexpected user action.");
+                        return;
+                }
+
+                TableOperation operation = TableOperation.InsertOrMerge(item);
                 await table.ExecuteAsync(operation);
             }
-
         }
+    }
+
+    enum UserAction
+    {
+        Download,
+        Sentiment
     }
 
     public class SLItemStats : TableEntity
     {
-        public string template { get; set; }
+        public string id { get; set; }
         public int totalDownloads { get; set; }
-        public int downloadsToday { get; set; }
-        public int downloadsThisWeek { get; set; }
-        public int downloadsThisMonth { get; set; }
         public DateTime lastUpdated { get; set; }
+        public int likes { get; set; }
+        public int dislikes { get; set; }
 
     }
 }

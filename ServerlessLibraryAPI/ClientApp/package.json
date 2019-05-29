@@ -1,0 +1,34 @@
+{
+  "name": "ServerlessLibraryAPI",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@uifabric/styling": "^6.47.6",
+    "markdown-to-jsx": "^6.10.1",
+    "node-sass": "^4.12.0",
+    "office-ui-fabric-react": "^6.187.0",
+    "react": "^16.8.6",
+    "react-app-polyfill": "^1.0.1",
+    "react-dom": "^16.8.6",
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "3.0.0",
+    "redux": "^4.0.1",
+    "rimraf": "^2.6.3"
+  },
+  "scripts": {
+    "start": "rimraf ./build && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "ie 11",
+    "not dead",
+    "not op_mini all"
+  ]
+}

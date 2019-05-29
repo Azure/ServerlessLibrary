@@ -1,0 +1,46 @@
+.libraryitem {
+  border-bottom: 1px solid #d8d8d8;
+  padding-top: 12px;
+  padding-bottom: 15px;
+}
+
+.libraryitem-withhover {
+  @extend .libraryitem;
+  &:hover {
+    border-bottom: none;
+  }
+}
+
+.libraryitemContainer {
+  padding-left: 16px;
+  &:hover {
+    margin-top: -1px;
+    margin-bottom: 1px;
+    background-color: white;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.title {
+  font-size: 16px;
+  line-height: 21px;
+  color: #0072c6;
+  &:visited {
+    text-decoration: none;
+  }
+}
+
+.titlelink {
+  text-decoration: none;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 19px;
+  color: #000000;
+  padding-bottom: 4px;
+  padding-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

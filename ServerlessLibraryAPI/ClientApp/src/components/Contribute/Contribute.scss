@@ -1,0 +1,52 @@
+.left-margin {
+  margin-left: 23px;
+}
+
+.contribute-page-description {
+  max-width: 785px;
+}
+
+.add-contribution-container {
+  margin-top: 23px;
+  margin-bottom: 22px;
+}
+
+.add-contribution-link {
+  @extend .left-margin;
+  font-size: 12px;
+}
+
+.contribution-form-container {
+  background-color: #fbfbfb;
+  margin-top: 12px;
+  padding-top: 15px;
+  padding-left: 23px;
+  padding-bottom: 28px;
+}
+.input-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+.contribution-form-fields-container {
+  max-width: 430px;
+  margin-right: 100px;
+  flex: 1;
+}
+.input-field-container {
+  margin-bottom: 10px;
+}
+
+.contribution-form-actions-container {
+  margin-top: 18px;
+}
+
+.contribution-list-container {
+  @extend .left-margin;
+  max-width: 746px;
+}
+
+.empty-contribution-list-container {
+  font-size: 12px;
+  margin-top: 6px;
+}

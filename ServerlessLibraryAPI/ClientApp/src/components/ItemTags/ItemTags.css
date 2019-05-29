@@ -1,0 +1,22 @@
+.tagcontainer {
+  font-size: 14px;
+  line-height: normal;
+  vertical-align: sub;
+}
+
+.tag {
+  margin-left: 5px;
+  background: #efefef;
+  border-radius: 10px;
+  padding: 4px 10px 4px 10px;
+  font-size: 12px;
+  line-height: 16px;
+  display: inline-block;
+}
+
+.svg {
+  width: 17px;
+  height: 17px;
+  vertical-align: baseline;
+  margin-right: 4px;
+}
