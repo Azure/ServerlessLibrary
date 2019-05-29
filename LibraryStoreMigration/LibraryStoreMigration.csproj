@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\ServerlessLibraryAPI\CosmosLibraryStore.cs" Link="CosmosLibraryStore.cs" />
+    <Compile Include="..\ServerlessLibraryAPI\ILibraryStore.cs" Link="ILibraryStore.cs" />
+    <Compile Include="..\ServerlessLibraryAPI\Models\LibraryItem.cs" Link="LibraryItem.cs" />
+    <Compile Include="..\ServerlessLibraryAPI\ServerlessLibrarySettings.cs" Link="ServerlessLibrarySettings.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\ServerlessLibraryAPI\wwwroot\items.json" Link="items.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.3.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+  </ItemGroup>
+
+</Project>

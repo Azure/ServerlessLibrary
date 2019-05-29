@@ -21,7 +21,10 @@ namespace ServerlessLibrary
         public static string SLAppInsightsKey { get { return config(""); } }
         public static int SLCacheRefreshIntervalInSeconds { get { return Int32.Parse(config("60")); } }
         public static string CACHE_ENTRY = "_CacheEntry";
-
+        public static string CosmosEndpoint { get { return config(); } }
+        public static string CosmosAuthkey { get { return config(); } }
+        public static string Database { get { return "serverlesslibrary"; } }
+        public static string Collection { get { return "contributions"; } }
     }
 
 }

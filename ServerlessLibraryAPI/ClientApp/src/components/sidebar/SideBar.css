@@ -1,0 +1,23 @@
+.sidebar-wrapper{
+  padding-left: 24px;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+.filterby-title {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 12px;
+}
+
+.Filter-list-header{
+  font-size: 14px;
+  line-height: 16px;
+  color: #555555;
+  display: inline-block;
+}
+
+.filterset{
+  margin-bottom: 23px;
+}
+
+
