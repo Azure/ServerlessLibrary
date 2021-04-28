@@ -1,4 +1,5 @@
 export const technologies = [
+  "Functions 3.x",
   "Functions 2.x",
   "Functions 1.x",
   "Logic Apps",
