@@ -44,9 +44,22 @@ class ActionBar extends Component {
     return "vscode://vscode.git/clone?url=" + encodeURIComponent(repository);
   }
 
+  getOpenInGithubDevLink(repository) {
+    if(repository){
+      return repository.replace("github\.com", "github\.dev");
+    } else {
+      return repository
+    }
+  }
+
   openInVSCodeClick() {
     this.updateDownloadCount(this.props.id);
     this.trackUserActionEvent("/sample/openinvscode");
+  }
+
+  openInGithubDevClick() {
+    this.updateDownloadCount(this.props.id);
+    this.trackUserActionEvent("/sample/openingithubdev");
   }
 
   trackUserActionEvent(eventName) {
@@ -73,6 +86,18 @@ class ActionBar extends Component {
             <div className="action-link-wrapper">
               <Icon iconName="Edit" className="fabric-icon-link" />
               <span className="action-link-text">Edit in VS Code</span>
+            </div>
+          </FabricLink>
+        </div>
+        <div className="action-item">
+          <FabricLink
+            href={this.getOpenInGithubDevLink(repository)}
+            disabled={!repository}
+            onClick={this.openInGithubDevClick}
+          >
+            <div className="action-link-wrapper">
+              <Icon iconName="Edit" className="fabric-icon-link" />
+              <span className="action-link-text">Edit in GitHub.dev</span>
             </div>
           </FabricLink>
         </div>
