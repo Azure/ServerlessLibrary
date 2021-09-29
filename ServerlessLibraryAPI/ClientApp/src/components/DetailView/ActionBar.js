@@ -48,7 +48,7 @@ class ActionBar extends Component {
     if(repository){
       return repository.replace("github\.com", "github\.dev");
     } else {
-      return repository
+      return repository;
     }
   }
 
