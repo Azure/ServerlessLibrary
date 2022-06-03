@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Microsoft.Azure.Documents;
-using Microsoft.Azure.Documents.Client;
-using Microsoft.Azure.Documents.Linq;
+using Microsoft.Azure.Cosmos;
+using Microsoft.Azure.Cosmos.Fluent;
 using ServerlessLibrary.Models;
 
 namespace ServerlessLibrary
@@ -40,16 +37,16 @@ namespace ServerlessLibrary
     {
         private static readonly string DatabaseId = ServerlessLibrarySettings.Database;
         private static readonly string CollectionId = ServerlessLibrarySettings.Collection;
-        private static DocumentClient client;
+        private static Container container;
 
         public static async Task<T> GetItemAsync(string id)
         {
             try
             {
-                Document document = await client.ReadDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
-                return (T)(dynamic)document;
+                ItemResponse<T> response = await container.ReadItemAsync<T>(id, PartitionKey.None);
+                return response.Resource;
             }
-            catch (DocumentClientException e)
+            catch (CosmosException e)
             {
                 if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
@@ -64,83 +61,53 @@ namespace ServerlessLibrary
 
         public static async Task<List<T>> GetAllItemsAsync()
         {
-            IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
-                UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId),
-                new FeedOptions { MaxItemCount = -1, EnableCrossPartitionQuery = true })
-                .AsDocumentQuery();
+            FeedIterator<T> query = container.GetItemQueryIterator<T>(
+                queryDefinition: null,
+                requestOptions: new QueryRequestOptions() { MaxItemCount = -1 }); // NOTE: FeedOptions.EnableCrossPartitionQuery is removed in SDK v3 (https://docs.microsoft.com/en-us/azure/cosmos-db/sql/migrate-dotnet-v3?tabs=dotnet-v3#changes-to-feedoptions-queryrequestoptions-in-v30-sdk)
 
             List<T> results = new List<T>();
-            while (query.HasMoreResults)
+            using (query)
             {
-                results.AddRange(await query.ExecuteNextAsync<T>());
+                while (query.HasMoreResults)
+                {
+                    results.AddRange(await query.ReadNextAsync());
+                }
             }
 
             return results;
         }
 
-        public static async Task<Document> CreateItemAsync(T item)
+        public static async Task<T> CreateItemAsync(T item)
         {
-            return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
+            ItemResponse<T> response = await container.CreateItemAsync(item, PartitionKey.None);
+            return response.Resource;
         }
 
-        public static async Task<Document> UpdateItemAsync(string id, T item)
+        public static async Task<T> UpdateItemAsync(string id, T item)
         {
-            return await client.ReplaceDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id), item);
+            ItemResponse<T> response = await container.UpsertItemAsync(item, PartitionKey.None);
+            return response.Resource;
         }
 
         public static async Task DeleteItemAsync(string id)
         {
-            await client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
+            await container.DeleteItemAsync<T>(id, PartitionKey.None);
         }
 
         public static void Initialize()
         {
-            if (client == null)
+            if (container == null)
             {
-                client = new DocumentClient(new Uri(ServerlessLibrarySettings.CosmosEndpoint), ServerlessLibrarySettings.CosmosAuthkey);
-                CreateDatabaseIfNotExistsAsync().Wait();
-                CreateCollectionIfNotExistsAsync().Wait();
-            }
-        }
+                CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder(
+                    ServerlessLibrarySettings.CosmosEndpoint,
+                    ServerlessLibrarySettings.CosmosAuthkey);
+                CosmosClient client = cosmosClientBuilder.Build();
 
-        private static async Task CreateDatabaseIfNotExistsAsync()
-        {
-            try
-            {
-                await client.ReadDatabaseAsync(UriFactory.CreateDatabaseUri(DatabaseId));
-            }
-            catch (DocumentClientException e)
-            {
-                if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-                {
-                    await client.CreateDatabaseAsync(new Database { Id = DatabaseId });
-                }
-                else
-                {
-                    throw;
-                }
-            }
-        }
+                DatabaseResponse databaseResponse = client.CreateDatabaseIfNotExistsAsync(DatabaseId).Result;
+                Database database = databaseResponse;
 
-        private static async Task CreateCollectionIfNotExistsAsync()
-        {
-            try
-            {
-                await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId));
-            }
-            catch (DocumentClientException e)
-            {
-                if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-                {
-                    await client.CreateDocumentCollectionAsync(
-                        UriFactory.CreateDatabaseUri(DatabaseId),
-                        new DocumentCollection { Id = CollectionId },
-                        new RequestOptions { OfferThroughput = 400 });
-                }
-                else
-                {
-                    throw;
-                }
+                ContainerResponse containerResponse = database.CreateContainerIfNotExistsAsync(id: CollectionId, partitionKeyPath: "/_partitionKey", throughput: 400).Result;
+                container = containerResponse;
             }
         }
     }
