@@ -8,7 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ServerlessLibrary.OAuth.GitHub;
-using Swashbuckle.AspNetCore.Swagger;
 using System.Threading.Tasks;
 
 namespace ServerlessLibrary
@@ -36,7 +35,8 @@ namespace ServerlessLibrary
             .AddOAuth<GitHubAuthenticationOptions, GitHubAuthenticationHandler>(
                 GitHubAuthenticationDefaults.AuthenticationScheme,
                 GitHubAuthenticationDefaults.DisplayName,
-                options => {
+                options =>
+                {
                     options.ClientId = Configuration["Authentication:GitHub:ClientId"]; // these settings need to be present in appSettings (or in secrets.json)
                     options.ClientSecret = Configuration["Authentication:GitHub:ClientSecret"];
                 });
@@ -49,14 +49,15 @@ namespace ServerlessLibrary
                 configuration.RootPath = "ClientApp/build";
             });
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info
-                {
-                    Title = "ASP.NET Core 2.0 Web API",
-                    Version = "v1"
-                });
-            });
+            // ToDo: re-enable swagger
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new Info
+            //    {
+            //        Title = "ASP.NET Core 2.0 Web API",
+            //        Version = "v1"
+            //    });
+            //});
 
             services.AddSingleton<ICacheService, CacheService>();
             services.AddSingleton<ILibraryStore, CosmosLibraryStore>();
@@ -70,11 +71,13 @@ namespace ServerlessLibrary
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Serverless library API v1");
-                c.RoutePrefix = "swagger";
-            });
+
+            // ToDo: Re-enable swagger
+            //app.UseSwaggerUI(c =>
+            //{
+            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Serverless library API v1");
+            //    c.RoutePrefix = "swagger";
+            //});
 
             app.UseAuthentication();
 
