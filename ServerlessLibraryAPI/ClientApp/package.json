@@ -5,7 +5,6 @@
   "dependencies": {
     "@uifabric/styling": "^6.47.6",
     "markdown-to-jsx": "^6.11.4",
-    "node-sass": "^7.0.1",
     "office-ui-fabric-react": "^6.187.0",
     "react": "^16.8.6",
     "react-app-polyfill": "^1.0.1",

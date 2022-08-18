@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage;
@@ -15,7 +16,7 @@ namespace ServerlessLibraryFunctionApp
 
         [FunctionName("UpdateCounts")]
         [Singleton]
-        public static async void Run([QueueTrigger("slitemstats")]string myQueueItemJson, [Table("slitemstats")] CloudTable table, ILogger log)
+        public static async Task Run([QueueTrigger("slitemstats")]string myQueueItemJson, [Table("slitemstats")] CloudTable table, ILogger log)
         {
             var payload = JsonConvert.DeserializeObject(((dynamic)myQueueItemJson));
             string id = payload.id.ToString();
