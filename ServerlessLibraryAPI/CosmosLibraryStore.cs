@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Azure.Core;
+using Azure.Identity;
 using Microsoft.Azure.Cosmos;
-using Microsoft.Azure.Cosmos.Fluent;
 using ServerlessLibrary.Models;
 
 namespace ServerlessLibrary
@@ -28,7 +29,7 @@ namespace ServerlessLibrary
             return libraryItems.ToList();
         }
     }
-    
+
     /// <summary>
     /// Cosmos db APIs
     /// </summary>
@@ -98,10 +99,27 @@ namespace ServerlessLibrary
         {
             if (container == null)
             {
-                CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder(
-                    ServerlessLibrarySettings.CosmosEndpoint,
-                    ServerlessLibrarySettings.CosmosAuthkey);
-                CosmosClient client = cosmosClientBuilder.Build();
+                CosmosClient client;
+
+                // Check if we have connection strings configured
+                if (!string.IsNullOrEmpty(ServerlessLibrarySettings.CosmosEndpoint) &&
+                    !string.IsNullOrEmpty(ServerlessLibrarySettings.CosmosAuthkey))
+                {
+                    // Use connection string authentication if available
+                    client = new CosmosClient(
+                        ServerlessLibrarySettings.CosmosEndpoint,
+                        ServerlessLibrarySettings.CosmosAuthkey);
+                }
+                else
+                {
+                    // Use DefaultAzureCredential for authentication
+                    string endpoint = ServerlessLibrarySettings.CosmosEndpoint;
+
+                    // Create DefaultAzureCredential with basic options compatible with .NET Core 2.1
+                    TokenCredential credential = new DefaultAzureCredential();
+
+                    client = new CosmosClient(endpoint, credential);
+                }
 
                 DatabaseResponse databaseResponse = client.CreateDatabaseIfNotExistsAsync(DatabaseId).Result;
                 Database database = databaseResponse;
