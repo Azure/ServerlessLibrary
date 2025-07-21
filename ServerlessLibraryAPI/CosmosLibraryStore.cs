@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Azure.Core;
+using Azure.Identity;
 using Microsoft.Azure.Cosmos;
-using Microsoft.Azure.Cosmos.Fluent;
 using ServerlessLibrary.Models;
 
 namespace ServerlessLibrary
@@ -28,7 +29,7 @@ namespace ServerlessLibrary
             return libraryItems.ToList();
         }
     }
-    
+
     /// <summary>
     /// Cosmos db APIs
     /// </summary>
@@ -98,10 +99,37 @@ namespace ServerlessLibrary
         {
             if (container == null)
             {
-                CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder(
-                    ServerlessLibrarySettings.CosmosEndpoint,
-                    ServerlessLibrarySettings.CosmosAuthkey);
-                CosmosClient client = cosmosClientBuilder.Build();
+                CosmosClient client;
+
+                // Use DefaultAzureCredential as the default authentication method (recommended for Azure workloads)
+                if (!string.IsNullOrEmpty(ServerlessLibrarySettings.CosmosEndpoint))
+                {
+                    try
+                    {
+                        // Create DefaultAzureCredential with basic options compatible with .NET Core 2.1
+                        TokenCredential credential = new DefaultAzureCredential();
+                        client = new CosmosClient(ServerlessLibrarySettings.CosmosEndpoint, credential);
+                    }
+                    catch
+                    {
+                        // Fallback to connection string authentication if DefaultAzureCredential fails
+                        if (!string.IsNullOrEmpty(ServerlessLibrarySettings.CosmosAuthkey))
+                        {
+                            client = new CosmosClient(
+                                ServerlessLibrarySettings.CosmosEndpoint,
+                                ServerlessLibrarySettings.CosmosAuthkey);
+                        }
+                        else
+                        {
+                            throw new System.InvalidOperationException(
+                                "Unable to authenticate with Cosmos DB. Ensure either managed identity is configured or CosmosAuthkey is provided.");
+                        }
+                    }
+                }
+                else
+                {
+                    throw new System.InvalidOperationException("CosmosEndpoint must be configured.");
+                }
 
                 DatabaseResponse databaseResponse = client.CreateDatabaseIfNotExistsAsync(DatabaseId).Result;
                 Database database = databaseResponse;
