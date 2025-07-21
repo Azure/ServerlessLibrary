@@ -101,24 +101,34 @@ namespace ServerlessLibrary
             {
                 CosmosClient client;
 
-                // Check if we have connection strings configured
-                if (!string.IsNullOrEmpty(ServerlessLibrarySettings.CosmosEndpoint) &&
-                    !string.IsNullOrEmpty(ServerlessLibrarySettings.CosmosAuthkey))
+                // Use DefaultAzureCredential as the default authentication method (recommended for Azure workloads)
+                if (!string.IsNullOrEmpty(ServerlessLibrarySettings.CosmosEndpoint))
                 {
-                    // Use connection string authentication if available
-                    client = new CosmosClient(
-                        ServerlessLibrarySettings.CosmosEndpoint,
-                        ServerlessLibrarySettings.CosmosAuthkey);
+                    try
+                    {
+                        // Create DefaultAzureCredential with basic options compatible with .NET Core 2.1
+                        TokenCredential credential = new DefaultAzureCredential();
+                        client = new CosmosClient(ServerlessLibrarySettings.CosmosEndpoint, credential);
+                    }
+                    catch
+                    {
+                        // Fallback to connection string authentication if DefaultAzureCredential fails
+                        if (!string.IsNullOrEmpty(ServerlessLibrarySettings.CosmosAuthkey))
+                        {
+                            client = new CosmosClient(
+                                ServerlessLibrarySettings.CosmosEndpoint,
+                                ServerlessLibrarySettings.CosmosAuthkey);
+                        }
+                        else
+                        {
+                            throw new System.InvalidOperationException(
+                                "Unable to authenticate with Cosmos DB. Ensure either managed identity is configured or CosmosAuthkey is provided.");
+                        }
+                    }
                 }
                 else
                 {
-                    // Use DefaultAzureCredential for authentication
-                    string endpoint = ServerlessLibrarySettings.CosmosEndpoint;
-
-                    // Create DefaultAzureCredential with basic options compatible with .NET Core 2.1
-                    TokenCredential credential = new DefaultAzureCredential();
-
-                    client = new CosmosClient(endpoint, credential);
+                    throw new System.InvalidOperationException("CosmosEndpoint must be configured.");
                 }
 
                 DatabaseResponse databaseResponse = client.CreateDatabaseIfNotExistsAsync(DatabaseId).Result;
